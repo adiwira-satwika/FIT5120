@@ -1,14 +1,29 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , shrink-to-fit=no">
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="~/Scripts/carousel.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <title>@ViewBag.Title - Environment Green</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
+
 <body>
+    <div style="margin-left: auto; margin-right: auto; text-align: center;">
+   
+        <img src="~/Images/rsz_environment-removebg-preview.png" />
+
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,14 +32,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+
+                @Html.ActionLink("Energuction", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("CommonTips", "CommonTips", "Home")</li>
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

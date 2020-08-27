@@ -20,7 +20,7 @@ namespace Environment_Green.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult CommonTips()
         {
             ViewBag.Message = "Your contact page.";
 
