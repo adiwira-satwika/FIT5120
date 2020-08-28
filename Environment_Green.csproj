@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -174,12 +176,64 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DwellingType.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Electricity.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employed.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Energy.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnvoGreen_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnvoGreen_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnvoGreen_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnvoGreen_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnvoGreen_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Household.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Summer.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SummerDwelling.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Timeline.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Water.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Winter.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WinterDwelling.cs">
+      <DependentUpon>EnvoGreen_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EnvoGreen_ModelFirst.mdf" />
+    <Content Include="App_Data\EnvoGreen_ModelFirst_log.ldf">
+      <DependentUpon>EnvoGreen_ModelFirst.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -188,8 +242,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\EnvoGreen_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EnvoGreen_Model.Context.cs</LastGenOutput>
+      <DependentUpon>EnvoGreen_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\EnvoGreen_Model.edmx.sql" />
+    <Content Include="Models\EnvoGreen_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EnvoGreen_Model.cs</LastGenOutput>
+      <DependentUpon>EnvoGreen_Model.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\EnvoGreen_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EnvoGreen_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EnvoGreen_Model.edmx.diagram">
+      <DependentUpon>EnvoGreen_Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -237,7 +309,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

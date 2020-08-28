@@ -1,0 +1,815 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EnvoGreen_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EnvoGreen_ModelStoreContainer">
+    <EntitySet Name="Energies" EntityType="EnvoGreen_Model.Store.Energies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Waters" EntityType="EnvoGreen_Model.Store.Waters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Households" EntityType="EnvoGreen_Model.Store.Households" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Electricities" EntityType="EnvoGreen_Model.Store.Electricities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DwellingTypes" EntityType="EnvoGreen_Model.Store.DwellingTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employeds" EntityType="EnvoGreen_Model.Store.Employeds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Winters" EntityType="EnvoGreen_Model.Store.Winters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WinterDwellings" EntityType="EnvoGreen_Model.Store.WinterDwellings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Timelines" EntityType="EnvoGreen_Model.Store.Timelines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Summers" EntityType="EnvoGreen_Model.Store.Summers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SummerDwellings" EntityType="EnvoGreen_Model.Store.SummerDwellings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnergyHousehold" EntityType="EnvoGreen_Model.Store.EnergyHousehold" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EnergyWater" Association="EnvoGreen_Model.Store.EnergyWater">
+      <End Role="Energy" EntitySet="Energies" />
+      <End Role="Water" EntitySet="Waters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnergyHousehold_Energy" Association="EnvoGreen_Model.Store.FK_EnergyHousehold_Energy">
+      <End Role="Energy" EntitySet="Energies" />
+      <End Role="EnergyHousehold" EntitySet="EnergyHousehold" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnergyHousehold_Household" Association="EnvoGreen_Model.Store.FK_EnergyHousehold_Household">
+      <End Role="Household" EntitySet="Households" />
+      <End Role="EnergyHousehold" EntitySet="EnergyHousehold" />
+    </AssociationSet>
+    <AssociationSet Name="EnergyElectricity" Association="EnvoGreen_Model.Store.EnergyElectricity">
+      <End Role="Energy" EntitySet="Energies" />
+      <End Role="Electricity" EntitySet="Electricities" />
+    </AssociationSet>
+    <AssociationSet Name="ElectricityWinter" Association="EnvoGreen_Model.Store.ElectricityWinter">
+      <End Role="Electricity" EntitySet="Electricities" />
+      <End Role="Winter" EntitySet="Winters" />
+    </AssociationSet>
+    <AssociationSet Name="HouseholdEmployed" Association="EnvoGreen_Model.Store.HouseholdEmployed">
+      <End Role="Household" EntitySet="Households" />
+      <End Role="Employed" EntitySet="Employeds" />
+    </AssociationSet>
+    <AssociationSet Name="ElectricitySummer" Association="EnvoGreen_Model.Store.ElectricitySummer">
+      <End Role="Electricity" EntitySet="Electricities" />
+      <End Role="Summer" EntitySet="Summers" />
+    </AssociationSet>
+    <AssociationSet Name="WinterWinterDwelling" Association="EnvoGreen_Model.Store.WinterWinterDwelling">
+      <End Role="Winter" EntitySet="Winters" />
+      <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+    </AssociationSet>
+    <AssociationSet Name="WinterDwellingDwellingType" Association="EnvoGreen_Model.Store.WinterDwellingDwellingType">
+      <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+      <End Role="DwellingType" EntitySet="DwellingTypes" />
+    </AssociationSet>
+    <AssociationSet Name="WinterDwellingTimeline" Association="EnvoGreen_Model.Store.WinterDwellingTimeline">
+      <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+      <End Role="Timeline" EntitySet="Timelines" />
+    </AssociationSet>
+    <AssociationSet Name="TimelineSummerDwelling" Association="EnvoGreen_Model.Store.TimelineSummerDwelling">
+      <End Role="Timeline" EntitySet="Timelines" />
+      <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+    </AssociationSet>
+    <AssociationSet Name="SummerDwellingSummer" Association="EnvoGreen_Model.Store.SummerDwellingSummer">
+      <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+      <End Role="Summer" EntitySet="Summers" />
+    </AssociationSet>
+    <AssociationSet Name="DwellingTypeSummerDwelling" Association="EnvoGreen_Model.Store.DwellingTypeSummerDwelling">
+      <End Role="DwellingType" EntitySet="DwellingTypes" />
+      <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Energies">
+    <Key>
+      <PropertyRef Name="Year" />
+    </Key>
+    <Property Name="Year" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalEnergy" Type="int" Nullable="false" />
+    <Property Name="Water_WaterId" Type="int" Nullable="false" />
+    <Property Name="Electricity_SeasonType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Waters">
+    <Key>
+      <PropertyRef Name="WaterId" />
+    </Key>
+    <Property Name="WaterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AvgHouseholdConsumption" Type="int" Nullable="false" />
+    <Property Name="TotalConvention" Type="int" Nullable="false" />
+    <Property Name="TotalExpenditure" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Households">
+    <Key>
+      <PropertyRef Name="HouseholdId" />
+    </Key>
+    <Property Name="HouseholdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FamilyType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnergyType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WeeklyExpenditure" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Electricities">
+    <Key>
+      <PropertyRef Name="SeasonType" />
+    </Key>
+    <Property Name="SeasonType" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DwellingTypes">
+    <Key>
+      <PropertyRef Name="Housetype" />
+    </Key>
+    <Property Name="Housetype" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employeds">
+    <Key>
+      <PropertyRef Name="EmployedId" />
+    </Key>
+    <Property Name="EmployedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumEmploted" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PercentageEnergy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FamilyType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HouseholdHouseholdId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Winters">
+    <Key>
+      <PropertyRef Name="WinterId" />
+    </Key>
+    <Property Name="WinterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplianceType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WeeklyConsumption" Type="int" Nullable="false" />
+    <Property Name="WeeklyFee" Type="int" Nullable="false" />
+    <Property Name="AvgHours" Type="int" Nullable="false" />
+    <Property Name="AvgTemperature" Type="int" Nullable="false" />
+    <Property Name="ElectricitySeasonType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WinterDwellings">
+    <Key>
+      <PropertyRef Name="WinterDwellingId" />
+    </Key>
+    <Property Name="WinterDwellingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Housetype" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Yearline" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PercentageCost" Type="int" Nullable="false" />
+    <Property Name="WinterWinterId" Type="int" Nullable="false" />
+    <Property Name="DwellingType_Housetype" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Timeline_TimelineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Timelines">
+    <Key>
+      <PropertyRef Name="TimelineId" />
+    </Key>
+    <Property Name="TimelineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Summers">
+    <Key>
+      <PropertyRef Name="ApplianceType" />
+    </Key>
+    <Property Name="ApplianceType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WeeklyConsumption" Type="int" Nullable="false" />
+    <Property Name="WeeklyFee" Type="int" Nullable="false" />
+    <Property Name="AvgHours" Type="int" Nullable="false" />
+    <Property Name="AvgTemperature" Type="int" Nullable="false" />
+    <Property Name="ElectricitySeasonType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SummerDwellings">
+    <Key>
+      <PropertyRef Name="SummerDwellingId" />
+    </Key>
+    <Property Name="SummerDwellingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Housetype" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ApplianceType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Yearline" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PercentageCost" Type="int" Nullable="false" />
+    <Property Name="TimelineTimelineId" Type="int" Nullable="false" />
+    <Property Name="DwellingTypeHousetype" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Summer_ApplianceType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnergyHousehold">
+    <Key>
+      <PropertyRef Name="Energies_Year" />
+      <PropertyRef Name="Households_HouseholdId" />
+    </Key>
+    <Property Name="Energies_Year" Type="int" Nullable="false" />
+    <Property Name="Households_HouseholdId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EnergyWater">
+    <End Role="Energy" Type="EnvoGreen_Model.Store.Energies" Multiplicity="*" />
+    <End Role="Water" Type="EnvoGreen_Model.Store.Waters" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Water">
+        <PropertyRef Name="WaterId" />
+      </Principal>
+      <Dependent Role="Energy">
+        <PropertyRef Name="Water_WaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnergyElectricity">
+    <End Role="Energy" Type="EnvoGreen_Model.Store.Energies" Multiplicity="*" />
+    <End Role="Electricity" Type="EnvoGreen_Model.Store.Electricities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Electricity">
+        <PropertyRef Name="SeasonType" />
+      </Principal>
+      <Dependent Role="Energy">
+        <PropertyRef Name="Electricity_SeasonType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ElectricityWinter">
+    <End Role="Electricity" Type="EnvoGreen_Model.Store.Electricities" Multiplicity="1" />
+    <End Role="Winter" Type="EnvoGreen_Model.Store.Winters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Electricity">
+        <PropertyRef Name="SeasonType" />
+      </Principal>
+      <Dependent Role="Winter">
+        <PropertyRef Name="ElectricitySeasonType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HouseholdEmployed">
+    <End Role="Household" Type="EnvoGreen_Model.Store.Households" Multiplicity="1" />
+    <End Role="Employed" Type="EnvoGreen_Model.Store.Employeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Household">
+        <PropertyRef Name="HouseholdId" />
+      </Principal>
+      <Dependent Role="Employed">
+        <PropertyRef Name="HouseholdHouseholdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ElectricitySummer">
+    <End Role="Electricity" Type="EnvoGreen_Model.Store.Electricities" Multiplicity="1" />
+    <End Role="Summer" Type="EnvoGreen_Model.Store.Summers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Electricity">
+        <PropertyRef Name="SeasonType" />
+      </Principal>
+      <Dependent Role="Summer">
+        <PropertyRef Name="ElectricitySeasonType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WinterWinterDwelling">
+    <End Role="Winter" Type="EnvoGreen_Model.Store.Winters" Multiplicity="1" />
+    <End Role="WinterDwelling" Type="EnvoGreen_Model.Store.WinterDwellings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Winter">
+        <PropertyRef Name="WinterId" />
+      </Principal>
+      <Dependent Role="WinterDwelling">
+        <PropertyRef Name="WinterWinterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WinterDwellingDwellingType">
+    <End Role="WinterDwelling" Type="EnvoGreen_Model.Store.WinterDwellings" Multiplicity="*" />
+    <End Role="DwellingType" Type="EnvoGreen_Model.Store.DwellingTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DwellingType">
+        <PropertyRef Name="Housetype" />
+      </Principal>
+      <Dependent Role="WinterDwelling">
+        <PropertyRef Name="DwellingType_Housetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WinterDwellingTimeline">
+    <End Role="WinterDwelling" Type="EnvoGreen_Model.Store.WinterDwellings" Multiplicity="*" />
+    <End Role="Timeline" Type="EnvoGreen_Model.Store.Timelines" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Timeline">
+        <PropertyRef Name="TimelineId" />
+      </Principal>
+      <Dependent Role="WinterDwelling">
+        <PropertyRef Name="Timeline_TimelineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TimelineSummerDwelling">
+    <End Role="Timeline" Type="EnvoGreen_Model.Store.Timelines" Multiplicity="1" />
+    <End Role="SummerDwelling" Type="EnvoGreen_Model.Store.SummerDwellings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timeline">
+        <PropertyRef Name="TimelineId" />
+      </Principal>
+      <Dependent Role="SummerDwelling">
+        <PropertyRef Name="TimelineTimelineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SummerDwellingSummer">
+    <End Role="SummerDwelling" Type="EnvoGreen_Model.Store.SummerDwellings" Multiplicity="*" />
+    <End Role="Summer" Type="EnvoGreen_Model.Store.Summers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Summer">
+        <PropertyRef Name="ApplianceType" />
+      </Principal>
+      <Dependent Role="SummerDwelling">
+        <PropertyRef Name="Summer_ApplianceType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DwellingTypeSummerDwelling">
+    <End Role="DwellingType" Type="EnvoGreen_Model.Store.DwellingTypes" Multiplicity="1" />
+    <End Role="SummerDwelling" Type="EnvoGreen_Model.Store.SummerDwellings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DwellingType">
+        <PropertyRef Name="Housetype" />
+      </Principal>
+      <Dependent Role="SummerDwelling">
+        <PropertyRef Name="DwellingTypeHousetype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnergyHousehold_Energy">
+    <End Role="Energy" Type="EnvoGreen_Model.Store.Energies" Multiplicity="1" />
+    <End Role="EnergyHousehold" Type="EnvoGreen_Model.Store.EnergyHousehold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Energy">
+        <PropertyRef Name="Year" />
+      </Principal>
+      <Dependent Role="EnergyHousehold">
+        <PropertyRef Name="Energies_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnergyHousehold_Household">
+    <End Role="EnergyHousehold" Type="EnvoGreen_Model.Store.EnergyHousehold" Multiplicity="*" />
+    <End Role="Household" Type="EnvoGreen_Model.Store.Households" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Household">
+        <PropertyRef Name="HouseholdId" />
+      </Principal>
+      <Dependent Role="EnergyHousehold">
+        <PropertyRef Name="Households_HouseholdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EnvoGreen_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EnvoGreen_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Energies" EntityType="EnvoGreen_Model.Energy" />
+          <EntitySet Name="Waters" EntityType="EnvoGreen_Model.Water" />
+          <EntitySet Name="Households" EntityType="EnvoGreen_Model.Household" />
+          <EntitySet Name="Electricities" EntityType="EnvoGreen_Model.Electricity" />
+          <EntitySet Name="DwellingTypes" EntityType="EnvoGreen_Model.DwellingType" />
+          <EntitySet Name="Employeds" EntityType="EnvoGreen_Model.Employed" />
+          <EntitySet Name="Winters" EntityType="EnvoGreen_Model.Winter" />
+          <EntitySet Name="WinterDwellings" EntityType="EnvoGreen_Model.WinterDwelling" />
+          <EntitySet Name="Timelines" EntityType="EnvoGreen_Model.Timeline" />
+          <EntitySet Name="Summers" EntityType="EnvoGreen_Model.Summer" />
+          <EntitySet Name="SummerDwellings" EntityType="EnvoGreen_Model.SummerDwelling" />
+          <AssociationSet Name="EnergyWater" Association="EnvoGreen_Model.EnergyWater">
+            <End Role="Energy" EntitySet="Energies" />
+            <End Role="Water" EntitySet="Waters" />
+          </AssociationSet>
+          <AssociationSet Name="EnergyHousehold" Association="EnvoGreen_Model.EnergyHousehold">
+            <End Role="Energy" EntitySet="Energies" />
+            <End Role="Household" EntitySet="Households" />
+          </AssociationSet>
+          <AssociationSet Name="EnergyElectricity" Association="EnvoGreen_Model.EnergyElectricity">
+            <End Role="Energy" EntitySet="Energies" />
+            <End Role="Electricity" EntitySet="Electricities" />
+          </AssociationSet>
+          <AssociationSet Name="ElectricityWinter" Association="EnvoGreen_Model.ElectricityWinter">
+            <End Role="Electricity" EntitySet="Electricities" />
+            <End Role="Winter" EntitySet="Winters" />
+          </AssociationSet>
+          <AssociationSet Name="HouseholdEmployed" Association="EnvoGreen_Model.HouseholdEmployed">
+            <End Role="Household" EntitySet="Households" />
+            <End Role="Employed" EntitySet="Employeds" />
+          </AssociationSet>
+          <AssociationSet Name="ElectricitySummer" Association="EnvoGreen_Model.ElectricitySummer">
+            <End Role="Electricity" EntitySet="Electricities" />
+            <End Role="Summer" EntitySet="Summers" />
+          </AssociationSet>
+          <AssociationSet Name="WinterWinterDwelling" Association="EnvoGreen_Model.WinterWinterDwelling">
+            <End Role="Winter" EntitySet="Winters" />
+            <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+          </AssociationSet>
+          <AssociationSet Name="WinterDwellingDwellingType" Association="EnvoGreen_Model.WinterDwellingDwellingType">
+            <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+            <End Role="DwellingType" EntitySet="DwellingTypes" />
+          </AssociationSet>
+          <AssociationSet Name="WinterDwellingTimeline" Association="EnvoGreen_Model.WinterDwellingTimeline">
+            <End Role="WinterDwelling" EntitySet="WinterDwellings" />
+            <End Role="Timeline" EntitySet="Timelines" />
+          </AssociationSet>
+          <AssociationSet Name="TimelineSummerDwelling" Association="EnvoGreen_Model.TimelineSummerDwelling">
+            <End Role="Timeline" EntitySet="Timelines" />
+            <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+          </AssociationSet>
+          <AssociationSet Name="SummerDwellingSummer" Association="EnvoGreen_Model.SummerDwellingSummer">
+            <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+            <End Role="Summer" EntitySet="Summers" />
+          </AssociationSet>
+          <AssociationSet Name="DwellingTypeSummerDwelling" Association="EnvoGreen_Model.DwellingTypeSummerDwelling">
+            <End Role="DwellingType" EntitySet="DwellingTypes" />
+            <End Role="SummerDwelling" EntitySet="SummerDwellings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Energy">
+          <Key>
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="Year" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalEnergy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Water" Relationship="EnvoGreen_Model.EnergyWater" FromRole="Energy" ToRole="Water" />
+          <NavigationProperty Name="Households" Relationship="EnvoGreen_Model.EnergyHousehold" FromRole="Energy" ToRole="Household" />
+          <NavigationProperty Name="Electricity" Relationship="EnvoGreen_Model.EnergyElectricity" FromRole="Energy" ToRole="Electricity" />
+        </EntityType>
+        <EntityType Name="Water">
+          <Key>
+            <PropertyRef Name="WaterId" />
+          </Key>
+          <Property Name="WaterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="AvgHouseholdConsumption" Type="Int32" Nullable="false" />
+          <Property Name="TotalConvention" Type="Int32" Nullable="false" />
+          <Property Name="TotalExpenditure" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Energy" Relationship="EnvoGreen_Model.EnergyWater" FromRole="Water" ToRole="Energy" />
+        </EntityType>
+        <EntityType Name="Household">
+          <Key>
+            <PropertyRef Name="HouseholdId" />
+          </Key>
+          <Property Name="HouseholdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FamilyType" Type="String" Nullable="false" />
+          <Property Name="EnergyType" Type="String" Nullable="false" />
+          <Property Name="WeeklyExpenditure" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Energies" Relationship="EnvoGreen_Model.EnergyHousehold" FromRole="Household" ToRole="Energy" />
+          <NavigationProperty Name="Employeds" Relationship="EnvoGreen_Model.HouseholdEmployed" FromRole="Household" ToRole="Employed" />
+        </EntityType>
+        <EntityType Name="Electricity">
+          <Key>
+            <PropertyRef Name="SeasonType" />
+          </Key>
+          <Property Name="SeasonType" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Energy" Relationship="EnvoGreen_Model.EnergyElectricity" FromRole="Electricity" ToRole="Energy" />
+          <NavigationProperty Name="Winters" Relationship="EnvoGreen_Model.ElectricityWinter" FromRole="Electricity" ToRole="Winter" />
+          <NavigationProperty Name="Summers" Relationship="EnvoGreen_Model.ElectricitySummer" FromRole="Electricity" ToRole="Summer" />
+        </EntityType>
+        <EntityType Name="DwellingType">
+          <Key>
+            <PropertyRef Name="Housetype" />
+          </Key>
+          <Property Name="Housetype" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="WinterDwellings" Relationship="EnvoGreen_Model.WinterDwellingDwellingType" FromRole="DwellingType" ToRole="WinterDwelling" />
+          <NavigationProperty Name="SummerDwellings" Relationship="EnvoGreen_Model.DwellingTypeSummerDwelling" FromRole="DwellingType" ToRole="SummerDwelling" />
+        </EntityType>
+        <EntityType Name="Employed">
+          <Key>
+            <PropertyRef Name="EmployedId" />
+          </Key>
+          <Property Name="EmployedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumEmploted" Type="String" Nullable="false" />
+          <Property Name="PercentageEnergy" Type="String" Nullable="false" />
+          <Property Name="FamilyType" Type="String" Nullable="false" />
+          <NavigationProperty Name="Household" Relationship="EnvoGreen_Model.HouseholdEmployed" FromRole="Employed" ToRole="Household" />
+          <Property Name="HouseholdHouseholdId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Winter">
+          <Key>
+            <PropertyRef Name="WinterId" />
+          </Key>
+          <Property Name="WinterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplianceType" Type="String" Nullable="false" />
+          <Property Name="WeeklyConsumption" Type="Int32" Nullable="false" />
+          <Property Name="WeeklyFee" Type="Int32" Nullable="false" />
+          <Property Name="AvgHours" Type="Int32" Nullable="false" />
+          <Property Name="AvgTemperature" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Electricity" Relationship="EnvoGreen_Model.ElectricityWinter" FromRole="Winter" ToRole="Electricity" />
+          <Property Name="ElectricitySeasonType" Type="String" Nullable="false" />
+          <NavigationProperty Name="WinterDwellings" Relationship="EnvoGreen_Model.WinterWinterDwelling" FromRole="Winter" ToRole="WinterDwelling" />
+        </EntityType>
+        <EntityType Name="WinterDwelling">
+          <Key>
+            <PropertyRef Name="WinterDwellingId" />
+          </Key>
+          <Property Name="WinterDwellingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Housetype" Type="String" Nullable="false" />
+          <Property Name="Yearline" Type="String" Nullable="false" />
+          <Property Name="PercentageCost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Winter" Relationship="EnvoGreen_Model.WinterWinterDwelling" FromRole="WinterDwelling" ToRole="Winter" />
+          <Property Name="WinterWinterId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DwellingType" Relationship="EnvoGreen_Model.WinterDwellingDwellingType" FromRole="WinterDwelling" ToRole="DwellingType" />
+          <NavigationProperty Name="Timeline" Relationship="EnvoGreen_Model.WinterDwellingTimeline" FromRole="WinterDwelling" ToRole="Timeline" />
+        </EntityType>
+        <EntityType Name="Timeline">
+          <Key>
+            <PropertyRef Name="TimelineId" />
+          </Key>
+          <Property Name="TimelineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="WinterDwellings" Relationship="EnvoGreen_Model.WinterDwellingTimeline" FromRole="Timeline" ToRole="WinterDwelling" />
+          <NavigationProperty Name="SummerDwellings" Relationship="EnvoGreen_Model.TimelineSummerDwelling" FromRole="Timeline" ToRole="SummerDwelling" />
+        </EntityType>
+        <EntityType Name="Summer">
+          <Key>
+            <PropertyRef Name="ApplianceType" />
+          </Key>
+          <Property Name="ApplianceType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeeklyConsumption" Type="Int32" Nullable="false" />
+          <Property Name="WeeklyFee" Type="Int32" Nullable="false" />
+          <Property Name="AvgHours" Type="Int32" Nullable="false" />
+          <Property Name="AvgTemperature" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Electricity" Relationship="EnvoGreen_Model.ElectricitySummer" FromRole="Summer" ToRole="Electricity" />
+          <Property Name="ElectricitySeasonType" Type="String" Nullable="false" />
+          <NavigationProperty Name="SummerDwellings" Relationship="EnvoGreen_Model.SummerDwellingSummer" FromRole="Summer" ToRole="SummerDwelling" />
+        </EntityType>
+        <EntityType Name="SummerDwelling">
+          <Key>
+            <PropertyRef Name="SummerDwellingId" />
+          </Key>
+          <Property Name="SummerDwellingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Housetype" Type="String" Nullable="false" />
+          <Property Name="ApplianceType" Type="String" Nullable="false" />
+          <Property Name="Yearline" Type="String" Nullable="false" />
+          <Property Name="PercentageCost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Timeline" Relationship="EnvoGreen_Model.TimelineSummerDwelling" FromRole="SummerDwelling" ToRole="Timeline" />
+          <Property Name="TimelineTimelineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Summer" Relationship="EnvoGreen_Model.SummerDwellingSummer" FromRole="SummerDwelling" ToRole="Summer" />
+          <NavigationProperty Name="DwellingType" Relationship="EnvoGreen_Model.DwellingTypeSummerDwelling" FromRole="SummerDwelling" ToRole="DwellingType" />
+          <Property Name="DwellingTypeHousetype" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="EnergyWater">
+          <End Type="EnvoGreen_Model.Energy" Role="Energy" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.Water" Role="Water" Multiplicity="1" />
+        </Association>
+        <Association Name="EnergyHousehold">
+          <End Type="EnvoGreen_Model.Energy" Role="Energy" Multiplicity="*" />
+          <End Type="EnvoGreen_Model.Household" Role="Household" Multiplicity="*" />
+        </Association>
+        <Association Name="EnergyElectricity">
+          <End Type="EnvoGreen_Model.Energy" Role="Energy" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.Electricity" Role="Electricity" Multiplicity="1" />
+        </Association>
+        <Association Name="ElectricityWinter">
+          <End Type="EnvoGreen_Model.Electricity" Role="Electricity" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.Winter" Role="Winter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Electricity">
+              <PropertyRef Name="SeasonType" />
+            </Principal>
+            <Dependent Role="Winter">
+              <PropertyRef Name="ElectricitySeasonType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HouseholdEmployed">
+          <End Type="EnvoGreen_Model.Household" Role="Household" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.Employed" Role="Employed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Household">
+              <PropertyRef Name="HouseholdId" />
+            </Principal>
+            <Dependent Role="Employed">
+              <PropertyRef Name="HouseholdHouseholdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElectricitySummer">
+          <End Type="EnvoGreen_Model.Electricity" Role="Electricity" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.Summer" Role="Summer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Electricity">
+              <PropertyRef Name="SeasonType" />
+            </Principal>
+            <Dependent Role="Summer">
+              <PropertyRef Name="ElectricitySeasonType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WinterWinterDwelling">
+          <End Type="EnvoGreen_Model.Winter" Role="Winter" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.WinterDwelling" Role="WinterDwelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Winter">
+              <PropertyRef Name="WinterId" />
+            </Principal>
+            <Dependent Role="WinterDwelling">
+              <PropertyRef Name="WinterWinterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WinterDwellingDwellingType">
+          <End Type="EnvoGreen_Model.WinterDwelling" Role="WinterDwelling" Multiplicity="*" />
+          <End Type="EnvoGreen_Model.DwellingType" Role="DwellingType" Multiplicity="1" />
+        </Association>
+        <Association Name="WinterDwellingTimeline">
+          <End Type="EnvoGreen_Model.WinterDwelling" Role="WinterDwelling" Multiplicity="*" />
+          <End Type="EnvoGreen_Model.Timeline" Role="Timeline" Multiplicity="1" />
+        </Association>
+        <Association Name="TimelineSummerDwelling">
+          <End Type="EnvoGreen_Model.Timeline" Role="Timeline" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.SummerDwelling" Role="SummerDwelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeline">
+              <PropertyRef Name="TimelineId" />
+            </Principal>
+            <Dependent Role="SummerDwelling">
+              <PropertyRef Name="TimelineTimelineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SummerDwellingSummer">
+          <End Type="EnvoGreen_Model.SummerDwelling" Role="SummerDwelling" Multiplicity="*" />
+          <End Type="EnvoGreen_Model.Summer" Role="Summer" Multiplicity="1" />
+        </Association>
+        <Association Name="DwellingTypeSummerDwelling">
+          <End Type="EnvoGreen_Model.DwellingType" Role="DwellingType" Multiplicity="1" />
+          <End Type="EnvoGreen_Model.SummerDwelling" Role="SummerDwelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DwellingType">
+              <PropertyRef Name="Housetype" />
+            </Principal>
+            <Dependent Role="SummerDwelling">
+              <PropertyRef Name="DwellingTypeHousetype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EnvoGreen_ModelStoreContainer" CdmEntityContainer="EnvoGreen_ModelContainer">
+    <EntitySetMapping Name="Energies">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Energy)">
+        <MappingFragment StoreEntitySet="Energies">
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="TotalEnergy" ColumnName="TotalEnergy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Waters">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Water)">
+        <MappingFragment StoreEntitySet="Waters">
+          <ScalarProperty Name="WaterId" ColumnName="WaterId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="AvgHouseholdConsumption" ColumnName="AvgHouseholdConsumption" />
+          <ScalarProperty Name="TotalConvention" ColumnName="TotalConvention" />
+          <ScalarProperty Name="TotalExpenditure" ColumnName="TotalExpenditure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Households">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Household)">
+        <MappingFragment StoreEntitySet="Households">
+          <ScalarProperty Name="HouseholdId" ColumnName="HouseholdId" />
+          <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+          <ScalarProperty Name="EnergyType" ColumnName="EnergyType" />
+          <ScalarProperty Name="WeeklyExpenditure" ColumnName="WeeklyExpenditure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Electricities">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Electricity)">
+        <MappingFragment StoreEntitySet="Electricities">
+          <ScalarProperty Name="SeasonType" ColumnName="SeasonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DwellingTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.DwellingType)">
+        <MappingFragment StoreEntitySet="DwellingTypes">
+          <ScalarProperty Name="Housetype" ColumnName="Housetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employeds">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Employed)">
+        <MappingFragment StoreEntitySet="Employeds">
+          <ScalarProperty Name="EmployedId" ColumnName="EmployedId" />
+          <ScalarProperty Name="NumEmploted" ColumnName="NumEmploted" />
+          <ScalarProperty Name="PercentageEnergy" ColumnName="PercentageEnergy" />
+          <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+          <ScalarProperty Name="HouseholdHouseholdId" ColumnName="HouseholdHouseholdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Winters">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Winter)">
+        <MappingFragment StoreEntitySet="Winters">
+          <ScalarProperty Name="WinterId" ColumnName="WinterId" />
+          <ScalarProperty Name="ApplianceType" ColumnName="ApplianceType" />
+          <ScalarProperty Name="WeeklyConsumption" ColumnName="WeeklyConsumption" />
+          <ScalarProperty Name="WeeklyFee" ColumnName="WeeklyFee" />
+          <ScalarProperty Name="AvgHours" ColumnName="AvgHours" />
+          <ScalarProperty Name="AvgTemperature" ColumnName="AvgTemperature" />
+          <ScalarProperty Name="ElectricitySeasonType" ColumnName="ElectricitySeasonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WinterDwellings">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.WinterDwelling)">
+        <MappingFragment StoreEntitySet="WinterDwellings">
+          <ScalarProperty Name="WinterDwellingId" ColumnName="WinterDwellingId" />
+          <ScalarProperty Name="Housetype" ColumnName="Housetype" />
+          <ScalarProperty Name="Yearline" ColumnName="Yearline" />
+          <ScalarProperty Name="PercentageCost" ColumnName="PercentageCost" />
+          <ScalarProperty Name="WinterWinterId" ColumnName="WinterWinterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Timelines">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Timeline)">
+        <MappingFragment StoreEntitySet="Timelines">
+          <ScalarProperty Name="TimelineId" ColumnName="TimelineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Summers">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.Summer)">
+        <MappingFragment StoreEntitySet="Summers">
+          <ScalarProperty Name="ApplianceType" ColumnName="ApplianceType" />
+          <ScalarProperty Name="WeeklyConsumption" ColumnName="WeeklyConsumption" />
+          <ScalarProperty Name="WeeklyFee" ColumnName="WeeklyFee" />
+          <ScalarProperty Name="AvgHours" ColumnName="AvgHours" />
+          <ScalarProperty Name="AvgTemperature" ColumnName="AvgTemperature" />
+          <ScalarProperty Name="ElectricitySeasonType" ColumnName="ElectricitySeasonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SummerDwellings">
+      <EntityTypeMapping TypeName="IsTypeOf(EnvoGreen_Model.SummerDwelling)">
+        <MappingFragment StoreEntitySet="SummerDwellings">
+          <ScalarProperty Name="SummerDwellingId" ColumnName="SummerDwellingId" />
+          <ScalarProperty Name="Housetype" ColumnName="Housetype" />
+          <ScalarProperty Name="ApplianceType" ColumnName="ApplianceType" />
+          <ScalarProperty Name="Yearline" ColumnName="Yearline" />
+          <ScalarProperty Name="PercentageCost" ColumnName="PercentageCost" />
+          <ScalarProperty Name="TimelineTimelineId" ColumnName="TimelineTimelineId" />
+          <ScalarProperty Name="DwellingTypeHousetype" ColumnName="DwellingTypeHousetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EnergyWater" TypeName="EnvoGreen_Model.EnergyWater" StoreEntitySet="Energies">
+      <EndProperty Name="Water">
+        <ScalarProperty Name="WaterId" ColumnName="Water_WaterId" />
+      </EndProperty>
+      <EndProperty Name="Energy">
+        <ScalarProperty Name="Year" ColumnName="Year" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnergyHousehold" TypeName="EnvoGreen_Model.EnergyHousehold" StoreEntitySet="EnergyHousehold">
+      <EndProperty Name="Energy">
+        <ScalarProperty Name="Year" ColumnName="Energies_Year" />
+      </EndProperty>
+      <EndProperty Name="Household">
+        <ScalarProperty Name="HouseholdId" ColumnName="Households_HouseholdId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnergyElectricity" TypeName="EnvoGreen_Model.EnergyElectricity" StoreEntitySet="Energies">
+      <EndProperty Name="Electricity">
+        <ScalarProperty Name="SeasonType" ColumnName="Electricity_SeasonType" />
+      </EndProperty>
+      <EndProperty Name="Energy">
+        <ScalarProperty Name="Year" ColumnName="Year" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WinterDwellingDwellingType" TypeName="EnvoGreen_Model.WinterDwellingDwellingType" StoreEntitySet="WinterDwellings">
+      <EndProperty Name="DwellingType">
+        <ScalarProperty Name="Housetype" ColumnName="DwellingType_Housetype" />
+      </EndProperty>
+      <EndProperty Name="WinterDwelling">
+        <ScalarProperty Name="WinterDwellingId" ColumnName="WinterDwellingId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WinterDwellingTimeline" TypeName="EnvoGreen_Model.WinterDwellingTimeline" StoreEntitySet="WinterDwellings">
+      <EndProperty Name="Timeline">
+        <ScalarProperty Name="TimelineId" ColumnName="Timeline_TimelineId" />
+      </EndProperty>
+      <EndProperty Name="WinterDwelling">
+        <ScalarProperty Name="WinterDwellingId" ColumnName="WinterDwellingId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SummerDwellingSummer" TypeName="EnvoGreen_Model.SummerDwellingSummer" StoreEntitySet="SummerDwellings">
+      <EndProperty Name="Summer">
+        <ScalarProperty Name="ApplianceType" ColumnName="Summer_ApplianceType" />
+      </EndProperty>
+      <EndProperty Name="SummerDwelling">
+        <ScalarProperty Name="SummerDwellingId" ColumnName="SummerDwellingId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
