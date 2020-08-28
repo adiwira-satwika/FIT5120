@@ -2,7 +2,12 @@
     ViewBag.Title = "CommonTips";
 }
 
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz",charset="utf-8"></div>
+
+
 <style type="text/css">
+
     body {
         background-image: url('../../Images/leaves-69999_1280.jpg');
         margin: 0;
@@ -58,46 +63,62 @@
     <h1><b>7 Common Tips on Saving Energy</b></h1>
     <br>
 </div>
-<div class="row;col-md-11;">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h1><b>Always turn off your AC/heater before you leave your house</b></h1>
+<div class="row">
+    <div class="col-4;">
+        <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;font-family:Verdana;">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h1><b>Always turn off your AC/heater before you leave your house</b></h1>
+
+                    </div>
 
 
+                    <div class="card-back">
+
+                        <p>
+                            Especially, some of the house owners have upstairs and downstairs air conditioner/heater highly drove the energy usage.
+                            In this case, if you have
+                            <b> two, turn on the only one </b>
+                            that you will be at.
+
+                        </p>
+                        <br>
+                        <p>
+                            Surprisingly, when we go through the data, we found out heating your home almost occupied half of the electric bills.
+                            Most people left their air conditioner on even they left their house to keep their house nice and warm.
+                            Although, it will be cold if you are coming home from outside or moving from downstairs to upstairs,
+                            try to
+                            <b>wear jacket before air conditioner or heater warm your house.</b>
+                            This can help you save a lot of the electric usage.
+                        </p>
+
+                    </div>
                 </div>
 
-
-                <div class="card-back">
-
-                    <p>
-                        Especially, some of the house owners have upstairs and downstairs air conditioner/heater highly drove the energy usage.
-                        In this case, if you have
-                        <b> two, turn on the only one </b>
-                        that you will be at.
-
-                    </p>
-                    <br>
-                    <p>
-                        Surprisingly, when we go through the data, we found out heating your home almost occupied half of the electric bills.
-                        Most people left their air conditioner on even they left their house to keep their house nice and warm.
-                        Although, it will be cold if you are coming home from outside or moving from downstairs to upstairs,
-                        try to
-                        <b>wear jacket before air conditioner or heater warm your house.</b>
-                        This can help you save a lot of the electric usage.
-                    </p>
-
-                </div>
             </div>
+
 
         </div>
     </div>
 </div>
+
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:300px">
+    <img class="col-sm-6" src="~/Images/total energy consume portion.png" />
+    <a href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/">
+        <img class="col-sm-6" id="canstar" src="~/Images/cost of ac.png">
+    </a>
+    <p style="text-align:right;font-size:8px"><i>source from canstarblue</i></p>
+    <a class="btn-link" href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" style="text-align:right">Learn more About Heat Cost</a>
+
+</div>
+
+
+
 <br>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
+<div class="row;col-md-6">
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:500px;text-align:center;font-family:Verdana;">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -121,21 +142,42 @@
                         <b>per 60 litre of water heating electric </b>cost you
                         <b>$395-$555</b> while<b> gas heating</b> for same amount will be costing from <b>$160-$370</b>.
                         From this data, it is easy to understand that every month electric heating user are paying double price for the energy usage on water heating.
-
+                        Not only that, electric produces the most green house gas emissions compare to the other system.
                     </p>
-
+                    <p>
+                        Above introducing the cost effective, however the best energy saver is solar system, the only disadvantage that is the installment of itself is expensive.
+                        Nevertheless if you do not consider about the cost this can be the best choices. Government as well introduced $1000 subsidy for people who willing to install solar heat
+                        after 2018. For more information, click below "Learn more about subsidy."
+                    </p>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:300px">
+    <div class="row">
+        <a href="https://www.canstarblue.com.au/hot-water-systems/">
+            <img class="col-sm-6" src="~/Images/gas.PNG" />
+        </a>
+        <a href="https://www.canstarblue.com.au/hot-water-systems/">
+            <img class="col-sm-6" id="canstar" src="~/Images/electric.PNG" />
+        </a>
+
+
+    </div>
+    <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
+    <br>
+    <p><a class="btn-link" href="https://www.energymatters.com.au/solar-hot-water/solar-hot-water-rebates/#:~:text=The%20Victorian%20Government's%20Solar%20Homes,under%20the%20Solar%20Homes%20program">Learn more About Solar Subsidy Cost</a></p>
+
+    <p><a class="btn-link" href="https://www.canstarblue.com.au/hot-water-systems/">Learn more About Water Heating System</a></p>
+</div>
 
 
 <br>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
+<div class="row;col-md-6">
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:200px;text-align:center;font-family:Verdana;">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -161,17 +203,28 @@
 
     </div>
 </div>
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:480px;">
 
+    <div class="row" style="margin-left:25%;margin-top:10%">
 
+        <img class="col-sm-8" src="~/Images/typeoflight.png" />
+        <p style="text-align:right">z<p>
+    </div>
+
+    <br>
+    <p><a class="btn-link" href="https://www.anbg.gov.au/gardens/research/hort.research/zones.html#:~:text =Zone%206%20includes%20the%20Queensland,islands%20off%20the%20north%20coast.">Learn more about Australia zone.</a></p>
+    <p><a class="btn-link" href="https://www.choice.com.au/home-improvement/energy-saving/light-bulbs/buying-guides/light-bulbs">Learn more About Type of Bulbs</a></p>
+
+</div>
 
 <br>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
+<div class="row;col-md-6">
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:300px;text-align:center;font-family:Verdana;">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <h1><b>Only turn on laundry when you have full load</b></h1>
+                    <h1><b>Only turn on washing machine when you have full load</b></h1>
 
                 </div>
 
@@ -194,14 +247,32 @@
     </div>
 </div>
 
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:350px">
+    <div class="row">
+        <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/">
+            <img class="col-sm-6" src="~/Images/ws s.PNG" />
+        </a>
+        <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/">
+            <img class="col-sm-6" id="canstar" src="~/Images/ws m.PNG" />
+        </a>
+
+
+    </div>
+    <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
+    <br>
+
+    <p><a class="btn-link" href="https://www.redenergy.com.au/living-energy/energy-saving/how-to-save-on-your-laundry-energy-bills">Learn more About Laundry Tips</a></p>
+</div>
+
+
 <br>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
+<div class="row;col-md-6">
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:300px;text-align:center;font-family:Verdana;">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <h1><b>Turn off your tap water when you are brushing </b></h1>
+                    <h1><b>Turn off your tap water when you are brushing or washing your hand </b></h1>
 
                 </div>
 
@@ -210,7 +281,9 @@
                     <p>
                         Out of 3 Australians only 1 people turned off their tap water when they are brushing their teeth.
                         The water waste is an average of<b> 5.68L per minutes</b>. If a person brushes their teeth 2 or 3 times a day every time about 3 minutes that 15L water is wasted!
-                        So, turn off your tap water during brushing you will find that you save a lot of money and at the same time contribute good to environment just by
+                        The same with people who did not turn off their tap when they are washing their hands. Out of the research it shows half of the time the hands are not washing under the tap.
+                        Especially during the pandemic, people took longer time to wash their hands.
+                        So, turn off your tap water during brushing or washing your hands you will find that you save a lot of money and at the same time contribute good to environment just by
                         changing a simple habit.
 
 
@@ -222,10 +295,22 @@
     </div>
 </div>
 
+
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:465px">
+    <div class="row" style="text-align:center">
+        <h3><b>Water required vs approximate time not under the tap during tap on</b></h3>
+        <a href="https://www.intelligenthanddryers.com/blog/do-you-realise-how-much-water-you-waste-when-washing-your-hands">
+            <img class="col-sm-9" src="~/Images/washinghand.PNG" style="margin-left:10%">
+        </a>
+    </div>
+    <p style="text-align:center;font-size:8px"><i>intelligenthanddryers</i></p>
+    <p><a class="btn-link" href="https://www.obrien.com.au/members/electrical-and-plumbing-vermont/articles/home-water-saving-tips/">Learn more about Saving Water At Home</a></p>
+</div>
+
 <br>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
+<div class="row;col-md-6">
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:300px;text-align:center;font-family:Verdana;">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -249,28 +334,139 @@
     </div>
 </div>
 
-<br>
+<div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:470px;text-align:center">
+    <script src="https://d3js.org/d3.v4.js"></script>
 
-<div class="row;col-md-11">
-    <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:400px;text-align:center;font-family:Verdana;">
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h1><b>Try to hang to dry your cloth instead of using dryer</b></h1>
+    <h3><b>Annual cost as per size of fridge</b></h3>
+    <button onclick="update(data1)">Annual consumption(Kwh)</button>
+    <button onclick="update(data2)">Cost($)</button>
+    <div id="my_dataviz"></div>
+    <script>
 
+
+        var data1 = [
+            { group: "100-199L", value: 358 },
+            { group: "200-299L", value: 410 },
+            { group: "300-399L", value: 490 },
+            { group: "400-499L", value: 495 },
+            { group: "500-599L", value: 738 },
+            { group: "600-699L", value: 1356 }
+        ];
+
+        var data2 = [
+            { group: "100-199L", value: 118.14 },
+            { group: "200-299L", value: 135.30 },
+            { group: "300-399L", value: 161.70 },
+            { group: "400-499L", value: 163.35 },
+            { group: "500-599L", value: 243.54 },
+            { group: "600-699L", value: 447.48 }
+        ];
+
+
+
+        var margin = { top: 30, right: 30, bottom: 70, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+
+        var svg = d3.select("#my_dataviz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+        $("svg").css({ top: 4330, left: 550, position: 'absolute' });
+        // Initialize the X axis
+        var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.2);
+        var xAxis = svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+
+        // Initialize the Y axis
+        var y = d3.scaleLinear()
+            .range([height, 0]);
+        var yAxis = svg.append("g")
+            .attr("class", "myYaxis")
+
+
+
+        function update(data) {
+
+            // Update the X axis
+            x.domain(data.map(function (d) { return d.group; }))
+            xAxis.call(d3.axisBottom(x))
+
+            // Update the Y axis
+            y.domain([0, d3.max(data, function (d) { return d.value })]);
+            yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+            // Create the u variable
+            var u = svg.selectAll("rect")
+                .data(data)
+
+            u
+                .enter()
+                .append("rect")
+                .merge(u)
+                .transition()
+                .duration(1000)
+                .attr("x", function (d) { return x(d.group); })
+                .attr("y", function (d) { return y(d.value); })
+                .attr("width", x.bandwidth())
+                .attr("height", function (d) { return height - y(d.value); })
+                .attr("fill", "#69b3a2")
+
+
+            u
+                .exit()
+                .remove()
+        }
+
+        // Initialize the plot with the first dataset
+        update(data1)
+
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p style="text-align:left"><a class="btn-link" href="https://www.energuide.be/en/questions-answers/how-to-reduce-the-power-consumption-of-my-refrigerator-and-freezer/2132/">Learn more about Fridge Energy Consumption</a></p>
+</div>
+
+    <br>
+
+    <div class="row;col-md-6">
+        <div class="container" style="background:rgba(255, 255, 255, 0.7);width:800px;height:250px;text-align:center;font-family:Verdana;">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h1><b>Try to hang to dry your cloth instead of using dryer</b></h1>
+
+                    </div>
+
+                    <div class="card-back">
+
+                        <p>
+                            50% of the household has a dryer, the energy cost of the dryer <b>per 45mins is an average of $0.36.</b>
+                            If you are doing 8 loads per week, a month will cost you about $11.50. The energy wasted here will be 2.475kW per hour.
+                            Save the energy and release yourself from the financial stress.
+
+
+
+                    </div>
                 </div>
 
-                <div class="card-back">
-
-                    <p>
-                        50% of the household has a dryer, the energy cost of the dryer <b>per 45mins is an average of $0.36.</b>
-                        If you are doing 8 loads per week, a month will cost you about $11.50. The energy wasted here will be 2.475kW per hour. 
-                        Save the energy and release yourself from the financial stress.
-
-</div>
             </div>
         </div>
+    </div>
+    <div class="container" style="background:rgba(255, 255, 255, 0.7);font-family:Verdana;width:800px;height:190px">
+<div class="row"style="margin-left:5%">
+        <a href="https://www.canstarblue.com.au/electricity/how-much-energy-does-a-clothes-dryer-use/">
+            <img class="col-sm-11" src="~/Images/dryer cost.PNG" />
+        </a>
+    </div>
+
+        <p style="text-align:center;font-size:8px"><i>source from canstarblue</i></p>
+
+        <a class="btn-link" href="https://www.sustainability.vic.gov.au/You-and-Your-Home/Save-energy/Appliances/Clothes-dryers" style="text-align:right">Learn more About Dryer Type And Cost</a>
 
     </div>
-</div>
-
