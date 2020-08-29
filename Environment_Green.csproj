@@ -188,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bubackground.jpg" />
     <Content Include="Images\cost of ac.png" />
     <Content Include="Images\dryer cost.PNG" />
     <Content Include="Images\electric.PNG" />
