@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "TakeQuiz";
+}
+
+<style>
+    body {
+        background-color: lightblue;
+        font-family: Helvetica;
+    }
+
+    #main {
+        width: 80%;
+        max-width: 950px;
+        border: 1px gray solid;
+        margin: auto;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    #header {
+        margin-top: 0;
+        border: 2px solid black;
+        padding: 5px;
+        height: 250px;
+        background: beige;
+        background-image: url("code.jpg");
+        color: white;
+    }
+
+    label {
+        display: block;
+    }
+
+    input {
+        width: 30px;
+        margin-left: 20px;
+    }
+
+    h2 {
+        clear: both;
+        padding-top: 20px;
+    }
+
+    button {
+        width: 100px;
+        margin-top: 20px;
+    }
+</style>
+
+
+<div id="main">
+
+
+    <h1>Quiz</h1>
+
+
+    <form id="form1">
+
+        <h2>Question 1?</h2>
+        <label for="q1_c1"><input type="radio" name="q1" value="0" id="q1_c1" />Choices1</label>
+        <label for="q1_c2"><input type="radio" name="q1" value="0" id="q1_c2" />Choices2</label>
+        <label for="q1_c3"><input type="radio" name="q1" value="25" id="q1_c3" />Choices3</label>
+        <label for="q1_c4"><input type="radio" name="q1" value="0" id="q1_c4" />Choices4</label>
+
+        <h2>Q2?</h2>
+        <label for="q2_c1"><input type="radio" name="q2" value="0" id="q2_c1" />Choices1</label>
+        <label for="q2_c2"><input type="radio" name="q2" value="0" id="q2_c2" />Choices2</label>
+        <label for="q2_c3"><input type="radio" name="q2" value="25" id="q2_c3" />Choices3</label>
+        <label for="q2_c4"><input type="radio" name="q2" value="0" id="q2_c4" />Choices4</label>
+
+        <h2>Q3?</h2>
+        <label for="q3_c1"><input type="radio" name="q3" value="0" id="q3_c1" />Choices1</label>
+        <label for="q3_c2"><input type="radio" name="q3" value="0" id="q3_c2" />Choices2</label>
+        <label for="q3_c3"><input type="radio" name="q3" value="25" id="q3_c3" />Choices3</label>
+        <label for="q3_c4"><input type="radio" name="q3" value="0" id="q3_c4" />Choices4</label>
+
+        <h2>Q4?</h2>
+        <label for="q4_c1"><input type="radio" name="q4" value="0" id="q4_c1" />Choices1</label>
+        <label for="q4_c2"><input type="radio" name="q4" value="0" id="q4_c2" />Choices2</label>
+        <label for="q4_c3"><input type="radio" name="q4" value="25" id="q4_c3" />Choices3</label>
+        <label for="q4_c4"><input type="radio" name="q4" value="0" id="q4_c4" />Choices4</label>
+
+        <button type="submit" value="Submit">Submit</button>
+        <br>
+        <p>Your result is: <span id="result">__</span></p>
+        <p id="result"></p>
+
+    </form>
+
+
+
+</div>
+
+<script>
+    document.getElementById("form1").onsubmit = function () {
+        q1 = parseInt(document.querySelector('input[name = "q1"]:checked').value);
+        q2 = parseInt(document.querySelector('input[name = "q2"]:checked').value);
+        q3 = parseInt(document.querySelector('input[name = "q3"]:checked').value);
+        q4 = parseInt(document.querySelector('input[name = "q4"]:checked').value);
+
+
+        result = q1 + q2 + q3 + q4;
+
+        document.getElementById("result").innerHTML = result;
+
+
+
+        return false; // required to not refresh the page; just leave this here
+    } //this ends the submit function
+
+</script>
+
