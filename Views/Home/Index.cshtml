@@ -1,31 +1,229 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    body {
+        font-family: 'Georgia';
+    }
+
+    /* Style the header */
+    .header {
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the footer */
+    .footer {
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="row" style="background-image:url('../../Images/bubackground.jpg'); background-size: 100% ">
+    <div class="col-sm-6">
+        <div class="header;" style="margin-top:15%;background:rgba(255, 255, 255, 0.7)">
+            <h1><b>Save our earth, reduce energy waste start from home</b></h1>
+            <br>
+            <i>Let's practice reducing energy waste from home.</i>
+
+        </div>
+    </div>
+</div>
+<div class="row" style="">
+    <div class="column">
+        <div class="row">
+            <img src="~/Images/watertap.png" style="width:120px;height:120px;margin-top:2%" />
+        </div>
+        <div class="row" style="text-align:center">
+            <img src="~/Images/bulbpic.png" style="width:120px;height:120px;margin-left:-15%;margin-top:2%" />
+        </div>
+        <div class="row" style="text-align:right">
+            <img src="~/Images/off pic.png" style="width:120px;height:120px;margin-right:15%;margin-top:2%" />
+        </div>
+    </div>
+
+
+    <div class="column" style="text-align:left;font-size:25px;margin-top:2%;">
+        <h2><b><i>Our target</i></b></h2>
+        <br>
+        <p>○ Reduce household energy waste</p>
+        <p>○ Reduce greenhouse gas emission</p>
+        <p>○ Aim to give the best suggestion and tips</p>
+        <p>○ Increase your knowledge with your energy</p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="container" style="background-color:lightblue;text-align:center;">
+        <h2><b>Why we are doing this?</b></h2>
+    </div>
 </div>
 
+<br>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+    <div class="col-sm-3" style="text-align:center">
+        <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
+    </div>
+
+
+
+    <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Conserve the limited resources, things such as coals and fuels take longer to produce, the resources will be exhausted very soon if we are not trying to reduce using them.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="col-sm-3" style="text-align:center">
+        <img src="~/Images/stress bill.jpg" style="width:200px;height:200px;margin-top:2%" />
+
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
+        <p>
+            Avoid paying more energy bills to your supplier, understand what is wrong with your energy usage.
+        </p>
+
     </div>
+</div>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-3" style="text-align:center">
+        <img src="~/Images/temperature.jpg" style="width:200px;height:200px;margin-top:2%" />
+
+    </div>
+    <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
+        <p>
+            Prevent climate change that can raise global temperature, caused the abnormal weather patterns and the melt of iceberg can raise the sea level. Our energy created waste that can raise our earth's temperature.
+
+        </p>
+
+    </div>
+
+    <div class="col-sm-3" style="text-align:center">
+
+        <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
+    </div>
+    <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
+        <p>
+            Reduce possible greenhouse gas emission that is carbon dioxide, sulphur dioxide and nitrogen oxides that are created by the energy we used. The more energy we used, the more carbon waste is produced that can be harmful to our earth.
+        </p>
+
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="container" style="background-color:lightblue;text-align:center;">
+        <h2><b>Let's achieve together!</b></h2>
+    </div>
+</div>
+<br>
+<br>
+<div class="row" style="">
+    <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:1%;width:30%">
+        <img src="~/Images/picnic.jpg" style="width:300px;height:300px;margin-top:2%" />
+        <h3><b>Enjoy the our natural environment </b></h3>
+        <br>
+        <p style="text-align:justify">Relax your time with your family members in the natural beauty, allow your next generation able to see the beauty too.</p>
+    </div>
+
+    <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:4%;width:30%">
+        <img src="~/Images/animal.jpg" style="width:300px;height:300px;margin-top:2%" />
+        <h3><b>Protect the home of wild life animals</b></h3>
+        <br>
+        <p style="text-align:justify">Reduce the climate changes that can consequently destroy the home of wildlife, protect animals from extinction.</p>
+    </div>
+
+    <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:4%;width:30%">
+        <img src="~/Images/financialstress.jpg" style="width:300px;height:300px;margin-top:2%" />
+        <h3><b>Release yourself from financial stress</b></h3>
+        <br>
+        <p style="text-align:justify">Understand your energy usage, avoid paying unneccessary bills, release yourself from financial stress.</p>
+    </div>
+
+</div>
+
+<br>
+<br>
+<div class="row">
+    <div class="container" style="background-color:lightblue;text-align:center;">
+        <h2><b>Let's discover what we can do to help our earth!</b></h2>
+    </div>
+</div>
+
+
+<br>
+<br>
+<div class="footer">
+    <div class="row" style="text-align:justify">
+        <div class='col-md-6'>
+
+            <div class="jumbotron" style="height:400px;background-color:lightskyblue">
+
+                <h2 style="font-family:Georgia"><b>Do you know?</b></h2>
+                <p class="lead">
+                <p style="font-family:Verdana">
+                    Most of the household has an energy waste that increase their energy bills unconciously. <i>Are you one of them?</i>
+
+
+                </p>
+                <p style="font-family:Verdana;"><i>Take the Quiz to understand how your behaviour can affect the energy usage.</i></p>
+
+                <p><a class="btn btn-default" style="width:400px;height:40px;font-size:large;font-family:Verdana;text-align: center;" href="~/Home/TakeQuiz">Take Quiz &raquo;</a></p>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class='col-md-6'>
+            <div class="jumbotron" style="height:400px;background-color:lightskyblue">
+
+                <h2 style="font-family:Georgia"><b>Common tips on saving energy</b></h2>
+                <p class="lead">
+
+
+                <p style="font-family:Verdana">
+                    Explore some of the common tips that we find out most people do this on their dailies basis and caused their energy bills spiked up.
+                </p>
+
+                <b><a class="btn btn-default" style="width:400px;height:40px;font-size:large;font-family:Verdana;margin-top:2.5%;text-align: center;" href="~/Home/CommonTips">Explore more &raquo;</a></b>
+
+            </div>
+        </div>
+    </div>
+
+
 </div>
