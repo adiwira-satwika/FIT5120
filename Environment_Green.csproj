@@ -202,6 +202,7 @@
     <Content Include="Images\gas.PNG" />
     <Content Include="Images\greenhouse gas.jpg" />
     <Content Include="Images\houseenergysave.jpg" />
+    <Content Include="Images\iconenermat.png" />
     <Content Include="Images\laundry.jpg" />
     <Content Include="Images\leaves-69999_1280.jpg" />
     <Content Include="Images\off pic.png" />
@@ -210,6 +211,8 @@
     <Content Include="Images\stress bill.jpg" />
     <Content Include="Images\temperature.jpg" />
     <Content Include="Images\total energy consume portion.png" />
+    <Content Include="Images\total energy used.PNG" />
+    <Content Include="Images\twaterconper.PNG" />
     <Content Include="Images\typeoflight.png" />
     <Content Include="Images\washinghand.PNG" />
     <Content Include="Images\waterheating.jpg" />
