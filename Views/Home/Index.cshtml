@@ -7,7 +7,7 @@
     }
 
     body {
-        font-family: 'Georgia';
+        font-family: 'Verdana';
     }
 
     /* Style the header */
@@ -22,7 +22,6 @@
         float: left;
         width: 50%;
         padding: 10px;
-        height: 300px; /* Should be removed. Only for demonstration */
     }
 
     /* Clear floats after the columns */
@@ -37,46 +36,80 @@
         padding: 10px;
         text-align: center;
     }
+
+    .text-block {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: midnightblue;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .img-responsive {
+        width: auto;
+        height: auto;
+        position: relative;
+    }
 </style>
 
-<div class="row" style="background-image:url('../../Images/bubackground.jpg'); background-size: 100% ">
-    <div class="col-sm-6">
-        <div class="header;" style="margin-top:15%;background:rgba(255, 255, 255, 0.7)">
-            <h1><b>Save our earth, reduce energy waste start from home</b></h1>
-            <br>
-            <i>Let's practice reducing energy waste from home.</i>
 
-        </div>
+<div class="container" style="position:relative">
+
+    <a href="~/Home/TakeQuiz">
+        <img class="img-responsive" src="~/Images/bubackground.jpg" style="height:300px;width:100%;">
+    </a>
+    <div class="text-block" style="background:rgba(255, 255, 255, 0.7);">
+
+        <h1><b>Save our earth, reduce energy waste start from home</b></h1>
+        <br>
+        <i style="font-size:30px">Let's practice reducing energy waste from home.</i>
+
     </div>
+    <div class="text-block" style="padding-bottom:-5%">
+        <a class="btn btn-info" style="width:200px;height:40px;font-size:large;text-align: center;" href="~/Home/TakeQuiz">Click to Take Quiz</a>
+    </div>
+
 </div>
+
+
+
+
+
+
+
 <div class="row" style="">
     <div class="column">
-        <div class="row">
-            <img src="~/Images/watertap.png" style="width:120px;height:120px;margin-top:2%" />
-        </div>
-        <div class="row" style="text-align:center">
-            <img src="~/Images/bulbpic.png" style="width:120px;height:120px;margin-left:-15%;margin-top:2%" />
-        </div>
-        <div class="row" style="text-align:right">
-            <img src="~/Images/off pic.png" style="width:120px;height:120px;margin-right:15%;margin-top:2%" />
-        </div>
+        <a href="https://www.energy.gov.au/households/energy-basics-householders" target="_blank">
+            <img src="~/Images/total energy used.PNG" style="height:300px;width:100%;border:solid" />
+        </a>
+        <br>
+        <br>
+        <a href="https://www.water.wa.gov.au/__data/assets/pdf_file/0016/5029/42338.pdf" target="_blank">
+            <img src="~/Images/twaterconper.PNG" style="height:300px;width:100%;border:solid" />
+        </a>
     </div>
 
 
-    <div class="column" style="text-align:left;font-size:25px;margin-top:2%;">
-        <h2><b><i>Our target</i></b></h2>
+
+
+
+    <div class="column" style="text-align:left;font-size:25px;background-color:antiquewhite;height:600px;margin-top:2%">
+        <h2 style="text-align:center;margin-top:10%;"><b><i>Our target</i></b></h2>
         <br>
         <p>○ Reduce household energy waste</p>
         <p>○ Reduce greenhouse gas emission</p>
         <p>○ Aim to give the best suggestion and tips</p>
         <p>○ Increase your knowledge with your energy</p>
+        <br>
+        <a class="btn btn-info" style="height:40px;font-size:large;text-align: center;margin-left:20%" href="~/Home/CommonTips">Click to Explore Tips to Save Energy</a>
     </div>
+
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+
+
 <br>
 <div class="row">
     <div class="container" style="background-color:lightblue;text-align:center;">
@@ -87,7 +120,9 @@
 <br>
 <div class="row">
     <div class="col-sm-3" style="text-align:center">
-        <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
+        <a href="https://www.world-nuclear.org/nuclear-essentials/where-does-our-electricity-come-from.aspx" target="_blank">
+            <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
+        </a>
     </div>
 
 
@@ -100,7 +135,9 @@
     </div>
 
     <div class="col-sm-3" style="text-align:center">
-        <img src="~/Images/stress bill.jpg" style="width:200px;height:200px;margin-top:2%" />
+        <a href="https://www.abc.net.au/news/2020-05-18/families-utility-bills-shock-from-coronavirus/12248688" target="_blank">
+            <img src="~/Images/stress bill.jpg" style="width:200px;height:200px;margin-top:2%" />
+        </a>
 
     </div>
     <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
@@ -114,7 +151,9 @@
 <br>
 <div class="row">
     <div class="col-sm-3" style="text-align:center">
-        <img src="~/Images/temperature.jpg" style="width:200px;height:200px;margin-top:2%" />
+        <a href="https://www.ucsusa.org/resources/global-warming-faq#:~:text=Global%20warming%20is%20caused%20primarily,be%20radiated%20out%20into%20space." target="_blank">
+            <img src="~/Images/temperature.jpg" style="width:200px;height:200px;margin-top:2%" />
+        </a>
 
     </div>
     <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
@@ -126,8 +165,9 @@
     </div>
 
     <div class="col-sm-3" style="text-align:center">
-
-        <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
+        <a href="https://www.yourhome.gov.au/housing/carbon-zero-carbon-positive" target="_blank">
+            <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
+        </a>
     </div>
     <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
         <p>
@@ -147,26 +187,37 @@
 </div>
 <br>
 <br>
-<div class="row" style="">
+<div class="row" style="margin-top:1%">
     <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:1%;width:30%">
-        <img src="~/Images/picnic.jpg" style="width:300px;height:300px;margin-top:2%" />
-        <h3><b>Enjoy the our natural environment </b></h3>
+        <a href="https://www.australia.com/en/things-to-do/nature-and-national-parks/australias-top-natural-attractions.html" target="_blank">
+            <img src="~/Images/picnic.jpg" style="width:300px;height:300px">
+        </a>
+
+        <h3><b>Enjoy our natural environment </b></h3>
         <br>
         <p style="text-align:justify">Relax your time with your family members in the natural beauty, allow your next generation able to see the beauty too.</p>
+
     </div>
 
     <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:4%;width:30%">
-        <img src="~/Images/animal.jpg" style="width:300px;height:300px;margin-top:2%" />
+        <a href="https://www.tripadvisor.com/Travel-g255055-c133611/Australia:Australian.Wildlife.Parks.And.Zoos.html" target="_blank">
+            <img src="~/Images/animal.jpg" style="width:300px;height:300px" />
+        </a>
         <h3><b>Protect the home of wild life animals</b></h3>
         <br>
         <p style="text-align:justify">Reduce the climate changes that can consequently destroy the home of wildlife, protect animals from extinction.</p>
+
     </div>
 
-    <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:4%;width:30%">
-        <img src="~/Images/financialstress.jpg" style="width:300px;height:300px;margin-top:2%" />
+    <div class="col-sm-3" style="text-align:center;background-color:antiquewhite;margin-left:4%;width:30%;">
+        <a href="~/Home/CommonTips">
+            <img src="~/Images/financialstress.jpg" style="width:300px;height:300px;" />
+        </a>
+
         <h3><b>Release yourself from financial stress</b></h3>
         <br>
         <p style="text-align:justify">Understand your energy usage, avoid paying unneccessary bills, release yourself from financial stress.</p>
+
     </div>
 
 </div>
@@ -188,16 +239,16 @@
 
             <div class="jumbotron" style="height:400px;background-color:lightskyblue">
 
-                <h2 style="font-family:Georgia"><b>Do you know?</b></h2>
+                <h2><b>Do you know?</b></h2>
                 <p class="lead">
-                <p style="font-family:Verdana">
+                <p>
                     Most of the household has an energy waste that increase their energy bills unconciously. <i>Are you one of them?</i>
 
 
                 </p>
-                <p style="font-family:Verdana;"><i>Take the Quiz to understand how your behaviour can affect the energy usage.</i></p>
+                <p><i>Take the Quiz to understand how your behaviour can affect the energy usage.</i></p>
 
-                <p><a class="btn btn-default" style="width:400px;height:40px;font-size:large;font-family:Verdana;text-align: center;" href="~/Home/TakeQuiz">Take Quiz &raquo;</a></p>
+                <p><a class="btn btn-default" style="width:400px;height:40px;font-size:large;text-align: center;" href="~/Home/TakeQuiz">Take Quiz &raquo;</a></p>
 
 
 
@@ -211,15 +262,15 @@
         <div class='col-md-6'>
             <div class="jumbotron" style="height:400px;background-color:lightskyblue">
 
-                <h2 style="font-family:Georgia"><b>Common tips on saving energy</b></h2>
+                <h2><b>Common tips on saving energy</b></h2>
                 <p class="lead">
 
 
-                <p style="font-family:Verdana">
+                <p>
                     Explore some of the common tips that we find out most people do this on their dailies basis and caused their energy bills spiked up.
                 </p>
 
-                <b><a class="btn btn-default" style="width:400px;height:40px;font-size:large;font-family:Verdana;margin-top:2.5%;text-align: center;" href="~/Home/CommonTips">Explore more &raquo;</a></b>
+                <b><a class="btn btn-default" style="width:400px;height:40px;font-size:large;margin-top:2.5%;text-align: center;" href="~/Home/CommonTips">Explore more &raquo;</a></b>
 
             </div>
         </div>
@@ -227,3 +278,6 @@
 
 
 </div>
+
+
+

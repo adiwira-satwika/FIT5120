@@ -210,6 +210,8 @@
     <Content Include="Images\stress bill.jpg" />
     <Content Include="Images\temperature.jpg" />
     <Content Include="Images\total energy consume portion.png" />
+    <Content Include="Images\total energy used.PNG" />
+    <Content Include="Images\twaterconper.PNG" />
     <Content Include="Images\typeoflight.png" />
     <Content Include="Images\washinghand.PNG" />
     <Content Include="Images\waterheating.jpg" />
