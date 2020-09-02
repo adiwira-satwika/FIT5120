@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "Electrictips";
+}
+
+<style>
+    div.gallery img {
+        padding-top: 20px;
+        width: 100%;
+        height: 250px;
+    }
+
+    div.gallery {
+        border: 1px solid #ccc;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+
+
+    div.desc {
+        padding: 15px;
+        height: 100px;
+        text-align: center;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    @@media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @@media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-10" style="text-align:left;font-family:Verdana;border-radius:25px;border:2px solid #ffffff;margin-top:5%; ">
+
+        <br>
+        <h4 style="line-height:1.75;padding-left:20px;padding-right:20px"><b>Eletric</b></h4>
+
+        <h1 style="line-height:1.75;padding-left:20px;padding-right:20px;">
+            0.99 pounds of CO2 emissions per kWh of energy that we used in our house.
+        </h1>
+        <br>
+
+    </div>
+</div>
+<br>
+
+<br>
+<br>
+<div class="container" style="border-top:5px solid">
+    <h1 style="text-align:center">How electric affect our earth </h1>
+</div>
+<br>
+<br>
+<div class="row">
+
+    <div class="col-sm-3" style="width:25%">
+        <div class="card" style="border-right:2px solid;height:300px;padding-right:10px;text-align:center">
+            <img src="~/Images/homeelectric.jpg" style="width:100%;height:200px" />
+            <h4>When you start using electric</h4>
+        </div>
+    </div>
+
+    <div class="col-sm-3" style="width:25%">
+        <div class="card" style="border-right:2px solid;height:300px;padding-right:10px;text-align:center">
+
+            <img src="~/Images/coal.jpg" style="width:100%;height:200px;" />
+            <h4>Your electric supplier generates eletric with various fuel sources including coal, gas, oil</h4>
+        </div>
+    </div>
+
+    <div class="col-sm-3" style="width:25%">
+        <div class="card" style="border-right:2px solid;height:300px;padding-right:10px;text-align:center">
+            <img src="~/Images/factory.jpg" style="width:100%;height:200px" />
+            <h4>When these are burned they create heat and generate into electric</h4>
+        </div>
+    </div>
+
+    <div class="col-sm-3" style="width:25%">
+        <div class="card" style="height:300px;padding-right:10px;text-align:center">
+            <img src="~/Images/meter.jpg" style="width:100%;height:200px" />
+            <h4>This creates carbon dioxide that is harmful to earth</h4>
+        </div>
+    </div>
+</div>
+<div class="container" style="border-bottom:5px solid">
+    <br>
+</div>
+
+<br>
+<br>
+
+<div class="container" style="border-top:5px solid">
+    <h1 style="text-align:center"><b>Tips to Save Electric At Your Home</b> </h1>
+</div>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
+
+        <div class="gallery">
+
+            <a href="~/Home/Etip1">
+                <img src="~/Images/aircon.jpg" style="width:80%;height:200px" alt="aircon" width="600" height="400" />
+
+                <div class="desc"><p><b>Turn off your air conditioner when you are not at home</b></p></div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="col-sm-4 " style="text-align:center;">
+
+        <div class="gallery">
+            <a href="~/Home/EtipBulb">
+                <img src="~/Images/bulbpic.png" style="width:40%;height:200px" alt="bulb" width="600" height="400" />
+
+                <div class="desc"><p><b>Use correct type of bulbs</b></p></div>
+            </a>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
+
+        <div class="gallery">
+            <a href="~/Home/EtipFridge">
+                <img src="~/Images/fridopen.jpg" style="width:40%;height:200px" alt="frid" width="600" height="400" />
+
+
+                <div class="desc"><p><b>Set your fridge to the correct temperature</b></p></div>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-4 " style="text-align:center;">
+
+        <div class="gallery">
+            <a href="~/Home/EtipDryer">
+
+                <img src="~/Images/off pic.png" style="width:40%;height:200px" alt="of" width="600" height="400" />
+
+                <div class="desc"><p><b>Try to reduce your times using dryers</b></p></div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
+
+        <div class="gallery">
+            <a href="~/Home/EtipWaterSystem">
+
+                <img src="~/Images/waterheating.jpg" style="width:40%;height:200px" alt="bulb" width="600" height="400" />
+                <div class="desc"><p><b>Switch to gas heating system from electric</b></p></div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<div class="container" style="text-align:center">
+<b><a class="btn btn-default" style="text-align: center;" href="~/Home/Commontips">< Back</a></b>
+    </div>
+<br>
+<br>
+<br>
