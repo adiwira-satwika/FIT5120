@@ -30,6 +30,55 @@ namespace Environment_Green.Controllers
 
             return View();
         }
+        public ActionResult Electrictips()
+        {
+
+            return View();
+        }
+
+        public ActionResult Etip1()
+        {
+
+            return View();
+        }
+
+        public ActionResult EtipBulb()
+        {
+
+            return View();
+        }
+        public ActionResult EtipDryer()
+        {
+
+            return View();
+        }
+        public ActionResult EtipFridge()
+        {
+
+            return View();
+        }
+
+        public ActionResult WaterTips()
+        {
+
+            return View();
+        }
+        public ActionResult EtipWaterSystem()
+        {
+
+            return View();
+        }
+
+        public ActionResult WaterTipLaundry()
+        {
+
+            return View();
+        }
+        public ActionResult WaterTipTurnOffTap()
+        {
+
+            return View();
+        }
 
     }
 }
