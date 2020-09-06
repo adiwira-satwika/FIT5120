@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "EtipFridge";
+}
+
+<br>
+<br>
+<br>
+<b><a class="btn btn-default" style="text-align: center;" href="~/Home/Electrictips">< Back</a></b>
+<br>
+<br>
+<br>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">
+
+            <a data-toggle="collapse">
+                <b>Adjust fridge temperature to 4 degree and freeze to 0 degree </b>
+            </a>
+        </h2>
+
+    </div>
+
+    <div id="collapse6" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+
+            <p>
+                84.5% of the Australians has no knowledge about the temperature of the fridge, <b>every decrease in temperature will increase your fridge energy by 5%.</b>
+                The average fridge cost per year is about $243. In our data, most people tend to set their fridge to coolest,
+                in this situation if you set your fridge to the right temperature, you can save 20% energy of the fridge and reduce 20% cost of fridge energy consumption,
+                which is about $50 per year.
+            </p>
+            <br><br><br>
+            <h3><b>Annual cost as per size of fridge</b></h3>
+
+            <!-- Load d3.js -->
+            <script src="https://d3js.org/d3.v4.js"></script>
+
+
+            <!-- Add 2 buttons -->
+            <button onclick="update('var1')">Annual consumption(Kwh)</button>
+            <button onclick="update('var2')">Cost($)</button>
+
+            <!-- Create a div where the graph will take place -->
+            <div id="my_datavizs"></div>
+
+            <script>
+                                // set the dimensions and margins of the graph
+                                var margin = { top: 30, right: 30, bottom: 70, left: 60 },
+                                    width = 460 - margin.left - margin.right,
+                                    height = 400 - margin.top - margin.bottom;
+
+                                // append the svg object to the body of the page
+                                var svg = d3.select("#my_datavizs")
+                                    .append("svg")
+                                    .attr("width", width + margin.left + margin.right)
+                                    .attr("height", height + margin.top + margin.bottom)
+                                    .append("g")
+                                    .attr("transform",
+                                        "translate(" + margin.left + "," + margin.top + ")");
+
+                                // Initialize the X axis
+                                var x = d3.scaleBand()
+                                    .range([0, width])
+                                    .padding(0.2);
+                                var xAxis = svg.append("g")
+                                    .attr("transform", "translate(0," + height + ")")
+
+                                // Initialize the Y axis
+                                var y = d3.scaleLinear()
+                                    .range([height, 0]);
+                                var yAxis = svg.append("g")
+                                    .attr("class", "myYaxis")
+
+
+                                // A function that create / update the plot for a given variable:
+                                function update(selectedVar) {
+
+                                    // Parse the Data
+                                    d3.csv("https://raw.githubusercontent.com/jjsong928/green/master/fridge%20temperature.csv", function (data) {
+
+                                        // X axis
+                                        x.domain(data.map(function (d) { return d.group; }))
+                                        xAxis.transition().duration(1000).call(d3.axisBottom(x))
+
+                                        // Add Y axis
+                                        y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
+                                        yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+                                        // variable u: map data to existing bars
+                                        var u = svg.selectAll("rect")
+                                            .data(data)
+
+                                        // update bars
+                                        u
+                                            .enter()
+                                            .append("rect")
+                                            .merge(u)
+                                            .transition()
+                                            .duration(1000)
+                                            .attr("x", function (d) { return x(d.group); })
+                                            .attr("y", function (d) { return y(d[selectedVar]); })
+                                            .attr("width", x.bandwidth())
+                                            .attr("height", function (d) { return height - y(d[selectedVar]); })
+                                            .attr("fill", "#69b3a2")
+                                    })
+
+                                }
+
+                                // Initialize plot
+                                update('var1')</script>
+
+            <br>
+            <p><a class="btn-link" href="https://www.energuide.be/en/questions-answers/how-to-reduce-the-power-consumption-of-my-refrigerator-and-freezer/2132/" target="_blank">Learn more about Fridge Energy Consumption</a></p>
+
+        </div>
+
+
+    </div>
+
+</div>
