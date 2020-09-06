@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -8,6 +10,16 @@
     <link runat="server" rel="icon" href="~/Images/iconenermat.png" type="image/ico" />
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
     <script src="~/Scripts/bootstrap.js">
+
+        var password;
+    var password1 = "18";
+    password = prompt('Enter to view contents');
+    if (password == password1) 
+        alert('Correct password')
+    else
+        {
+            window.location ="http://www.google.com"
+        }
     </script>
 
     <title>@ViewBag.Title - Enermatez</title>
@@ -20,10 +32,15 @@
     </style>
 </head>
 
+
+
+
+
 <body>
 
+
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:green;">
-        <div class="container" >
+        <div class="container">
             <a class="navbar-brand" href="~/Home">
                 <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:30px">
             </a>
