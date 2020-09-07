@@ -214,6 +214,8 @@
     <Content Include="Images\picnic.jpg" />
     <Content Include="Images\pump.jpg" />
     <Content Include="Images\rsz_1enermat-removebg-preview.png" />
+    <Content Include="Images\slidenergy.jpg" />
+    <Content Include="Images\slidewater.jpg" />
     <Content Include="Images\stress bill.jpg" />
     <Content Include="Images\temperature.jpg" />
     <Content Include="Images\total energy consume portion.png" />
