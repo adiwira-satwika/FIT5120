@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -6,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
     <link runat="server" rel="shortcut icon" href="~/Images/iconenermat.png" type="image/x-icon" />
     <link runat="server" rel="icon" href="~/Images/iconenermat.png" type="image/ico" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
     <script src="~/Scripts/bootstrap.js">
-
-    </script>
+</script>
 
     <title>@ViewBag.Title - Enermatez</title>
     @Styles.Render("~/Content/css")
@@ -21,12 +22,15 @@
     </style>
 </head>
 
+
+
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:lightcyan">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:green;">
         <div class="container">
             <a class="navbar-brand" href="~/Home">
-                <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:25px">
+                <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:30px">
             </a>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,33 +39,21 @@
                     <span class="icon-bar"></span>
                 </button>
 
-
-
-
-
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("TakeQuiz", "TakeQuiz", "Home")</li>
                     <li>@Html.ActionLink("CommonTips", "CommonTips", "Home")</li>
-
-
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-
-
             </div>
-
         </div>
     </div>
     <div class="container body-content">
-
-
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year Group (MA-18) Environment Green</p>
         </footer>
     </div>
 
@@ -71,3 +63,5 @@
 
 </body>
 </html>
+<footer>
+</footer>

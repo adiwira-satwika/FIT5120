@@ -4,362 +4,110 @@
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz" ,charset="utf-8"></div>
-
 <style>
-    body {
-        background-image: url('../../Images/bubackground.jpg');
-        margin: 0;
-        background-size: 100%;
+    div.gallery img {
+        width: 100%;
+        height: 300px;
+    }
+
+    div.gallery {
+        border: 1px solid #ccc;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    @@media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @@media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 </style>
 
-<div class="container;col-4" style="text-align:center;font-family:Verdana;background:rgba(255, 255, 255, 0.7); ">
-    <br>
-    <h1><b>7 Common Tips on Saving Energy</b></h1>
+
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-10" style="text-align:left;font-family:Verdana;margin-top:5%; ">
+
+        <br>
+        <h1 style="line-height:1.75;padding-left:20px;padding-right:20px"><b>Our mission is take chances of every possibility that can help household to reduce energy consumption.</b></h1>
+
+        <h3 style="line-height:1.75;padding-left:20px;padding-right:20px">
+            We analysed the most highest energy consumption and the usage to recommend the easy solution that can be easily adapted and
+            reduce carbon emission from our home.
+        </h3>
+        <br>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="border-bottom:5px solid">
     <br>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-    <div class="row">
-        <div class="col-4;">
-            
-            <div class="container" style="font-family:Verdana;">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
+<div class="row">
+    <div class="col-sm-5 col-sm-offset-1">
 
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        <div class="gallery">
+            <a href="~/Home/Electrictips">
+            <img src="~/Images/enerbg.jpg" alt="energy" width="600" height="400" />
 
-                                    <b>1. Always turn off your AC/heater before you leave your house</b>
-                                </a>
 
-                            </h2>
-
-                        </div>
-
-
-                        <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-
-                                <p>
-                                    Especially, some of the house owners have upstairs and downstairs air conditioner/heater highly drove the energy usage.
-                                    In this case, if you have
-                                    <b> two, turn on the only one </b>
-                                    that you will be at.
-
-                                </p>
-                                <br>
-                                <p>
-                                    Surprisingly, when we go through the data, we found out heating your home almost occupied half of the electric bills.
-                                    Most people left their air conditioner on even they left their house to keep their house nice and warm.
-                                    Although, it will be cold if you are coming home from outside or moving from downstairs to upstairs,
-                                    try to
-                                    <b>wear jacket before air conditioner or heater warm your house.</b>
-                                    This can help you save a lot of the electric usage.
-                                </p>
-                                <br><br><br>
-                                <img class="col-sm-6" src="~/Images/total energy consume portion.png" />
-                                <a href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/">
-                                    <img class="col-sm-6" id="canstar" src="~/Images/cost of ac.png">
-                                </a>
-                                <p style="text-align:right;font-size:8px"><i>source from canstarblue</i></p>
-                                <a class="btn-link" href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" style="text-align:right">Learn more About Heat Cost</a>
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-                    <br>
-
-
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                    <b>2. Switch your hot water system to gas heating from electric heating</b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse2" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-                                <p>
-                                    As the diagram previously water heating is the second biggest energy that is used in the household.
-                                    For every 60 litre of water heating, comparing the most common system that used by household there is about 39% people who is using electric,
-                                    42% using gas, the rest are using solar and heat pump. Considering cost effective in long term,
-                                    people who are using electric heating and are considering switching to new system can change to gas heating.
-
-
-                                </p>
-                                <br>
-                                <p>
-                                    From the sustainability Victoria, as
-                                    <b>per 60 litre of water heating electric </b>cost you
-                                    <b>$395-$555</b> while<b> gas heating</b> for same amount will be costing from <b>$160-$370</b>.
-                                    From this data, it is easy to understand that every month electric heating user are paying double price for the energy usage on water heating.
-                                    Not only that, electric produces the most green house gas emissions compare to the other system.
-                                </p>
-                                <p>
-                                    Above introducing the cost effective, however the best energy saver is solar system, the only disadvantage that is the installment of itself is expensive.
-                                    Nevertheless if you do not consider about the cost this can be the best choices. Government as well introduced $1000 subsidy for people who willing to install solar heat
-                                    after 2018. For more information, click below "Learn more about subsidy."
-                                </p>
-                                <br><br><br>
-                                <div class="row">
-                                    <a href="https://www.canstarblue.com.au/hot-water-systems/">
-                                        <img class="col-sm-6" src="~/Images/gas.PNG" />
-                                    </a>
-                                    <a href="https://www.canstarblue.com.au/hot-water-systems/">
-                                        <img class="col-sm-6" id="canstar" src="~/Images/electric.PNG" />
-                                    </a>
-
-                                </div>
-
-                                <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
-                                <br>
-                                <p><a class="btn-link" href="https://www.energymatters.com.au/solar-hot-water/solar-hot-water-rebates/#:~:text=The%20Victorian%20Government's%20Solar%20Homes,under%20the%20Solar%20Homes%20program">Learn more About Solar Subsidy Cost</a></p>
-
-                                <p><a class="btn-link" href="https://www.canstarblue.com.au/hot-water-systems/">Learn more About Water Heating System</a></p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <br>
-
-
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                    <b>3. Change your lights type to LED from halogen or incandescent</b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse3" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-                                <p>
-                                    In the data, we found out that most people having majority of halogen lights which create use more than 80% of energy comparing to LED.
-                                    Imagine a<b> 10Watt LED bulb will only cost $0.024 in 8 hours</b>, a <b>50watt halogen will cost $0.12 per 8hours. </b>
-                                    It seems to be a small number but if you have multiple halogen and you turn on for longer hour or used them for year,
-                                    estimate that is how much energy you have spent. LED is acting more environment friendly as well compare to halogen.
-                                    LED produce less 80% of heat compare to halogen.
-
-
-                                    <br><br><br>
-                                    <div class="row" style="margin-left:25%">
-                                        <img class="col-sm-8" src="~/Images/typeoflight.png" />
-                                    </div>
-
-
-
-                                    <br>
-                                <p><a class="btn-link" href="https://www.anbg.gov.au/gardens/research/hort.research/zones.html#:~:text =Zone%206%20includes%20the%20Queensland,islands%20off%20the%20north%20coast.">Learn more about Australia zone.</a></p>
-                                <p><a class="btn-link" href="https://www.choice.com.au/home-improvement/energy-saving/light-bulbs/buying-guides/light-bulbs">Learn more About Type of Bulbs</a></p>
-
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <br>
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                                    <b>4. Only turn on washing machine when you have full load</b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse4" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-
-                                <p>
-                                    Laundry water usage consumption is 22% of the total water usage in average of the household.
-                                    Even the most efficient washing machine will take about 56.8L to 113.6L of water.
-                                    The cost per kilolitre of water in average at Australia is about $3.
-                                    That’s mean every load will cost you <b>$0.3 more plus a 100L water </b>waste where u can save them easily by just wash your cloth when it
-                                    is full load instead of doing another load.
-                                </p>
-                                <br><br><br><br>
-                                <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/">
-                                    <img class="col-sm-6" src="~/Images/ws s.PNG" />
-                                </a>
-                                <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/">
-                                    <img class="col-sm-6" id="canstar" src="~/Images/ws m.PNG" />
-                                </a>
-
-                                <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
-                                <br>
-
-                                <p><a class="btn-link" href="https://www.redenergy.com.au/living-energy/energy-saving/how-to-save-on-your-laundry-energy-bills">Learn more About Laundry Tips</a></p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <br>
-
-
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-                                    <b>5. Turn off your tap water when you are brushing or washing your hand </b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse5" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-                                <p>
-                                    Out of 3 Australians only 1 people turned off their tap water when they are brushing their teeth.
-                                    The water waste is an average of<b> 5.68L per minutes</b>. If a person brushes their teeth 2 or 3 times a day every time about 3 minutes that 15L water is wasted!
-                                    The same with people who did not turn off their tap when they are washing their hands. Out of the research it shows half of the time the hands are not washing under the tap.
-                                    Especially during the pandemic, people took longer time to wash their hands.
-                                    So, turn off your tap water during brushing or washing your hands you will find that you save a lot of money and at the same time contribute good to environment just by
-                                    changing a simple habit.
-                                </p>
-                                <br><br><br>
-                                <h3><b>Water required vs approximate time not under the tap during tap on</b></h3>
-                                <a href="https://www.intelligenthanddryers.com/blog/do-you-realise-how-much-water-you-waste-when-washing-your-hands">
-                                    <img class="col-sm-9" src="~/Images/washinghand.PNG" style="margin-left:10%">
-                                </a>
-                            </div>
-                            <p style="text-align:center;font-size:8px"><i>intelligenthanddryers</i></p>
-                            <br>
-                            <p><a class="btn-link" href="https://www.obrien.com.au/members/electrical-and-plumbing-vermont/articles/home-water-saving-tips/">Learn more about Saving Water At Home</a></p>
-
-
-
-                        </div>
-                    </div>
-
-
-
-                    <br>
-
-
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-                                    <b>6. Adjust fridge temperature to 4 degree and freeze to 0 degree </b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse6" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-
-                                <p>
-                                    84.5% of the Australians has no knowledge about the temperature of the fridge, <b>every decrease in temperature will increase your fridge energy by 5%.</b>
-                                    The average fridge cost per year is about $243. In our data, most people tend to set their fridge to coolest,
-                                    in this situation if you set your fridge to the right temperature, you can save 20% energy of the fridge and reduce 20% cost of fridge energy consumption,
-                                    which is about $50 per year.
-                                </p>
-                                <br><br><br>
-                                <h3 style="text-align:center"><b>Annual cost as per size of fridge</b></h3>
-                                <div class="row">
-                                    <img class="col-sm-6" src="~/Images/fridge.PNG" style="margin-left:25%">
-                                </div>
-                                <br>
-                                <p><a class="btn-link" href="https://www.energuide.be/en/questions-answers/how-to-reduce-the-power-consumption-of-my-refrigerator-and-freezer/2132/">Learn more about Fridge Energy Consumption</a></p>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                    <br>
-
-
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">
-
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-                                    <b>7. Try to hang to dry your cloth instead of using dryer</b>
-                                </a>
-                            </h2>
-
-                        </div>
-
-                        <div id="collapse7" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    50% of the household has a dryer, the energy cost of the dryer <b>per 45mins is an average of $0.36.</b>
-                                    If you are doing 8 loads per week, a month will cost you about $11.50. The energy wasted here will be 2.475kW per hour.
-                                    Save the energy and release yourself from the financial stress.
-                                </p>
-                                <br><br><br>
-                                <a href="https://www.canstarblue.com.au/electricity/how-much-energy-does-a-clothes-dryer-use/">
-                                    <img class="col-sm-11" src="~/Images/dryer cost.PNG" />
-                                </a>
-                            </div>
-
-                            <p style="text-align:center;font-size:8px"><i>source from canstarblue</i></p>
-
-                            <p> <a class="btn-link" href="https://www.sustainability.vic.gov.au/You-and-Your-Home/Save-energy/Appliances/Clothes-dryers">Learn more About Dryer Type And Cost</a></p>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            <div class="desc"><h2><b>Electric tips</b></h2></div>
+                </a>
         </div>
 
+    </div>
+
+    <div class="col-sm-5 ">
+
+        <div class="gallery">
+
+            <a href="~/Home/Watertips">
+                <img src="~/Images/waterbg.jpg" alt="water" width="600" height="400" />
+                <div class="desc"><h2><b>Water tips</b></h2></div>
+                </a>
+        </div>
+
+    </div>
+
 </div>
+
+<br>
+<br>
+
+              
