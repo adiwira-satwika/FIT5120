@@ -10,7 +10,6 @@ namespace Environment_Green.Controllers
 {
     public class SampleController : Controller
     {
-        // GET: Sample
         public ActionResult Index()
         {
             return View();
@@ -18,7 +17,9 @@ namespace Environment_Green.Controllers
 
         public ActionResult Result()
         {
-            return View();
+            QuizDBHandle dbhandle = new QuizDBHandle();
+            ModelState.Clear();
+            return View(dbhandle.GetQuiz());
         }
 
         // GET: Sample/Details/5
@@ -39,21 +40,15 @@ namespace Environment_Green.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                String states = nameof(model.States);
-                int occupants = model.Occupants;
-                double income = model.Income;
-                double energyBills = model.EnergyBills;
-                double waterBills = model.WaterBills;
-                String heaterType =Convert.ToString(model.HeaterTypes);
-                int heaterDuration = model.HeaterDuration;
-                String wmType = Convert.ToString(model.WMTypes);
-                int washingFrequency = model.WashingFrequency;
-                int room = model.Room;
-                String bulbType = Convert.ToString(model.BulbTypes);
-                int bulbDuration = model.BulbDuration;
-
-                ViewBag.States = states;
+                if (ModelState.IsValid)
+                {
+                    QuizDBHandle qdb = new QuizDBHandle();
+                    if (qdb.AddQuiz(model))
+                    {
+                        ViewBag.Message = "Success!";
+                        ModelState.Clear();
+                    }
+                }
 
                 return RedirectToAction("Result");
             }

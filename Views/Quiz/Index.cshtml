@@ -1,0 +1,146 @@
+﻿@model Environment_Green.Models.FormOneViewModel
+@{
+    ViewBag.Title = "TakeQuiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="background:rgba(255, 255, 255, 0.7);text-align:center ">
+    <br>
+    <h1>Quiz</h1>
+
+</div>
+<br>
+
+<!--<iframe width="980px" height="1000px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=ekh678p3CkGAPeQmtipYfwt-mkiNMWtDtKRKWrupE91UOUI1VTNZRVpXRkI5TE1WMFBIWkxTMDNCTC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>-->
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Which state do you live?</label>
+        <div class="col-md-10">
+            <select class="form-control" name="State">
+                <option value="VIC">VIC</option>
+                <option value="NSW">NSW</option>
+                <option value="ACT">ACT</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="WA">WA</option>
+                <option value="NT">NT</option>
+                <option value="TAS">TAS</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">How many occupants are in your house?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Occupants, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Occupants, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What is your estimated gross income per week?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What is your estimated quarterly electricity bills?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EnergyBills, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EnergyBills, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What type of heater do you have in your home? </label>
+        <div class="col-md-10">
+            <select class="form-control" name="HeaterType">
+                <option value="Gas">Gas Heater</option>
+                <option value="Electric">Electric Portable Heater</option>
+                <option value="AC">Air Conditioner (AC)</option>
+                <option value="Solar">Solar Heating</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.HeaterType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2"> What is the average number of hours do you use the heater?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HeaterDuration, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HeaterDuration, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What is your monthly water bill?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WaterBills, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.WaterBills, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What type of washing machine do you have in you house?</label>
+        <div class="col-md-10">
+            <select class="form-control" name="WMType">
+                <option value="FL">Front-loading washing machine</option>
+                <option value="TL">Top-loading washing machine</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.WMType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">How frequent do you laundry in a week?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WashingFrequency, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.WashingFrequency, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">How many room do you have in your house?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Room, new { htmlAttributes = new { @class = "form-control" } })
+            <p>including storage, toilet, garage and living room</p>
+            @Html.ValidationMessageFor(model => model.Room, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">What is the average bulbs do you use in each space?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BulbType, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BulbType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">How long do you normally turn on lights in your house?</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BulbDuration, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BulbDuration, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

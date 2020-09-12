@@ -7,7 +7,6 @@
 
 <h2>Create</h2>
 
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -20,7 +19,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.States, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(x => x.States,"State",new { @class = "form-control" })
+                @Html.DropDownList("States", new List<SelectListItem>
+           {
+               new SelectListItem { Text = "NSW", Value="NSW"},
+               new SelectListItem { Text = "VIC", Value="VIC"},
+               new SelectListItem { Text = "QLD", Value="QLD"},
+               new SelectListItem { Text = "SA", Value="SA"},
+               new SelectListItem { Text = "ACT", Value="ACT"},
+               new SelectListItem { Text = "NT", Value="NT"},
+               new SelectListItem { Text = "WA", Value="WA"}
+           }, 
+           "Select your state", new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.States, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +69,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HeaterTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(x => x.HeaterTypes,"heaterTypes",new { @class = "form-control" })
+                @Html.DropDownList("HeaterTypes", new List<SelectListItem>
+          {
+              new SelectListItem { Text = "Gas", Value="Gas"},
+              new SelectListItem { Text = "Electric", Value="Electric"},
+              new SelectListItem { Text = "AC", Value="AC"}
+          },
+          "Select your heater type", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HeaterTypes, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,7 +91,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.WMTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(x => x.WMTypes,"WMTypes",new { @class = "form-control" })
+                @Html.DropDownList("WMTypes", new List<SelectListItem>
+          {
+              new SelectListItem { Text = "Front", Value="Front"},
+              new SelectListItem { Text = "Top", Value="Top"}
+          },
+          "Select your washing machine type", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.WMTypes, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,7 +120,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BulbTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(x => x.BulbTypes,"BulbTypes",new { @class = "form-control" })
+                @Html.DropDownList("bulbTypes", new List<SelectListItem>
+          {
+              new SelectListItem { Text = "LED", Value="LED"},
+              new SelectListItem { Text = "Conventional", Value="Conventional"}
+          },
+          "Select your state", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BulbTypes, "", new { @class = "text-danger" })
             </div>
         </div>

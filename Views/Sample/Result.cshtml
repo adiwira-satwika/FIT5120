@@ -1,8 +1,97 @@
-﻿
+﻿@model IEnumerable<Environment_Green.Models.FormOneViewModel>
+
 @{
     ViewBag.Title = "Result";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.States</h2>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.States)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Occupants)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Income)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnergyBills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterBills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaterTypes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaterDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WMTypes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BulbTypes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BulbDuration)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.States)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occupants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Income)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnergyBills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterBills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeaterTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeaterDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WMTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WashingFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BulbTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BulbDuration)
+            </td>
+        </tr>
+    }
+
+</table>
 
