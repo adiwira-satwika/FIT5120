@@ -80,5 +80,11 @@ namespace Environment_Green.Controllers
             return View();
         }
 
+        public ActionResult Weather()
+        {
+
+            return View();
+        }
+
     }
 }

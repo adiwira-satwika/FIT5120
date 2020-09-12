@@ -1,0 +1,792 @@
+﻿@{
+    ViewBag.Title = "Weather";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+    .grid-container {
+        display: grid;
+        max-width: 2000px;
+        grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+        grid-gap: 1px;
+    }
+
+
+        .grid-container > div {
+            text-align: center;
+            font-size: 10px;
+        }
+
+    .question:not(.active) {
+        display: none;
+    }
+</style>
+<div class="w3-content" style="max-width:2000px;padding:-15px;margin:-15px;">
+
+    <img src="~/Images/clouds-3488632_1920.jpg" style="width:100%;max-height:650px;" />
+    <div class="w3-display-middle w3-two w3-text-black w3-hide-small" style="margin-top:5%">
+        <div class=" w3-container" style="min-height:300px">
+            <h1 style="font-size:40px;line-height:1.75"><b>Save energy by setting the right temperature at your house!</b></h1>
+        </div>
+    </div>
+    <div class="w3-display-right w3-container w3-text-black w3-hide-small" style="background-color:darkseagreen;margin-right:10%;text-align:center">
+
+        <h4 style="line-height:1.75;padding-left:20px;padding-right:20px"><b id="name" style="color:white"></b></h4>
+        <h3><b style="padding-left:20px;padding-right:20px;color:white">Today</b></h3>
+
+        <div id="icon" style="text-align:center"><img id="weathericon" src="" alt="Weather icon"></div>
+        <p id="wdesp" style="color:white;text-align:center"></p>
+        <br>
+        <p style="color:white">Now</p>
+        <h1 style="line-height:1.75;padding-left:20px;padding-right:20px;font-size:40px">
+            <b id="temp" style="color:white"></b> <b style="color:white">C</b>
+        </h1>
+
+        <p style="color:white;font-size:12px">    Min  <b id="tempmin" style="color:white;font-size:20px"></b> <b style="color:white;font-size:20px">C</b>  </p>
+        <p style="color:white;font-size:12px">
+            Max <b id="tempmax" style="color:white;font-size:20px">
+            </b> <b style="color:white;font-size:20px">C</b>
+        </p>
+
+        <br>
+        <p style="color:white">Humidity:</p>
+        <h4 style="line-height:1.75;padding-left:20px;padding-right:20px">
+            <b id="humidity" style="color:white"></b><b style="color:white">%</b>
+
+        </h4>
+
+    </div>
+</div>
+
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin:-15px;margin-top:15px;background-color:#D3EEA7">
+    <div class="container">
+        <br><br>
+        <h4 style="text-align:left;margin-left:20%"><b>Today We Recommend You</b></h4>
+    </div>
+
+    <div class="w3-row-padding w3-center w3-margin-top">
+        <div class="w3-third">
+            <div class=" w3-container" style="min-height:150px">
+                <p>Set Your Themostat at:</p><br>
+     
+            
+               <h1> <b id="tempre"> </b><b> C</b></h1>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="w3-third">
+            <div class=" w3-container" style="min-height:150px">
+                <p>For Total Length Of Time:</p><br>
+
+                <h1><b>6 hours</b></h1>
+                <br><br>
+            </div>
+        </div>
+        <div class="w3-third">
+            <div class=" w3-container" style="min-height:150px;background-color:#99E5C7">
+
+                <br>
+                <b>Do You Know?</b>
+                <br><br>
+                <p>Standard temperature to set at cold weather is at 20C, every 1C increase will cost you extra 10% energy consumption.</p>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<div class="w3-center w3-padding-32">
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Coming 7 days forecast</span>
+</div>
+
+<div class="grid-container" style="margin-top:10px;height:150px">
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today1" style="margin-top:3%;font-size:18px"></b>
+        <p><b id="toweek1" style="font-size:18px"></b></p><br>
+        <img id="weathericon1"></>
+        <p id="wdesp1" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin1"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax1"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today2" style="margin-top:3%;font-size:18px"></b>
+        <p><b id="toweek2" style="font-size:18px"></b></p><br>
+        <img id="weathericon2"></>
+        <p id="wdesp2" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin2"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax2"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today3" style="margin-top:3%;font-size:18px"></b>
+        <p><b id="toweek3" style="font-size:18px"></b></p><br>
+        <img id="weathericon3"></>
+        <p id="wdesp3" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin3"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax3"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today4" style="margin-top:3%;font-size:18px"></b>
+        <p><b id="toweek4" style="font-size:18px"></b></p><br>
+        <img id="weathericon4"></>
+        <p id="wdesp4" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin4"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax4"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today5" style="margin-top:3%;font-size:18px"></b>
+        <p><b id="toweek5" style="font-size:18px"></b></p><br>
+        <img id="weathericon5"></>
+        <p id="wdesp5" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin5"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax5"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today6" style="margin-top:3%;font-size:18px"></b>
+        <p> <b id="toweek6" style="font-size:18px"></b></p><br>
+        <img id="weathericon6"></>
+        <p id="wdesp6" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin6"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax6"></b> <b style="font-size:20px">C</b></p>
+    </div>
+    <div style="text-align:center;background-color:#6DCAE2">
+        <b id="today7" style="margin-top:3%;font-size:18px"></b>
+        <p>   <b id="toweek7" style="font-size:18px"></b></p><br>
+        <img id="weathericon7"></>
+        <p id="wdesp7" style="text-align:center"></p>
+
+        min <b style="font-size:20px" id="foretempmin7"></b> <b style="font-size:20px">C</b>
+        <p>max <b style="font-size:20px" id="foretempmax7"></b> <b style="font-size:20px">C</b></p>
+    </div>
+
+</div>
+
+<div class="w3" style="margin-top:10%;background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px">
+    <h2 class="w3-wide w3-center w3-padding-16">Let Us Understand You Before Suggesting</h2>
+    <div class="w3-row-padding w3-center">
+        <div class="w3-card w3-container" style="min-height:300px;background-color:white;">
+            <div id="questions" style="padding:32px">
+
+                <div class="question active">
+                    <div class="progress">
+
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="16.7"
+                             aria-valuemin="0" aria-valuemax="100" style="width:16.7%;text-align:center">
+                            Question 1 of 6
+
+                        </div>
+
+                    </div>Which season are you concern about?
+                    <br>
+                    <br>
+                    <p><button type="button" id="winter" style="height:50px;width:200px">Winter</button></p>
+                    <br>
+                    <p><button type="button" id="summer" style="height:50px;width:200px">Summer</button></p>
+                </div>
+                <div class="question">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="33.4"
+                             aria-valuemin="0" aria-valuemax="100" style="width:33.4%;text-align:center">
+                            Question 2 of 6
+                        </div>
+                    </div>
+                    Which type of house you are living in?
+                    <br>
+                    <br>
+                    <p><button type="button" id="fua" style="height:50px;width:400px">Flat or Unit or Apartment</button></p>
+                    <br>
+                    <p><button type="button" id="srtt" style="height:50px;width:400px">Semi-detached or Row or Terrace or Townhouse</button></p>
+                    <br>
+                    <p><button type="button" id="sh" style="height:50px;width:400px">Seperate House</button></p>
+                </div>
+                <div class="question">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                             aria-valuemin="0" aria-valuemax="100" style="width:50%;text-align:center">
+                            Question 3 of 6
+                        </div>
+                    </div>
+
+                    <div id="winterheat" style="display:none">
+                        Which type of heating system you using?
+                        <br>
+                        <br>
+                        <p><button type="button" id="ductedgas" style="height:50px;width:400px"> Ducted gas</button></p>
+                        <br>
+                        <p><button type="button" id="rvcacs" style="height:50px;width:400px">Reverse- cycle air-conditioning</button></p>
+                        <br>
+                        <p><button type="button" id="wallmge" style="height:50px;width:400px">Wall-mounted Gas or Wall-mounted Electric</button></p>
+                        <br>
+                        <p><button type="button" id="portableelecgas" style="height:50px;width:400px">Portable electric or Gas</button></p>
+                    </div>
+                    <div id="summercool" style="display:none">
+                        Which type of cooling system you using?
+                        <br>
+                        <br />
+                        <p><button type="button" id="rvcacw" style="height:50px;width:400px">Reverse- cycle air-conditioning</button></p>
+                        <br>
+                        <p><button type="button" id="evaporativecool" style="height:50px;width:400px">Evaporative cooler</button></p>
+                        <br>
+                        <p><button type="button" id="wallwinmount" style="height:50px;width:400px">Wall or Window Mounted Air Conditioner</button></p>
+                        <br>
+                        <p><button type="button" id="portac" style="height:50px;width:400px">Portable Air-Conditioning</button></p>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="66.7"
+                             aria-valuemin="0" aria-valuemax="100" style="width:66.7%;text-align:center">
+                            Question 4 of 6
+                        </div>
+                    </div>
+                    Do you like colder or warmer temperature compare to others?
+                    <br>
+                    <br>
+                    <p><button type="button" id="colderc" style="height:50px;width:400px">Colder</button></p>
+                    <br>
+                    <p><button type="button" id="normalc" style="height:50px;width:400px">Normal</button></p>
+                    <br>
+                    <p><button type="button" id="warmerc" style="height:50px;width:400px">Warmer</button></p>
+                    <br>
+                </div>
+                <div class="question">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="83.33"
+                             aria-valuemin="0" aria-valuemax="100" style="width:83.33%;text-align:center">
+                            Question 5 of 6
+                        </div>
+                    </div>
+                    Are you living with others?
+                    <br>
+                    <br>
+                    <p><button type="button" id="liveyes" style="height:50px;width:400px">Yes</button></p>
+                    <br>
+                    <p><button type="button" id="liveno" style="height:50px;width:400px">No</button></p>
+                    <br>
+                    <div id="liveothers" style="display:none">
+                        Do they like colder or warmer compare to you?
+                        <br>
+                        <br>
+                        <p><button type="button" id="coldero" style="height:50px;width:400px">Colder</button></p>
+                        <br>
+                        <p><button type="button" id="warmero" style="height:50px;width:400px">Warmer</button></p>
+                        <br>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100" style="width:100%;text-align:center">
+                            Question 6 of 6
+                        </div>
+                    </div>
+                    <div id="lastq">
+                        How usually do your house expose to the sunlight from glass window?
+                    </div>
+                    <br>
+                    <br>
+                    <p><button type="button" id="more6" style="height:50px;width:400px">More than 6 hours</button></p>
+                    <br>
+                    <p><button type="button" id="3to6hrs" style="height:50px;width:400px">3 to 6 hours</button></p>
+                    <br>
+                    <p><button type="button" id="1to3hrs" style="height:50px;width:400px">1 to 3 hours</button></p>
+                    <br>
+                    <p><button type="button" id="lessthan1" style="height:50px;width:400px">Less than 1 hour</button></p>
+                    <br>
+                    <div id="finishq" style="display:none;">
+                        Thank you for taking your time with us! Click below to show our suggestion to you...
+                        <br>
+                        <br>
+                        <br>
+                        <p><button class="btn-success" id="suggestion" style="height:50px;width:400px">Show Suggestion</button></p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="result" style="display:none;margin-top:5%">
+                <h2><b>Our Suggestion to you</b></h2>
+
+                <br>
+                <h4><b>Based on your answer</b></h4>
+                <p>Set your themostat to: </p>
+                <p id="temperaturesetper"></p>
+                <br>
+                <p>Length of time:</p> 
+                <p id="hoursetper"></p>
+                <br>
+                <h4><b>Standard</b></h4>
+                <p id="coolset" style="display:none">Setting themostat 8C higher than outside temperature for average 6 hours</p>
+                <p id="heatset" style="display:none">Setting themostat 8C lower than outside temperature for average 6 hours</p><br><br>
+            </div>
+
+        </div>
+
+        <br><br>
+        <br>
+    </div>
+</div>
+
+<script>
+    var season;
+    var roomtype;
+    var cooltype;
+    var heattype;
+    var personalperfer;
+    var livewithother;
+    var otherprefer;
+    var exposure;
+
+    $('#winter').click(function () {
+        document.getElementById('winterheat').style.display = 'initial';
+        document.getElementById('heatset').style.display = 'initial';
+        var $winter = $('.question.active');
+        $('.question').removeClass('active');
+        $winter.next().addClass('active');
+        season = 0;
+        return season;
+
+    });
+    //season 0=winter,1=summer
+    $('#summer').click(function () {
+        document.getElementById('coolset').style.display = 'initial';
+        document.getElementById('summercool').style.display = 'initial';
+        var $summer = $('.question.active');
+        $('.question').removeClass('active');
+        $summer.next().addClass('active');
+        season = 1;
+        return season;
+    });
+
+    $('#fua').click(function () {
+        var $fua = $('.question.active');
+        $('.question').removeClass('active');
+        $fua.next().addClass('active');
+        roomtype = 0;
+        return roomtype;
+    });
+
+    $('#srtt').click(function () {
+        var $srtt = $('.question.active');
+        $('.question').removeClass('active');
+        $srtt.next().addClass('active');
+        roomtype = 1;
+        return roomtype;
+    });
+
+    $('#sh').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        roomtype = 2;
+        return roomtype;
+    });
+
+    $('#ductedgas').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        heattype = 0;
+        return heattype;
+    });
+
+    $('#rvcacs').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        heattype = 1;
+        return heattype;
+    });
+
+    $('#wallmge').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        heattype = 2;
+        return heattype;
+    });
+
+    $('#portableelecgas').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        heattype = 3;
+        return heattype;
+    });
+
+    $('#rvcacw').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        cooltype = 0;
+        return cooltype;
+    });
+
+    $('#evaporativecool').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        cooltype = 1;
+        return cooltype;
+    });
+
+    $('#wallwinmount').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        cooltype = 2;
+        return cooltype;
+    });
+
+
+    $('#portac').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        cooltype = 3;
+        return cooltype;
+    });
+
+    $('#colderc').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        personalperfer = 0;
+        return personalperfer;
+    });
+
+    $('#normalc').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        personalperfer = 1;
+        return personalperfer;
+    });
+
+    $('#warmerc').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        personalperfer = 2;
+        return personalperfer;
+    });
+
+    $('#liveyes').click(function () {
+        document.getElementById('liveothers').style.display = 'initial';
+        document.getElementById('liveno').style.display = 'none';
+        livewithother = 0;
+        return livewithother;
+    });
+
+    $('#liveno').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        livewithother = 1;
+        return livewithother;
+    });
+
+    $('#coldero').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        otherprefer = 0;
+        return otherprefer;
+    });
+
+    $('#warmero').click(function () {
+        var $sh = $('.question.active');
+        $('.question').removeClass('active');
+        $sh.next().addClass('active');
+        otherprefer = 1;
+        return otherprefer;
+    });
+
+    $('#more6').click(function () {
+        document.getElementById('lastq').style.display = 'none';
+        document.getElementById('more6').style.display = 'none';
+        document.getElementById('3to6hrs').style.display = 'none';
+        document.getElementById('1to3hrs').style.display = 'none';
+        document.getElementById('lessthan1').style.display = 'none';
+        document.getElementById('finishq').style.display = 'initial';
+        exposure = 0;
+        return exposure;
+    });
+
+    $('#3to6hrs').click(function () {
+        document.getElementById('lastq').style.display = 'none';
+        document.getElementById('more6').style.display = 'none';
+        document.getElementById('3to6hrs').style.display = 'none';
+        document.getElementById('1to3hrs').style.display = 'none';
+        document.getElementById('lessthan1').style.display = 'none';
+        document.getElementById('finishq').style.display = 'initial';
+        exposure = 1;
+        return exposure;
+    });
+    $('#1to3hrs').click(function () {
+        document.getElementById('lastq').style.display = 'none';
+        document.getElementById('more6').style.display = 'none';
+        document.getElementById('3to6hrs').style.display = 'none';
+        document.getElementById('1to3hrs').style.display = 'none';
+        document.getElementById('lessthan1').style.display = 'none';
+        document.getElementById('finishq').style.display = 'initial';
+        exposure = 2;
+        return exposure;
+    });
+    $('#lessthan1').click(function () {
+        document.getElementById('lastq').style.display = 'none';
+        document.getElementById('more6').style.display = 'none';
+        document.getElementById('3to6hrs').style.display = 'none';
+        document.getElementById('1to3hrs').style.display = 'none';
+        document.getElementById('lessthan1').style.display = 'none';
+        document.getElementById('finishq').style.display = 'initial';
+        exposure = 3;
+        return exposure;
+    });
+
+    $('#suggestion').click(function () {
+        document.getElementById('questions').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        if (season == 0) {
+            var temperatureset = -8;
+            var hourset = 6;
+
+            if (roomtype == 0) { hourset = hourset - 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset + 1 }
+            if (heattype == 0) { temperatureset = temperatureset - 2 }
+            if (heattype == 1) { temperatureset = temperatureset + 1 }
+            if (heattype == 2) { temperatureset = temperatureset - 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset - 2 }
+            if (exposure == 1) { hourset = hourset - 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset + 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C than outside temperature";
+        }
+
+
+        if (season == 1) {
+            var temperatureset = 8;
+            var hourset = 6;
+            if (roomtype == 0) { hourset = hourset + 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset - 1 }
+            if (heattype == 0) { temperatureset = temperatureset + 2 }
+            if (heattype == 1) { temperatureset = temperatureset - 1 }
+            if (heattype == 2) { temperatureset = temperatureset + 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset + 2 }
+            if (exposure == 1) { hourset = hourset + 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset - 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C than outside temperature";
+        }
+
+
+
+    });
+
+
+
+</script>
+
+<script>
+    
+    $(document).ready(function () {
+
+        $.get("https://api.openweathermap.org/data/2.5/weather?q=Melbourne,au&appid=d10eac299378be51e983c8ee353655cf", function (response) {
+            $("#name").text(response.name);
+            var tempkelmax = response.main.temp_max;
+            var tempcelmax = (tempkelmax - 273.15).toFixed(1);
+            var tempkelmin = response.main.temp_min;
+            var tempcelmin = (tempkelmin - 273.15).toFixed(1);
+            var tempkel = response.main.temp;
+            var tempcel = (tempkel - 273.15).toFixed(1);
+            var tempre = (tempkel-273.15 + 8).toFixed(0);
+            $("#temp").text(tempcel);
+            $("#tempmax").text(tempcelmax);
+            $("#tempmin").text(tempcelmin);
+            $("#humidity").text(response.main.humidity);
+            $("#wdesp").text(response.weather[0].description);
+            $("#tempre").text(tempre);
+
+            
+
+            var iconcode = response.weather[0].icon;
+            var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+            $('#weathericon').attr('src', iconurl);
+            console.log(response);
+            
+        });
+    });
+
+    var currentTime = new Date()
+    var month = currentTime.getMonth() + 1
+    var day = currentTime.getDate()
+    var dayofweek = currentTime.getDay()
+    var weekday = new Array(7);
+    weekday[0] = "Monday";
+    weekday[1] = "Tuesday";
+    weekday[2] = "Wednesday";
+    weekday[3] = "Thursday";
+    weekday[4] = "Friday";
+    weekday[5] = "Saturday";
+    weekday[6] = "Sunday";
+    $("#today").text(month + "/" + day);
+    $("#toweek").text(weekday[dayofweek]);
+    $(document).ready(function () {
+
+        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=-37.840935&lon=144.946457&%20exclude=current,minutely,hourly&appid=d10eac299378be51e983c8ee353655cf", function (response) {
+
+            $("#foretempmin1").text(((response.daily[1].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax1").text(((response.daily[1].temp.max) - 273.15).toFixed(1));
+            $("#wdesp1").text(response.daily[1].weather[0].description);
+            var iconcode1 = response.daily[1].weather[0].icon;
+            var iconurl1 = "https://openweathermap.org/img/w/" + iconcode1 + ".png";
+            $('#weathericon1').attr('src', iconurl1);
+
+            $("#foretempmin2").text(((response.daily[2].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax2").text(((response.daily[2].temp.max) - 273.15).toFixed(1));
+            $("#wdesp2").text(response.daily[2].weather[0].description);
+            var iconcode2 = response.daily[2].weather[0].icon;
+            var iconurl2 = "https://openweathermap.org/img/w/" + iconcode2 + ".png";
+            $('#weathericon2').attr('src', iconurl2);
+
+            $("#foretempmin3").text(((response.daily[3].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax3").text(((response.daily[3].temp.max) - 273.15).toFixed(1));
+            $("#wdesp3").text(response.daily[3].weather[0].description);
+            var iconcode3 = response.daily[3].weather[0].icon;
+            var iconurl3 = "https://openweathermap.org/img/w/" + iconcode3 + ".png";
+            $('#weathericon3').attr('src', iconurl3);
+
+
+            $("#foretempmin4").text(((response.daily[4].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax4").text(((response.daily[4].temp.max) - 273.15).toFixed(1));
+            $("#wdesp4").text(response.daily[4].weather[0].description);
+            var iconcode4 = response.daily[4].weather[0].icon;
+            var iconurl4 = "https://openweathermap.org/img/w/" + iconcode4 + ".png";
+            $('#weathericon4').attr('src', iconurl4);
+
+            $("#foretempmin5").text(((response.daily[5].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax5").text(((response.daily[5].temp.max) - 273.15).toFixed(1));
+            $("#wdesp5").text(response.daily[5].weather[0].description);
+            var iconcode5 = response.daily[5].weather[0].icon;
+            var iconurl5 = "https://openweathermap.org/img/w/" + iconcode5 + ".png";
+            $('#weathericon5').attr('src', iconurl5);
+
+            $("#foretempmin6").text(((response.daily[6].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax6").text(((response.daily[6].temp.max) - 273.15).toFixed(1));
+            $("#wdesp6").text(response.daily[6].weather[0].description);
+            var iconcode6 = response.daily[6].weather[0].icon;
+            var iconurl6 = "https://openweathermap.org/img/w/" + iconcode6 + ".png";
+            $('#weathericon6').attr('src', iconurl6);
+
+            $("#foretempmin7").text(((response.daily[7].temp.min) - 273.15).toFixed(1));
+            $("#foretempmax7").text(((response.daily[7].temp.max) - 273.15).toFixed(1));
+            $("#wdesp7").text(response.daily[7].weather[0].description);
+            var iconcode7 = response.daily[7].weather[0].icon;
+            var iconurl7 = "https://openweathermap.org/img/w/" + iconcode7 + ".png";
+            $('#weathericon7').attr('src', iconurl7);
+        });
+    });
+</script>
+<script>
+    var currentTime = new Date()
+    var tom = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 1))
+    var tommonth = tom.getMonth() + 1
+    var tomday = tom.getDate()
+    var dayofweek = tom.getDay()
+    $("#today1").text(tommonth + "/" + tomday);
+    $("#toweek1").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext2 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 2))
+    var tonextmon2 = tonext2.getMonth() + 1
+    var tonextday2 = tonext2.getDate()
+    var dayofweek = tonext2.getDay()
+    $("#today2").text(tonextmon2 + "/" + tonextday2);
+    $("#toweek2").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext3 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 3))
+    var tonextmon3 = tonext3.getMonth() + 1
+    var tonextday3 = tonext3.getDate()
+    var dayofweek = tonext3.getDay()
+
+    $("#today3").text(tonextmon3 + "/" + tonextday3);
+    $("#toweek3").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext4 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 4))
+    var tonextmon4 = tonext4.getMonth() + 1
+    var tonextday4 = tonext4.getDate()
+    var dayofweek = tonext4.getDay()
+    $("#today4").text(tonextmon4 + "/" + tonextday4);
+    $("#toweek4").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext5 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 5))
+    var tonextmon5 = tonext5.getMonth() + 1
+    var tonextday5 = tonext5.getDate()
+    var dayofweek = tonext5.getDay()
+    $("#today5").text(tonextmon5 + "/" + tonextday5);
+    $("#toweek5").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext6 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 6))
+    var tonextmon6 = tonext6.getMonth() + 1
+    var tonextday6 = tonext6.getDate()
+    var dayofweek = tonext6.getDay()
+    $("#today6").text(tonextmon6 + "/" + tonextday6);
+    $("#toweek6").text(weekday[dayofweek]);
+</script>
+
+<script>
+    var currentTime = new Date()
+    var tonext7 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 7))
+    var tonextmon7 = tonext7.getMonth() + 1
+    var tonextday7 = tonext7.getDate()
+    var dayofweek = tonext7.getDay()
+    $("#today7").text(tonextmon7 + "/" + tonextday7);
+    $("#toweek7").text(weekday[dayofweek]);
+</script>
