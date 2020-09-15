@@ -10,31 +10,41 @@
     .grid-container {
         display: grid;
         max-width: 2000px;
-       
         grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
         grid-gap: 1px;
-        
     }
 
 
         .grid-container > div {
             text-align: center;
             font-size: 10px;
-          
         }
 
     .question:not(.active) {
         display: none;
     }
 
-   @@media (min-width: 200px) {
-  
-}
+    @@media (max-width: 768px) {
+        .btn-responsive {
+            padding: 2px 4px;
+            font-size: 80%;
+            line-height: 1;
+        }
+    }
+
+    @@media (min-width: 769px) and (max-width: 992px) {
+        .btn-responsive {
+            padding: 4px 9px;
+            font-size: 90%;
+            line-height: 1.2;
+            max-width: 400px;
+        }
+    }
 </style>
 <div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
 
     <img src="~/Images/clouds-3488632_1920.jpg" style="width:100%;max-height:580px;" />
-    <div class="w3-display-middle w3-two w3-text-black w3-hide-small" style="margin-top:5%">
+    <div class="w3-display-middle w3-two w3-text-black w3-hide-small" style="margin-top:10%">
         <div class=" w3-container" style="min-height:300px">
             <h1 style="font-size:40px;line-height:1.75"><b>Save energy by setting the right temperature at your house!</b></h1>
         </div>
@@ -86,9 +96,9 @@
         <div class="w3-third">
             <div class=" w3-container" style="min-height:150px">
                 <p>Set Your Themostat at:</p><br>
-     
-            
-               <h1> <b id="tempre"> </b><b> C</b></h1>
+
+
+                <h1> <b id="tempre"> </b><b> C</b></h1>
                 <br><br>
             </div>
         </div>
@@ -188,8 +198,8 @@
     </div>
 
 </div>
-    
-<div class="w3" style="margin-top:20%;background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px">
+
+<div class="w3" style="margin-top:15%;background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px">
     <h2 class="w3-wide w3-center w3-padding-16">Let Us Understand You Before Suggesting</h2>
     <div class="w3-row-padding w3-center">
         <div class="w3-card w3-container" style="min-height:300px;background-color:white;">
@@ -207,9 +217,9 @@
                     </div>Which season are you concern about?
                     <br>
                     <br>
-                    <p><button type="button" id="winter" style="height:50px;width:200px">Winter</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="winter">Cold Weather</button></p>
                     <br>
-                    <p><button type="button" id="summer" style="height:50px;width:200px">Summer</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="summer">Hot Weather</button></p>
                 </div>
                 <div class="question">
                     <div class="progress">
@@ -221,11 +231,11 @@
                     Which type of house you are living in?
                     <br>
                     <br>
-                    <p><button type="button" id="fua" style="height:50px;width:400px">Flat or Unit or Apartment</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="fua">Flat or Unit or Apartment</button></p>
                     <br>
-                    <p><button type="button" id="srtt" style="height:50px;width:400px">Semi-detached or Row or Terrace or Townhouse</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="srtt">Semi-detached or Row or Terrace or Townhouse</button></p>
                     <br>
-                    <p><button type="button" id="sh" style="height:50px;width:400px">Seperate House</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="sh">Seperate House</button></p>
                 </div>
                 <div class="question">
                     <div class="progress">
@@ -239,25 +249,25 @@
                         Which type of heating system you using?
                         <br>
                         <br>
-                        <p><button type="button" id="ductedgas" style="height:50px;width:400px"> Ducted gas</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="ductedgas"> Ducted gas</button></p>
                         <br>
-                        <p><button type="button" id="rvcacs" style="height:50px;width:400px">Reverse- cycle air-conditioning</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="rvcacs">Reverse- cycle air-conditioning</button></p>
                         <br>
-                        <p><button type="button" id="wallmge" style="height:50px;width:400px">Wall-mounted Gas or Wall-mounted Electric</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="wallmge">Wall-mounted Gas or Wall-mounted Electric</button></p>
                         <br>
-                        <p><button type="button" id="portableelecgas" style="height:50px;width:400px">Portable electric or Gas</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="portableelecgas">Portable electric or Gas</button></p>
                     </div>
                     <div id="summercool" style="display:none">
                         Which type of cooling system you using?
                         <br>
                         <br />
-                        <p><button type="button" id="rvcacw" style="height:50px;width:400px">Reverse- cycle air-conditioning</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="rvcacw">Reverse- cycle air-conditioning</button></p>
                         <br>
-                        <p><button type="button" id="evaporativecool" style="height:50px;width:400px">Evaporative cooler</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="evaporativecool">Evaporative cooler</button></p>
                         <br>
-                        <p><button type="button" id="wallwinmount" style="height:50px;width:400px">Wall or Window Mounted Air Conditioner</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="wallwinmount">Wall or Window Mounted Air Conditioner</button></p>
                         <br>
-                        <p><button type="button" id="portac" style="height:50px;width:400px">Portable Air-Conditioning</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="portac">Portable Air-Conditioning</button></p>
                     </div>
                 </div>
                 <div class="question">
@@ -270,11 +280,11 @@
                     Do you like colder or warmer temperature compare to others?
                     <br>
                     <br>
-                    <p><button type="button" id="colderc" style="height:50px;width:400px">Colder</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="colderc">Colder</button></p>
                     <br>
-                    <p><button type="button" id="normalc" style="height:50px;width:400px">Normal</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="normalc">Normal</button></p>
                     <br>
-                    <p><button type="button" id="warmerc" style="height:50px;width:400px">Warmer</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="warmerc">Warmer</button></p>
                     <br>
                 </div>
                 <div class="question">
@@ -287,17 +297,17 @@
                     Are you living with others?
                     <br>
                     <br>
-                    <p><button type="button" id="liveyes" style="height:50px;width:400px">Yes</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="liveyes">Yes</button></p>
                     <br>
-                    <p><button type="button" id="liveno" style="height:50px;width:400px">No</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="liveno">No</button></p>
                     <br>
                     <div id="liveothers" style="display:none">
                         Do they like colder or warmer compare to you?
                         <br>
                         <br>
-                        <p><button type="button" id="coldero" style="height:50px;width:400px">Colder</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="coldero">Colder</button></p>
                         <br>
-                        <p><button type="button" id="warmero" style="height:50px;width:400px">Warmer</button></p>
+                        <p><button class="btn-responsive btn-block" type="button" id="warmero">Warmer</button></p>
                         <br>
                     </div>
                 </div>
@@ -313,20 +323,20 @@
                     </div>
                     <br>
                     <br>
-                    <p><button type="button" id="more6" style="height:50px;width:400px">More than 6 hours</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="more6">More than 6 hours</button></p>
                     <br>
-                    <p><button type="button" id="3to6hrs" style="height:50px;width:400px">3 to 6 hours</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="3to6hrs">3 to 6 hours</button></p>
                     <br>
-                    <p><button type="button" id="1to3hrs" style="height:50px;width:400px">1 to 3 hours</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="1to3hrs">1 to 3 hours</button></p>
                     <br>
-                    <p><button type="button" id="lessthan1" style="height:50px;width:400px">Less than 1 hour</button></p>
+                    <p><button class="btn-responsive btn-block" type="button" id="lessthan1">Less than 1 hour</button></p>
                     <br>
                     <div id="finishq" style="display:none;">
                         Thank you for taking your time with us! Click below to show our suggestion to you...
                         <br>
                         <br>
                         <br>
-                        <p><button class="btn-success" id="suggestion" style="height:50px;width:400px">Show Suggestion</button></p>
+                        <p><button class="btn-success" id="suggestion">Show Suggestion</button></p>
                     </div>
                 </div>
 
@@ -339,7 +349,7 @@
                 <p>Set your themostat to: </p>
                 <p id="temperaturesetper"></p>
                 <br>
-                <p>Length of time:</p> 
+                <p>Length of time:</p>
                 <p id="hoursetper"></p>
                 <br>
                 <h4><b>Standard</b></h4>
@@ -598,7 +608,7 @@
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
             document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C than outside temperature";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C higher than outside temperature";
         }
 
 
@@ -624,7 +634,7 @@
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
             document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C than outside temperature";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C higher than outside temperature";
         }
 
 
@@ -636,7 +646,7 @@
 </script>
 
 <script>
-    
+
     $(document).ready(function () {
 
         $.get("https://api.openweathermap.org/data/2.5/weather?q=Melbourne,au&appid=d10eac299378be51e983c8ee353655cf", function (response) {
@@ -647,21 +657,21 @@
             var tempcelmin = (tempkelmin - 273.15).toFixed(1);
             var tempkel = response.main.temp;
             var tempcel = (tempkel - 273.15).toFixed(1);
-            var tempre = (tempkel-273.15 + 8).toFixed(0);
-            $("#temp").text(tempcel,"resize");
+            var tempre = (tempkel - 273.15 + 8).toFixed(0);
+            $("#temp").text(tempcel, "resize");
             $("#tempmax").text(tempcelmax);
             $("#tempmin").text(tempcelmin);
             $("#humidity").text(response.main.humidity);
             $("#wdesp").text(response.weather[0].description);
             $("#tempre").text(tempre);
 
-            
+
 
             var iconcode = response.weather[0].icon;
             var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
             $('#weathericon').attr('src', iconurl);
             console.log(response);
-            
+
         });
     });
 
@@ -670,13 +680,13 @@
     var day = currentTime.getDate()
     var dayofweek = currentTime.getDay()
     var weekday = new Array(7);
-    weekday[0] = "Monday";
-    weekday[1] = "Tuesday";
-    weekday[2] = "Wednesday";
-    weekday[3] = "Thursday";
-    weekday[4] = "Friday";
-    weekday[5] = "Saturday";
-    weekday[6] = "Sunday";
+    weekday[0] = "Mon";
+    weekday[1] = "Tue";
+    weekday[2] = "Wed";
+    weekday[3] = "Thur";
+    weekday[4] = "Fri";
+    weekday[5] = "Sat";
+    weekday[6] = "Sun";
     $("#today").text(month + "/" + day);
     $("#toweek").text(weekday[dayofweek]);
     $(document).ready(function () {
@@ -805,3 +815,40 @@
     $("#today7").text(tonextmon7 + "/" + tonextday7);
     $("#toweek7").text(weekday[dayofweek]);
 </script>
+
+<script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+<div class="container" style="padding-left:20px">
+    <a class="twitter-share-button"
+       href="https://energuction.azurewebsites.net/Home/WaterTipLaundry">
+        Tweet
+    </a>
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/Weather" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>

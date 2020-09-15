@@ -39,7 +39,13 @@
             height: 100%;
         }
 
-      
+      .nav.navbar-nav li a {
+   color: white;
+ }
+
+.nav.navbar-nav a:hover {
+ color: white;
+}
     </style>
 </head>
 
@@ -48,20 +54,21 @@
 <body>
 
 
-    <div class="navbar navbar-default static-top" style="background-color:#234F72;max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-10px;margin-right:-10px">
+    <div class="navbar navbar-default navbar-dark static-top" style="background-color:#234F72;max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-10px;margin-right:-10px">
         <div class="container" style="width:100%">
             <a class="navbar-brand" href="~/Home">
                 <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:30px">
             </a>
-            <div class="navbar-header navbar-expand-lg static-top">
+            <div class="navbar-header navbar-expand-lg static-top navbar-dark">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
 
             </div>
-            <div class="navbar-collapse collapse static-top">
+            <div class="navbar-collapse collapse static-top navbar-dark">
                 <ul class="nav navbar-nav static-top" style="color:black">
                     <li>@Html.ActionLink("TakeQuiz", "TakeQuiz", "Home")</li>
                     <li>@Html.ActionLink("CommonTips", "CommonTips", "Home")</li>

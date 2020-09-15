@@ -1,0 +1,819 @@
+﻿@{
+    ViewBag.Title = "WaterMachineQuiz";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .block {
+        display: block;
+        width: 100%;
+        border: solid 1px;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px;
+        border-radius: 12px;
+    }
+
+        .block:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    .question:not(.active) {
+        display: none;
+    }
+
+
+    .progressbar {
+        counter-reset: step;
+    }
+
+        .progressbar li {
+            list-style-type: none;
+            width: 14.3%;
+            float: left;
+            font-size: 12px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7d7d7d;
+        }
+
+            .progressbar li:before {
+                width: 30px;
+                height: 30px;
+                content: counter(step);
+                counter-increment: step;
+                line-height: 30px;
+                border: 2px solid #7d7d7d;
+                display: block;
+                text-align: center;
+                margin: 0 auto 10px auto;
+                border-radius: 50%;
+                background-color: white;
+            }
+
+            .progressbar li:after {
+                width: 100%;
+                height: 2px;
+                content: '';
+                position: absolute;
+                background-color: #ddd;
+                top: 15px;
+                left: -50%;
+                z-index: -1;
+            }
+
+            .progressbar li:first-child:after {
+                content: none;
+            }
+
+            .progressbar li.active {
+                color: green;
+            }
+
+                .progressbar li.active:before {
+                    border-color: #55b776;
+                }
+
+                .progressbar li.active + li:after {
+                    background-color: #55b776;
+                }
+</style>
+
+<div class="w3-row" id="quiz" style="margin-left:-15px;margin-top:-23px">
+
+    <div class="w3-container  " style="height:1000px;margin-right:-15px;margin-top:-23px">
+
+        <div class="w3-padding-32 w3-center">
+
+            <h2 style="line-height:1.75"> <b>Washing Machine</b></h2>
+            <div id="questions" style="padding:16px;margin-left:15%;margin-right:15%">
+                <div class="question active ">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Please select which state you are located in:</b></h3>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button id="ACT" class="block">ACT</button>
+                            <button id="NSW" class="block">NSW</button>
+                            <button id="NT" class="block">NT</button>
+                            <button id="QLD" class="block">QLD</button>
+
+                        </div>
+
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button id="SA" class="block">SA</button>
+                            <button id="TAS" class="block">TAS</button>
+                            <button id="VIC" class="block">VIC</button>
+                            <button id="WA" class="block">WA</button>
+                        </div>
+
+                    </div>
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>How much do you pay your water bill per month?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button class="block" id="pay1">$20-30</button>
+                            <button class="block" id="pay2">$30-40</button>
+                            <button class="block" id="pay3">$40-50</button>
+                            <button class="block" id="pay4">$50-60</button>
+                        </div>
+
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button class="block" id="pay5">$60-70</button>
+                            <button class="block" id="pay6">$70-80</button>
+                            <button class="block" id="pay7">$80-90</button>
+
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+
+                            <li></li>
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Which type of washing machine are you using?</b></h3>
+                    <br>
+                    <hr>
+                    <button class="block" id="wash1">Front Loading</button>
+                    <button class="block" id="wash2">Top Loading</button>
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>How frequently do you use your washing machine per week?</b></h3>
+                    <br>
+                    <hr>
+                    <button class="block" id="freq1">1-3 times</button>
+                    <button class="block" id="freq2">3-5 times</button>
+                    <button class="block" id="freq3">5 or more</button>
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <br>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="result" style="display:none">
+    <div class="w3-padding-32 w3-center">
+        <h1><b>  Washing Machine Quiz Result</b></h1>
+    </div>
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-third">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>Average monthly water bill for</p>
+                    <h2 id="monthbill"></h2>
+                </div>
+            </div>
+        </div>
+        <div class="w3-third">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>
+                        Average weekly water consume for
+                    </p>
+                    <h2 id="loading0"></h2>
+                </div>
+            </div>
+        </div>
+        <div class="w3-third">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>% of Household in your state use washing machine in a week</p>
+                    <h2 id="wmtimes"></h2>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="w3-content w3-half w3-left">
+            <div style="padding:20px;padding-right:5%;">
+                <h1><b>Our Suggestion to You:</b></h1>
+
+                <div id="sug1" style="display:none;line-height:1.75;">Your water bills are higher than average. You might want to consider if you spend on laundry. </div>
+                <br>
+                <div id="sug2" style="display:none;line-height:1.75">Changing to front load washing machine can reduce water waste by 2 times compare to top loading.</div>
+                <br>
+
+                <div id="sug4" style="display:none;line-height:1.75;">You may want to consider if you really need so much load per week less than 25% of Australians actually do 5 loads and above.</div>
+            </div>
+            
+        </div>
+        <div class="w3-content w3-half w3-right">
+            <div id="chartContainer" style="height: 500px; width: 85%;padding:20px;padding-right:5%"></div>
+        </div>
+    </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+    var q1;
+    var q2;
+    var q3;
+    var state = new Array(8);
+    state[0] = "ACT";
+    state[1] = "NSW";
+    state[2] = "NT";
+    state[3] = "QLD";
+    state[4] = "SA";
+    state[5] = "TAS";
+    state[6] = "VIC";
+    state[7] = "WA";
+
+    var paybill = new Array(8);
+    paybill[0] = 53.783;
+    paybill[1] = 42.02;
+    paybill[2] = 80.85;
+    paybill[3] = 57.83;
+    paybill[4] = 28.616;
+    paybill[5] = 39.41;
+    paybill[6] = 42.152;
+    paybill[7] = 52.753;
+
+ 
+   
+
+    $('#ACT').click(function () {
+        var $ACT = $('.question.active');
+        $('.question').removeClass('active');
+        $ACT.next().addClass('active');
+        q1 = 0;
+        return q1;
+    });
+
+    $('#NSW').click(function () {
+        var $NSW = $('.question.active');
+        $('.question').removeClass('active');
+        $NSW.next().addClass('active');
+        q1 = 1;
+        return q1;
+    });
+
+    $('#NT').click(function () {
+        var $NT = $('.question.active');
+        $('.question').removeClass('active');
+        $NT.next().addClass('active');
+        q1 = 2;
+        return q1;
+    });
+
+    $('#QLD').click(function () {
+        var $QLD = $('.question.active');
+        $('.question').removeClass('active');
+        $QLD.next().addClass('active');
+        q1 = 3;
+        return q1;
+    });
+
+
+    $('#SA').click(function () {
+        var $SA = $('.question.active');
+        $('.question').removeClass('active');
+        $SA.next().addClass('active');
+        q1 = 4;
+        return q1;
+    });
+
+
+    $('#TAS').click(function () {
+        var $TAS = $('.question.active');
+        $('.question').removeClass('active');
+        $TAS.next().addClass('active');
+        q1 = 5;
+        return q1;
+    });
+
+    $('#VIC').click(function () {
+        var $VIC = $('.question.active');
+        $('.question').removeClass('active');
+        $VIC.next().addClass('active');
+        q1 = 6;
+        return q1;
+    });
+
+    $('#WA').click(function () {
+        var $WA = $('.question.active');
+        $('.question').removeClass('active');
+        $WA.next().addClass('active');
+        q1 = 7;
+        return q1;
+    });
+
+    $('#pay1').click(function () {
+        var $pay1 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay1.next().addClass('active');
+        q2 = 0;
+        return q2;
+    });
+
+    $('#pay2').click(function () {
+        var $pay2 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay2.next().addClass('active');
+        q2 = 1;
+        return q2;
+    });
+    $('#pay3').click(function () {
+        var $pay3 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay3.next().addClass('active');
+        q2 = 2;
+        return q2;
+    });
+    $('#pay4').click(function () {
+        var $pay4 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay4.next().addClass('active');
+        q2 = 3;
+        return q2;
+    });
+
+    $('#pay5').click(function () {
+        var $pay5 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay5.next().addClass('active');
+        q2 = 4;
+        return q2;
+    });
+    $('#pay6').click(function () {
+        var $pay6 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay6.next().addClass('active');
+        q2 = 5;
+        return q2;
+    });
+    $('#pay7').click(function () {
+        var $pay7 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay7.next().addClass('active');
+        q2 = 6;
+        return q2;
+    });
+
+    $('#pay8').click(function () {
+        var $pay8 = $('.question.active');
+        $('.question').removeClass('active');
+        $pay8.next().addClass('active');
+        q2 = 7;
+        return q2;
+    });
+
+
+    $('#wash1').click(function () {
+        var $wash1 = $('.question.active');
+        $('.question').removeClass('active');
+        $wash1.next().addClass('active');
+        q3 = 0;
+        return q3;
+    });
+
+    $('#wash2').click(function () {
+        var $wash2 = $('.question.active');
+        $('.question').removeClass('active');
+        $wash2.next().addClass('active');
+        q3 = 1;
+        return q3;
+    });
+
+    $('#freq1').click(function () {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        q4 = 0;
+        if (q1 == 0) { $("#monthbill").text(" ACT: $53.78 "); }
+        if (q1 == 1) { $("#monthbill").text(" NSW: $43.02 "); }
+        if (q1 == 2) { $("#monthbill").text(" NT: $80.85 "); }
+        if (q1 == 3) { $("#monthbill").text(" QLD: $57.83 "); }
+        if (q1 == 4) { $("#monthbill").text(" SA: $28.62 "); }
+        if (q1 == 5) { $("#monthbill").text(" TAS: $39.41 "); }
+        if (q1 == 6) { $("#monthbill").text(" VIC: $42.152 "); }
+        if (q1 == 7) { $("#monthbill").text(" WA: $52.753 "); }
+
+        if (q1 == 0 && q3 == 0) { $("#loading0").text(" ACT: 8.85L "); }
+        if (q1 == 0 && q3 == 1) { $("#loading0").text(" ACT: 21.93L "); }
+        if (q1 == 1 && q3 == 0) { $("#loading0").text(" NSW: 126.22L "); }
+        if (q1 == 1 && q3 == 1) { $("#loading0").text(" NSW: 498.53L "); }
+        if (q1 == 2 && q3 == 0) { $("#loading0").text(" NT: 2.22L "); }
+        if (q1 == 2 && q3 == 1) { $("#loading0").text(" NT: 12.05L "); }
+        if (q1 == 3 && q3 == 0) { $("#loading0").text(" QLD: 87.73L "); }
+        if (q1 == 3 && q3 == 1) { $("#loading0").text(" QLD: 292.5L "); }
+        if (q1 == 4 && q3 == 0) { $("#loading0").text(" SA: 44.35L "); }
+        if (q1 == 4 && q3 == 1) { $("#loading0").text(" SA: 102.7L "); }
+        if (q1 == 5 && q3 == 0) { $("#loading0").text(" TAS: 7.73L "); }
+        if (q1 == 5 && q3 == 1) { $("#loading0").text(" TAS: 38.75L "); }
+        if (q1 == 6 && q3 == 0) { $("#loading0").text(" VIC: 118.05L "); }
+        if (q1 == 6 && q3 == 1) { $("#loading0").text(" VIC: 369.08L "); }
+        if (q1 == 7 && q3 == 0) { $("#loading0").text(" WA: 52.75L "); }
+        if (q1 == 7 && q3 == 1) { $("#loading0").text(" WA: 51.68L "); }
+
+        if (q1 == 0 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 28.7% "); }
+        if (q1 == 1 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 32.8% "); }
+        if (q1 == 2 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 23.7% "); }
+        if (q1 == 3 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 29.9% "); }
+        if (q1 == 4 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 39.7% "); }
+        if (q1 == 5 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 30.2% "); }
+        if (q1 == 6 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 42.1% "); }
+        if (q1 == 7 && q4 == 0) { $("#wmtimes").text(" Less than 3 times: 35.1% "); }
+
+         
+        var spendmonth;
+        if (q2 == 0) { spendmonth = 25;}
+        if (q2 == 1) {spendmonth = 35; }
+        if (q2 == 2) {spendmonth = 45; }
+        if (q2 == 3) { spendmonth = 55;}
+        if (q2 == 4) { spendmonth = 65;}
+        if (q2 == 5) { spendmonth = 75;}
+        if (q2 == 6) {spendmonth = 85; }
+        if (q2 == 7) { spendmonth = 95;}
+           
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Comparing your monthly bills and the average bills in all state"
+            },
+            axisY: {
+                title: ""
+            },
+            data: [{
+                type: "column",
+                showInLegend: true,
+                legendText: "Average monthly bills per state",
+                dataPoints: [
+                    { y: spendmonth, label: "YOU" },
+                    { y: 53.783, label: "ACT" },
+                    { y: 43.02, label: "NSW" },
+                    { y: 80.85, label: "NT" },
+                    { y: 57.83, label: "QLD" },
+                    { y: 28.616, label: "SA" },
+                    { y: 39.41, label: "TAS" },
+                    { y: 42.152, label: "VIC" },
+                    { y: 52.752, label: "WA" }
+                ]
+            }]
+        });
+        chart.render();
+
+
+         for (var i = 0; i < paybill.length; i++)
+    {
+        var bill = new Array(8);
+   bill[0] = 25;
+    bill[1] = 35;
+    bill[2] = 45;
+    bill[3] = 55;
+        bill[4] = 65;
+    bill[5] = 75;
+    bill[6] = 85;
+    bill[7] = 95;
+        if (q1 == i)
+        {
+            if (bill[i]>paybill[i]) { document.getElementById('sug1').style.display = 'initial'; }
+
+             }
+             if (q1 == i && q3==1)
+        {
+           document.getElementById('sug2').style.display = 'initial'; 
+
+             }
+           
+              if (q4==2) { document.getElementById('sug4').style.display = 'initial';}
+
+    }
+    
+        return q4;
+
+
+    });
+
+    $('#freq2').click(function () {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        q4 = 1;
+
+        if (q1 == 0) { $("#monthbill").text(" ACT: $53.78 "); }
+        if (q1 == 1) { $("#monthbill").text(" NSW: $43.02 "); }
+        if (q1 == 2) { $("#monthbill").text(" NT: $80.85 "); }
+        if (q1 == 3) { $("#monthbill").text(" QLD: $57.83 "); }
+        if (q1 == 4) { $("#monthbill").text(" SA: $28.62 "); }
+        if (q1 == 5) { $("#monthbill").text(" TAS: $39.41 "); }
+        if (q1 == 6) { $("#monthbill").text(" VIC: $42.152 "); }
+        if (q1 == 7) { $("#monthbill").text(" WA: $52.753 "); }
+
+        if (q1 == 0 && q3 == 0) { $("#loading0").text(" ACT: 8.85L "); }
+        if (q1 == 0 && q3 == 1) { $("#loading0").text(" ACT: 21.93L "); }
+        if (q1 == 1 && q3 == 0) { $("#loading0").text(" NSW: 126.22L "); }
+        if (q1 == 1 && q3 == 1) { $("#loading0").text(" NSW: 498.53L "); }
+        if (q1 == 2 && q3 == 0) { $("#loading0").text(" NT: 2.22L "); }
+        if (q1 == 2 && q3 == 1) { $("#loading0").text(" NT: 12.05L "); }
+        if (q1 == 3 && q3 == 0) { $("#loading0").text(" QLD: 87.73L "); }
+        if (q1 == 3 && q3 == 1) { $("#loading0").text(" QLD: 292.5L "); }
+        if (q1 == 4 && q3 == 0) { $("#loading0").text(" SA: 44.35L "); }
+        if (q1 == 4 && q3 == 1) { $("#loading0").text(" SA: 102.7L "); }
+        if (q1 == 5 && q3 == 0) { $("#loading0").text(" TAS: 7.73L "); }
+        if (q1 == 5 && q3 == 1) { $("#loading0").text(" TAS: 38.75L "); }
+        if (q1 == 6 && q3 == 0) { $("#loading0").text(" VIC: 118.05L "); }
+        if (q1 == 6 && q3 == 1) { $("#loading0").text(" VIC: 369.08L "); }
+        if (q1 == 7 && q3 == 0) { $("#loading0").text(" WA: 52.75L "); }
+        if (q1 == 7 && q3 == 1) { $("#loading0").text(" WA: 51.68L "); }
+
+        if (q1 == 0 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 74.7% "); }
+        if (q1 == 1 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 73.7% "); }
+        if (q1 == 2 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 65.4% "); }
+        if (q1 == 3 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 72.2% "); }
+        if (q1 == 4 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 79.1% "); }
+        if (q1 == 5 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 66.7% "); }
+        if (q1 == 6 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 77.8% "); }
+        if (q1 == 7 && q4 == 1) { $("#wmtimes").text(" Less than 5 times: 74.3% "); }
+
+         
+        var spendmonth;
+        if (q2 == 0) { spendmonth = 25;}
+        if (q2 == 1) {spendmonth = 35; }
+        if (q2 == 2) {spendmonth = 45; }
+        if (q2 == 3) { spendmonth = 55;}
+        if (q2 == 4) { spendmonth = 65;}
+        if (q2 == 5) { spendmonth = 75;}
+        if (q2 == 6) {spendmonth = 85; }
+        if (q2 == 7) { spendmonth = 95;}
+           
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Comparing your monthly bills and the average bills in all state"
+            },
+            axisY: {
+                title: "$dollars"
+            },
+            data: [{
+                type: "column",
+                showInLegend: true,
+                legendText: "Average monthly bills per state",
+                dataPoints: [
+                    { y: spendmonth, label: "YOU" },
+                    { y: 53.783, label: "ACT" },
+                    { y: 43.02, label: "NSW" },
+                    { y: 80.85, label: "NT" },
+                    { y: 57.83, label: "QLD" },
+                    { y: 28.616, label: "SA" },
+                    { y: 39.41, label: "TAS" },
+                    { y: 42.152, label: "VIC" },
+                    { y: 52.752, label: "WA" }
+                ]
+            }]
+        });
+        chart.render();
+
+            for (var i = 0; i < paybill.length; i++)
+    {
+        var bill = new Array(8);
+   bill[0] = 25;
+    bill[1] = 35;
+    bill[2] = 45;
+    bill[3] = 55;
+        bill[4] = 65;
+    bill[5] = 75;
+    bill[6] = 85;
+    bill[7] = 95;
+        if (q1 == i)
+        {
+            if (bill[i]>paybill[i]) { document.getElementById('sug1').style.display = 'initial'; }
+
+             }
+             if (q1 == i && q3==1)
+        {
+           document.getElementById('sug2').style.display = 'initial'; 
+
+             }
+           
+              if (q4==2) { document.getElementById('sug4').style.display = 'initial';}
+
+    }
+    
+    
+        return q4;
+    });
+
+    $('#freq3').click(function () {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        q4 = 2;
+
+        if (q1 == 0) { $("#monthbill").text(" ACT: $53.78 "); }
+        if (q1 == 1) { $("#monthbill").text(" NSW: $43.02 "); }
+        if (q1 == 2) { $("#monthbill").text(" NT: $80.85 "); }
+        if (q1 == 3) { $("#monthbill").text(" QLD: $57.83 "); }
+        if (q1 == 4) { $("#monthbill").text(" SA: $28.62 "); }
+        if (q1 == 5) { $("#monthbill").text(" TAS: $39.41 "); }
+        if (q1 == 6) { $("#monthbill").text(" VIC: $42.152 "); }
+        if (q1 == 7) { $("#monthbill").text(" WA: $52.753 "); }
+
+        if (q1 == 0 && q3 == 0) { $("#loading0").text(" ACT: 8.85L "); }
+        if (q1 == 0 && q3 == 1) { $("#loading0").text(" ACT: 21.93L "); }
+        if (q1 == 1 && q3 == 0) { $("#loading0").text(" NSW: 126.22L "); }
+        if (q1 == 1 && q3 == 1) { $("#loading0").text(" NSW: 498.53L "); }
+        if (q1 == 2 && q3 == 0) { $("#loading0").text(" NT: 2.22L "); }
+        if (q1 == 2 && q3 == 1) { $("#loading0").text(" NT: 12.05L "); }
+        if (q1 == 3 && q3 == 0) { $("#loading0").text(" QLD: 87.73L "); }
+        if (q1 == 3 && q3 == 1) { $("#loading0").text(" QLD: 292.5L "); }
+        if (q1 == 4 && q3 == 0) { $("#loading0").text(" SA: 44.35L "); }
+        if (q1 == 4 && q3 == 1) { $("#loading0").text(" SA: 102.7L "); }
+        if (q1 == 5 && q3 == 0) { $("#loading0").text(" TAS: 7.73L "); }
+        if (q1 == 5 && q3 == 1) { $("#loading0").text(" TAS: 38.75L "); }
+        if (q1 == 6 && q3 == 0) { $("#loading0").text(" VIC: 118.05L "); }
+        if (q1 == 6 && q3 == 1) { $("#loading0").text(" VIC: 369.08L "); }
+        if (q1 == 7 && q3 == 0) { $("#loading0").text(" WA: 52.75L "); }
+        if (q1 == 7 && q3 == 1) { $("#loading0").text(" WA: 51.68L "); }
+
+
+        if (q1 == 0 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 25.3% "); }
+        if (q1 == 1 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 26.3% "); }
+        if (q1 == 2 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 34.6% "); }
+        if (q1 == 3 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 27.8% "); }
+        if (q1 == 4 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 20.9% "); }
+        if (q1 == 5 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 33.3% "); }
+        if (q1 == 6 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 22.2% "); }
+        if (q1 == 7 && q4 == 2) { $("#wmtimes").text(" More than 5 times: 25.7% "); }
+
+         
+        var spendmonth;
+        if (q2 == 0) { spendmonth = 25;}
+        if (q2 == 1) {spendmonth = 35; }
+        if (q2 == 2) {spendmonth = 45; }
+        if (q2 == 3) { spendmonth = 55;}
+        if (q2 == 4) { spendmonth = 65;}
+        if (q2 == 5) { spendmonth = 75;}
+        if (q2 == 6) {spendmonth = 85; }
+        if (q2 == 7) { spendmonth = 95;}
+           
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Comparing your monthly bills and the average bills in all state"
+            },
+            axisY: {
+                title: ""
+            },
+            data: [{
+                type: "column",
+                showInLegend: true,
+                legendText: "Average monthly bills per state",
+                dataPoints: [
+                    { y: spendmonth, label: "YOU" },
+                    { y: 53.783, label: "ACT" },
+                    { y: 43.02, label: "NSW" },
+                    { y: 80.85, label: "NT" },
+                    { y: 57.83, label: "QLD" },
+                    { y: 28.616, label: "SA" },
+                    { y: 39.41, label: "TAS" },
+                    { y: 42.152, label: "VIC" },
+                    { y: 52.752, label: "WA" }
+                ]
+            }]
+        });
+        chart.render();
+
+        for (var i = 0; i < paybill.length; i++)
+    {
+        var bill = new Array(8);
+   bill[0] = 25;
+    bill[1] = 35;
+    bill[2] = 45;
+    bill[3] = 55;
+        bill[4] = 65;
+    bill[5] = 75;
+    bill[6] = 85;
+    bill[7] = 95;
+       if (q1 == i)
+        {
+            if (bill[i]>paybill[i]) { document.getElementById('sug1').style.display = 'initial'; }
+
+             }
+             if (q1 == i && q3==1)
+        {
+           document.getElementById('sug2').style.display = 'initial'; 
+
+             }
+           
+              if (q4==2) { document.getElementById('sug4').style.display = 'initial';}
+
+    }
+    
+        return q4;
+    });
+
+  
+
+
+</script>
+
+<script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+<div class="container" style="padding-left:20px">
+    <a class="twitter-share-button"
+       href="https://energuction.azurewebsites.net/Home/WaterMachineQuiz">
+        Tweet
+    </a>
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="fb-like" data-href="https://enermateziteration2.azurewebsites.net/Home/WaterMachineQuiz" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>
+
+
+

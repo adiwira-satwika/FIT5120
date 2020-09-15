@@ -216,6 +216,9 @@
     <Content Include="Images\off pic.png" />
     <Content Include="Images\picnic.jpg" />
     <Content Include="Images\pump.jpg" />
+    <Content Include="Images\questionmark.jpg" />
+    <Content Include="Images\quizbg.jpg" />
+    <Content Include="Images\quizbg1.jpg" />
     <Content Include="Images\rsz_1enermat-removebg-preview.png" />
     <Content Include="Images\slidenergy.jpg" />
     <Content Include="Images\slidewater.jpg" />
@@ -296,6 +299,10 @@
     <Content Include="Views\Home\WaterTipLaundry.cshtml" />
     <Content Include="Views\Home\WaterTipTurnOffTap.cshtml" />
     <Content Include="Views\Home\Weather.cshtml" />
+    <Content Include="Views\Home\GeneralQuiz.cshtml" />
+    <Content Include="Views\Home\WaterHeatingQuiz.cshtml" />
+    <Content Include="Views\Home\WashingMachineQuiz.cshtml" />
+    <Content Include="Views\Home\WaterHeaterQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
