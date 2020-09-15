@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Environment_Green.Models.QuizResult>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Occupants)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Income)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnergyBills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterBills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaterType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaterDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WMType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WashingFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BulbType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BulbDuration)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Occupants)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Income)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnergyBills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaterBills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeaterType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeaterDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WMType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WashingFrequency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BulbType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BulbDuration)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

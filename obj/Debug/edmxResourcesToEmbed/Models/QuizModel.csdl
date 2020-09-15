@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="QuizModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="QuizModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="QuizResults" EntityType="QuizModel.QuizResult" />
+  </EntityContainer>
+  <EntityType Name="QuizResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State" Type="String" Nullable="false" />
+    <Property Name="Occupants" Type="Int32" Nullable="false" />
+    <Property Name="Income" Type="Double" Nullable="false" />
+    <Property Name="EnergyBills" Type="Double" Nullable="false" />
+    <Property Name="WaterBills" Type="Double" Nullable="false" />
+    <Property Name="HeaterType" Type="String" Nullable="false" />
+    <Property Name="HeaterDuration" Type="Int32" Nullable="false" />
+    <Property Name="WMType" Type="String" Nullable="false" />
+    <Property Name="WashingFrequency" Type="Int32" Nullable="false" />
+    <Property Name="Room" Type="Int32" Nullable="false" />
+    <Property Name="BulbType" Type="String" Nullable="false" />
+    <Property Name="BulbDuration" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

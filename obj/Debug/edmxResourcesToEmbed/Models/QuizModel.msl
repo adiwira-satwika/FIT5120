@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuizModelStoreContainer" CdmEntityContainer="QuizModelContainer">
+    <EntitySetMapping Name="QuizResults">
+      <EntityTypeMapping TypeName="IsTypeOf(QuizModel.QuizResult)">
+        <MappingFragment StoreEntitySet="QuizResults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Occupants" ColumnName="Occupants" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="EnergyBills" ColumnName="EnergyBills" />
+          <ScalarProperty Name="WaterBills" ColumnName="WaterBills" />
+          <ScalarProperty Name="HeaterType" ColumnName="HeaterType" />
+          <ScalarProperty Name="HeaterDuration" ColumnName="HeaterDuration" />
+          <ScalarProperty Name="WMType" ColumnName="WMType" />
+          <ScalarProperty Name="WashingFrequency" ColumnName="WashingFrequency" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="BulbType" ColumnName="BulbType" />
+          <ScalarProperty Name="BulbDuration" ColumnName="BulbDuration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

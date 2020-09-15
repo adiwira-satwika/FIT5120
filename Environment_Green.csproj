@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,12 +172,31 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuizResultsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\QuizModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizResult.cs">
+      <DependentUpon>QuizModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -229,8 +250,26 @@
     <Content Include="Images\waterbg.jpg" />
     <Content Include="Images\ws m.PNG" />
     <Content Include="Images\ws s.PNG" />
+    <Content Include="Models\QuizModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizModel.Context.cs</LastGenOutput>
+      <DependentUpon>QuizModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QuizModel.edmx.sql" />
+    <Content Include="Models\QuizModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizModel.cs</LastGenOutput>
+      <DependentUpon>QuizModel.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\QuizModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuizModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuizModel.edmx.diagram">
+      <DependentUpon>QuizModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Energuction - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -288,6 +327,11 @@
     <Content Include="Views\Home\EtipWaterSystem.cshtml" />
     <Content Include="Views\Home\WaterTipLaundry.cshtml" />
     <Content Include="Views\Home\WaterTipTurnOffTap.cshtml" />
+    <Content Include="Views\QuizResults\Create.cshtml" />
+    <Content Include="Views\QuizResults\Delete.cshtml" />
+    <Content Include="Views\QuizResults\Details.cshtml" />
+    <Content Include="Views\QuizResults\Edit.cshtml" />
+    <Content Include="Views\QuizResults\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +348,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

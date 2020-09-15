@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuizModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="QuizModelStoreContainer">
+    <EntitySet Name="QuizResults" EntityType="QuizModel.Store.QuizResults" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="QuizResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Occupants" Type="int" Nullable="false" />
+    <Property Name="Income" Type="float" Nullable="false" />
+    <Property Name="EnergyBills" Type="float" Nullable="false" />
+    <Property Name="WaterBills" Type="float" Nullable="false" />
+    <Property Name="HeaterType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeaterDuration" Type="int" Nullable="false" />
+    <Property Name="WMType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WashingFrequency" Type="int" Nullable="false" />
+    <Property Name="Room" Type="int" Nullable="false" />
+    <Property Name="BulbType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BulbDuration" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>
