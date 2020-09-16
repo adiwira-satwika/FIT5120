@@ -80,5 +80,31 @@ namespace Environment_Green.Controllers
             return View();
         }
 
+        public ActionResult Weather()
+        {
+
+            return View();
+        }
+        public ActionResult GeneralQuiz()
+        {
+
+            return View();
+        }
+        public ActionResult WaterHeatingQuiz()
+        {
+
+            return View();
+        }
+
+        public ActionResult WashingMachineQuiz()
+        {
+
+            return View();
+        }
+        public ActionResult WaterHeaterQuiz()
+        {
+
+            return View();
+        }
     }
 }

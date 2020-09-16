@@ -1,0 +1,510 @@
+﻿@{
+    ViewBag.Title = "GeneralQuiz";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+    .block {
+        display: block;
+        width: 100%;
+        border: solid 1px;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px;
+        border-radius: 12px;
+    }
+
+        .block:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    .question:not(.active) {
+        display: none;
+    }
+
+
+    .progressbar {
+        counter-reset: step;
+    }
+
+        .progressbar li {
+            list-style-type: none;
+            width: 14.3%;
+            float: left;
+            font-size: 12px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7d7d7d;
+        }
+
+            .progressbar li:before {
+                width: 30px;
+                height: 30px;
+                content: counter(step);
+                counter-increment: step;
+                line-height: 30px;
+                border: 2px solid #7d7d7d;
+                display: block;
+                text-align: center;
+                margin: 0 auto 10px auto;
+                border-radius: 50%;
+                background-color: white;
+            }
+
+            .progressbar li:after {
+                width: 100%;
+                height: 2px;
+                content: '';
+                position: absolute;
+                background-color: #ddd;
+                top: 15px;
+                left: -50%;
+                z-index: -1;
+            }
+
+            .progressbar li:first-child:after {
+                content: none;
+            }
+
+            .progressbar li.active {
+                color: green;
+            }
+
+                .progressbar li.active:before {
+                    border-color: #55b776;
+                }
+
+                .progressbar li.active + li:after {
+                    background-color: #55b776;
+                }
+</style>
+
+<div class="w3-row" id="quiz" style="margin-left:-15px;margin-top:-23px">
+    <div class="w3-half w3-black w3-container w3-center" style="height:580px;">
+
+        <div class="w3-padding-64">
+            <h1>General</h1>
+            <div class="w3-padding-16 w3-center" id="ac" style="line-height:1.75">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p> An air conditioner/heater in your house generates about</p>
+                <p><b style="font-size:30px">1.5 kilograms </b></p>
+                <p>of greenhouse gas per hour when cooling a living room during the day.</p>
+            </div>
+
+            <div class="w3-padding-16 w3-center" id="bulb" style="line-height:1.75;display:none">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p>Halogen burned </p>
+                <p><b style="font-size:30px">3 times </b></p>
+                <p> expensive than a LED bulb on the same watt.</p>
+            </div>
+            <div class="w3-padding-16 w3-center" id="waterheating" style="line-height:1.75;display:none">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p> Electric water heating system created </p>
+                <p><b style="font-size:30px">2 times</b></p>
+                <p> greenhouse gas emission than the gas heater.</p>
+            </div>
+            <div class="w3-padding-16 w3-center" id="laundry" style="line-height:1.75;display:none">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p>Each times when washing machine is turned on it cost you $0.30 each time and 100L water.</p>
+                <p><b style="font-size:30px">$0.30 each time & 100L water.</b></p>
+
+            </div>
+            <div class="w3-padding-16 w3-center" id="fridge" style="line-height:1.75;display:none">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p> Fridge consume</p>
+                <p><b style="font-size:30px">5% more energy</b></p>
+                <p>for every decrease in degree.</p>
+            </div>
+            <div class="w3-padding-16 w3-center" id="dryer" style="line-height:1.75;display:none">
+                <br><br>
+                <h2><b> Do you know?</b></h2>
+                <br>
+                <p> Dryer can cost you about</p>
+                <p><b style="font-size:30px">$1</b></p>
+                <p>for every cycle.</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="w3-half w3-container" style="height:580px;margin-right:-15px;margin-top:-23px">
+        <div class="w3-padding-32 w3-center">
+            <div id="questions" style="padding:32px">
+                <div class="question active">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Do you turn off your air conditioner or heater when you are outside of your house?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button id="q1y" class="block">Yes</button>
+                        <button id="q1n" class="block">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Do you use have more LED than halogen types of bulb in your house?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button class="block" id="q2y">Yes</button>
+                        <button class="block" id="q2n">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Are you using gas type water heating system?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button class="block" id="q3y">Yes</button>
+                        <button class="block" id="q3n">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Do you use washing machine only when it is full loads?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button class="block" id="q4y">Yes</button>
+                        <button class="block" id="q4n">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Do you know the correct temperature for your fridge?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button class="block" id="q5y">Yes</button>
+                        <button class="block" id="q5n">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li></li>
+                    </ul>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Do you hang your clothes to dry most of the time?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="w3-left-align w3-padding-large">
+                        <button class="block" id="q6y">Yes</button>
+                        <button class="block" id="q6n">No</button>
+                    </div>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                        <li class="active"></li>
+                    </ul>
+                    <br>
+                </div>
+                <br>
+            </div>
+
+
+
+        </div>
+        <br>
+
+    </div>
+
+</div>
+
+<div id="answer" class="w3-container" style="display:none">
+    <div class="w3-padding-16 w3-center" id="ac" style="line-height:1.75">
+        <h1>Thank you for taking your time with us!</h1>
+
+        <h2><b>Our Suggestion to You :</b></h2>
+        <br>
+
+        <div id="q1sug" style="display:none">
+            <b>Turn off your conditioner when you leave your house.</b>
+            <p> They used almost 50% of your total energy consumption.</p>
+        </div>
+        <br>
+        <div id="q2sug" style="display:none">
+            <b>Change your light bulb type whenever it is possible.</b>
+            <p>LED has stronger light which consume 80% lesser energy than a halogen type.</p>
+        </div>
+        <br>
+        <div id="q3sug" style="display:none">
+            <b>Change your water heating system from electric to gas.</b>
+            <p>The second biggest energy consumption in your house is water heater.</p>
+        </div>
+        <br>
+        <div id="q4sug" style="display:none">
+            <b>Try to turn on your washing machine only when it is full loads.</b>
+            <p>Laundry consumes 30% of your water consumption bills.</p>
+        </div>
+        <br>
+        <div id="q5sug" style="display:none">
+            <b> Set them to correct temperature! Fridge should be at 3-5 degree and freezer at 0 degree.</b>
+            <p>Fridge consume 5% more energy for every decrease in degree.</p>
+        </div>
+        <br>
+        <div id="q6sug" style="display:none">
+            <b>
+                Try to hang your cloth for most of the times, reduce the unneccessary energy waste.
+            </b>
+            <p>It is not only saving energy, the sunlight helps to kill the bacteria as well.</p>
+        </div>
+        <br>
+    </div>
+
+</div>
+<hr>
+<script>
+    var q1;
+    var q2;
+    var q3;
+    var q4;
+    var q5;
+    var q6;
+    $('#q1y').click(function () {
+        document.getElementById('bulb').style.display = 'initial';
+        document.getElementById('ac').style.display = 'none';
+        var $q1y = $('.question.active');
+        $('.question').removeClass('active');
+        $q1y.next().addClass('active');
+        q1 = 0;
+        return q1;
+    });
+
+    $('#q1n').click(function () {
+        document.getElementById('bulb').style.display = 'initial';
+        document.getElementById('ac').style.display = 'none';
+        var $q1n = $('.question.active');
+        $('.question').removeClass('active');
+        $q1n.next().addClass('active');
+        q1 = 1;
+        return q1;
+    });
+
+    $('#q2y').click(function () {
+        document.getElementById('waterheating').style.display = 'initial';
+        document.getElementById('bulb').style.display = 'none';
+        var $q2y = $('.question.active');
+        $('.question').removeClass('active');
+        $q2y.next().addClass('active');
+        q2 = 0;
+        return q2;
+    });
+
+    $('#q2n').click(function () {
+        document.getElementById('waterheating').style.display = 'initial';
+        document.getElementById('bulb').style.display = 'none';
+        var $q2n = $('.question.active');
+        $('.question').removeClass('active');
+        $q2n.next().addClass('active');
+        q2 = 1;
+        return q2;
+    });
+
+    $('#q3y').click(function () {
+        document.getElementById('waterheating').style.display = 'none';
+        document.getElementById('laundry').style.display = 'initial';
+        var $q3y = $('.question.active');
+        $('.question').removeClass('active');
+        $q3y.next().addClass('active');
+        q3 = 0;
+        return q3;
+    });
+
+    $('#q3n').click(function () {
+        document.getElementById('waterheating').style.display = 'none';
+        document.getElementById('laundry').style.display = 'initial';
+        var $q3n = $('.question.active');
+        $('.question').removeClass('active');
+        $q3n.next().addClass('active');
+        q3 = 1;
+        return q3;
+    });
+
+    $('#q4y').click(function () {
+        document.getElementById('fridge').style.display = 'initial';
+        document.getElementById('laundry').style.display = 'none';
+        var $q4y = $('.question.active');
+        $('.question').removeClass('active');
+        $q4y.next().addClass('active');
+        q4 = 0;
+        return q4;
+    });
+
+    $('#q4n').click(function () {
+        document.getElementById('fridge').style.display = 'initial';
+        document.getElementById('laundry').style.display = 'none';
+        var $q4n = $('.question.active');
+        $('.question').removeClass('active');
+        $q4n.next().addClass('active');
+        q4 = 1;
+        return q4;
+    });
+
+    $('#q5y').click(function () {
+        document.getElementById('fridge').style.display = 'none';
+        document.getElementById('dryer').style.display = 'initial';
+        var $q5y = $('.question.active');
+        $('.question').removeClass('active');
+
+        $q5y.next().addClass('active');
+        q5 = 0;
+        return q5;
+    });
+
+    $('#q5n').click(function () {
+        document.getElementById('fridge').style.display = 'none';
+        document.getElementById('dryer').style.display = 'initial';
+        var $q5n = $('.question.active');
+        $('.question').removeClass('active');
+        $q5n.next().addClass('active');
+        q5 = 1;
+        return q5;
+    });
+
+
+    $('#q6y').click(function () {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('dryer').style.display = 'none';
+        document.getElementById('answer').style.display = 'initial';
+        var $q6y = $('.question.active');
+        $('.question').removeClass('active');
+        $q6y.next().addClass('active');
+        q6 = 0;
+
+        if (q1 == 1) { document.getElementById('q1sug').style.display = 'initial'; }
+        if (q2 == 1) { document.getElementById('q2sug').style.display = 'initial'; }
+        if (q3 == 1) { document.getElementById('q3sug').style.display = 'initial'; }
+        if (q4 == 1) { document.getElementById('q4sug').style.display = 'initial'; }
+        if (q5 == 1) { document.getElementById('q5sug').style.display = 'initial'; }
+        if (q6 == 1) { document.getElementById('q6sug').style.display = 'initial'; }
+
+
+    });
+
+    $('#q6n').click(function () {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('dryer').style.display = 'none';
+        document.getElementById('answer').style.display = 'initial';
+        var $q6n = $('.question.active');
+        $('.question').removeClass('active');
+        $q6n.next().addClass('active');
+        q6 = 1;
+        if (q1 == 1) { document.getElementById('q1sug').style.display = 'initial'; }
+        if (q2 == 1) { document.getElementById('q2sug').style.display = 'initial'; }
+        if (q3 == 1) { document.getElementById('q3sug').style.display = 'initial'; }
+        if (q4 == 1) { document.getElementById('q4sug').style.display = 'initial'; }
+        if (q5 == 1) { document.getElementById('q5sug').style.display = 'initial'; }
+        if (q6 == 1) { document.getElementById('q6sug').style.display = 'initial'; }
+    });
+
+</script>
+
+
+<script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+<div class="container" style="padding-left:20px">
+    <a class="twitter-share-button"
+       href="https://energuction.azurewebsites.net/Home/GeneralQuiz">
+        Tweet
+    </a>
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>
