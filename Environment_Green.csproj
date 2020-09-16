@@ -192,13 +192,16 @@
     <Content Include="Images\bubackground.jpg" />
     <Content Include="Images\bulbbu.png" />
     <Content Include="Images\bulbpic.png" />
+    <Content Include="Images\clouds-3488632_1920.jpg" />
     <Content Include="Images\coal.jpg" />
+    <Content Include="Images\commontipbg.jpg" />
     <Content Include="Images\cost of ac.png" />
     <Content Include="Images\deliver.jpg" />
     <Content Include="Images\dryer cost.PNG" />
     <Content Include="Images\earth.jpg" />
     <Content Include="Images\electric.PNG" />
     <Content Include="Images\enerbg.jpg" />
+    <Content Include="Images\energyhome.jpg" />
     <Content Include="Images\factory.jpg" />
     <Content Include="Images\financialstress.jpg" />
     <Content Include="Images\fridge.PNG" />
@@ -213,9 +216,15 @@
     <Content Include="Images\off pic.png" />
     <Content Include="Images\picnic.jpg" />
     <Content Include="Images\pump.jpg" />
+    <Content Include="Images\questionmark.jpg" />
+    <Content Include="Images\quizbg.jpg" />
+    <Content Include="Images\quizbg1.jpg" />
     <Content Include="Images\rsz_1enermat-removebg-preview.png" />
+    <Content Include="Images\slidenergy.jpg" />
+    <Content Include="Images\slidewater.jpg" />
     <Content Include="Images\stress bill.jpg" />
     <Content Include="Images\temperature.jpg" />
+    <Content Include="Images\tipenergy.jpg" />
     <Content Include="Images\total energy consume portion.png" />
     <Content Include="Images\total energy used.PNG" />
     <Content Include="Images\treatment.jpg" />
@@ -227,6 +236,8 @@
     <Content Include="Images\watertap.png" />
     <Content Include="Images\aircon.jpg" />
     <Content Include="Images\waterbg.jpg" />
+    <Content Include="Images\watertipbg.jpg" />
+    <Content Include="Images\weatherhome.jpg" />
     <Content Include="Images\ws m.PNG" />
     <Content Include="Images\ws s.PNG" />
     <Content Include="Scripts\bootstrap.js" />
@@ -287,6 +298,11 @@
     <Content Include="Views\Home\EtipWaterSystem.cshtml" />
     <Content Include="Views\Home\WaterTipLaundry.cshtml" />
     <Content Include="Views\Home\WaterTipTurnOffTap.cshtml" />
+    <Content Include="Views\Home\Weather.cshtml" />
+    <Content Include="Views\Home\GeneralQuiz.cshtml" />
+    <Content Include="Views\Home\WaterHeatingQuiz.cshtml" />
+    <Content Include="Views\Home\WashingMachineQuiz.cshtml" />
+    <Content Include="Views\Home\WaterHeaterQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

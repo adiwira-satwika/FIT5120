@@ -6,11 +6,22 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <title>Enermatez</title>
+    <!-- Comment #1: OG Tags -->
+    <meta property="og:url" content="http://energuction.azurewebsites.net" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Enermatez" />
+    <meta property="og:description" content="Save energy with easy stuff that you can do" />
+    <meta property="og:image" content="~/Images/rsz_1enermat-removebg-preview.png" />
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <link runat="server" rel="shortcut icon" href="~/Images/iconenermat.png" type="image/x-icon" />
     <link runat="server" rel="icon" href="~/Images/iconenermat.png" type="image/ico" />
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
     <script src="~/Scripts/bootstrap.js">
-</script>
+
+    </script>
 
     <title>@ViewBag.Title - Enermatez</title>
     @Styles.Render("~/Content/css")
@@ -19,6 +30,22 @@
         body {
             font-family: Verdana;
         }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+      .nav.navbar-nav li a {
+   color: white;
+ }
+
+.nav.navbar-nav a:hover {
+ color: white;
+}
     </style>
 </head>
 
@@ -27,36 +54,38 @@
 <body>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:green;">
-        <div class="container">
+    <div class="navbar navbar-default navbar-dark static-top" style="background-color:#234F72;max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-10px;margin-right:-10px">
+        <div class="container" style="width:100%">
             <a class="navbar-brand" href="~/Home">
                 <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:30px">
             </a>
-            <div class="navbar-header">
+            <div class="navbar-header navbar-expand-lg static-top navbar-dark">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
 
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <div class="navbar-collapse collapse static-top navbar-dark">
+                <ul class="nav navbar-nav static-top" style="color:black">
                     <li>@Html.ActionLink("TakeQuiz", "TakeQuiz", "Home")</li>
                     <li>@Html.ActionLink("CommonTips", "CommonTips", "Home")</li>
+                    <li>@Html.ActionLink("Weather", "Weather", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="width:100%;">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year Group (MA-18) Environment Green</p>
-        </footer>
+
     </div>
 
+    <footer style="margin-top:10%">
+        <p>&copy; @DateTime.Now.Year Group (MA-18) Environment Green</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
