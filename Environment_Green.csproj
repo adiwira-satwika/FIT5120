@@ -210,11 +210,14 @@
     <Content Include="Images\greenhouse gas.jpg" />
     <Content Include="Images\homeelectric.jpg" />
     <Content Include="Images\houseenergysave.jpg" />
+    <Content Include="Images\icons8-twitter-48.png" />
+    <Content Include="Images\information.png" />
     <Content Include="Images\laundry.jpg" />
     <Content Include="Images\leaves-69999_1280.jpg" />
     <Content Include="Images\meter.jpg" />
     <Content Include="Images\off pic.png" />
     <Content Include="Images\picnic.jpg" />
+    <Content Include="Images\psugac.png" />
     <Content Include="Images\pump.jpg" />
     <Content Include="Images\questionmark.jpg" />
     <Content Include="Images\quizbg.jpg" />
@@ -223,6 +226,7 @@
     <Content Include="Images\slidenergy.jpg" />
     <Content Include="Images\slidewater.jpg" />
     <Content Include="Images\stress bill.jpg" />
+    <Content Include="Images\surveys.png" />
     <Content Include="Images\temperature.jpg" />
     <Content Include="Images\tipenergy.jpg" />
     <Content Include="Images\total energy consume portion.png" />
@@ -230,6 +234,7 @@
     <Content Include="Images\treatment.jpg" />
     <Content Include="Images\twaterconper.PNG" />
     <Content Include="Images\typeoflight.png" />
+    <Content Include="Images\userjourney.png" />
     <Content Include="Images\washhand.jpg" />
     <Content Include="Images\washinghand.PNG" />
     <Content Include="Images\waterheating.jpg" />
@@ -237,6 +242,7 @@
     <Content Include="Images\aircon.jpg" />
     <Content Include="Images\waterbg.jpg" />
     <Content Include="Images\watertipbg.jpg" />
+    <Content Include="Images\weatherAC.png" />
     <Content Include="Images\weatherhome.jpg" />
     <Content Include="Images\ws m.PNG" />
     <Content Include="Images\ws s.PNG" />
@@ -300,7 +306,6 @@
     <Content Include="Views\Home\WaterTipTurnOffTap.cshtml" />
     <Content Include="Views\Home\Weather.cshtml" />
     <Content Include="Views\Home\GeneralQuiz.cshtml" />
-    <Content Include="Views\Home\WaterHeatingQuiz.cshtml" />
     <Content Include="Views\Home\WashingMachineQuiz.cshtml" />
     <Content Include="Views\Home\WaterHeaterQuiz.cshtml" />
   </ItemGroup>
