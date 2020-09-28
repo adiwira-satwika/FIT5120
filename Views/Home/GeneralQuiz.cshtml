@@ -92,7 +92,7 @@
     <div class="w3-half w3-black w3-container w3-center" style="height:580px;">
 
         <div class="w3-padding-64">
-            <h1>General</h1>
+            <h1>Common Household Energy Usage</h1>
             <div class="w3-padding-16 w3-center" id="ac" style="line-height:1.75">
                 <br><br>
                 <h2><b> Do you know?</b></h2>
@@ -320,6 +320,10 @@
             </b>
             <p>It is not only saving energy, the sunlight helps to kill the bacteria as well.</p>
         </div>
+        <div id="nosug" style="display:none">
+          
+            <p>You are on the right track and best option to save energy.</p>
+        </div>
         <br>
     </div>
 
@@ -449,7 +453,7 @@
         if (q4 == 1) { document.getElementById('q4sug').style.display = 'initial'; }
         if (q5 == 1) { document.getElementById('q5sug').style.display = 'initial'; }
         if (q6 == 1) { document.getElementById('q6sug').style.display = 'initial'; }
-
+        if (q1 == 0 && q2 == 0 && q3 == 0 && q4 == 0 && q5 == 0 && q6 == 0) { document.getElementById('nosug').style.display = 'initial';  }
 
     });
 
@@ -492,7 +496,7 @@
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/GeneralQuiz">
+       href="https://energuctioniteration2.azurewebsites.net/Home/GeneralQuiz">
         Tweet
     </a>
 
@@ -506,5 +510,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 </div>
