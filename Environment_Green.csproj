@@ -192,6 +192,8 @@
     <Content Include="Images\bubackground.jpg" />
     <Content Include="Images\bulbbu.png" />
     <Content Include="Images\bulbpic.png" />
+    <Content Include="Images\calculator %281%29.png" />
+    <Content Include="Images\calculator.png" />
     <Content Include="Images\clouds-3488632_1920.jpg" />
     <Content Include="Images\coal.jpg" />
     <Content Include="Images\commontipbg.jpg" />
@@ -216,7 +218,9 @@
     <Content Include="Images\leaves-69999_1280.jpg" />
     <Content Include="Images\meter.jpg" />
     <Content Include="Images\off pic.png" />
+    <Content Include="Images\pexels-matheus-bertelli-1830252.jpg" />
     <Content Include="Images\picnic.jpg" />
+    <Content Include="Images\piggy-bank.png" />
     <Content Include="Images\psugac.png" />
     <Content Include="Images\pump.jpg" />
     <Content Include="Images\questionmark.jpg" />
@@ -225,6 +229,7 @@
     <Content Include="Images\rsz_1enermat-removebg-preview.png" />
     <Content Include="Images\slidenergy.jpg" />
     <Content Include="Images\slidewater.jpg" />
+    <Content Include="Images\splashing-165192_1280.jpg" />
     <Content Include="Images\stress bill.jpg" />
     <Content Include="Images\surveys.png" />
     <Content Include="Images\temperature.jpg" />
@@ -308,6 +313,9 @@
     <Content Include="Views\Home\GeneralQuiz.cshtml" />
     <Content Include="Views\Home\WashingMachineQuiz.cshtml" />
     <Content Include="Views\Home\WaterHeaterQuiz.cshtml" />
+    <Content Include="Views\Home\Calculator.cshtml" />
+    <Content Include="Views\Home\WaterCalculator.cshtml" />
+    <Content Include="Views\Home\TotalWaterUsage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
