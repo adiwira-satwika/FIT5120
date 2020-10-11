@@ -43,20 +43,24 @@
 </style>
 <div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
 
-    <img src="~/Images/clouds-3488632_1920.jpg" style="width:100%;max-height:580px;" />
-    <div class="w3-display-middle w3-two w3-text-black w3-hide-small" style="margin-top:10%">
+    <img src="~/Images/clouds-3488632_1920.jpg" style="width:100%;max-height:580px;opacity:0.5" />
+
+    <div class="w3-display-middle w3-text-black w3-hide-small w3-half w3-row" style="margin-top:5%">
         <div class=" w3-container" style="min-height:300px">
             <h1 style="font-size:40px;line-height:1.75"><b>Save energy by setting the right temperature at your house!</b></h1>
         </div>
+
     </div>
 
-    <div class="w3-display-middle w3-two w3-text-black w3-hide-medium w3-hide-large" style="margin-top:-100px">
+    <div class="w3-display-middle w3-text-black w3-hide-medium w3-hide-large">
         <div class=" w3-container">
             <h1 style="font-size:20px;line-height:1.75"><b>Save energy by setting the right temperature at your house!</b></h1>
         </div>
     </div>
 
-    <div class="w3-display-right w3-container w3-text-black w3-hide-small" style="background-color:darkseagreen;margin-right:10%;text-align:center">
+
+
+    <div class="w3-display-right w3-container w3-text-black w3-hide-small w3-half" style="background-color:darkseagreen;margin-right:5%;margin-top:-3%;text-align:center;width:20%">
 
         <h4 style="line-height:1.75;padding-left:20px;padding-right:20px"><b id="name" style="color:white"></b></h4>
         <h3><b style="padding-left:20px;padding-right:20px;color:white">Today</b></h3>
@@ -66,7 +70,7 @@
         <br>
         <p style="color:white">Now</p>
         <h1 style="line-height:1.75;padding-left:20px;padding-right:20px;font-size:40px">
-            <b id="temp" style="color:white"></b> <b style="color:white">C</b>
+            <b id="temp" style="color:white"></b> <b style="color:white">°C</b>
         </h1>
 
         <p style="color:white;font-size:12px">    Min  <b id="tempmin" style="color:white;font-size:20px"></b> <b style="color:white;font-size:20px">C</b>  </p>
@@ -81,12 +85,36 @@
             <b id="humidity" style="color:white"></b><b style="color:white">%</b>
 
         </h4>
-
     </div>
+    <a class="w3-display-right w3-row w3-text-white w3-hide-small w3-hide-medium" href="#avgacspend" style="margin-right:2%;margin-top:15%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+
 
 </div>
 
-<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin:-15px;margin-top:0;background-color:#D3EEA7">
+<div class="w3-row " id="avgacspend">
+    <div class="w3-half" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average spending for air conditioner per week</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-padding-32  w3-center w3-half">
+                <h1><b>103.84 kwh</b></h1>
+                <p>electric consumption by air conditioner every week</p>
+            </div>
+            <div class="w3-padding-32  w3-center w3-half">
+                <h1><b>85.202 kg</b></h1>
+                <p>carbon emission from air conditioner every week</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-half w3-center">
+        <img src="~/Images/weatherAC.png" style="width:80%;margin-top:5%" />
+
+    </div>
+</div>
+<a class="w3-right w3-row" href="#todayrecom" style="margin-right:2%;"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+<br>
+<br>
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin:-15px;margin-top:0;background-color:#D3EEA7" id="todayrecom">
     <div class="container">
         <br><br>
         <h4 style="text-align:left;margin-left:20%"><b>Today We Recommend You</b></h4>
@@ -98,7 +126,7 @@
                 <p>Set Your Themostat at:</p><br>
 
 
-                <h1> <b id="tempre"> </b><b> C</b></h1>
+                <h2> <b id="tempre"> </b><b> °C</b></h2>
                 <br><br>
             </div>
         </div>
@@ -107,7 +135,7 @@
             <div class=" w3-container" style="min-height:150px">
                 <p>For Total Length Of Time:</p><br>
 
-                <h1><b>6 hours</b></h1>
+                <h2><b>6 hours</b></h2>
                 <br><br>
             </div>
         </div>
@@ -117,7 +145,7 @@
                 <br>
                 <b>Do You Know?</b>
                 <br><br>
-                <p>Standard temperature to set at cold weather is at 20C, every 1C increase will cost you extra 10% energy consumption.</p>
+                    <p>Standard temperature to set at cold weather is at 20°C, every 1C increase will cost you extra 10% energy consumption.</p>
 
             </div>
         </div>
@@ -126,80 +154,18 @@
 
     </div>
 </div>
+<br>
 
 
-<div class="w3-center w3-padding-32">
-    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Coming 7 days forecast</span>
+<a class="w3-right w3-row w3-text-black" href="#personalsug" style="margin-right:2%;"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+<div class="w3-row w3-center" id="personalsug">
+    
+    <img src="~/Images/psugac.png" style="width:80%" />
 </div>
-
-<div class="grid-container" style="margin-top:10px;max-height:300px">
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today1" style="margin-top:3%;font-size:18px"></b>
-        <p><b id="toweek1" style="font-size:18px"></b></p><br>
-        <img id="weathericon1"></>
-        <p id="wdesp1" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin1"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax1"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today2" style="margin-top:3%;font-size:18px"></b>
-        <p><b id="toweek2" style="font-size:18px"></b></p><br>
-        <img id="weathericon2"></>
-        <p id="wdesp2" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin2"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax2"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today3" style="margin-top:3%;font-size:18px"></b>
-        <p><b id="toweek3" style="font-size:18px"></b></p><br>
-        <img id="weathericon3"></>
-        <p id="wdesp3" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin3"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax3"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today4" style="margin-top:3%;font-size:18px"></b>
-        <p><b id="toweek4" style="font-size:18px"></b></p><br>
-        <img id="weathericon4"></>
-        <p id="wdesp4" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin4"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax4"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today5" style="margin-top:3%;font-size:18px"></b>
-        <p><b id="toweek5" style="font-size:18px"></b></p><br>
-        <img id="weathericon5"></>
-        <p id="wdesp5" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin5"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax5"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today6" style="margin-top:3%;font-size:18px"></b>
-        <p> <b id="toweek6" style="font-size:18px"></b></p><br>
-        <img id="weathericon6"></>
-        <p id="wdesp6" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin6"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax6"></b> <b style="font-size:20px">C</b></p>
-    </div>
-    <div style="text-align:center;background-color:#6DCAE2">
-        <b id="today7" style="margin-top:3%;font-size:18px"></b>
-        <p>   <b id="toweek7" style="font-size:18px"></b></p><br>
-        <img id="weathericon7"></>
-        <p id="wdesp7" style="text-align:center"></p>
-
-        min <b style="font-size:20px" id="foretempmin7"></b> <b style="font-size:20px">C</b>
-        <p>max <b style="font-size:20px" id="foretempmax7"></b> <b style="font-size:20px">C</b></p>
-    </div>
-
-</div>
-
-<div class="w3" style="margin-top:15%;background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px">
+<br>
+<a class="w3-right w3-row w3-text-black" href="#quickquiz" style="margin-right:2%;"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+<br>
+<div class="w3" style="background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px" id="quickquiz">
     <h2 class="w3-wide w3-center w3-padding-16">Let Us Understand You Before Suggesting</h2>
     <div class="w3-row-padding w3-center">
         <div class="w3-card w3-container" style="min-height:300px;background-color:white;">
@@ -331,17 +297,12 @@
                     <br>
                     <p><button class="btn-responsive btn-block" type="button" id="lessthan1">Less than 1 hour</button></p>
                     <br>
-                    <div id="finishq" style="display:none;">
-                        Thank you for taking your time with us! Click below to show our suggestion to you...
-                        <br>
-                        <br>
-                        <br>
-                        <p><button class="btn-success" id="suggestion">Show Suggestion</button></p>
-                    </div>
+             
                 </div>
 
             </div>
             <div id="result" style="display:none;margin-top:5%">
+                <h1> Thank you for taking your time with us!</h1>
                 <h2><b>Our Suggestion to you</b></h2>
 
                 <br>
@@ -353,8 +314,8 @@
                 <p id="hoursetper"></p>
                 <br>
                 <h4><b>Standard</b></h4>
-                <p id="coolset" style="display:none">Setting themostat 8C higher than outside temperature for average 6 hours</p>
-                <p id="heatset" style="display:none">Setting themostat 8C lower than outside temperature for average 6 hours</p><br><br>
+                <p id="coolset" style="display:none">Setting themostat 8°C higher than outside temperature for average 6 hours</p>
+                <p id="heatset" style="display:none">Setting themostat 8°C lower than outside temperature for average 6 hours</p><br><br>
             </div>
 
         </div>
@@ -540,48 +501,128 @@
     });
 
     $('#more6').click(function () {
-        document.getElementById('lastq').style.display = 'none';
-        document.getElementById('more6').style.display = 'none';
-        document.getElementById('3to6hrs').style.display = 'none';
-        document.getElementById('1to3hrs').style.display = 'none';
-        document.getElementById('lessthan1').style.display = 'none';
-        document.getElementById('finishq').style.display = 'initial';
+
         exposure = 0;
-        return exposure;
+          document.getElementById('questions').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        if (season == 0) {
+            var temperatureset = -8;
+            var hourset = 6;
+
+            if (roomtype == 0) { hourset = hourset - 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset + 1 }
+            if (heattype == 0) { temperatureset = temperatureset - 2 }
+            if (heattype == 1) { temperatureset = temperatureset + 1 }
+            if (heattype == 2) { temperatureset = temperatureset - 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset - 2 }
+            if (exposure == 1) { hourset = hourset - 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset + 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+        }
+
+
+        if (season == 1) {
+            var temperatureset = 8;
+            var hourset = 6;
+            if (roomtype == 0) { hourset = hourset + 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset - 1 }
+            if (heattype == 0) { temperatureset = temperatureset + 2 }
+            if (heattype == 1) { temperatureset = temperatureset - 1 }
+            if (heattype == 2) { temperatureset = temperatureset + 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset + 2 }
+            if (exposure == 1) { hourset = hourset + 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset - 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            return exposure;
+        }
     });
 
     $('#3to6hrs').click(function () {
-        document.getElementById('lastq').style.display = 'none';
-        document.getElementById('more6').style.display = 'none';
-        document.getElementById('3to6hrs').style.display = 'none';
-        document.getElementById('1to3hrs').style.display = 'none';
-        document.getElementById('lessthan1').style.display = 'none';
-        document.getElementById('finishq').style.display = 'initial';
-        exposure = 1;
-        return exposure;
-    });
-    $('#1to3hrs').click(function () {
-        document.getElementById('lastq').style.display = 'none';
-        document.getElementById('more6').style.display = 'none';
-        document.getElementById('3to6hrs').style.display = 'none';
-        document.getElementById('1to3hrs').style.display = 'none';
-        document.getElementById('lessthan1').style.display = 'none';
-        document.getElementById('finishq').style.display = 'initial';
-        exposure = 2;
-        return exposure;
-    });
-    $('#lessthan1').click(function () {
-        document.getElementById('lastq').style.display = 'none';
-        document.getElementById('more6').style.display = 'none';
-        document.getElementById('3to6hrs').style.display = 'none';
-        document.getElementById('1to3hrs').style.display = 'none';
-        document.getElementById('lessthan1').style.display = 'none';
-        document.getElementById('finishq').style.display = 'initial';
-        exposure = 3;
-        return exposure;
-    });
 
-    $('#suggestion').click(function () {
+        exposure = 1;
+          document.getElementById('questions').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        if (season == 0) {
+            var temperatureset = -8;
+            var hourset = 6;
+
+            if (roomtype == 0) { hourset = hourset - 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset + 1 }
+            if (heattype == 0) { temperatureset = temperatureset - 2 }
+            if (heattype == 1) { temperatureset = temperatureset + 1 }
+            if (heattype == 2) { temperatureset = temperatureset - 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset - 2 }
+            if (exposure == 1) { hourset = hourset - 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset + 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+        }
+
+
+        if (season == 1) {
+            var temperatureset = 8;
+            var hourset = 6;
+            if (roomtype == 0) { hourset = hourset + 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset - 1 }
+            if (heattype == 0) { temperatureset = temperatureset + 2 }
+            if (heattype == 1) { temperatureset = temperatureset - 1 }
+            if (heattype == 2) { temperatureset = temperatureset + 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset + 2 }
+            if (exposure == 1) { hourset = hourset + 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset - 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            return exposure;
+        }
+        });
+
+    $('#1to3hrs').click(function () {
+        
+        exposure = 2;
         document.getElementById('questions').style.display = 'none';
         document.getElementById('result').style.display = 'initial';
 
@@ -608,7 +649,7 @@
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
             document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C higher than outside temperature";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
         }
 
 
@@ -634,13 +675,77 @@
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
             document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " C higher than outside temperature";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            return exposure;
+        }
+    });
+
+    $('#lessthan1').click(function () {
+      
+    
+        exposure = 3;
+          document.getElementById('questions').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+        if (season == 0) {
+            var temperatureset = -8;
+            var hourset = 6;
+
+            if (roomtype == 0) { hourset = hourset - 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset + 1 }
+            if (heattype == 0) { temperatureset = temperatureset - 2 }
+            if (heattype == 1) { temperatureset = temperatureset + 1 }
+            if (heattype == 2) { temperatureset = temperatureset - 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset - 2 }
+            if (exposure == 1) { hourset = hourset - 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset + 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
         }
 
 
-
+        if (season == 1) {
+            var temperatureset = 8;
+            var hourset = 6;
+            if (roomtype == 0) { hourset = hourset + 1 }
+            if (roomtype == 1) { hourset = hourset }
+            if (roomtype == 2) { hourset = hourset - 1 }
+            if (heattype == 0) { temperatureset = temperatureset + 2 }
+            if (heattype == 1) { temperatureset = temperatureset - 1 }
+            if (heattype == 2) { temperatureset = temperatureset + 1 }
+            if (heattype == 3) { temperatureset = temperatureset }
+            if (personalperfer == 0) { temperatureset = temperatureset - 2 }
+            if (personalperfer == 1) { temperatureset = temperatureset }
+            if (personalperfer == 2) { temperatureset = temperatureset + 2 }
+            if (livewithother == 0) {
+                if (otherprefer == 0) { temperatureset = temperatureset - 1 }
+                if (otherprefer == 1) { temperatureset = temperatureset + 1 }
+            }
+            if (exposure == 0) { hourset = hourset + 2 }
+            if (exposure == 1) { hourset = hourset + 1 }
+            if (exposure == 2) { hourset = hourset }
+            if (exposure == 3) { hourset = hourset - 2 }
+            document.getElementById("hoursetper").innerHTML = hourset + " hours";
+            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            return exposure;
+        }
     });
 
+  
+
+
+
+  
 
 
 </script>
@@ -675,170 +780,38 @@
         });
     });
 
-    var currentTime = new Date()
-    var month = currentTime.getMonth() + 1
-    var day = currentTime.getDate()
-    var dayofweek = currentTime.getDay()
-    var weekday = new Array(7);
-    weekday[0] = "Mon";
-    weekday[1] = "Tue";
-    weekday[2] = "Wed";
-    weekday[3] = "Thur";
-    weekday[4] = "Fri";
-    weekday[5] = "Sat";
-    weekday[6] = "Sun";
-    $("#today").text(month + "/" + day);
-    $("#toweek").text(weekday[dayofweek]);
-    $(document).ready(function () {
 
-        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=-37.840935&lon=144.946457&%20exclude=current,minutely,hourly&appid=d10eac299378be51e983c8ee353655cf", function (response) {
-
-            $("#foretempmin1").text(((response.daily[1].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax1").text(((response.daily[1].temp.max) - 273.15).toFixed(1));
-            $("#wdesp1").text(response.daily[1].weather[0].description);
-            var iconcode1 = response.daily[1].weather[0].icon;
-            var iconurl1 = "https://openweathermap.org/img/w/" + iconcode1 + ".png";
-            $('#weathericon1').attr('src', iconurl1);
-
-            $("#foretempmin2").text(((response.daily[2].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax2").text(((response.daily[2].temp.max) - 273.15).toFixed(1));
-            $("#wdesp2").text(response.daily[2].weather[0].description);
-            var iconcode2 = response.daily[2].weather[0].icon;
-            var iconurl2 = "https://openweathermap.org/img/w/" + iconcode2 + ".png";
-            $('#weathericon2').attr('src', iconurl2);
-
-            $("#foretempmin3").text(((response.daily[3].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax3").text(((response.daily[3].temp.max) - 273.15).toFixed(1));
-            $("#wdesp3").text(response.daily[3].weather[0].description);
-            var iconcode3 = response.daily[3].weather[0].icon;
-            var iconurl3 = "https://openweathermap.org/img/w/" + iconcode3 + ".png";
-            $('#weathericon3').attr('src', iconurl3);
-
-
-            $("#foretempmin4").text(((response.daily[4].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax4").text(((response.daily[4].temp.max) - 273.15).toFixed(1));
-            $("#wdesp4").text(response.daily[4].weather[0].description);
-            var iconcode4 = response.daily[4].weather[0].icon;
-            var iconurl4 = "https://openweathermap.org/img/w/" + iconcode4 + ".png";
-            $('#weathericon4').attr('src', iconurl4);
-
-            $("#foretempmin5").text(((response.daily[5].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax5").text(((response.daily[5].temp.max) - 273.15).toFixed(1));
-            $("#wdesp5").text(response.daily[5].weather[0].description);
-            var iconcode5 = response.daily[5].weather[0].icon;
-            var iconurl5 = "https://openweathermap.org/img/w/" + iconcode5 + ".png";
-            $('#weathericon5').attr('src', iconurl5);
-
-            $("#foretempmin6").text(((response.daily[6].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax6").text(((response.daily[6].temp.max) - 273.15).toFixed(1));
-            $("#wdesp6").text(response.daily[6].weather[0].description);
-            var iconcode6 = response.daily[6].weather[0].icon;
-            var iconurl6 = "https://openweathermap.org/img/w/" + iconcode6 + ".png";
-            $('#weathericon6').attr('src', iconurl6);
-
-            $("#foretempmin7").text(((response.daily[7].temp.min) - 273.15).toFixed(1));
-            $("#foretempmax7").text(((response.daily[7].temp.max) - 273.15).toFixed(1));
-            $("#wdesp7").text(response.daily[7].weather[0].description);
-            var iconcode7 = response.daily[7].weather[0].icon;
-            var iconurl7 = "https://openweathermap.org/img/w/" + iconcode7 + ".png";
-            $('#weathericon7').attr('src', iconurl7);
-        });
-    });
-</script>
-<script>
-    var currentTime = new Date()
-    var tom = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 1))
-    var tommonth = tom.getMonth() + 1
-    var tomday = tom.getDate()
-    var dayofweek = tom.getDay()
-    $("#today1").text(tommonth + "/" + tomday);
-    $("#toweek1").text(weekday[dayofweek]);
 </script>
 
-<script>
-    var currentTime = new Date()
-    var tonext2 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 2))
-    var tonextmon2 = tonext2.getMonth() + 1
-    var tonextday2 = tonext2.getDate()
-    var dayofweek = tonext2.getDay()
-    $("#today2").text(tonextmon2 + "/" + tonextday2);
-    $("#toweek2").text(weekday[dayofweek]);
-</script>
-
-<script>
-    var currentTime = new Date()
-    var tonext3 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 3))
-    var tonextmon3 = tonext3.getMonth() + 1
-    var tonextday3 = tonext3.getDate()
-    var dayofweek = tonext3.getDay()
-
-    $("#today3").text(tonextmon3 + "/" + tonextday3);
-    $("#toweek3").text(weekday[dayofweek]);
-</script>
-
-<script>
-    var currentTime = new Date()
-    var tonext4 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 4))
-    var tonextmon4 = tonext4.getMonth() + 1
-    var tonextday4 = tonext4.getDate()
-    var dayofweek = tonext4.getDay()
-    $("#today4").text(tonextmon4 + "/" + tonextday4);
-    $("#toweek4").text(weekday[dayofweek]);
-</script>
-
-<script>
-    var currentTime = new Date()
-    var tonext5 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 5))
-    var tonextmon5 = tonext5.getMonth() + 1
-    var tonextday5 = tonext5.getDate()
-    var dayofweek = tonext5.getDay()
-    $("#today5").text(tonextmon5 + "/" + tonextday5);
-    $("#toweek5").text(weekday[dayofweek]);
-</script>
-
-<script>
-    var currentTime = new Date()
-    var tonext6 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 6))
-    var tonextmon6 = tonext6.getMonth() + 1
-    var tonextday6 = tonext6.getDate()
-    var dayofweek = tonext6.getDay()
-    $("#today6").text(tonextmon6 + "/" + tonextday6);
-    $("#toweek6").text(weekday[dayofweek]);
-</script>
-
-<script>
-    var currentTime = new Date()
-    var tonext7 = new Date(new Date(currentTime).setDate(new Date(currentTime).getDate() + 7))
-    var tonextmon7 = tonext7.getMonth() + 1
-    var tonextday7 = tonext7.getDate()
-    var dayofweek = tonext7.getDay()
-    $("#today7").text(tonextmon7 + "/" + tonextday7);
-    $("#toweek7").text(weekday[dayofweek]);
-</script>
-
-<script>
-    window.twttr = (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function (f) {
-            t._e.push(f);
-        };
-
-        return t;
-    }(document, "script", "twitter-wjs"));</script>
+<br>
+<br>
+<br>
+<br>
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/WaterTipLaundry">
+       href="https://energuctioniteration2.azurewebsites.net/Home/Weather">
         Tweet
     </a>
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));</script>
+
+
 
     <div id="fb-root"></div>
     <script>
@@ -850,5 +823,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/Weather" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/CommonTips" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 </div>

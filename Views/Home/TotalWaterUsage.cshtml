@@ -1,0 +1,1044 @@
+﻿@{  
+  ViewBag.Title = "TotalWaterUsage";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<style>
+    .block {
+        display: block;
+        width: 100%;
+        border: solid 1px;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px;
+        border-radius: 12px;
+    }
+
+        .block:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    .question:not(.active) {
+        display: none;
+    }
+
+
+    .progressbar {
+        counter-reset: step;
+    }
+
+        .progressbar li {
+            list-style-type: none;
+            width: 10.2%;
+            float: left;
+            font-size: 12px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7d7d7d;
+        }
+
+            .progressbar li:before {
+                width: 30px;
+                height: 30px;
+                content: counter(step);
+                counter-increment: step;
+                line-height: 30px;
+                border: 2px solid #7d7d7d;
+                display: block;
+                text-align: center;
+                margin: 0 auto 10px auto;
+                border-radius: 50%;
+                background-color: white;
+            }
+
+            .progressbar li:after {
+                width: 100%;
+                height: 2px;
+                content: '';
+                position: absolute;
+                background-color: #ddd;
+                top: 15px;
+                left: -50%;
+                z-index: -1;
+            }
+
+            .progressbar li:first-child:after {
+                content: none;
+            }
+
+            .progressbar li.active {
+                color: green;
+            }
+
+                .progressbar li.active:before {
+                    border-color: #55b776;
+                }
+
+                .progressbar li.active + li:after {
+                    background-color: #55b776;
+                }
+</style>
+<div class="w3-container" id="survey" style="background-color:aliceblue">
+    <div class="w3-padding-64 w3-center">
+        <h1><b>Total Water Usage Calculator</b></h1>
+    </div>
+    <div class="w3-container" style="background-color:lightgray;min-height:450px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Toilet</b></h3>
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                    <p>Select the flushing type of your toilet:</p>
+                    <br />
+                    <input type="radio" id="singleflush" name="flush" value="1">
+                    <label for="singleflush">Single Flush</label><br><br>
+                    <input type="radio" id="dualflush" name="flush" value="2">
+                    <label for="dualflush">Dual Flush</label><br><br>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                    <p>How many toilet in your house?</p>
+                    <br />
+                    <input type="radio" id="numbertoilet1" name="notoilet" value="1">
+                    <label for="numbertoilet1">1</label><br><br>
+                    <input type="radio" id="numbertoilet2" name="notoilet" value="2">
+                    <label for="numbertoilet2">2</label><br><br>
+                    <input type="radio" id="numbertoilet3" name="notoilet" value="3">
+                    <label for="numbertoilet3">3</label><br><br>
+                    <input type="radio" id="numbertoilet4" name="notoilet" value="4">
+                    <label for="numbertoilet4">4 or more</label><br><br>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                    <p>Average times of flushing for each toilet per day in household:</p>
+                    <br />
+                    <input type="radio" id="flush1" name="flushtimes" value="1">
+                    <label for="flush1">1-3 times</label><br><br>
+                    <input type="radio" id="flush2" name="flushtimes" value="2">
+                    <label for="flush2">4-6 times</label><br><br>
+                    <input type="radio" id="flush3" name="flushtimes" value="3">
+                    <label for="flush3">7-9 times</label><br><br>
+                    <input type="radio" id="flush4" name="flushtimes" value="4">
+                    <label for="flush4">10 or more</label><br><br>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#showersec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="showersec" style="background-color:azure;min-height:580px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Showering</b></h3>
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <p>How many people in your house?</p>
+                    <br />
+                    <input type="radio" id="housepeople1" name="housepeople" value="1">
+                    <label for="housepeople1">1</label><br><br>
+                    <input type="radio" id="housepeople2" name="housepeople" value="2">
+                    <label for="housepeople2">2</label><br><br>
+                    <input type="radio" id="housepeople3" name="housepeople" value="3">
+                    <label for="housepeople3">3</label><br><br>
+                    <input type="radio" id="housepeople4" name="housepeople" value="4">
+                    <label for="housepeople4">4</label><br><br>
+                    <input type="radio" id="housepeople5" name="housepeople" value="5">
+                    <label for="housepeople5">5</label><br><br>
+                    <input type="radio" id="housepeople6" name="housepeople" value="6">
+                    <label for="housepeople6">6 or more</label><br><br>
+
+                </div>
+            </div>
+
+            <div class="w3-quarter">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <p>Average times of showering each day per person:</p>
+                    <br />
+                    <input type="radio" id="noshower1" name="noshower" value="1">
+                    <label for="noshower1">1 times</label><br><br>
+                    <input type="radio" id="noshower2" name="noshower" value="2">
+                    <label for="noshower2">2 times</label><br><br>
+                    <input type="radio" id="noshower3" name="noshower" value="3">
+                    <label for="noshower3">3 times</label><br><br>
+                    <input type="radio" id="noshower4" name="noshower" value="4">
+                    <label for="noshower4">4 or more</label><br><br>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <p>Average minutes spend for each person per showering?</p>
+                    <br />
+                    <input type="radio" id="shower1" name="shower" value="1">
+                    <label for="shower1">0-5 minutes</label><br><br>
+                    <input type="radio" id="shower2" name="shower" value="2" />
+                    <label for="shower2">5-10 minutes</label><br><br>
+                    <input type="radio" id="shower3" name="shower" value="3">
+                    <label for="shower3">5-15 minutes</label><br><br>
+                    <input type="radio" id="shower4" name="shower" value="4">
+                    <label for="shower4">15-20 minutes</label><br><br>
+                    <input type="radio" id="shower5" name="shower" value="5">
+                    <label for="shower5">20-25 minutes</label><br><br>
+                    <input type="radio" id="shower6" name="shower" value="6">
+                    <label for="shower6">25-30 minutes</label><br><br>
+                    <input type="radio" id="shower7" name="shower" value="7">
+                    <label for="shower7">30 minutes or more</label><br>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <p>Is your household using AAA showerhead?</p>
+                    <br />
+                    <input type="radio" id="showerhead1" name="showerhead" value="1">
+                    <label for="showerhead1">Yes</label><br><br>
+                    <input type="radio" id="showerhead2" name="showerhead" value="2">
+                    <label for="showerhead2">No</label><br><br>
+                    <input type="radio" id="showerhead3" name="showerhead" value="3">
+                    <label for="showerhead3">Don't know</label><br><br>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#bathsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+
+    <div class="w3-container" id="bathsec" style="background-color:lightgray;min-height:530px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Bathing</b></h3>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:280px;background-color:azure">
+                    <p> How many people enjoy bathing in your house?</p>
+                    <br />
+                    <input type="radio" id="bathpeople1" name="bathpeople" value="1">
+                    <label for="bathpeople1">1</label><br><br>
+                    <input type="radio" id="bathpeople2" name="bathpeople" value="2">
+                    <label for="bathpeople2">2</label><br><br>
+                    <input type="radio" id="bathpeople3" name="bathpeople" value="3">
+                    <label for="bathpeople3">3</label><br><br>
+                    <input type="radio" id="bathpeople4" name="bathpeople" value="4">
+                    <label for="bathpeople4">4</label><br><br>
+                    <input type="radio" id="bathpeople5" name="bathpeople" value="5">
+                    <label for="bathpeople5">5</label><br><br>
+                    <input type="radio" id="bathpeople6" name="bathpeople" value="6">
+                    <label for="bathpeople6">6 or more</label><br><br>
+                </div>
+            </div>
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:280px;background-color:azure">
+                    <p>Average times of bathing each week per person:</p>
+                    <br />
+                    <input type="radio" id="bathtimes1" name="bathtimes" value="1">
+                    <label for="bathpeople1">1</label><br><br>
+                    <input type="radio" id="bathtimes2" name="bathtimes" value="2">
+                    <label for="bathpeople2">2</label><br><br>
+                    <input type="radio" id="bathtimes3" name="bathtimes" value="3">
+                    <label for="bathpeople3">3</label><br><br>
+                    <input type="radio" id="bathtimes4" name="bathtimes" value="4">
+                    <label for="bathpeople4">4</label><br><br>
+                    <input type="radio" id="bathtimes5" name="bathtimes" value="5">
+                    <label for="bathpeople5">5</label><br><br>
+                    <input type="radio" id="bathtimes6" name="bathtimes" value="6">
+                    <label for="bathpeople6">6 or more</label><br><br>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#laundrysec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+
+    <div class="w3-container" id="laundrysec" style="background-color:azure;min-height:450px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Washing Machine / Laundry </b></h3>
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                    <p>Average times to use washing machine each week:</p>
+                    <br />
+                    <input type="radio" id="washingmachinetimes1" name="washingmachinetimes" value="1">
+                    <label for="washingmachinetimes1">0-2</label><br><br>
+                    <input type="radio" id="washingmachinetimes2" name="washingmachinetimes" value="2">
+                    <label for="washingmachinetimes2">3-5</label><br><br>
+                    <input type="radio" id="washingmachinetimes3" name="washingmachinetimes" value="3">
+                    <label for="washingmachinetimes3">5-7</label><br><br>
+                    <input type="radio" id="washingmachinetimes4" name="washingmachinetimes" value="4">
+                    <label for="washingmachinetimes4">8 or more</label><br><br>
+
+
+                </div>
+            </div>
+
+
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                    <p>Which type of Washing Maching you owned?</p>
+                    <br />
+                    <input type="radio" id="typewm1" name="typewm" value="1">
+                    <label for="typewm1">Top Loading</label><br><br>
+                    <input type="radio" id="typewm2" name="typewm" value="2">
+                    <label for="typewm2">Front Loading</label><br><br>
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                    <p>If you using a front load washing maching, is it AAAA rated?</p>
+                    <br />
+                    <input type="radio" id="wmrate1" name="wmrate" value="1">
+                    <label for="wmrate">Yes</label><br><br>
+                    <input type="radio" id="wmrate2" name="wmrate" value="2">
+                    <label for="wmrate3">No</label><br><br>
+                    <input type="radio" id="wmrate2" name="wmrate" value="3">
+                    <label for="wmrate3">Not Using Front load Washing Machine</label><br>
+
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#tapwashsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+
+    </div>
+
+    <div class="w3-container" id="tapwashsec" style="background-color:lightgray;min-height:350px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Washing Under Tap</b></h3>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                    <p> Have you installed water efficient tap in your house?</p>
+                    <br />
+                    <input type="radio" id="taptype1" name="taptype" value="1">
+                    <label for="taptype1">Yes</label><br><br>
+                    <input type="radio" id="taptype2" name="taptype" value="2">
+                    <label for="taptype2">No</label><br><br>
+
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                    <p>Are you leave tap running when soaping hands or brushing your teeth?</p>
+                    <br />
+                    <input type="radio" id="taprun1" name="taprun" value="1">
+                    <label for="taprun1">Yes</label><br><br>
+                    <input type="radio" id="taprun2" name="taprun" value="2">
+                    <label for="taprun2">No</label><br><br>
+                </div>
+            </div>
+            <div class="w3-third">
+            <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                <p>How many times you wash your hands in average per day?</p>
+                <br />
+                <input type="radio" id="washhandtimes1" name="washhandtimes" value="1">
+                <label for="washhandtimes1">1-5 times</label><br><br>
+                <input type="radio" id="washhandtimes2" name="washhandtimes" value="2">
+                <label for="washhandtimes2">6-10 times</label><br><br>
+            </div>
+        </div>
+
+
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#gardensec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="gardensec" style="background-color:azure;min-height:330px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Garden </b></h3>
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                    <p>Do you have a garden?</p>
+                    <br />
+                    <input type="radio" id="garden1" name="garden" value="1">
+                    <label for="garden1">Yes</label><br><br>
+                    <input type="radio" id="garden2" name="garden" value="2">
+                    <label for="garden2">No</label><br><br>
+
+                </div>
+            </div>
+
+
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                    <p>If you have a garden, do you use a drip irrigation or tap timers or mulching?</p>
+                    <br />
+                    <input type="radio" id="gardenowntype1" name="gardenowntype" value="1">
+                    <label for="gardenowntype1">Yes</label><br><br>
+                    <input type="radio" id="gardentype2" name="gardenowntype" value="2">
+                    <label for="gardenowntype2">No</label><br><br>
+                </div>
+            </div>
+
+            
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#dishsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="dishsec" style="background-color:lightgray;min-height:500px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Dish Washing</b></h3>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:350px;background-color:azure">
+                    <p>Do you wash your dish with dishwashing machine or by hands?</p>
+                    <br />
+                    <input type="radio" id="dwashtype1" name="dwashtype" value="1">
+                    <label for="dwashtype1">Washing Machine</label><br><br>
+                    <input type="radio" id="dwashtype2" name="dwashtype" value="2">
+                    <label for="dwashtype2">Hands</label><br><br>
+
+                </div>
+            </div>
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:350px;background-color:azure">
+                    <p>How many times do you wash your dish per week?</p>
+                    <br />
+                    <input type="radio" id="dwashtime1" name="dwashtime" value="1">
+                    <label for="dwashtime1">0-1 times</label><br><br>
+                    <input type="radio" id="dwashtime2" name="dwashtime" value="2">
+                    <label for="dwashtime2">2-3 times</label><br><br>
+                    <input type="radio" id="dwashtime3" name="dwashtime" value="3">
+                    <label for="dwashtime3">4-5 times</label><br><br>
+                    <input type="radio" id="dwashtime4" name="dwashtime" value="4">
+                    <label for="dwashtime4">6-7 times</label><br><br>
+                    <input type="radio" id="dwashtime5" name="dwashtime" value="5">
+                    <label for="dwashtime5">8 or more</label><br><br>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#carsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+
+    <div class="w3-container" id="carsec" style="background-color:azure;min-height:400px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Car Washing</b></h3>
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                    <p>How many times do you wash your car per week?</p>
+                    <br />
+                    <input type="radio" id="cartimes1" name="cartimes" value="1">
+                    <label for="cartimes1">0-1</label><br><br>
+                    <input type="radio" id="cartimes2" name="cartimes" value="2">
+                    <label for="cartimes2">1-2</label><br><br>
+                    <input type="radio" id="cartimes3" name="cartimes" value="3">
+                    <label for="cartimes3">2 or more</label><br><br>
+
+
+                </div>
+            </div>
+
+
+            <div class="w3-half">
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                    <p>Do you use a bucket or hose to wash your car?</p>
+                    <br />
+                    <input type="radio" id="cartype1" name="cartype" value="1">
+                    <label for="cartype1">Hose</label><br><br>
+                    <input type="radio" id="cartype2" name="cartype" value="2">
+                    <label for="cartype2">Bucket</label><br><br>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li></li>
+
+            </ul>
+            <a class="w3-right w3-row" href="#othersec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+            <br><br>
+
+        </div>
+    </div>
+
+    <div class="w3-container" id="othersec" style="background-color:lightgray;min-height:350px">
+        <div class="w3-padding-16 w3-center">
+            <h3><b>Others</b></h3>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+
+            <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                <p>Do you own a rainwater tank?</p>
+                <br />
+                <input type="radio" id="other1" name="other" value="1">
+                <label for="other1">Yes</label><br><br>
+                <input type="radio" id="other2" name="other" value="2">
+                <label for="other2">No</label><br><br>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <br>
+    <div class="w3-row w3-center">
+        <b>Progress</b>
+        <br><br>
+        <ul class="progressbar">
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+
+        </ul>
+        <br><br>
+
+    </div>
+
+    <div class="w3-row-padding w3-center">
+        <button id="showresult" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
+        <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/WaterCalculator">Go back</a>
+    </div>
+
+
+    <br /><br /><br />
+</div>
+
+<div class="w3-container" id="result" style="display:none">
+    <div class="w3-center">
+        <h3>Thank you for taking your time with us!</h3>
+        <h1><b>Here is Your Result:</b></h1>
+        <div class="w3-row w3-center" style="border-radius: 25px;border: 2px solid #73AD21;padding:5%;">
+            <div class="w3-half">
+                <p>Your estimated Water bills per week:</p>
+                <h1><b>$</b><b id="userbillweek"></b></h1>
+            </div>
+            <div class="w3-half">
+                <p>Average Water bill in Victoria per week:</p>
+                <h1><b>$21.52</b></h1>
+            </div>
+        </div>
+        <div class="w3-padding-16">
+            <h1>Your Usage vs Average Usage in Victoria</h1>
+                <canvas id="canvas" style="width:80%;"></canvas>
+           
+       
+    </div>
+        </div>
+
+</div>
+
+<script>
+    $('#showresult').click(function () {
+            document.getElementById('survey').style.display = 'none';
+        document.getElementById('result').style.display = 'initial';
+
+       //toilet
+        var flushtype = document.querySelector('input[name = "flush"]:checked').value;
+        var flushresult;
+        var avgresult;
+        if (flushtype == 1) {
+            flushresult = 11;
+            avgresult = 962.5;
+        }
+        else { flushresult = 4.5; }
+
+        var resultnotoilet =document.querySelector('input[name = "notoilet"]:checked').value;
+        var flushtime =document.querySelector('input[name = "flushtimes"]:checked').value;
+        var resultflushtime;
+        if (flushtime == 1) {
+            resultflushtime = 2;
+            avgresult = 437.5;
+        }
+         if (flushtime == 2) {
+             resultflushtime = 5;
+              avgresult = 437.5;
+        }
+         if (flushtime == 3) {
+             resultflushtime = 8;
+              avgresult = 437.5;
+        }
+        if (flushtime == 4) {
+            resultflushtime = 11;
+             avgresult = 437.5;
+        }
+        var weektoiletspent = flushresult * resultnotoilet * resultflushtime * 7;
+
+        //showering
+        var resulthouseppl =  document.querySelector('input[name = "housepeople"]:checked').value;
+        var resultnoshower = document.querySelector('input[name = "noshower"]:checked').value;
+        var avgtimespent = document.querySelector('input[name = "shower"]:checked').value;
+        var resultavgtimespent;
+         if (avgtimespent == 1)
+         {
+             resultavgtimespent = 2.5;
+        }
+         if (avgtimespent == 2)
+         {
+             resultavgtimespent = 7.5;
+        }
+         if (avgtimespent == 3)
+         {
+             resultavgtimespent = 12.5;
+        }
+         if (avgtimespent == 4)
+         {
+             resultavgtimespent = 17.5;
+        }
+         if (avgtimespent == 5)
+         {
+             resultavgtimespent = 22.5;
+        }
+         if (avgtimespent == 6)
+         {
+             resultavgtimespent = 27.5;
+        }
+         if (avgtimespent == 7)
+         {
+             resultavgtimespent = 32.5;
+        }
+
+        var showerheadtype = document.querySelector('input[name = "showerhead"]:checked').value;
+        var avgstateshowerspent;
+        var resultshowerhead;
+        if (showerheadtype == 1) {
+            resultshowerhead = 52.5/23;
+            avgstateshowerspent = 1207.5;
+        }
+         if (showerheadtype == 2) {
+             resultshowerhead = 84/23;
+             avgstateshowerspent = 1932;
+        }
+         if (showerheadtype == 3) {
+             resultshowerhead = 70/23;
+             avgstateshowerspent = 1550;
+        }
+        var weekshowerspent = resulthouseppl * resultnoshower * resultavgtimespent * resultshowerhead * 7;
+
+        //bathing
+        var resultbathnoppl =document.querySelector('input[name = "bathpeople"]:checked').value;
+        var resultbathtimes=document.querySelector('input[name = "bathtimes"]:checked').value;
+        var weekbathspent = resultbathnoppl * resultbathtimes*96;
+        var avgbathspent = 384;
+
+
+        //laundry
+        var avgweekusewm = document.querySelector('input[name = "washingmachinetimes"]:checked').value;
+        var resulttimesweek;
+         if (avgweekusewm  == 1) {
+             resulttimesweek = 1
+        }
+         if (avgweekusewm  == 2) {
+             resulttimesweek = 4
+        }
+
+         if (avgweekusewm  == 3) {
+             resulttimesweek = 6
+        }
+
+         if (avgweekusewm  == 4) {
+             resulttimesweek = 9
+        }
+
+        var typewashingm =document.querySelector('input[name = "typewm"]:checked').value;
+        var resulttype;
+        var avgstatelaundryspent;
+        if (typewashingm == 1)
+        {
+            resulttype = 110;
+            avgstatelaundryspent = 418;
+                
+        }
+
+        var ratedwm =document.querySelector('input[name = "wmrate"]:checked').value;
+                if (ratedwm == 1 && typewashingm==2)
+        {
+                    resulttype = 40;
+                     avgstatelaundryspent = 152;
+        }
+                 if (ratedwm == 2  && typewashingm==2)
+        {
+                     resulttype = 130;
+                      avgstatelaundryspent = 494;
+        }
+
+        var weeklaundryspent = resulttimesweek * resulttype;
+
+        //washing tap
+        var taptyp = document.querySelector('input[name = "taptype"]:checked').value;
+        var resulttaptype;
+        if (taptyp == 1)
+        {
+            resulttaptype = 473;
+        }
+        if (taptyp == 2)
+        {
+            resulttaptype = 525;
+        }
+        var tapru =document.querySelector('input[name = "taprun"]:checked').value;
+        var resulttaprun;
+        
+        if (tapru == 1)
+        {
+            resulttaprun = 35;
+        }
+        if (tapru == 2)
+        {
+            resulttaprun = 14;
+        }
+
+        var washtimes =document.querySelector('input[name = "washhandtimes"]:checked').value;
+        var resulttimes;
+        if (washtimes == 1)
+        {
+            resulttimes = 3;
+        }
+        if (washtimes == 2)
+        {
+            resulttimes = 8;
+        }
+
+        var weektapspent = resulttaptype + (resulttaprun*resulttimes);
+        var avgstatetapspent= 667;
+
+        //garden
+        var owngarden = document.querySelector('input[name = "garden"]:checked').value;
+        var gardentype= document.querySelector('input[name = "gardenowntype"]:checked').value;
+        var avgstategarden;
+        var weekgardenspent;
+        if (owngarden == 1 && gardentype==1)
+        {
+            weekgardenspent = 651;
+            avgstategarden =883;
+        }
+        if (owngarden == 1 && gardentype==2)
+        {
+            weekgardenspent = 1116;
+            avgstategarden =883;
+        }
+        if (owngarden == 2)
+        {
+            weekgardenspent = 0;
+            avgstategarden =0;
+        }
+
+
+
+        //dishwashing
+        var washdishty =  document.querySelector('input[name = "dwashtype"]:checked').value;
+        var resultwashdish;
+        var avgstatedishspent;
+        if (washdishty == 1)
+        {
+            resultwashdish = 12;
+            avgstatedishspent = 84;
+        }
+         if (washdishty == 2)
+        {
+             resultwashdish = 15;
+             avgstatedishspent = 105;
+        }
+
+        var dishtimeswash =  document.querySelector('input[name = "dwashtime"]:checked').value;
+        var resultwashdtime;
+        if (dishtimeswash == 1)
+        {
+            resultwashdtime = 0.5;
+        }
+        if (dishtimeswash == 2)
+        {
+            resultwashdtime = 2.5;
+        }
+        if (dishtimeswash == 3)
+        {
+            resultwashdtime = 4.5;
+        }
+        if (dishtimeswash == 4)
+        {
+            resultwashdtime= 6.5;
+        }
+        if (dishtimeswash == 5)
+        {
+            resultwashdtime = 8.5;
+        }
+
+        var weekdishspent = resultwashdish * resultwashdtime;
+       
+        //carwashing
+        var carwashtime = document.querySelector('input[name = "cartimes"]:checked').value;
+        var resultcarwashtimes;
+        if (carwashtime == 1)
+        {
+            resultcarwashtimes = 0.5;
+        }
+        if (carwashtime == 2)
+        {
+            resultcarwashtimes = 1.5;
+        }
+         if (carwashtime == 3)
+        {
+            resultcarwashtimes = 2.5;
+        }
+        var carwashtype = document.querySelector('input[name = "cartype"]:checked').value;
+        var resultcarwash;
+        var avgstatecarwash;
+        if (carwashtype == 1) {
+            resultcarwash = 180;
+            avgstatecarwash = 180;
+        }
+        else { resultcarwash = 99; avgstatecarwash = 99; }
+        var weekcarspent = resultcarwashtimes * resultcarwash;
+
+        //others
+        var otherinput = document.querySelector('input[name = "other"]:checked').value;
+        var resultother;
+        if (otherinput == 1) {
+            resultother = -868;
+        }
+        else { resultother = 0; }
+
+        document.getElementById("userbillweek").innerHTML = ((weektoiletspent + weekshowerspent + weekbathspent + weeklaundryspent + weektapspent + weekgardenspent + weekdishspent + weekcarspent + resultother) /1000 * 2.68).toFixed(2);
+    var user = {
+  label: 'You',
+data: [weektoiletspent, weekshowerspent, weekbathspent, weeklaundryspent, weektapspent, weekgardenspent, weekdishspent, weekcarspent],
+  backgroundColor: 'rgba(0, 99, 132, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis"
+};
+
+var avg= {
+  label: 'Average',
+      data: [avgresult, avgstateshowerspent, avgbathspent, avgstatelaundryspent, avgstatetapspent, avgstategarden, avgstatedishspent, avgstatecarwash],
+  backgroundColor: 'rgba(99, 132, 0, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis"
+};
+
+        var waterData = {
+ 
+ labels: [
+                "Toilet",
+                "Showering",
+                "Bathing",
+                "Laundry",
+                "Washing Hand & Brushing Teeth",
+                "Garden",
+                "Dish Washing",
+                "Car Washing",
+              
+            ],
+  datasets: [user, avg]
+};
+
+var chartOptions = {
+  scales: {
+    xAxes: [{
+      barPercentage: 1,
+      categoryPercentage: 0.6
+    }],
+    yAxes: [{
+      id: "y-axis"
+    }, {
+      id: "y-axis"
+    }]
+  }
+};
+
+var barChart = new Chart(canvas, {
+  type: 'bar',
+  data: waterData,
+  options: chartOptions
+});
+
+
+        
+window.onload = function() {
+  var canvas = document.getElementById("canvas").getContext("2d");
+  window.myBar = new Chart(canvas, {
+    type: "bar",
+    data: barChartData,
+    options: chartOptions
+  });
+};
+
+        });
+        
+
+
+
+
+
+
+
+    </script>
+

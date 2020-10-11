@@ -3,7 +3,7 @@
 }
 
 <style>
-   
+
     * {
         box-sizing: border-box;
     }
@@ -37,7 +37,7 @@
     <img src="~/Images/watertipbg.jpg" style="width:100%;max-height:580px;opacity:0.3" />
     <div class="w3-display-middle w3-container w3-text-black w3-hide-small">
 
-        <h4 style="line-height:1.75;padding-left:20px;padding-right:20px"><b>Water</b></h4>
+        <h2 style="line-height:1.75;padding-left:20px;padding-right:20px"><b>Water</b></h2>
 
         <h1 style="line-height:1.75;padding-left:20px;padding-right:20px;font-size:40px">
             6 Litres of running water is approximately used for every minute.
@@ -55,9 +55,10 @@
 
 
     </div>
+    <a class="w3-display-right w3-row w3-hide-small w3-hide-medium" href="#waterflow" style="margin-right:2%;margin-top:15%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
 </div>
 
-<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin:-15px;margin-top:0px;background-color:antiquewhite">
+<div class="w3-content" id="waterflow" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin:-15px;margin-top:0px;background-color:antiquewhite">
     <div class="container">
         <br><br>
         <h1 style="text-align:center">How water is produced</h1>
@@ -94,7 +95,7 @@
 
         <div class="w3-quarter">
             <div class=" w3-container" style="min-height:300px">
-                <h3><b>3</b></h3><br>
+                <h3><b>4</b></h3><br>
                 <img src="~/Images/watertap.png" style="width:120px" />
                 <br><br>
                 <p>Your tap water came from all the processes</p>
@@ -105,10 +106,10 @@
 
 
 <br>
-
+<a class="w3-right w3-row" href="#watertip" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
 <br>
 
-<div class="container">
+<div class="container" id="watertip">
     <h1 style="text-align:center"><b>Tips to Save Water At Your Home</b> </h1>
 </div>
 <br>
@@ -133,61 +134,61 @@
             <br>
             <h3><b>Turn Off Tap</b></h3><br>
             <a href="~/Home/WaterTipTurnOffTap">
-                <img src="~/Images/washhand.jpg" style="width:120px"/>
+                <img src="~/Images/washhand.jpg" style="width:120px" />
                 <p><b>Turn off your tap water when you brushing or soaping your hand</b></p>
             </a>
         </div>
     </div>
-    </div>
-   <br>
-    <br>
-    <br>
-    <br>
-    <div class="container" style="text-align:center">
-        <b><a class="btn btn-default" style="text-align: center;" href="~/Home/Commontips">< Back</a></b>
-    </div>
-    <br>
-    <br>
-    <br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="text-align:center">
+    <b><a class="btn btn-default" style="text-align: center;" href="~/Home/Commontips">< Back</a></b>
+</div>
+<br>
+<br>
+<br>
 
-    <br>
-    <br>
+<br>
+<br>
 
 
 
+<script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+<div class="container" style="padding-left:20px">
+    <a class="twitter-share-button"
+       href="https://energuctioniteration2.azurewebsites.net/Home/WaterTips">
+        Tweet
+    </a>
+
+    <div id="fb-root"></div>
     <script>
-        window.twttr = (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
             fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
-            t._e = [];
-            t.ready = function (f) {
-                t._e.push(f);
-            };
-
-            return t;
-        }(document, "script", "twitter-wjs"));</script>
-
-    <div class="container" style="padding-left:20px">
-        <a class="twitter-share-button"
-           href="https://energuction.azurewebsites.net/Home/WaterTips">
-            Tweet
-        </a>
-
-        <div id="fb-root"></div>
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-
-        <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/WaterTips" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-    </div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/WaterTips" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>

@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    @@media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @@media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="w3-container" style="background-color:aliceblue;max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
+    <div class="w3-quarter w3-center w3-hide-small" style="height:500px">
+        <img src="~/Images/calculator.png" style="width:60%;margin-top:70%;" />
+    </div>
+    <div class="w3-half w3-center w3-hide-small" style="padding:3%;margin-top:10%;height:500px">
+        <h1 style="line-height:1.75em"><b>Calculate your bills and pre-estimate before receiving your bills</b></h1>
+    </div>
+    <div class="w3-quarter w3-center w3-hide-small" style="height:500px">
+        <img src="~/Images/piggy-bank.png" style="width:60%;margin-top:70%" />
+    </div>
+
+
+
+    <div class="w3-half w3-center w3-hide-medium w3-hide-large" style="padding:3%;margin-top:10%">
+        <h4 style="line-height:1.75em"><b>Calculate your bills and pre-estimate before receiving your bills</b></h4>
+    </div>
+
+    <a class="w3-display-right w3-row w3-hide-small w3-hide-medium" href="#choose" style="margin-right:2%;margin-top:20%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+</div>
+
+<div class="w3-center w3-padding-32" id="choose">
+    <img src="~/Images/calculator (1).png" style="max-width:200px;height:100px"  />
+   
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Select One of the Category</span>
+</div>
+
+<div class="w3-row-padding w3-center w3-margin-top" style="width:70%;margin-left:15%;margin-right:15%">
+    <div class="w3-half w3-center">
+        <div class="w3-card w3-container w3-padding-16">
+
+            <br>
+
+            <a href="~/Home/GeneralQuiz">
+                <img src="~/Images/pexels-matheus-bertelli-1830252.jpg" style="width:300px; height:200px" />
+                <br> <br>
+                <h3><b>Electric</b></h3>
+
+
+            </a>
+
+        </div>
+
+    </div>
+    <div class="w3-half w3-center">
+        <div class="w3-card w3-container w3-padding-16">
+            <br>
+
+            <a href="~/Home/WaterCalculator">
+                <img src="~/Images/splashing-165192_1280.jpg" style="width:300px; height:200px" />
+                <br> <br>
+                <h3><b>Water</b></h3>
+            </a>
+
+        </div>
+    </div>
+
+
+</div>
