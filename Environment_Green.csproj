@@ -316,6 +316,8 @@
     <Content Include="Views\Home\Calculator.cshtml" />
     <Content Include="Views\Home\WaterCalculator.cshtml" />
     <Content Include="Views\Home\TotalWaterUsage.cshtml" />
+    <Content Include="Views\Home\ElectricCalculator.cshtml" />
+    <Content Include="Views\Home\TotalElectricUsage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

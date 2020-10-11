@@ -121,5 +121,15 @@ namespace Environment_Green.Controllers
 
             return View();
         }
+        public ActionResult ElectricCalculator()
+        {
+
+            return View();
+        }
+        public ActionResult TotalELectricUsage()
+        {
+
+            return View();
+        }
     }
 }

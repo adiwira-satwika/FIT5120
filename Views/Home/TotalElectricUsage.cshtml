@@ -1,0 +1,1221 @@
+﻿  @{
+        ViewBag.Title = "TotalWaterUsage";
+    }
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <style>
+        .block {
+            display: block;
+            width: 100%;
+            border: solid 1px;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin: 20px;
+            border-radius: 12px;
+        }
+
+            .block:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+        .question:not(.active) {
+            display: none;
+        }
+
+
+        .progressbar {
+            counter-reset: step;
+        }
+
+            .progressbar li {
+                list-style-type: none;
+                width: 10.2%;
+                float: left;
+                font-size: 12px;
+                position: relative;
+                text-align: center;
+                text-transform: uppercase;
+                color: #7d7d7d;
+            }
+
+                .progressbar li:before {
+                    width: 30px;
+                    height: 30px;
+                    content: counter(step);
+                    counter-increment: step;
+                    line-height: 30px;
+                    border: 2px solid #7d7d7d;
+                    display: block;
+                    text-align: center;
+                    margin: 0 auto 10px auto;
+                    border-radius: 50%;
+                    background-color: white;
+                }
+
+                .progressbar li:after {
+                    width: 100%;
+                    height: 2px;
+                    content: '';
+                    position: absolute;
+                    background-color: #ddd;
+                    top: 15px;
+                    left: -50%;
+                    z-index: -1;
+                }
+
+                .progressbar li:first-child:after {
+                    content: none;
+                }
+
+                .progressbar li.active {
+                    color: green;
+                }
+
+                    .progressbar li.active:before {
+                        border-color: #55b776;
+                    }
+
+                    .progressbar li.active + li:after {
+                        background-color: #55b776;
+                    }
+    </style>
+
+    <div class="w3-container" id="survey1" style="background-color:aliceblue">
+        <div class="w3-padding-64 w3-center">
+            <h1><b>Total Electric Usage Calculator</b></h1>
+        </div>
+        <div class="w3-container" style="background-color:lightgray;min-height:450px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Heater / Air-Conditioner</b></h3>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                        <p>
+                            Do you use a heater or air-conditioner at your home now?</p>
+                            <br />
+                            <input type="radio" id="heater" name="temp" value="1">
+                            <label for="heater">Heater</label><br><br>
+                            <input type="radio" id="ac" name="temp" value="2">
+                            <label for="ac">Air Conditioner</label><br><br>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                        <p>How many air-conditioner / heater do you have at your home?</p>
+                        <br />
+                        <input type="radio" id="acown1" name="acown" value="1">
+                        <label for="acown1">1</label><br><br>
+                        <input type="radio" id="acown2" name="acown" value="2">
+                        <label for="acown2">2</label><br><br>
+                        <input type="radio" id="acown3" name="acown" value="3">
+                        <label for="acown3">3</label><br><br>
+                        <input type="radio" id="acown4" name="acown" value="4">
+                        <label for="acown4">4</label><br><br>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
+                        <p>How many hours do you use per day averagely per air-conditioner/heater?</p>
+                        <br />
+                        <input type="radio" id="achr1" name="achr" value="1">
+                        <label for="achr1">1-3</label><br><br>
+                        <input type="radio" id="achr2" name="achr" value="2">
+                        <label for="achr2">4-6</label><br><br>
+                        <input type="radio" id="achr3" name="achr" value="3">
+                        <label for="achr3">7-9</label><br><br>
+                        <input type="radio" id="achr4" name="achr" value="4">
+                        <label for="achr4">10 or more</label><br><br>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#wheatsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div class="w3-container" id="wheatrsec" style="background-color:azure;min-height:580px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Water Heating</b></h3>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                        <p>How many people in your house?</p>
+                        <br />
+                        <input type="radio" id="housepeople1" name="housepeople" value="1">
+                        <label for="housepeople1">1</label><br><br>
+                        <input type="radio" id="housepeople2" name="housepeople" value="2">
+                        <label for="housepeople2">2</label><br><br>
+                        <input type="radio" id="housepeople3" name="housepeople" value="3">
+                        <label for="housepeople3">3</label><br><br>
+                        <input type="radio" id="housepeople4" name="housepeople" value="4">
+                        <label for="housepeople4">4</label><br><br>
+                        <input type="radio" id="housepeople5" name="housepeople" value="5">
+                        <label for="housepeople5">5</label><br><br>
+                        <input type="radio" id="housepeople6" name="housepeople" value="6">
+                        <label for="housepeople6">6 or more</label><br><br>
+
+                    </div>
+                </div>
+                 <div class="w3-third">
+                     <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                         <p>How many times each person take shower with hot water per day?</p>
+                         <br />
+                         <input type="radio" id="showertime1" name="showertime" value="1">
+                         <label for="showertime1">1</label><br><br>
+                         <input type="radio" id="showertime2" name="showertime" value="2">
+                         <label for="showertime2">2</label><br><br>
+                         <input type="radio" id="showertime3" name="showertime" value="3">
+                         <label for="showertime3">3</label><br><br>
+                         <input type="radio" id="showertime4" name="showertime" value="4">
+                         <label for="showertime4">4 or more</label><br><br>
+
+                     </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                        <p>Do you use storage or instanteous hot water?</p>
+                        <br />
+                        <input type="radio" id="heatshower1" name="heatshower" value="1">
+                        <label for="heatshower1">Storage</label><br><br>
+                        <input type="radio" id="heatshower2" name="heatshower" value="2">
+                        <label for="heatshower2">Instantaneous</label><br><br>
+             
+                    </div>
+                </div>
+               
+          
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#wmsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+
+        <div class="w3-container" id="wmsec" style="background-color:lightgray;min-height:530px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Washing Machine</b></h3>
+            </div>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:280px;background-color:azure">
+                        <p> how many times do you use washing machine per week?</p>
+                        <br />
+                        <input type="radio" id="wmtime1" name="wmtime" value="1">
+                        <label for="wmtime1">0-2 times</label><br><br>
+                        <input type="radio" id="wmtime2" name="wmtime" value="2">
+                        <label for="wmtime2">2-4 times</label><br><br>
+                        <input type="radio" id="wmtime3" name="wmtime" value="3">
+                        <label for="wmtime3">4-6 times</label><br><br>
+                        <input type="radio" id="wmtime4" name="wmtime" value="4">
+                        <label for="wmtime4">7 or more</label><br><br>
+                    
+                    </div>
+                </div>
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:280px;background-color:azure">
+                        <p>Which temperature do you normally set to wash your clothes?</p>
+                        <br />
+                        <input type="radio" id="wmtemp1" name="wmtemp" value="1">
+                        <label for="wmtemp1">Hot</label><br><br>
+                        <input type="radio" id="wmtemp2" name="wmtemp" value="2">
+                        <label for="wmtemp2">Warm</label><br><br>
+                        <input type="radio" id="wmtemp3" name="wmtemp" value="3">
+                        <label for="wmtemp3">Cold</label><br>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#fridgesec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+
+        <div class="w3-container" id="fridgesec" style="background-color:azure;min-height:450px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Fridge</b></h3>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                        <p>How many fridge do you own?</p>
+                        <br />
+                        <input type="radio" id="fown1" name="fown" value="1">
+                        <label for="fown1">1</label><br><br>
+                        <input type="radio" id="fown1" name="fown" value="2">
+                        <label for="fown2">2</label><br><br>
+                        <input type="radio" id="fown1" name="fown" value="3">
+                        <label for="fown3">3 or more</label><br>
+                        
+                    </div>
+                </div>
+
+
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                        <p>Which temperature do you set for your fridge?</p>
+                        <br />
+                        <input type="radio" id="ftemp1" name="ftemp" value="1">
+                        <label for="ftemp1">0-3 °C</label><br><br>
+                        <input type="radio" id="ftemp2" name="ftemp" value="2">
+                        <label for="ftemp2">4-6 °C</label><br><br>
+                 
+
+                    </div>
+                </div>
+
+             
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#cooksec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+
+        </div>
+
+        <div class="w3-container" id="cooksec" style="background-color:lightgray;min-height:350px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Cooking</b></h3>
+            </div>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-quarter">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                        <p> How many do you use smoke extractor when cooking in average per week?</p>
+                        <br />
+                        <input type="radio" id="ceif1" name="ceif" value="1">
+                        <label for="ceif1">0</label><br><br>
+                        <input type="radio" id="ceif2" name="ceif" value="2">
+                        <label for="ceif2">1-3 times</label><br><br>
+                        <input type="radio" id="ceif3" name="ceif" value="3">
+                        <label for="ceif3">4-6 times</label><br><br>
+                        <input type="radio" id="ceif4" name="ceif" value="4">
+                        <label for="ceif4">7-9 times</label><br><br>
+                        <input type="radio" id="ceif5" name="ceif" value="5">
+                        <label for="ceif5">10-12 times</label><br><br>
+                        <input type="radio" id="ceif6" name="ceif" value="6">
+                        <label for="ceif6">13-15 times</label><br><br>
+                        <input type="radio" id="ceif7" name="ceif" value="7">
+                        <label for="ceif7">16 or more</label><br><br>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                        <p>How many do you use oven for cooking in average per week?</p>
+                        <br />
+                        <input type="radio" id="oven1" name="oven" value="1">
+                        <label for="oven1">0</label><br><br>
+                        <input type="radio" id="oven2" name="oven" value="2">
+                        <label for="oven2">1-3times</label><br><br>
+                        <input type="radio" id="oven3" name="oven" value="3">
+                        <label for="oven3">4-6 times</label><br><br>
+                        <input type="radio" id="oven4" name="oven" value="4">
+                        <label for="oven4">7-9 times</label><br><br>
+                        <input type="radio" id="oven5" name="oven" value="5">
+                        <label for="oven5">10 or more</label><br><br>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                        <p>How many times do you use toaster or microwave oven in average per week?</p>
+                        <br />
+                        <input type="radio" id="micro1" name="micro" value="1">
+                        <label for="micro1">0</label><br><br>
+                        <input type="radio" id="micro2" name="micro" value="2">
+                        <label for="micro2">1-3 times</label><br><br>
+                        <input type="radio" id="micro3" name="micro" value="3">
+                        <label for="micro3">4-6 times</label><br><br>
+                        <input type="radio" id="micro4" name="micro" value="4">
+                        <label for="micro4">7-9 times</label><br><br>
+                        <input type="radio" id="micro5" name="micro" value="5">
+                        <label for="micro5">10-12 times</label><br><br>
+                        <input type="radio" id="micro6" name="micro" value="6">
+                        <label for="micro6">13-15 times</label><br><br>
+                        <input type="radio" id="micro7" name="micro" value="7">
+                        <label for="micro7">16 or more</label><br><br>
+                    </div>
+                </div>
+
+                <div class="w3-quarter">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                        <p>How many times do you use slow cooker in average per week?</p>
+                        <br />
+                        <input type="radio" id="scooker1" name="scooker" value="1">
+                        <label for="scooker1">0</label><br><br>
+                        <input type="radio" id="scooker2" name="scooker" value="2">
+                        <label for="scooker2">1-3 times</label><br><br>
+                        <input type="radio" id="scooker3" name="scooker" value="3">
+                        <label for="scooker3">4-6 times</label><br><br>
+                        <input type="radio" id="scooker4" name="scooker" value="4">
+                        <label for="scooker4">7-9 times</label><br><br>
+                        <input type="radio" id="scooker5" name="scooker" value="5">
+                        <label for="scooker5">10-12 times</label><br><br>
+                        <input type="radio" id="scooker6" name="scooker" value="6">
+                        <label for="scooker6">13-15 times</label><br><br>
+                        <input type="radio" id="scooker7" name="scooker" value="7">
+                        <label for="scooker7">16 or more</label><br><br>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#lightsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div class="w3-container" id="lightsec" style="background-color:azure;min-height:330px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Lighting </b></h3>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                        <p>What kind of light bulbs do you use?</p>
+                        <br />
+                        <input type="radio" id="bulb1" name="bulb" value="1">
+                        <label for="bulb1">Incandescent</label><br><br>
+                        <input type="radio" id="bulb2" name="bulb" value="2">
+                        <label for="bulb2">CFL</label><br><br>
+                        <input type="radio" id="bulb3" name="bulb" value="3">
+                        <label for="bulb3">LED</label><br><br>
+
+                    </div>
+                </div>
+
+
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                        <p>Estimately how many of them you turned on every times?</p>
+                        <br />
+                        <input type="radio" id="bulbtime1" name="bulbtime" value="1">
+                        <label for="bulbtime1">1-3 lights</label><br><br>
+                        <input type="radio" id="bulbtime2" name="bulbtime" value="2">
+                        <label for="bulbtime2">4-6 lights</label><br><br>
+                        <input type="radio" id="bulbtime3" name="bulbtime" value="3">
+                        <label for="bulbtime3">7-9 lights</label><br><br>
+                        <input type="radio" id="bulbtime4" name="bulbtime" value="4">
+                        <label for="bulbtime4">10-12 lights</label><br><br>
+                        <input type="radio" id="bulbtime5" name="bulbtime" value="5">
+                        <label for="bulbtime5">13 or more</label><br><br>
+                    </div>
+                </div>
+
+
+                <div class="w3-third">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                        <p>How long do you turn on your light every day?</p>
+                        <br />
+                        <input type="radio" id="bulblength1" name="bulblength" value="1">
+                        <label for="bulblength1">0-3 hours</label><br><br>
+                        <input type="radio" id="bulblength2" name="bulblength" value="2">
+                        <label for="bulblength2">4-6 hours</label><br><br>
+                        <input type="radio" id="bulblength3" name="bulblength" value="3">
+                        <label for="bulblength3">7-9 hours</label><br><br>
+                        <input type="radio" id="bulblength4" name="bulblength" value="4">
+                        <label for="bulblength4">10-12 hours</label><br><br>
+                        <input type="radio" id="bulblength5" name="bulblength" value="5">
+                        <label for="bulblength5">13 or more</label><br><br>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#tvsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div class="w3-container" id="tvsec" style="background-color:lightgray;min-height:500px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Television</b></h3>
+            </div>
+
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:350px;background-color:azure">
+                        <p>How long do you watch television everyday in average?</p>
+                        <br />
+                        <input type="radio" id="tv1" name="tv" value="1">
+                        <label for="tv1">0-1 hours</label><br><br>
+                        <input type="radio" id="tv2" name="tv" value="2">
+                        <label for="tv2">1-2 hours</label><br><br>
+                        <input type="radio" id="tv3" name="tv" value="3">
+                        <label for="tv3">2-3 hours</label><br><br>
+                        <input type="radio" id="tv4" name="tv" value="4">
+                        <label for="tv4">3-4 hours</label><br><br>
+                        <input type="radio" id="tv5" name="tv" value="5">
+                        <label for="tv5">4 or more hours</label><br><br>
+                    </div>
+                </div>
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:350px;background-color:azure">
+                        <p>Which type of tv do you own?</p>
+                        <br />
+                        <input type="radio" id="tvtype1" name="tvtype" value="1">
+                        <label for="tvtype1">LED</label><br><br>
+                        <input type="radio" id="tvtype2" name="tvtype" value="2">
+                        <label for="tvtype2">LCD</label><br><br>
+                        <input type="radio" id="tvtype3" name="tvtype" value="3">
+                        <label for="tvtype3">Plasma</label><br>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#compsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+
+        <div class="w3-container" id="compsec" style="background-color:azure;min-height:400px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Computer / Laptop</b></h3>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                        <p>How many computer or laptop in your household?</p>
+                        <br />
+                        <input type="radio" id="lapown1" name="lapown" value="1">
+                        <label for="lapown1">1</label><br><br>
+                        <input type="radio" id="lapown2" name="lapown" value="2">
+                        <label for="lapown2">2</label><br><br>
+                        <input type="radio" id="lapown3" name="lapown" value="3">
+                        <label for="lapown3">3</label><br><br>
+                        <input type="radio" id="lapown4" name="lapown" value="4">
+                        <label for="lapown4">4 or more</label><br><br>     
+
+
+                    </div>
+                </div>
+
+
+                <div class="w3-half">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                        <p>How long for each computer/laptop to run every day in average?</p>
+                        <br />
+                        <input type="radio" id="lapt1" name="lapt" value="1">
+                        <label for="lapt1">0-2 hours</label><br><br>
+                        <input type="radio" id="lapt2" name="lapt" value="2">
+                        <label for="lapt2">2-4 hours</label><br><br>
+                        <input type="radio" id="lapt3" name="lapt" value="3">
+                        <label for="lapt3">4-6 hours</label><br><br>
+                        <input type="radio" id="lapt4" name="lapt" value="4">
+                        <label for="lapt4">6-8 hours</label><br><br>
+                        <input type="radio" id="lapt5" name="lapt" value="5">
+                        <label for="lapt5">8-10 hours</label><br><br>
+                        <input type="radio" id="lapt6" name="lapt" value="6">
+                        <label for="lapt6">10 hours or more</label><br><br>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+
+                </ul>
+                <a class="w3-right w3-row" href="#othersec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div class="w3-container" id="othersec" style="background-color:lightgray;min-height:350px">
+            <div class="w3-padding-16 w3-center">
+                <h3><b>Others</b></h3>
+            </div>
+
+            <div class="w3-row-padding w3-margin-top">
+
+                <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:200px;background-color:azure">
+                    <p>How many mobile phones or tablet do you have in your household?</p>
+                    <br />
+                    <input type="radio" id="other1" name="other" value="1">
+                    <label for="other1">1</label><br><br>
+                    <input type="radio" id="other2" name="other" value="2">
+                    <label for="other2">2</label><br><br>
+                    <input type="radio" id="other3" name="other" value="3">
+                    <label for="other3">3</label><br><br>
+                    <input type="radio" id="other4" name="other" value="4">
+                    <label for="other4">4</label><br><br>
+                    <input type="radio" id="other5" name="other" value="5">
+                    <label for="other5">5</label><br><br>
+                    <input type="radio" id="other6" name="other" value="6">
+                    <label for="other6">6</label><br><br>
+                    <input type="radio" id="other7" name="other" value="7">
+                    <label for="other7">7</label><br><br>
+                    <input type="radio" id="other8" name="other" value="8">
+                    <label for="other8">8 or more</label><br><br>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <br>
+        <div class="w3-row w3-center">
+            <b>Progress</b>
+            <br><br>
+            <ul class="progressbar">
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+                <li class="active"></li>
+
+            </ul>
+            <br><br>
+
+        </div>
+
+        <div class="w3-row-padding w3-center">
+            <button id="showresult1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
+            <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/Calculator">Go back</a>
+        </div>
+
+
+        <br /><br /><br />
+    </div>
+
+    <div class="w3-container" id="result1" style="display:none">
+        <div class="w3-center">
+            <h3>Thank you for taking your time with us!</h3>
+            <h1><b>Here is Your Result:</b></h1>
+            <div class="w3-row w3-center" style="border-radius: 25px;border: 2px solid #73AD21;padding:2%;">
+                <div class="w3-half">
+                    <p>Your estimated Electric bills per week:</p>
+                    <h1><b>$</b><b id="userbillweek"></b></h1>
+                </div>
+                <div class="w3-half">
+                    <p>Average Water bill in Victoria per week:</p>
+                    <h1><b>$26.85</b></h1>
+                </div>
+            </div>
+            <div class="w3-row">
+                <h2 style="padding-top:2%">Personal Performance in Each Area:</h2>
+                <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%;padding-left:5%">
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userac1">&#128512; Heater/AC</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userwheat1">&#128512; Water Heater</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userwm1">&#128512; Washing Machine</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userfridge1">&#128512; Fridge</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usercook1">&#128512; Cooking</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userlight1">&#128512; Lighting</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usertv1">&#128512; Television</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usercomp1">&#128512; Computer/Laptop</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userother1">&#128512; Other</h4>
+                    </div>
+
+                </div>
+
+                <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%">
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userac2">&#128546; Heater/AC</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userwheat2">&#128546;  Water Heater</h4>
+
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userwm2">&#128546;  Washing Machine</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userfridge2">&#128546;   Fridge</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usercook2">&#128546; Cooking</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userlight2">&#128546; Lighting</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usertv2">&#128546;  Television</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="usercomp2">&#128546; Computer/Laptop</h4>
+                    </div>
+                    <div class="w3-row">
+                        <h4 style="display:none" id="userother2">&#128546; Other</h4>
+                    </div>
+
+
+
+                </div>
+            </div>
+                <br>
+                <a class="w3-right w3-row" href="#userbar" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br>
+
+
+                <hr>
+                <br><br>
+                <div class="w3-padding-16" id="userbar">
+                    <h1>Your Usage vs Average Usage in Victoria</h1>
+                    <canvas id="canvas" style="width:80%;"></canvas>
+
+
+                </div>
+                <a class="w3-right w3-row" href="#piec" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+                <br>
+            </div>
+            <div class="w3-row w3-container" id="piec">
+                <div class="w3-half w3-padding-16">
+
+                    <div id="userpie" style="width:80%;"></div>
+                </div>
+
+                <div class="w3-half w3-padding-16">
+
+                    <div id="avgpie" style="width:80%;"></div>
+                </div>
+
+            </div>
+
+            <div class="w3-row w3-center w3-container" style="margin-top:40%">
+                <b>Not sure how to reduce usage? Let's check out our electric tips</b>
+                <p><a href="~/Home/Electrictips" class="btn btn-info">Learn more with Electric Common Tips</a></p>
+            </div>
+
+
+
+        </div>
+
+    <script>
+        $('#showresult1').click(function () {
+            document.getElementById('survey1').style.display = 'none';
+            document.getElementById('result1').style.display = 'initial';
+
+            //heater/ac-----------------------------------------------------------------------
+            var userhac = document.querySelector('input[name = "temp"]:checked').value;
+            var resulthac;
+            var avgac;
+            if (userhac == 1) {
+                resulthac = 2;
+                avgac = 42;
+            }
+            if (userhac == 2) {
+                resulthac = 5;
+                avgac = 100;
+            }
+            var resultuserown = document.querySelector('input[name = "acown"]:checked').value;
+            var useracuse = document.querySelector('input[name = "achr"]:checked').value;
+            var resultuseracuse;
+            if (useracuse == 1) {
+                resultuseracuse = 2;
+            }
+            if (useracuse == 2) {
+                resultuseracuse = 5;
+            }
+            if (useracuse == 3) {
+                resultuseracuse = 8;
+            }
+            if (useracuse == 4) {
+                resultuseracuse = 11;
+            }
+
+            var weekacspent = resulthac * resultuserown * resultuseracuse * 7;
+
+            //waterheating------------------------------------------------------------------
+            var resultuserhseppl = document.querySelector('input[name = "housepeople"]:checked').value;
+            var resultshowerhot = document.querySelector('input[name = "showertime"]:checked').value;
+            var heatype = document.querySelector('input[name = "heatshower"]:checked').value;
+            var avgheat;
+            var resultheat;
+            if (heatype == 1) {
+                resultheat = 9.9;
+                avgheat = 85.76;
+            } else { resultheat = 9.5; avgheat = 74.62; }
+
+            var weekwaterhspent = resultuserhseppl * resultshowerhot * resultheat * 7;
+
+            //washingmachine==================================================================
+            var wmtimeuse = document.querySelector('input[name = "wmtime"]:checked').value;
+            var resultwmtimeuse;
+            if (wmtimeuse == 1) {
+                resultwmtimeuse = 1;
+            }
+            if (wmtimeuse == 2) {
+                resultwmtimeuse = 3;
+            }
+            if (wmtimeuse == 3) {
+                resultwmtimeuse = 5;
+            }
+            if (wmtimeuse == 4) {
+                resultwmtimeuse = 7;
+            }
+
+            var wmtempuse = document.querySelector('input[name = "wmtemp"]:checked').value;
+            var resulttemp;
+            var avgwm = 4.08;
+            if (wmtempuse == 1) {
+                resulttemp = 4;
+            }
+            if (wmtempuse == 2) {
+                resulttemp = 2.8;
+            }
+            if (wmtempuse == 3) {
+                resulttemp = 0.3;
+            }
+
+            var weekwmspent = resultwmtimeuse * resulttemp;
+
+            //fridge-----------------------------------------------------------
+            var resultownfridge = document.querySelector('input[name = "fown"]:checked').value;
+            var userftemp = document.querySelector('input[name = "ftemp"]:checked').value;
+            var resultuserftemp;
+            var avgf = 13.64;
+            if (userftemp == 1) {
+                resultuserftemp = 24.024;
+            } else { resultuserftemp = 9.445; }
+
+            var weekfridgespent = resultownfridge * resultuserftemp;
+
+            //cooking============================================================
+            var userceif = document.querySelector('input[name = "ceif"]:checked').value;
+            var resultceif;
+            if (userceif == 1) { resultceif = 0; }
+            if (userceif == 2) { resultceif = 2 * 0.032; }
+            if (userceif == 3) { resultceif = 5 * 0.032;}
+            if (userceif == 4) { resultceif = 8 * 0.032;}
+            if (userceif == 5) { resultceif = 11 * 0.032; }
+            if (userceif == 6) { resultceif = 14 * 0.032;}
+            if (userceif == 7) { resultceif = 17 * 0.032;}
+
+            var useroven = document.querySelector('input[name = "oven"]:checked').value;
+            var resultoven;
+            if (useroven == 1) { resultoven = 0; }
+            if (useroven == 2) { resultoven = 2 * 1.34;}
+            if (useroven == 3) { resultoven = 5 * 1.34;}
+            if (useroven == 4) { resultoven = 8 * 1.34;}
+            if (useroven == 5) { resultoven = 11 * 1.34;}
+
+
+            var usermicro = document.querySelector('input[name = "micro"]:checked').value;
+            var resultmicro;
+            if (usermicro == 1) { resultmicro = 0; }
+            if (usermicro == 2) { resultmicro = 2 * 0.01; }
+            if (usermicro == 3) { resultmicro = 5 * 0.01;}
+            if (usermicro == 4) { resultmicro = 8 * 0.01;}
+            if (usermicro == 5) { resultmicro = 11 * 0.01; }
+            if (usermicro == 6) { resultmicro = 14 * 0.01;}
+            if (usermicro == 7) { resultmicro = 17 * 0.01; }
+
+
+            var usercooker = document.querySelector('input[name = "scooker"]:checked').value;
+            var resultcooker;
+            if (usercooker == 1) { resultcooker = 0; }
+            if (usercooker == 2) { resultcooker = 2 * 0.0167; }
+            if (usercooker == 3) { resultcooker = 5 * 0.0167; }
+            if (usercooker == 4) { resultcooker = 8 * 0.0167; }
+            if (usercooker == 5) { resultcooker = 11 * 0.0167;}
+            if (usercooker == 6) { resultcooker = 14 * 0.0167; }
+            if (usercooker == 7) { resultcooker = 17 * 0.0167; }
+
+            var weekcookspent = resultceif + resultoven + resultmicro + resultcooker;
+            var avgcooker = 6.658;
+
+            //lighting========================================================
+            var userbulb = document.querySelector('input[name = "bulb"]:checked').value;
+            var resultuserbulb;
+            if (userbulb == 1) { resultuserbulb = 0.0096 }
+            if (userbulb == 2) { resultuserbulb = 0.0024 }
+            if (userbulb == 3) { resultuserbulb = 0.0016 }
+
+            var userbulbtime = document.querySelector('input[name = "bulbtime"]:checked').value;
+            var resultbtime;
+            if (userbulbtime == 1) { resultbtime = 2 }
+            if (userbulbtime == 2) { resultbtime = 5 }
+            if (userbulbtime == 3) { resultbtime = 8 }
+            if (userbulbtime == 4) { resultbtime = 11 }
+            if (userbulbtime == 5) { resultbtime = 14 }
+
+
+            var userbulbleng = document.querySelector('input[name = "bulblength"]:checked').value;
+            var resultblength;
+            if (userbulbleng == 1) { resultblength = 2; }
+            if (userbulbleng == 2) { resultblength = 5 }
+            if (userbulbleng == 3) { resultblength = 8 }
+            if (userbulbleng == 4) { resultblength = 11 }
+            if (userbulbleng == 5) { resultblength = 14 }
+
+            var weekbulbspent = resultuserbulb * resultbtime * resultblength * 7;
+            var avgbulb = 4.62
+
+            //tv===========================================
+            var usertvtime = document.querySelector('input[name = "tv"]:checked').value;
+            var resulttvtime;
+            if (usertvtime == 1) { resulttvtime = 0.5; }
+            if (usertvtime == 2) { resulttvtime = 1.5 }
+            if (usertvtime == 3) { resulttvtime = 2.5 }
+            if (usertvtime == 4) { resulttvtime = 3.5 }
+            if (usertvtime == 5) { resulttvtime = 4.5 }
+
+            var usertvtype = document.querySelector('input[name = "tvtype"]:checked').value;
+            var resulttvtype;
+            if (usertvtype == 1) { resulttvtype = 0.127; }
+            if (usertvtype == 2) { resulttvtype = 0.176; }
+            if (usertvtype == 3) { resulttvtype = 0.27; }
+
+            var weektvspent = resulttvtime * resulttvtype * 7;
+            var avgtv = 3.97
+
+            //comp===================================================
+            var resultusercompown = document.querySelector('input[name = "lapown"]:checked').value;
+
+            var usercompt = document.querySelector('input[name = "lapt"]:checked').value;
+            var resultusercompt;
+            if (usercompt == 1) { resultusercompt=1}
+            if (usercompt == 2) {resultusercompt=3 }
+            if (usercompt == 3) { resultusercompt=5}
+            if (usercompt == 4) { resultusercompt=7}
+            if (usercompt == 5) { resultusercompt=9}
+            if (usercompt == 6) { resultusercompt = 11 }
+
+            var weekcompspent = resultusercompown * resultusercompt * 7;
+            var avgcomp = 1.71;
+
+            //other======================================================
+            var resultuserhpown = document.querySelector('input[name = "other"]:checked').value;
+            var weekphonespent = resultuserhpown * 0.0003 * 7*24;
+            var avgphone = 3.44;
+
+
+            document.getElementById("userbillweek").innerHTML = (weekacspent+ weekwaterhspent+ weekwmspent+ weekfridgespent+ weekcookspent+ weekbulbspent+weektvspent+ weekcompspent+weekphonespent)*0.25
+
+
+
+              if (weekacspent > avgac) { document.getElementById('userac1').style.display = 'initial'; }
+        else { document.getElementById('userac2').style.display = 'initial'; }
+                  if (weekwaterhspent > avgheat) { document.getElementById('userwheat1').style.display = 'initial'; }
+            else { document.getElementById('userwheat2').style.display = 'initial'; }
+                if (weekwmspent > avgwm) { document.getElementById('userwm1').style.display = 'initial'; }
+        else { document.getElementById('userwm2').style.display = 'initial'; }
+                  if (weekfridgespent > avgf) { document.getElementById('userfridge1').style.display = 'initial'; }
+            else { document.getElementById('userfridge2').style.display = 'initial'; }
+                    if (weekcookspent > avgcooker) { document.getElementById('usercook1').style.display = 'initial'; }
+        else { document.getElementById('usercook2').style.display = 'initial'; }
+                       if (weekbulbspent > avgbulb) { document.getElementById('userlight1').style.display = 'initial'; }
+            else { document.getElementById('userlight2').style.display = 'initial'; }
+                   if (weektvspent > avgtv) { document.getElementById('usertv1').style.display = 'initial'; }
+            else { document.getElementById('usertv2').style.display = 'initial'; }
+                  if (weekcompspent > avgcomp) { document.getElementById('usercomp1').style.display = 'initial'; }
+            else { document.getElementById('usercomp2').style.display = 'initial'; }
+                        if (weekphonespent > avgphone) { document.getElementById('userother1').style.display = 'initial'; }
+        else { document.getElementById('userother2').style.display = 'initial'; }
+
+            //barcomparison-------------------------------------------------------------------------------------------------------------------------------------------
+        var user = {
+  label: 'You',
+data: [weekacspent, weekwaterhspent, weekwmspent, weekfridgespent, weekcookspent, weekbulbspent, weektvspent, weekcompspent,weekphonespent],
+  backgroundColor: 'rgba(0, 99, 132, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis"
+};
+
+var avg= {
+  label: 'Average',
+      data: [avgac, avgheat, avgwm,  avgf, avgcooker,avgbulb, avgtv, avgcomp,avgphone],
+  backgroundColor: 'rgba(99, 132, 0, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis"
+};
+
+        var waterData = {
+ 
+ labels: [
+                "Heater/AC",
+                "Water Heating",
+                "Washing Machine",
+                "Fridge",
+                "Cooking",
+                "Lighting",
+                "TV",
+                "Computer",
+                "Other"
+              
+            ],
+  datasets: [user, avg]
+};
+
+var chartOptions = {
+  scales: {
+    xAxes: [{
+      barPercentage: 1,
+      categoryPercentage: 0.6
+    }],
+    yAxes: [{
+      id: "y-axis"
+    }, {
+      id: "y-axis"
+    }]
+  }
+};
+
+var barChart = new Chart(canvas, {
+  type: 'bar',
+  data: waterData,
+  options: chartOptions
+});
+
+
+        
+window.onload = function() {
+  var canvas = document.getElementById("canvas").getContext("2d");
+  window.myBar = new Chart(canvas, {
+    type: "bar",
+    data: barChartData,
+    options: chartOptions
+  });
+            };
+
+                      //piechart-------------------------------------------------------------------------------------------
+            var totalspent = weekacspent + weekwaterhspent + weekwmspent + weekfridgespent + weekcookspent + weekbulbspent + weektvspent + weekcompspent + weekphonespent;
+            var pieac = weekacspent / totalspent * 100;
+    var piewaterh = weekwaterhspent / totalspent * 100;
+    var piewm = weekwmspent / totalspent * 100;
+    var piefridge = weekfridgespent / totalspent * 100;
+    var piecook = weekcookspent / totalspent * 100;
+    var piebulb = weekbulbspent / totalspent * 100;
+    var pietv= weektvspent / totalspent * 100;
+    var piecomp = weekcompspent / totalspent * 100;
+    var pieother = weekphonespent/totalspent*100;
+
+
+    	var chart = new CanvasJS.Chart("userpie",
+	{
+		title:{
+			text: "Your weighting of total water consumption in Victoria (%)"
+		},
+		legend: {
+			maxWidth: 350,
+			itemWidth: 120
+		},
+		data: [
+            {
+          
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+                dataPoints: [
+                    { y: pieac, indexLabel: "Heater/AC" },
+				{ y: piewaterh, indexLabel:  "Water Heating" },
+				{ y: piewm, indexLabel:"Washing Machine"},
+				{ y: piefridge, indexLabel:  "Fridge"},
+				{ y:piecook, indexLabel: "Cooking" },
+				{ y: piebulb, indexLabel: "Lighting"},
+                { y: pietv, indexLabel: "TV" },
+                { y: piecomp, indexLabel: "Computer" },
+                { y: pieother, indexLabel: "Other" }
+            ]
+		}
+		]
+	});
+        chart.render();
+
+
+                 //avgpie-----------------------------------------------------------------------
+	var chart = new CanvasJS.Chart("avgpie",
+	{
+		title:{
+			text: "Average weighting of total water consumption in Victoria (%)"
+		},
+		legend: {
+			maxWidth: 350,
+			itemWidth: 120
+		},
+		data: [
+            {
+
+              
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+			dataPoints: [
+				{ y: 29.3, indexLabel:  "Heater/AC"},
+				{ y: 32.5, indexLabel:  "Water Heating" },
+				{ y: 3.8, indexLabel:"Washing Machine"},
+				{ y: 12.7, indexLabel:  "Fridge"},
+				{ y:6.2, indexLabel: "Cooking" },
+				{ y: 4.3, indexLabel: "Lighting"},
+                { y: 3.7, indexLabel: "TV" },
+                { y: 1.6, indexLabel: "Computer" },
+                 { y: 6, indexLabel: "Other"}
+			]
+		}
+		]
+	});
+	chart.render();
+
+ });
+
+            </script>

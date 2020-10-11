@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 <style>
     .block {
@@ -667,7 +668,7 @@
 
     <div class="w3-row-padding w3-center">
         <button id="showresult" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
-        <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/WaterCalculator">Go back</a>
+        <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/Calculator">Go back</a>
     </div>
 
 
@@ -678,25 +679,115 @@
     <div class="w3-center">
         <h3>Thank you for taking your time with us!</h3>
         <h1><b>Here is Your Result:</b></h1>
-        <div class="w3-row w3-center" style="border-radius: 25px;border: 2px solid #73AD21;padding:5%;">
+        <div class="w3-row w3-center" style="border-radius: 25px;border: 2px solid #73AD21;padding:2%;">
             <div class="w3-half">
                 <p>Your estimated Water bills per week:</p>
                 <h1><b>$</b><b id="userbillweek"></b></h1>
             </div>
             <div class="w3-half">
                 <p>Average Water bill in Victoria per week:</p>
-                <h1><b>$21.52</b></h1>
+                <h1><b>$10.39</b></h1>
             </div>
         </div>
-        <div class="w3-padding-16">
+        <div class="w3-row">
+            <h2 style="padding-top:2%">Personal Performance in Each Area:</h2>
+            <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%;padding-left:5%">
+                <div class="w3-row">
+                    <h4 style="display:none" id="usertoilet1">&#128512; Toilet</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usershower1">&#128512; Showering</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userbath1">&#128512; Bathing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userlaundry1">&#128512; Laundry</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usertap1">&#128512; Washing Under Tap</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usergarden1">&#128512; Garden</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userdwash1">&#128512; Dish Washing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usercwash1">&#128512; Car Washing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userother1">&#128512; Other</h4>
+                </div>
+            </div>
+            <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%">
+                <div class="w3-row">
+                    <h4 style="display:none" id="usertoilet2">&#128546; Toilet</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usershower2">&#128546; Showering</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userbath2">&#128546; Bathing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userlaundry2">&#128546; Laundry</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usertap2">&#128546; Washing Under Tap</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usergarden2">&#128546; Garden</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userdwash2">&#128546; Dish Washing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="usercwash2">&#128546; Car Washing</h4>
+                </div>
+                <div class="w3-row">
+                    <h4 style="display:none" id="userother2">&#128546; Other</h4>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <a class="w3-right w3-row" href="#userbar" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+        <br>
+        <hr>
+        <br><br>
+        <div class="w3-padding-16" id="userbar">
             <h1>Your Usage vs Average Usage in Victoria</h1>
-                <canvas id="canvas" style="width:80%;"></canvas>
-           
-       
+            <canvas id="canvas" style="width:80%;"></canvas>
+
+
+        </div>
+        <a class="w3-right w3-row" href="#piec" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+        <br>
     </div>
+    <div class="w3-row w3-container" id="piec">
+        <div class="w3-half w3-padding-16">
+
+            <div id="userpie" style="width:80%;"></div>
         </div>
 
+        <div class="w3-half w3-padding-16">
+
+            <div id="avgpie" style="width:80%;"></div>
+        </div>
+
+    </div>
+    
+    <div class="w3-row w3-center w3-container" style="margin-top:40%">
+        <b>Not sure how to reduce usage? Let's check out our water tips</b>
+        <p><a href="~/Home/WaterTips" class="btn btn-info">Learn more with Water Common Tips</a></p>
+    </div>
+
+
+
 </div>
+
+
 
 <script>
     $('#showresult').click(function () {
@@ -834,7 +925,7 @@
 
         var weeklaundryspent = resulttimesweek * resulttype;
 
-        //washing tap
+        //washing tap-------------------------------------------------
         var taptyp = document.querySelector('input[name = "taptype"]:checked').value;
         var resulttaptype;
         if (taptyp == 1)
@@ -894,7 +985,7 @@
 
 
 
-        //dishwashing
+        //dishwashing-----------------------------------------------
         var washdishty =  document.querySelector('input[name = "dwashtype"]:checked').value;
         var resultwashdish;
         var avgstatedishspent;
@@ -934,7 +1025,7 @@
 
         var weekdishspent = resultwashdish * resultwashdtime;
        
-        //carwashing
+        //carwashing--------------------------------------
         var carwashtime = document.querySelector('input[name = "cartimes"]:checked').value;
         var resultcarwashtimes;
         if (carwashtime == 1)
@@ -959,16 +1050,39 @@
         else { resultcarwash = 99; avgstatecarwash = 99; }
         var weekcarspent = resultcarwashtimes * resultcarwash;
 
-        //others
+        //others-----------------------------------------------
         var otherinput = document.querySelector('input[name = "other"]:checked').value;
         var resultother;
         if (otherinput == 1) {
             resultother = -868;
+             document.getElementById('userother1').style.display = 'initial';
         }
-        else { resultother = 0; }
+        else { resultother = 0; document.getElementById('userother2').style.display = 'initial'; }
 
-        document.getElementById("userbillweek").innerHTML = ((weektoiletspent + weekshowerspent + weekbathspent + weeklaundryspent + weektapspent + weekgardenspent + weekdishspent + weekcarspent + resultother) /1000 * 2.68).toFixed(2);
-    var user = {
+document.getElementById("userbillweek").innerHTML = ((weektoiletspent + weekshowerspent + weekbathspent + weeklaundryspent + weektapspent + weekgardenspent + weekdishspent + weekcarspent + resultother) / 1000 * 2.68).toFixed(2);
+
+
+        //user data analysis---------------------------------------------------------------------
+        if (weektoiletspent > avgresult) { document.getElementById('usertoilet1').style.display = 'initial'; }
+        else { document.getElementById('usertoilet2').style.display = 'initial'; }
+          if (weekshowerspent > avgstateshowerspent) { document.getElementById('usershower1').style.display = 'initial'; }
+        else { document.getElementById('usershower2').style.display = 'initial'; }
+          if (weekbathspent > avgbathspent) { document.getElementById('userbath1').style.display = 'initial'; }
+        else { document.getElementById('userbath2').style.display = 'initial'; }
+          if (weeklaundryspent > avgstatelaundryspent) { document.getElementById('userlaundry1').style.display = 'initial'; }
+        else { document.getElementById('userlaundry2').style.display = 'initial'; }
+              if (weektapspent > avgstatetapspent) { document.getElementById('usertap1').style.display = 'initial'; }
+        else { document.getElementById('usertap2').style.display = 'initial'; }
+                 if (weekgardenspent > avgstategarden) { document.getElementById('usergarden1').style.display = 'initial'; }
+        else { document.getElementById('usergarden2').style.display = 'initial'; }
+                 if (weekdishspent > avgstatedishspent) { document.getElementById('userdwash1').style.display = 'initial'; }
+        else { document.getElementById('userdwash2').style.display = 'initial'; }
+                      if (weekcarspent > avgstatecarwash) { document.getElementById('usercwash1').style.display = 'initial'; }
+        else { document.getElementById('usercwash2').style.display = 'initial'; }
+
+
+//barcomparison-------------------------------------------------------------------------------------------------------------------------------------------
+        var user = {
   label: 'You',
 data: [weektoiletspent, weekshowerspent, weekbathspent, weeklaundryspent, weektapspent, weekgardenspent, weekdishspent, weekcarspent],
   backgroundColor: 'rgba(0, 99, 132, 0.6)',
@@ -1031,8 +1145,88 @@ window.onload = function() {
   });
 };
 
-        });
+
+            //piechart-------------------------------------------------------------------------------------------
+    var totalspent = weektoiletspent + weekshowerspent + weekbathspent + weeklaundryspent + weektapspent + weekgardenspent + weekdishspent + weekcarspent + resultother;
+    var pietoilet = weektoiletspent / totalspent * 100;
+    var pieshower = weekshowerspent / totalspent * 100;
+    var piebath = weekbathspent / totalspent * 100;
+    var pielaundry = weeklaundryspent / totalspent * 100;
+    var pietap = weektapspent / totalspent * 100;
+    var piegarden = weekgardenspent / totalspent * 100;
+    var piedish = weekdishspent / totalspent * 100;
+    var piecar = weekcarspent / totalspent * 100;
+    var pieother = 100 - pietoilet - pieshower - piebath - pielaundry - pietap - piegarden - piedish - piecar;
+
+
+    	var chart = new CanvasJS.Chart("userpie",
+	{
+		title:{
+			text: "Your weighting of total water consumption in Victoria (%)"
+		},
+		legend: {
+			maxWidth: 350,
+			itemWidth: 120
+		},
+		data: [
+            {
+          
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+			dataPoints: [
+                { y: pietoilet, indexLabel: "Toilet" },
+                { y: pieshower, indexLabel: "Showering" },
+                { y: piebath, indexLabel: "Bathing" },
+				{ y: pielaundry, indexLabel:  "Laundry"},
+				{ y: pietap, indexLabel: "Washing Hand & Brushing Teeth" },
+				{ y: piegarden, indexLabel: "Garden"},
+                { y: piedish, indexLabel: "Dish Washing" },
+                { y: piecar, indexLabel: "Car Washing" },
+                 { y: pieother, indexLabel: "Other"}
+			]
+		}
+		]
+	});
+        chart.render();
+
+          //avgpie-----------------------------------------------------------------------
+	var chart = new CanvasJS.Chart("avgpie",
+	{
+		title:{
+			text: "Average weighting of total water consumption in Victoria (%)"
+		},
+		legend: {
+			maxWidth: 350,
+			itemWidth: 120
+		},
+		data: [
+            {
+          
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+			dataPoints: [
+				{ y: 17.5, indexLabel:  "Toilet"},
+				{ y: 29.8, indexLabel:  "Showering" },
+				{ y: 2.1, indexLabel:"Bathing"},
+				{ y: 19.7, indexLabel:  "Laundry"},
+				{ y: 22.2, indexLabel: "Washing Hand & Brushing Teeth" },
+				{ y: 3.3, indexLabel: "Garden"},
+                { y: 1.2, indexLabel: "Dish Washing" },
+                { y: 0.6, indexLabel: "Car Washing" },
+                 { y: 3.6, indexLabel: "Other"}
+			]
+		}
+		]
+	});
+	chart.render();
+  });
         
+
+
+
+  
 
 
 
