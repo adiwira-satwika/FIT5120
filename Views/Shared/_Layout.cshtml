@@ -1,6 +1,4 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
@@ -48,14 +46,9 @@
         }
     </style>
 </head>
-
-
-
 <body>
-
-
-    <div class="navbar navbar-default navbar-dark static-top" style="background-color:#234F72;max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-10px;margin-right:-10px">
-        <div class="container" style="width:100%">
+    <nav class="navbar navbar-default navbar-dark navbar-fixed-top" style="background-color:#234F72;max-width:2000px;">
+        <div class="container-fluid" style="width:100%">
             <a class="navbar-brand" href="~/Home">
                 <img src="~/Images/rsz_1enermat-removebg-preview.png" alt="" style="width:100px;height:30px">
             </a>
@@ -69,8 +62,8 @@
                 </button>
 
             </div>
-            <div class="navbar-collapse collapse static-top navbar-dark">
-                <ul class="nav navbar-nav static-top" style="color:black">
+            <div class="navbar-left">
+                <ul class="nav navbar-nav" style="color:black">
                     <li>@Html.ActionLink("TakeQuiz", "TakeQuiz", "Home")</li>
                     <li>@Html.ActionLink("CommonTips", "CommonTips", "Home")</li>
                     <li>@Html.ActionLink("Calculator", "Calculator", "Home")</li>
@@ -79,7 +72,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content" style="width:100%;">
         @RenderBody()
 
@@ -91,7 +84,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>
 <footer>
