@@ -318,6 +318,8 @@
     <Content Include="Views\Home\TotalWaterUsage.cshtml" />
     <Content Include="Views\Home\ElectricCalculator.cshtml" />
     <Content Include="Views\Home\TotalElectricUsage.cshtml" />
+    <Content Include="Views\Home\BulbQuiz.cshtml" />
+    <Content Include="Views\Home\FridgeQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
