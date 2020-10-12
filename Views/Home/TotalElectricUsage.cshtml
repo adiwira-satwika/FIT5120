@@ -93,20 +93,21 @@
         <div class="w3-padding-64 w3-center">
             <h1><b>Total Electric Usage Calculator</b></h1>
         </div>
-        <div class="w3-container" style="background-color:lightgray;min-height:450px">
+        <div class="w3-container" id="acsec" style="background-color:lightgray;min-height:450px">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Heater / Air-Conditioner</b></h3>
             </div>
-            <div class="w3-row-padding w3-margin-top">
+            <div class="w3-row-padding w3-margin-top" >
                 <div class="w3-third">
                     <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:310px;background-color:azure">
                         <p>
-                            Do you use a heater or air-conditioner at your home now?</p>
-                            <br />
-                            <input type="radio" id="heater" name="temp" value="1">
-                            <label for="heater">Heater</label><br><br>
-                            <input type="radio" id="ac" name="temp" value="2">
-                            <label for="ac">Air Conditioner</label><br><br>
+                            Do you use a heater or air-conditioner at your home now?
+                        </p>
+                        <br />
+                        <input type="radio" id="heater" name="temp" value="1">
+                        <label for="heater">Heater</label><br><br>
+                        <input type="radio" id="ac" name="temp" value="2">
+                        <label for="ac">Air Conditioner</label><br><br>
                     </div>
                 </div>
                 <div class="w3-third">
@@ -138,37 +139,39 @@
                     </div>
                 </div>
 
+                <div class="w3-row w3-center">
+                    <b>Progress</b>
+                    <br><br>
+                    <ul class="progressbar">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
 
+                    </ul>
+
+                    <br><br>
+                    <div class="w3-row-padding w3-center">
+                        <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/Calculator">Go back</a>
+                        <button id="next1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>   <br><br>
+                    </div>
+                </div>
             </div>
-            <br>
-            <div class="w3-row w3-center">
-                <b>Progress</b>
-                <br><br>
-                <ul class="progressbar">
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-
-                </ul>
-                <a class="w3-right w3-row" href="#wheatsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
-
-            </div>
+           
+           
         </div>
-
-        <div class="w3-container" id="wheatrsec" style="background-color:azure;min-height:580px">
+        <div class="w3-container" id="wheatsec" style="background-color:lightgray;min-height:580px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Water Heating</b></h3>
             </div>
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-third">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:azure">
                         <p>How many people in your house?</p>
                         <br />
                         <input type="radio" id="housepeople1" name="housepeople" value="1">
@@ -187,7 +190,7 @@
                     </div>
                 </div>
                  <div class="w3-third">
-                     <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                     <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:azure">
                          <p>How many times each person take shower with hot water per day?</p>
                          <br />
                          <input type="radio" id="showertime1" name="showertime" value="1">
@@ -202,7 +205,7 @@
                      </div>
                 </div>
                 <div class="w3-third">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:450px;background-color:azure">
                         <p>Do you use storage or instanteous hot water?</p>
                         <br />
                         <input type="radio" id="heatshower1" name="heatshower" value="1">
@@ -231,14 +234,17 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#wmsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next2" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
-
-
-        <div class="w3-container" id="wmsec" style="background-color:lightgray;min-height:530px">
+        <div class="w3-container" id="wmsec" style="background-color:lightgray;min-height:530px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Washing Machine</b></h3>
             </div>
@@ -289,20 +295,23 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#fridgesec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre2" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next3" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
-
-
-        <div class="w3-container" id="fridgesec" style="background-color:azure;min-height:450px">
+        <div class="w3-container" id="fridgesec" style="background-color:lightgray;min-height:450px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Fridge</b></h3>
             </div>
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-half">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:azure">
                         <p>How many fridge do you own?</p>
                         <br />
                         <input type="radio" id="fown1" name="fown" value="1">
@@ -317,7 +326,7 @@
 
 
                 <div class="w3-half">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:300px;background-color:azure">
                         <p>Which temperature do you set for your fridge?</p>
                         <br />
                         <input type="radio" id="ftemp1" name="ftemp" value="1">
@@ -347,14 +356,19 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#cooksec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre3" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next4" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
 
         </div>
 
-        <div class="w3-container" id="cooksec" style="background-color:lightgray;min-height:350px">
+        <div class="w3-container" id="cooksec" style="background-color:lightgray;min-height:350px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Cooking</b></h3>
             </div>
@@ -456,19 +470,24 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#lightsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre4" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next5" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
 
-        <div class="w3-container" id="lightsec" style="background-color:azure;min-height:330px">
+        <div class="w3-container" id="lightsec" style="background-color:lightgray;min-height:330px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Lighting </b></h3>
             </div>
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-third">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:azure">
                         <p>What kind of light bulbs do you use?</p>
                         <br />
                         <input type="radio" id="bulb1" name="bulb" value="1">
@@ -483,7 +502,7 @@
 
 
                 <div class="w3-third">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:azure">
                         <p>Estimately how many of them you turned on every times?</p>
                         <br />
                         <input type="radio" id="bulbtime1" name="bulbtime" value="1">
@@ -501,7 +520,7 @@
 
 
                 <div class="w3-third">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:150px;background-color:azure">
                         <p>How long do you turn on your light every day?</p>
                         <br />
                         <input type="radio" id="bulblength1" name="bulblength" value="1">
@@ -535,13 +554,18 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#tvsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre5" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next6" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
 
-        <div class="w3-container" id="tvsec" style="background-color:lightgray;min-height:500px">
+        <div class="w3-container" id="tvsec" style="background-color:lightgray;min-height:500px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Television</b></h3>
             </div>
@@ -594,20 +618,25 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#compsec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre6" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next7" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
 
 
-        <div class="w3-container" id="compsec" style="background-color:azure;min-height:400px">
+        <div class="w3-container" id="compsec" style="background-color:lightgray;min-height:400px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Computer / Laptop</b></h3>
             </div>
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-half">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:azure">
                         <p>How many computer or laptop in your household?</p>
                         <br />
                         <input type="radio" id="lapown1" name="lapown" value="1">
@@ -625,7 +654,7 @@
 
 
                 <div class="w3-half">
-                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:lightgray">
+                    <div class="w3-container w3-padding-16" style="padding-left:2%;min-height:270px;background-color:azure">
                         <p>How long for each computer/laptop to run every day in average?</p>
                         <br />
                         <input type="radio" id="lapt1" name="lapt" value="1">
@@ -661,13 +690,18 @@
                     <li></li>
 
                 </ul>
-                <a class="w3-right w3-row" href="#othersec"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-                <br><br>
 
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre7" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="next8" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Next</button>
+                    <br><br>
+
+                </div>
             </div>
         </div>
 
-        <div class="w3-container" id="othersec" style="background-color:lightgray;min-height:350px">
+        <div class="w3-container" id="othersec" style="background-color:lightgray;min-height:350px;display:none">
             <div class="w3-padding-16 w3-center">
                 <h3><b>Others</b></h3>
             </div>
@@ -698,34 +732,35 @@
             </div>
 
 
+            <div class="w3-row w3-center">
+                <b>Progress</b>
+                <br><br>
+                <ul class="progressbar">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
 
+                </ul>
+                <br><br>
+                <div class="w3-row-padding w3-center">
+                    <button id="pre8" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
+                    <button id="showresult1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
+
+                </div>
+            </div>
 
         </div>
 
         <br>
-        <div class="w3-row w3-center">
-            <b>Progress</b>
-            <br><br>
-            <ul class="progressbar">
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
-                <li class="active"></li>
+  
 
-            </ul>
-            <br><br>
-
-        </div>
-
-        <div class="w3-row-padding w3-center">
-            <button id="showresult1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
-            <a class="btn btn-default" style="width:300px;height:80px;font-size:30px" href="~/Home/Calculator">Go back</a>
-        </div>
+        
 
 
         <br /><br /><br />
@@ -819,29 +854,20 @@
 
                 <hr>
                 <br><br>
-                <div class="w3-padding-16" id="userbar">
+            <div class="w3-center w3-container"id="userbar"  style="margin-left:15%;margin-right:15%">
+                <div class="w3-padding-16 ">
                     <h1>Your Usage vs Average Usage in Victoria</h1>
-                    <canvas id="canvas" style="width:80%;"></canvas>
+                    <canvas id="canvas" style="text-align:center"></canvas>
 
 
                 </div>
-                <a class="w3-right w3-row" href="#piec" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+               
                 <br>
-            </div>
-            <div class="w3-row w3-container" id="piec">
-                <div class="w3-half w3-padding-16">
-
-                    <div id="userpie" style="width:80%;"></div>
                 </div>
-
-                <div class="w3-half w3-padding-16">
-
-                    <div id="avgpie" style="width:80%;"></div>
-                </div>
-
             </div>
+            
 
-            <div class="w3-row w3-center w3-container" style="margin-top:40%">
+            <div class="w3-row w3-center w3-container" style="margin-top:5%">
                 <b>Not sure how to reduce usage? Let's check out our electric tips</b>
                 <p><a href="~/Home/Electrictips" class="btn btn-info">Learn more with Electric Common Tips</a></p>
             </div>
@@ -851,7 +877,92 @@
         </div>
 
     <script>
+           $('#next1').click(function () {
+        if (document.querySelector('input[name = "temp"]:checked') && document.querySelector('input[name = "acown"]:checked') && document.querySelector('input[name = "achr"]:checked'))
+    {
+        document.getElementById('acsec').style.display = 'none';
+        document.getElementById('wheatsec').style.display = 'initial';
+    } else{ alert("Please finish the question before going to next"); }
+    });
+    $('#next2').click(function () {
+         if (document.querySelector('input[name = "housepeople"]:checked') && document.querySelector('input[name = "showertime"]:checked') && document.querySelector('input[name = "heatshower"]:checked'))
+    {
+             document.getElementById('wheatsec').style.display = 'none';
+             document.getElementById('wmsec').style.display = 'initial';
+              } else{ alert("Please finish the question before going to next"); }
+    });
+    $('#next3').click(function () {
+        if (document.querySelector('input[name = "wmtime"]:checked') && document.querySelector('input[name = "wmtemp"]:checked') ) {
+            document.getElementById('wmsec').style.display = 'none';
+            document.getElementById('fridgesec').style.display = 'initial';
+        }else{ alert("Please finish the question before going to next"); }
+    });
+    $('#next4').click(function () {
+         if (document.querySelector('input[name = "fown"]:checked') && document.querySelector('input[name = "ftemp"]:checked') ){
+             document.getElementById('fridgesec').style.display = 'none';
+             document.getElementById('cooksec').style.display = 'initial';
+                     }else{ alert("Please finish the question before going to next"); }
+    });
+    $('#next5').click(function () {
+          if (document.querySelector('input[name = "ceif"]:checked') && document.querySelector('input[name = "oven"]:checked') && document.querySelector('input[name = "micro"]:checked')  && document.querySelector('input[name = "scooker"]:checked')) {
+             document.getElementById('cooksec').style.display = 'none';
+              document.getElementById('lightsec').style.display = 'initial';
+                 }else{ alert("Please finish the question before going to next"); }
+    });
+    $('#next6').click(function () {
+          if (document.querySelector('input[name = "bulb"]:checked') && document.querySelector('input[name = "bulbtime"]:checked')  && document.querySelector('input[name = "bulblength"]:checked')) {
+             document.getElementById('lightsec').style.display = 'none';
+              document.getElementById('tvsec').style.display = 'initial';
+                     }else{ alert("Please finish the question before going to next"); }
+     });
+    $('#next7').click(function () {
+           if (document.querySelector('input[name = "tv"]:checked') && document.querySelector('input[name = "tvtype"]:checked') ) {
+             document.getElementById('tvsec').style.display = 'none';
+               document.getElementById('compsec').style.display = 'initial';
+                }else{ alert("Please finish the question before going to next"); }
+     });
+    $('#next8').click(function () {
+          if (document.querySelector('input[name = "lapown"]:checked') && document.querySelector('input[name = "lapt"]:checked') ) {
+             document.getElementById('compsec').style.display = 'none';
+              document.getElementById('othersec').style.display = 'initial';
+               }else{ alert("Please finish the question before going to next"); }
+    });
+
+       $('#pre1').click(function () {
+             document.getElementById('acsec').style.display = 'initial';
+        document.getElementById('wheatsec').style.display = 'none';
+    });
+    $('#pre2').click(function () {
+             document.getElementById('wheatsec').style.display = 'initial';
+        document.getElementById('wmsec').style.display = 'none';
+    });
+    $('#pre3').click(function () {
+             document.getElementById('wmsec').style.display = 'initial';
+        document.getElementById('fridgesec').style.display = 'none';
+    });
+    $('#pre4').click(function () {
+             document.getElementById('fridgesec').style.display = 'initial';
+        document.getElementById('cooksec').style.display = 'none';
+    });
+    $('#pre5').click(function () {
+             document.getElementById('cooksec').style.display = 'initial';
+        document.getElementById('lightsec').style.display = 'none';
+    });
+     $('#pre6').click(function () {
+             document.getElementById('lightsec').style.display = 'initial';
+        document.getElementById('tvsec').style.display = 'none';
+     });
+     $('#pre7').click(function () {
+             document.getElementById('tvsec').style.display = 'initial';
+        document.getElementById('compsec').style.display = 'none';
+     });
+     $('#pre8').click(function () {
+             document.getElementById('compsec').style.display = 'none';
+        document.getElementById('othersec').style.display = 'initial';
+    });
+
         $('#showresult1').click(function () {
+                    if (document.querySelector('input[name = "other"]:checked')  ) {
             document.getElementById('survey1').style.display = 'none';
             document.getElementById('result1').style.display = 'initial';
 
@@ -1150,72 +1261,9 @@ window.onload = function() {
     var piecomp = weekcompspent / totalspent * 100;
     var pieother = weekphonespent/totalspent*100;
 
-
-    	var chart = new CanvasJS.Chart("userpie",
-	{
-		title:{
-			text: "Your weighting of total water consumption in Victoria (%)"
-		},
-		legend: {
-			maxWidth: 350,
-			itemWidth: 120
-		},
-		data: [
-            {
-          
-			type: "pie",
-			showInLegend: true,
-			legendText: "{indexLabel}",
-                dataPoints: [
-                    { y: pieac, indexLabel: "Heater/AC" },
-				{ y: piewaterh, indexLabel:  "Water Heating" },
-				{ y: piewm, indexLabel:"Washing Machine"},
-				{ y: piefridge, indexLabel:  "Fridge"},
-				{ y:piecook, indexLabel: "Cooking" },
-				{ y: piebulb, indexLabel: "Lighting"},
-                { y: pietv, indexLabel: "TV" },
-                { y: piecomp, indexLabel: "Computer" },
-                { y: pieother, indexLabel: "Other" }
-            ]
-		}
-		]
-	});
-        chart.render();
-
-
-                 //avgpie-----------------------------------------------------------------------
-	var chart = new CanvasJS.Chart("avgpie",
-	{
-		title:{
-			text: "Average weighting of total water consumption in Victoria (%)"
-		},
-		legend: {
-			maxWidth: 350,
-			itemWidth: 120
-		},
-		data: [
-            {
+   }else{ alert("Please finish the question before going to next"); }
 
               
-			type: "pie",
-			showInLegend: true,
-			legendText: "{indexLabel}",
-			dataPoints: [
-				{ y: 29.3, indexLabel:  "Heater/AC"},
-				{ y: 32.5, indexLabel:  "Water Heating" },
-				{ y: 3.8, indexLabel:"Washing Machine"},
-				{ y: 12.7, indexLabel:  "Fridge"},
-				{ y:6.2, indexLabel: "Cooking" },
-				{ y: 4.3, indexLabel: "Lighting"},
-                { y: 3.7, indexLabel: "TV" },
-                { y: 1.6, indexLabel: "Computer" },
-                 { y: 6, indexLabel: "Other"}
-			]
-		}
-		]
-	});
-	chart.render();
-
  });
 
             </script>
