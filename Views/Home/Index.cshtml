@@ -3,7 +3,7 @@
 }
 
 
-<script>
+<!--<script>
     var password;
     var password1 = "18";
     password = prompt('Enter to view contents');
@@ -12,7 +12,7 @@
     else {
         window.location = "http://www.google.com"
     }
-</script>
+</script>-->
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -67,8 +67,7 @@
 </style>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
-
+<div class="container-fluid">
     <!-- Automatic Slideshow Images -->
     <div class="mySlides w3-display-container w3-center">
         <img src="~/Images/energyhome.jpg" style="width:100%;max-height:580px" />
@@ -128,31 +127,29 @@
     </div>
 </div>
 <br>
-<div class="w3-row" style="margin-left:16px;margin-right:16px">
-    <div class="w3-quarter w3-center" style="text-align:center">
-        <a href="https://www.world-nuclear.org/nuclear-essentials/where-does-our-electricity-come-from.aspx" target="_blank">
-            <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
-        </a>
-    </div>
-    <div class="w3-quarter w3-left" style="margin-top:2%;font-size:20px;text-align:justify">
-        <p>
-            We are aiming to reduce the effect of global warming by tackling in the household which is one of key
-            contributor to greenhouse gas and global warming.
-        </p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="text-align:center">
+            <a href="https://www.world-nuclear.org/nuclear-essentials/where-does-our-electricity-come-from.aspx" target="_blank">
+                <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
+            </a>
+            <h5>
+                We are providing tools for energy consumers in Australia to educate themselves on
+                ways to reduce energy consumption in their household by using our energy calculator,
+                common energy saving tips, energy quiz to test your knowledge and more! see the section below to learn more.
+            </h5>
+        </div>
+        <div class="col-md-6" style="text-align:center">
+            <a href="https://www.yourhome.gov.au/housing/carbon-zero-carbon-positive" target="_blank">
+                <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
+            </a>
+            <h5>
+                We are aiming to reduce the effect of global warming by tackling in the household which is one of key
+                contributor to greenhouse gas and global warming.
+            </h5>
+        </div>
     </div>
 
-    <div class="w3-quarter w3-center" style="text-align:center">
-        <a href="https://www.yourhome.gov.au/housing/carbon-zero-carbon-positive" target="_blank">
-            <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
-        </a>
-    </div>
-    <div class="w3-quarter w3-left" style="margin-top:2%;font-size:20px;text-align:justify">
-        <p>
-            We are providing tools for energy consumers in Australia to educate themselves on 
-            ways to reduce energy consumption in their household by using our energy calculator, 
-            common energy saving tips, energy quiz to test your knowledge and more! see the section below to learn more.
-        </p>
-    </div>
 </div>
 <br>
 
@@ -199,7 +196,7 @@
         <br>
         <h2> <b>Weather</b></h2>
         <br><p>
-            Do you know that weather significantly impact your energy consumption? Our weather temperature system can suggest the best house temperature that 
+            Do you know that weather significantly impact your energy consumption? Our weather temperature system can suggest the best house temperature that
             can help you reduce energy consumption while still keeping yourself warm/cool.
         </p><br>
         <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Weather"><h5>Go to weather temperature suggestion</h5></a>
@@ -209,38 +206,37 @@
 <br>
 <a class="w3-right w3-row" href="#ourtarget" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
 
-<h1>Local household energy statistics</h1>
-<div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
-
-    <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average energy consumption per household per week</h2>
-    <div class="w3-row w3-center" style="margin:5%">
-        <div class="w3-half">
-            <p>Total Electric Bill Paid Every Week</p>
-            <h1><b>$27</b></h1>
-
+<div class="container">
+    <h1 class="w3-center" style="text-align:center">Local household energy statistics</h1>
+    <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average energy consumption per household per week</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-half">
+                <p>Total Electric Bill Paid Every Week</p>
+                <h1><b>$27</b></h1>
+            </div>
+            <div class="w3-half">
+                <p>Total Water Bill Paid Every Week</p>
+                <h1><b>$21.58</b></h1>
+            </div>
         </div>
-        <div class="w3-half">
-            <p>Total Water Bill Paid Every Week</p>
-            <h1><b>$21.58</b></h1>
-
-        </div>
-    </div>
-    <div class="w3-row w3-center" style="margin:5%">
-        <div class="w3-quarter">
-            <p>Total Electric Consumption</p>
-            <h1><b>107.4 kwh</b></h1>
-        </div>
-        <div class="w3-quarter">
-            <p>Total Carbon Emission</p>
-            <h1><b>1.06 ton</b></h1>
-        </div>
-        <div class="w3-quarter">
-            <p>Total Water Consumption</p>
-            <h1><b>3637.06 L</b></h1>
-        </div>
-        <div class="w3-quarter">
-            <p>Total Water Waste</p>
-            <h1><b>2182.236 L</b></h1>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-quarter">
+                <p>Total Electric Consumption</p>
+                <h1><b>107.4 kwh</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Carbon Emission</p>
+                <h1><b>1.06 ton</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Consumption</p>
+                <h1><b>3637.06 L</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Waste</p>
+                <h1><b>2182.236 L</b></h1>
+            </div>
         </div>
     </div>
 </div>
