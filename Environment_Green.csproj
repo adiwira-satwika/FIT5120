@@ -193,6 +193,7 @@
     <Content Include="Images\bulbbu.png" />
     <Content Include="Images\bulbpic.png" />
     <Content Include="Images\calculator %281%29.png" />
+    <Content Include="Images\calculator-maths-tool.png" />
     <Content Include="Images\calculator.png" />
     <Content Include="Images\clouds-3488632_1920.jpg" />
     <Content Include="Images\coal.jpg" />
@@ -247,6 +248,7 @@
     <Content Include="Images\aircon.jpg" />
     <Content Include="Images\waterbg.jpg" />
     <Content Include="Images\watertipbg.jpg" />
+    <Content Include="Images\weather.png" />
     <Content Include="Images\weatherAC.png" />
     <Content Include="Images\weatherhome.jpg" />
     <Content Include="Images\ws m.PNG" />
