@@ -751,20 +751,14 @@
                 <div class="w3-row-padding w3-center">
                     <button id="pre8" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Previous</button>
                     <button id="showresult1" class="btn btn-success" style="width:300px;height:80px;font-size:30px">Submit</button>
-
                 </div>
             </div>
-
         </div>
-
         <br>
-  
-
-        
-
-
         <br /><br /><br />
     </div>
+
+
 
     <div class="w3-container" id="result1" style="display:none">
         <div class="w3-center">
@@ -784,63 +778,63 @@
                 <h2 style="padding-top:2%">Personal Performance in Each Area:</h2>
                 <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%;padding-left:5%">
                     <div class="w3-row">
-                        <h4 style="display:none" id="userac1">&#128512; Heater/AC</h4>
+                        <h4 style="display:none" id="userac1">&#128546; Heater/AC</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userwheat1">&#128512; Water Heater</h4>
+                        <h4 style="display:none" id="userwheat1">&#128546; Water Heater</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userwm1">&#128512; Washing Machine</h4>
+                        <h4 style="display:none" id="userwm1">&#128546; Washing Machine</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userfridge1">&#128512; Fridge</h4>
+                        <h4 style="display:none" id="userfridge1">&#128546; Fridge</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usercook1">&#128512; Cooking</h4>
+                        <h4 style="display:none" id="usercook1">&#128546; Cooking</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userlight1">&#128512; Lighting</h4>
+                        <h4 style="display:none" id="userlight1">&#128546; Lighting</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usertv1">&#128512; Television</h4>
+                        <h4 style="display:none" id="usertv1">&#128546; Television</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usercomp1">&#128512; Computer/Laptop</h4>
+                        <h4 style="display:none" id="usercomp1">&#128546; Computer/Laptop</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userother1">&#128512; Other</h4>
+                        <h4 style="display:none" id="userother1">&#128546; Other</h4>
                     </div>
 
                 </div>
 
                 <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%">
                     <div class="w3-row">
-                        <h4 style="display:none" id="userac2">&#128546; Heater/AC</h4>
+                        <h4 style="display:none" id="userac2">&#128512; Heater/AC</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userwheat2">&#128546;  Water Heater</h4>
+                        <h4 style="display:none" id="userwheat2">&#128512;  Water Heater</h4>
 
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userwm2">&#128546;  Washing Machine</h4>
+                        <h4 style="display:none" id="userwm2">&#128512;  Washing Machine</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userfridge2">&#128546;   Fridge</h4>
+                        <h4 style="display:none" id="userfridge2">&#128512;   Fridge</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usercook2">&#128546; Cooking</h4>
+                        <h4 style="display:none" id="usercook2">&#128512; Cooking</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userlight2">&#128546; Lighting</h4>
+                        <h4 style="display:none" id="userlight2">&#128512; Lighting</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usertv2">&#128546;  Television</h4>
+                        <h4 style="display:none" id="usertv2">&#128512;  Television</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="usercomp2">&#128546; Computer/Laptop</h4>
+                        <h4 style="display:none" id="usercomp2">&#128512; Computer/Laptop</h4>
                     </div>
                     <div class="w3-row">
-                        <h4 style="display:none" id="userother2">&#128546; Other</h4>
+                        <h4 style="display:none" id="userother2">&#128512; Other</h4>
                     </div>
 
 
@@ -1160,8 +1154,8 @@
             var weekphonespent = resultuserhpown * 0.0003 * 7*24;
             var avgphone = 3.44;
 
-
-            document.getElementById("userbillweek").innerHTML = (weekacspent+ weekwaterhspent+ weekwmspent+ weekfridgespent+ weekcookspent+ weekbulbspent+weektvspent+ weekcompspent+weekphonespent)*0.25
+            total_var = (weekacspent + weekwaterhspent + weekwmspent + weekfridgespent + weekcookspent + weekbulbspent + weektvspent + weekcompspent + weekphonespent) * 0.25
+            document.getElementById("userbillweek").innerHTML = total_var.toFixed(2);
 
 
 
