@@ -1,15 +1,25 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<style>
+    .jumbotron {
+        margin-bottom: 0px;
+        background-image: url(/Images/home-bulb.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        text-shadow: black 0.1em 0.1em 0.1em;
+        width: 100%;
+    }
+</style>
 
 <script>
     var password;
     var password1 = "18";
     password = prompt('Enter to view contents');
-    if (password == password1)
-        alert('Correct password')
-    else {
+    if (password != password1)
+    {
+        alert('Incorrect password')
         window.location = "http://www.google.com"
     }
 </script>
@@ -24,15 +34,6 @@
         box-sizing: border-box;
     }
 
-
-
-    /* Style the header */
-    .header {
-        padding: 30px;
-        text-align: center;
-        font-size: 35px;
-    }
-
     /* Create three equal columns that floats next to each other */
     .column {
         float: left;
@@ -45,11 +46,6 @@
         content: "";
         display: table;
         clear: both;
-    }
-
-    /* Style the footer */
-    .footer {
-        text-align: center;
     }
 
     .text-block {
@@ -67,56 +63,16 @@
     }
 </style>
 
-<!-- Page content -->
-<div class="w3-content"
-     style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
-    <!-- Automatic Slideshow Images -->
-    <div class="mySlides w3-display-container w3-center">
-        <img src="~/Images/energyhome.jpg" style="width:100%;max-height:580px" />
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small w3-black" style="max-width:600px">
-            <h3>Save our earth, reduce energy waste start from home</h3>
-            <p><b>Let's practice reducing energy waste from home.</b></p>
-
-            <p><a href="~/Home/TakeQuiz" class="w3-button w3-white w3-padding-large w3-large">Click to Take Quiz</a></p>
-        </div>
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large w3-black">
-            <h3>Save our earth, reduce energy waste start from home</h3>
-            <p><b>Let's practice reducing energy waste from home.</b></p>
-
-            <p><a href="~/Home/TakeQuiz" class="w3-button w3-white w3-padding-small w3-small">Click to Take Quiz</a></p>
-        </div>
-    </div>
-
-    <div class="mySlides w3-display-container w3-center">
-
-        <img src="~/Images/slidenergy.jpg" style="max-width:100%;max-height:580px" />
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small w3-black" style="max-width:600px">
-            <h3>Learn more about your electric bills</h3>
-            <p><b>Increase the understanding on electric usage at your home.</b></p>
-            <p><a href="~/Home/Electrictips" class="w3-button w3-white w3-padding-large w3-large">Learn more</a></p>
-        </div>
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large w3-black">
-            <h3>Learn more about your electric bills</h3>
-            <p><b>Increase the understanding on electric usage at your home.</b></p>
-            <p><a href="~/Home/Electrictips" class="w3-button w3-white w3-padding-small w3-small">Learn more</a></p>
-        </div>
-
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="~/Images/slidewater.jpg" style="max-width:100%;max-height:580px" />
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small w3-black" style="max-width:600px">
-            <h3>Learn more about your water bills</h3>
-            <p><b>Stopping the leaking of precious water.</b></p>
-            <p><a href="~/Home/WaterTips" class="w3-button w3-white w3-padding-large w3-large">Learn more</a></p>
-        </div>
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large w3-black">
-            <h3>Learn more about your water bills</h3>
-            <p><b>Stopping the leaking of precious water.</b></p>
-            <p><a href="~/Home/WaterTips" class="w3-button w3-white w3-padding-small w3-small">Learn more</a></p>
-        </div>
+<div class="jumbotron" style="max-height: 80vh;">
+    <div class="container-fluid">
+        <h1>Reduce household energy waste starting from your own home</h1>
+        <p class="lead">See how much energy you are using in your home
+            and what you can do to help tackle climate change and reduce your energy consumption</p>
+         <button class="btn btn-primary btn-lg w3-hide-small" href="Calculator" style="background-color:#234F72">
+               Calculate my energy consumption</button>
+         <button class="btn btn-primary w3-hide-medium w3-hide-large" href="Calculator" style="background-color:#234F72">
+             Calculate my energy consumption
+         </button>
     </div>
 </div>
 <br>
@@ -150,11 +106,11 @@
 <br>
 
 <hr>
-<div class="w3-row w3-center" id="getstarted" style="margin-left:-15px;margin-right:-15px">
+<div class="w3-row w3-center container-fluid" id="getstarted" style="width:100%">
     <div class="w3-center w3-padding-16">
         <h1 style="font-weight:bold">What can you do to help</h1>
     </div>
-    <div class="w3-half w3-center w3-padding-32" style=" background-color: #E8C9C7; height: 400px;">
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #E8C9C7; height: 450px;">
         <div class="row">
             <img src="~/Images/surveys.png" style="width:100px;height:100px" />
         </div>
@@ -163,8 +119,7 @@
         <br><p>Take a short quiz to test your knowledge on energy saving in your house and we can provide a personalised answer for you.</p><br>
         <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/TakeQuiz"><h5>Take Quiz</h5></a>
     </div>
-    <div class="w3-half w3-center w3-padding-32" style=" background-color: #D96738;
-        height: 400px;">
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #D96738; height: 450px;">
         <div class="row">
             <img src="~/Images/information.png" style="width:100px;height:100px;" />
         </div>
@@ -176,7 +131,7 @@
         </p><br>
         <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/CommonTips"><h5>Learn More</h5></a>
     </div>
-    <div class="w3-half w3-center w3-padding-32" style=" background-color: #EBCD51; height: 400px;">
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #EBCD51; height: 450px;">
         <div class="row">
             <img src="~/Images/calculator-maths-tool.png" style="width:100px;height:100px" />
         </div>
@@ -185,25 +140,19 @@
         <br><p>See how much you are approximately consuming energy in your house and we'll let you know what you can do to reduce your energy consumption</p><br>
         <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Calculator"><h5>Calculate your energy bills</h5></a>
     </div>
-    <div class="w3-half w3-center w3-padding-32" style=" background-color: #48B0C7; height: 400px;">
+    <div class="w3-half w3-center w3-padding-32" style="padding-bottom:20px; background-color: #48B0C7; height: 450px;">
         <div class="row">
             <img src="~/Images/weather.png" style="width:100px;height:100px;" />
         </div>
         <br>
         <h2> <b>Weather</b></h2>
-        <br><p>
-            Do you know that weather significantly impact your energy consumption? Our weather temperature system can suggest the best house temperature that
-            can help you reduce energy consumption while still keeping yourself warm/cool.
+        <br><p>Our weather temperature system can suggest the best house temperature so you reduce energy consumption while still keeping yourself warm/cool.
         </p><br>
-        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Weather"><h5>Go to weather temperature suggestion</h5></a>
+        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Weather"><h5>Temperature suggestion</h5></a>
     </div>
 </div>
 
-<br>
-<a class="w3-right w3-row" href="#ourtarget" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-
-<div class="container">
-    <h1 class="w3-center" style="text-align:center">Local household energy statistics</h1>
+<div class="container-fluid">
     <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
         <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average energy consumption per household per week</h2>
         <div class="w3-row w3-center" style="margin:5%">
@@ -237,41 +186,10 @@
     </div>
 </div>
 
-<a class="w3-right w3-row" href="#userj" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-<div class="w3-row w3-center" id="userj" style="max-width:1000px;margin-left:20%;margin-right:20%">
-    <img src="~/Images/userjourney.png" style="width:100%;max-height:500px" />
-</div>
-
-<br>
-<a class="w3-right w3-row" href="#getstarted" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-
-<script>
-    var myIndex = 0;
-    carousel();
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) { myIndex = 1 }
-        x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 8000);
-    }
-</script>
-
-<br>
-<a class="w3-right w3-row" href="#achievetarget" style="margin-right:2%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-<br>
-
 <!-- Let's achieve together-->
 <div class="w3" style="background-color:antiquewhite;margin-left:-15px;margin-right:-15px">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
         <h2 class="w3-wide w3-center">Let's achieve together</h2>
-
-
-
         <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
             <div class="w3-third w3-margin-bottom">
 
