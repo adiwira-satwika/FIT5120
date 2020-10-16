@@ -126,7 +126,7 @@ namespace Environment_Green.Controllers
 
             return View();
         }
-        public ActionResult TotalELectricUsage()
+        public ActionResult TotalElectricUsage()
         {
 
             return View();
