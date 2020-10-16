@@ -4,7 +4,9 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 <style>
     .grid-container {
@@ -50,7 +52,7 @@
             <h1 style="font-size:40px;line-height:1.75"><b>Save energy by setting the right temperature at your house!</b></h1>
         </div>
     </div>
-    <div class="w3-display-right w3-container w3-text-black w3-hide-small w3-half" style="background-color:darkseagreen;margin-right:5%;margin-top:-3%;text-align:center;width:20%">
+    <div class="w3-display-right w3-container w3-text-black w3-hide-small w3-half" style="background-color:darkseagreen;margin-right:5%;margin-top:2%;text-align:center;width:20%">
 
         <h4 style="line-height:1.75;padding-left:20px;padding-right:20px"><b id="name" style="color:white"></b></h4>
         <h3><b style="padding-left:20px;padding-right:20px;color:white">Today</b></h3>
@@ -76,28 +78,47 @@
 
         </h4>
     </div>
-    <a class="w3-display-right w3-row w3-text-white w3-hide-small w3-hide-medium" href="#avgacspend" style="margin-right:2%;margin-top:15%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+    <a class="w3-display-right w3-row w3-text-white w3-hide-small w3-hide-medium" href="#avgacspend" style="margin-right:2%;margin-top:23%"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
 
 
 </div>
 
 <div class="w3-row " id="avgacspend">
-    <div class="w3-half" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%">
+    <div class="w3-half" id="curyear" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%">
         <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average spending for air conditioner per week</h2>
         <div class="w3-row w3-center" style="margin:5%">
             <div class="w3-padding-32  w3-center w3-half">
-                <h1><b>103.84 kwh</b></h1>
+                <h1><b>78.4 kwh <i class='fas fa-arrow-alt-circle-up' style='font-size:48px;color:green'></i></b></h1>
                 <p>electric consumption by air conditioner every week</p>
             </div>
             <div class="w3-padding-32  w3-center w3-half">
-                <h1><b>85.202 kg</b></h1>
-                <p>carbon emission from air conditioner every week</p>
+                <h1><b>64.79 kg <i class='fas fa-arrow-alt-circle-up' style='font-size:48px;color:green'></i></b></h1>
+                <p>carbon emission from air conditioner every week </p>
+            </div>
+            <div class="w3-row w3-center" style="margin:5%">
+                <button id="prevyr"class="btn btn-info">Previous year</button>
+            </div>
+        </div>
+    </div>
+    <div class="w3-half" id="prevyear" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%;display:none">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average spending for air conditioner per week</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-padding-32  w3-center w3-half">
+                <h1><b>73.5 kwh </b></h1>
+                <p>electric consumption by air conditioner every week</p>
+            </div>
+            <div class="w3-padding-32  w3-center w3-half">
+                <h1><b>60.74 kg </b></h1>
+                <p>carbon emission from air conditioner every week </p>
+            </div>
+            <div class="w3-row w3-center" style="margin:5%">
+                <button id="curyr" class="btn btn-info">Back to current</button>
             </div>
         </div>
     </div>
 
     <div class="w3-half w3-center">
-        <img src="~/Images/weatherAC.png" style="width:80%;margin-top:5%" />
+        <img src="~/Images/weatherAC.png" style="width:80%;margin-top:11%" />
 
     </div>
 </div>
@@ -316,6 +337,15 @@
 </div>
 
 <script>
+    $('#prevyr').click(function () {
+        document.getElementById('prevyear').style.display = 'initial';
+        document.getElementById('curyear').style.display = 'none';
+    });
+
+     $('#curyr').click(function () {
+        document.getElementById('prevyear').style.display = 'none';
+        document.getElementById('curyear').style.display = 'initial';
+    });
     var season;
     var roomtype;
     var cooltype;

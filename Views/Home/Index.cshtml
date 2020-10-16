@@ -152,13 +152,13 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" id="current">
     <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
         <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average energy consumption per household per week</h2>
         <div class="w3-row w3-center" style="margin:5%">
             <div class="w3-half">
                 <p>Total Electric Bill Paid Every Week</p>
-                <h1><b>$27</b></h1>
+                <h1><b>$39.84</b></h1>
             </div>
             <div class="w3-half">
                 <p>Total Water Bill Paid Every Week</p>
@@ -168,22 +168,63 @@
         <div class="w3-row w3-center" style="margin:5%">
             <div class="w3-quarter">
                 <p>Total Electric Consumption</p>
-                <h1><b>107.4 kwh</b></h1>
+                <h1><b>153.25 kwh</b></h1>
             </div>
             <div class="w3-quarter">
                 <p>Total Carbon Emission</p>
-                <h1><b>1.06 ton</b></h1>
+                <h1><b>6.64 ton</b></h1>
             </div>
             <div class="w3-quarter">
                 <p>Total Water Consumption</p>
-                <h1><b>3637.06 L</b></h1>
+                <h1><b>8360 L</b></h1>
             </div>
             <div class="w3-quarter">
                 <p>Total Water Waste</p>
-                <h1><b>2182.236 L</b></h1>
+                <h1><b>4920 L</b></h1>
             </div>
         </div>
+        <div class="w3-row w3-center" style="margin:5%">
+    <button id="prevyr" class="btn btn-info">Previous year</button>
+</div>
     </div>
+    
+</div>
+
+<div class="container-fluid" id="previous" style="display:none">
+    <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average energy consumption per household per week</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-half">
+                <p>Total Electric Bill Paid Every Week</p>
+                <h1><b>$31.33</b></h1>
+            </div>
+            <div class="w3-half">
+                <p>Total Water Bill Paid Every Week</p>
+                <h1><b>$20.50</b></h1>
+            </div>
+        </div>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-quarter">
+                <p>Total Electric Consumption</p>
+                <h1><b>136.25 kwh</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Carbon Emission</p>
+                <h1><b>5.90 ton</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Consumption</p>
+                <h1><b>7960 L</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Waste</p>
+                <h1><b>4670 L</b></h1>
+            </div>
+        </div><div class="w3-row w3-center" style="margin:5%">
+    <button id="curyr" class="btn btn-info">Back to current</button>
+</div>
+    </div>
+    
 </div>
 
 <!-- Let's achieve together-->
@@ -243,7 +284,17 @@
 
 <br>
 <br>
+<script>
+       $('#prevyr').click(function () {
+        document.getElementById('previous').style.display = 'initial';
+        document.getElementById('current').style.display = 'none';
+    });
 
+     $('#curyr').click(function () {
+        document.getElementById('previous').style.display = 'none';
+        document.getElementById('current').style.display = 'initial';
+    });
+    </script>
 
 
 <script>

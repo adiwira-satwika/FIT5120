@@ -263,7 +263,7 @@
                 <div id="sug1" style="display:none;line-height:1.75;"><p>Change to a bigger fridge or just use one fridge instead of multiple fridge. </p></div>
                 <div id="sug2" style="display:none;line-height:1.75;"><p>Set to 'Medium' or 'Warm' unless you really need 'Colder' for certain food.</p></div>
                 <div id="sug3" style="display:none;line-height:1.75;"><p>Reduce the times opening fridge unless it is needed too.</p></div>
-                <div id="sug3" style="line-height:1.75;"><p>You are doing great in the fridge area! </p></div>
+                <div id="sug4" style="line-height:1.75;"><p>You are doing great in the fridge area! </p></div>
             </div>
 
         </div>
@@ -439,14 +439,14 @@
             if (q1 == 6 && q2 == 2) { $("#friown").text(" VIC: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
             if (q1 == 7 && q2 == 2) { $("#friown").text(" WA: 5.5% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
 
-                        if (q1 == 0 ) { $("#fconsume").text(" ACT: 4.644");  }
-            if (q1 == 1 ) { $("#fconsume").text(" NSW: 16.9799  "); }
-            if (q1 == 2 ) { $("#fconsume").text(" NT: 17.4375");  }
-            if (q1 == 3 ) { $("#fconsume").text(" QLD: 19.7935");}
-            if (q1 == 4 ) { $("#fconsume").text(" SA: 11.6494");  }
-            if (q1 == 5 ) { $("#fconsume").text(" TAS: 7.8706"); }
-            if (q1 == 6 ) { $("#fconsume").text(" VIC: 8.055 ");  }
-            if (q1 == 7 ) { $("#fconsume").text(" WA: 12.4431"); }
+                        if (q1 == 0 ) { $("#fconsume").text(" ACT: 4.6");  }
+            if (q1 == 1 ) { $("#fconsume").text(" NSW: 16.98  "); }
+            if (q1 == 2 ) { $("#fconsume").text(" NT: 17.44");  }
+            if (q1 == 3 ) { $("#fconsume").text(" QLD: 19.79");}
+            if (q1 == 4 ) { $("#fconsume").text(" SA: 11.65");  }
+            if (q1 == 5 ) { $("#fconsume").text(" TAS: 7.87"); }
+            if (q1 == 6 ) { $("#fconsume").text(" VIC: 8.05 ");  }
+            if (q1 == 7 ) { $("#fconsume").text(" WA: 12.44"); }
 
 
            var totalfrispent;
@@ -628,7 +628,7 @@
 
 
 
-      var totalfri = parseInt(document.getElementById("userconsume").value);
+      
         //==============================================================================================
           var chart = new CanvasJS.Chart("chartContainer", {
                     animationEnabled: true,
@@ -643,7 +643,7 @@ text: "Average Fridge Consumption in Australia"
                         type: "column",
 
                         dataPoints: [
-
+          
                             { y: 4.46, label: "ACT" },
                             { y: 16.98, label: "NSW" },
                             { y: 17.48, label: "NT" },
