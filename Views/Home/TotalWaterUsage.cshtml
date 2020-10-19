@@ -744,31 +744,31 @@
             <h2 style="padding-top:2%">Personal Performance in Each Area:</h2>
             <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%;padding-left:5%">
                 <div class="w3-row">
-                   <a href="https://www.greenplanetplumbing.com.au/a-guide-to-buying-eco-friendly-and-low-flush-toilets/"> <h4 style="display:none" id="usertoilet1">&#128546; Toilet</h4></a>
+                    <a href="https://www.greenplanetplumbing.com.au/a-guide-to-buying-eco-friendly-and-low-flush-toilets/"> <h4 style="display:none" id="usertoilet1">&#128546; Toilet</h4></a>
                 </div>
                 <div class="w3-row">
-                  <a href="https://www.bunnings.com.au/about-us/sustainability/save-water"target="_blank">  <h4 style="display:none" id="usershower1">&#128546; Showering</h4></a>
+                    <a href="https://www.bunnings.com.au/about-us/sustainability/save-water" target="_blank">  <h4 style="display:none" id="usershower1">&#128546; Showering</h4></a>
                 </div>
                 <div class="w3-row">
                     <a href="https://www.watercalculator.org/posts/shower-bath/"><h4 style="display:none" id="userbath1">&#128546; Bathing</h4></a>
                 </div>
                 <div class="w3-row">
-                  <a href="~/Home/WaterTipLaundry">  <h4 style="display:none" id="userlaundry1">&#128546; Laundry</h4></a>
+                    <a href="~/Home/WaterTipLaundry">  <h4 style="display:none" id="userlaundry1">&#128546; Laundry</h4></a>
                 </div>
                 <div class="w3-row">
                     <a href="~/Home/WaterTipTurnOffTap"><h4 style="display:none" id="usertap1">&#128546; Washing Under Tap</h4></a>
                 </div>
                 <div class="w3-row">
-                 <a href="https://www.theguardian.com/lifeandstyle/2014/aug/22/six-ways-to-save-water-in-your-garden" target="_blank">   <h4 style="display:none" id="usergarden1">&#128546; Garden</h4></a>
+                    <a href="https://www.theguardian.com/lifeandstyle/2014/aug/22/six-ways-to-save-water-in-your-garden" target="_blank">   <h4 style="display:none" id="usergarden1">&#128546; Garden</h4></a>
                 </div>
                 <div class="w3-row">
-                  <a href="https://austintexas.gov/department/save-water-while-washing-dishes#:~:text=It%20takes%20less%20water%20to,come%20out%20a%20lot%20cleaner!"target="_blank">  <h4 style="display:none" id="userdwash1">&#128546; Dish Washing</h4></a>
+                    <a href="https://austintexas.gov/department/save-water-while-washing-dishes#:~:text=It%20takes%20less%20water%20to,come%20out%20a%20lot%20cleaner!" target="_blank">  <h4 style="display:none" id="userdwash1">&#128546; Dish Washing</h4></a>
                 </div>
                 <div class="w3-row">
-                  <a href="https://mde.maryland.gov/programs/water/waterconservation/pages/carwashing.aspx#:~:text=A%20standard%20garden%20hose%20uses,as%2070%20gallons%20per%20wash." target="_blank">  <h4 style="display:none" id="usercwash1">&#128546; Car Washing</h4></a>
+                    <a href="https://mde.maryland.gov/programs/water/waterconservation/pages/carwashing.aspx#:~:text=A%20standard%20garden%20hose%20uses,as%2070%20gallons%20per%20wash." target="_blank">  <h4 style="display:none" id="usercwash1">&#128546; Car Washing</h4></a>
                 </div>
                 <div class="w3-row">
-                  <a href="https://www.yourhome.gov.au/water/rainwater" target="_blank">  <h4 style="display:none" id="userother1">&#128546; Other</h4></a>
+                    <a href="https://www.yourhome.gov.au/water/rainwater" target="_blank">  <h4 style="display:none" id="userother1">&#128546; Other</h4></a>
                 </div>
             </div>
             <div class="w3-half w3-container w3-padding-16 w3-left" style="line-height:1.75em;padding-top:5%">
@@ -807,17 +807,19 @@
         <br>
         <hr>
         <br><br>
-        <div class="w3-center w3-container" id="userbar" style="margin-left:15%;margin-right:15%">
-            <div class="w3-padding-16" >
+        <div class="w3-center chart-container" id="userbar" style="min-height:500px">
+            
                 <h1>Your Usage vs Average Usage in Victoria</h1>
-                <canvas id="canvas"></canvas>
+                <canvas id="canvas" ></canvas>
 
 
-            </div>
+          
 
             <br>
-            </div>
         </div>
+        
+
+    </div>
 
 
 
@@ -841,7 +843,7 @@
     } else{ alert("Please finish the question before going to next"); }
     });
     $('#next2').click(function () {
-         if (document.querySelector('input[name = "housepeople"]:checked') && document.querySelector('input[name = "notoilet"]:checked') && document.querySelector('input[name = "shower"]:checked') && document.querySelector('input[name = "showerhead"]:checked'))
+         if (document.querySelector('input[name = "housepeople"]:checked') && document.querySelector('input[name = "noshower"]:checked') && document.querySelector('input[name = "shower"]:checked') && document.querySelector('input[name = "showerhead"]:checked'))
     {
              document.getElementById('showersec').style.display = 'none';
              document.getElementById('bathsec').style.display = 'initial';
@@ -1049,6 +1051,12 @@
         {
                      resulttype = 130;
                       avgstatelaundryspent = 494;
+            }
+
+                     if (ratedwm == 3  && typewashingm==2)
+        {
+                     resulttype = 80;
+                      avgstatelaundryspent = 494;
         }
 
         var weeklaundryspent = resulttimesweek * resulttype;
@@ -1219,7 +1227,7 @@ data: [weektoiletspent, weekshowerspent, weekbathspent, weeklaundryspent, weekta
 };
 
 var avg= {
-  label: 'Average',
+  label: 'Average',  
       data: [avgresult, avgstateshowerspent, avgbathspent, avgstatelaundryspent, avgstatetapspent, avgstategarden, avgstatedishspent, avgstatecarwash],
   backgroundColor: 'rgba(99, 132, 0, 0.6)',
   borderWidth: 0,
@@ -1239,16 +1247,19 @@ var avg= {
                 "Car Washing",
               
             ],
+        
   datasets: [user, avg]
 };
 
-var chartOptions = {
+            var chartOptions = {
+    
   scales: {
     xAxes: [{
       barPercentage: 1,
       categoryPercentage: 0.6
     }],
-    yAxes: [{
+        yAxes: [{
+          title:"Water Usage Per Litre",
       id: "y-axis"
     }, {
       id: "y-axis"
@@ -1259,7 +1270,7 @@ var chartOptions = {
 var barChart = new Chart(canvas, {
   type: 'bar',
   data: waterData,
-  options: chartOptions
+  options: chartOptions 
 });
 
 
@@ -1269,7 +1280,8 @@ window.onload = function() {
   window.myBar = new Chart(canvas, {
     type: "bar",
     data: barChartData,
-    options: chartOptions
+      options: chartOptions
+ 
   });
 };
 
