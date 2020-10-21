@@ -1,55 +1,169 @@
 ﻿@{
     ViewBag.Title = "WaterTipLaundry";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+    .ml7 {
+        position: relative;
+        font-weight: 300;
+        font-size: 30px;
+    }
+
+        .ml7 .text-wrapper {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.2em;
+            padding-right: 0.05em;
+            padding-bottom: 0.1em;
+            overflow: hidden;
+        }
+
+        .ml7 .letter {
+            display: inline-block;
+            line-height: 1.75em;
+        }
+</style>
+
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px;">
+    <br>
+    <b><a class="btn btn-default" style="text-align: center;margin-left:2%" href="~/Home/WaterTips">< Back</a></b>
+    <br>
+</div>
+<br>
+<img class="w3-hide-medium w3-hide-small" src="~/Images/laundry.jpg" style="border-radius:50%;width:200px;height:200px;position:absolute;margin-left:2%" />
+<br>
+<br>
+<div class="w3-content w3-center w3-wide" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#84B8FB">
+    <br>
+
+    <h1 style="text-align:center;margin-left:20%">   <b>Only turn on washing machine when you have full load</b></h1>
+    <br>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
 
 
-<br>
-<br>
-<br>
-<b><a class="btn btn-default" style="text-align: center;" href="~/Home/WaterTips">< Back</a></b>
-<br>
-<br>
-<br>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h2 class="panel-title">
+    <div class="w3-half" style="padding:5%;line-height:1.75em;width:70%">
 
-            <a data-toggle="collapse">
-                <b>Only turn on washing machine when you have full load</b>
-            </a>
-        </h2>
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Laundry water usage consumption is 22% of
+                    the total water
+
+                </span>
+                <span class="letters">  usage in average of the  household. </span>
+            </h1>
+        </div>
+
 
     </div>
-
-    <div id="collapse4" class="panel-collapse collapse in">
-        <div class="panel-body">
-
-
-            <p>
-                Laundry water usage consumption is 22% of the total water usage in average of the household.
-                Even the most efficient washing machine will take about 56.8L to 113.6L of water.
-                The cost per kilolitre of water in average at Australia is about $3.
-                That’s mean every load will cost you <b>$0.3 more plus a 100L water </b>waste where u can save them easily by just wash your cloth when it
-                is full load instead of doing another load.
-            </p>
-            <br><br><br><br>
-            <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/" target="_blank">
-                <img class="col-sm-6" src="~/Images/ws s.PNG" />
-            </a>
-            <a href="https://www.canstarblue.com.au/electricity/washing-machine-running-cost/" target="_blank">
-                <img class="col-sm-6" id="canstar" src="~/Images/ws m.PNG" />
-            </a>
-
-            <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
-            <br>
-
-            <p><a class="btn-link" href="https://www.redenergy.com.au/living-energy/energy-saving/how-to-save-on-your-laundry-energy-bills" target="_blank">Learn more About Laundry Tips</a></p>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:9.4%;margin-left:70%;position:absolute;">
+        <div class="w3-bar-item w3-black">
+            <h1><b>22%</b></h1>
+            <p>of total water consumption</p>
+        </div>
+        <div class="w3-bar-item w3-white">
+            <p>every load equals to</p>
+            <h1><b>56.8L to 113.6L</b></h1>
 
         </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;margin-left:70%;position:absolute;margin-top:-3%">
+        <div class="w3-bar-item w3-black">
+            <h1><b>22%</b></h1>
+            <p>of total water consumption</p>
+        </div>
+        <div class="w3-bar-item w3-white">
+            <p>every load equals to</p>
+            <h1><b>56.8L to 113.6L</b></h1>
+
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-half w3-right" style="padding:5%;margin-top:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Even the most efficient washing machine will take about 56.8L to 113.6L of water. The cost per kilolitre of water in average at Australia is about $3.
+
+                </span>
+                <span class="letters">   </span>
+            </h1>
+        </div>
+
+
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:14.2%;margin-left:10%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>$3</b></h1>
+            <p>cost per kilolitre of water</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>$0.30 & 100L water</b></h1>
+            <p>for every load</p>
+
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-left:5%;margin-top:-5%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>$3</b></h1>
+            <p>cost per kilolitre of water</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>$0.30 & 100L water</b></h1>
+            <p>for every load</p>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+    <div class="w3-half w3-right" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    That’s mean every load will cost you $0.3 more plus a 100L water waste where u can save them easily by just wash your cloth when it is full load instead of doing another load.
+
+                </span>
+                <span class="letters">   </span>
+            </h1>
+        </div>
+
 
     </div>
 
 </div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-wide w3-center" style="padding:5%;line-height:1.75em;">
+
+        <h1>Check the difference spending of each washing machine</h1>
+        <br><br>
+        <div class="w3-row">
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQQfuqQrKlUR0cnv8EXIa17geuOqlR_XhaXQ68PakJkOUZ2lXULOA6ck9hW4lkYlwUzRfm2BlC2RRi-/pubchart?oid=752437130&amp;format=interactive"></iframe>
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSroxeq9L7ZKlaiySA2zwAztxqWrnEgEYcXmYgjexRist79DK6GhVeJ-pFYBYxcv15ASHy4gde-jS2Z/pubchart?oid=275963588&amp;format=interactive"></iframe>
+     
+        <br>
+            </div>
+        <p><a class="btn-link" href="https://www.redenergy.com.au/living-energy/energy-saving/how-to-save-on-your-laundry-energy-bills" target="_blank" >Learn more About Laundry Tips</a></p>
+    </div>
+
+</div>
+
 
 <br>
 <br>
@@ -76,7 +190,7 @@
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/WaterTipLaundry">
+       href="https://energuctioniteration2.azurewebsites.net/Home/WaterTipLaundry">
         Tweet
     </a>
 
@@ -90,5 +204,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-    </div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>
+

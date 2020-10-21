@@ -106,5 +106,40 @@ namespace Environment_Green.Controllers
 
             return View();
         }
+        public ActionResult Calculator()
+        {
+
+            return View();
+        }
+        public ActionResult WaterCalculator()
+        {
+
+            return View();
+        }
+        public ActionResult TotalWaterUsage()
+        {
+
+            return View();
+        }
+        public ActionResult ElectricCalculator()
+        {
+
+            return View();
+        }
+        public ActionResult TotalElectricUsage()
+        {
+
+            return View();
+        }
+        public ActionResult BulbQuiz()
+        {
+
+            return View();
+        }
+        public ActionResult FridgeQuiz()
+        {
+
+            return View();
+        }
     }
 }

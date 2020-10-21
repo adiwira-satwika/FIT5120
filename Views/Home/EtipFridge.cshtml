@@ -2,122 +2,159 @@
     ViewBag.Title = "EtipFridge";
 }
 
-<br>
-<br>
-<br>
-<b><a class="btn btn-default" style="text-align: center;" href="~/Home/Electrictips">< Back</a></b>
-<br>
-<br>
-<br>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h2 class="panel-title">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 
-            <a data-toggle="collapse">
-                <b>Adjust fridge temperature to 4 degree and freeze to 0 degree </b>
-            </a>
-        </h2>
+<style>
+    .ml7 {
+        position: relative;
+        font-weight: 300;
+        font-size: 30px;
+    }
+        .ml7 .text-wrapper {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.2em;
+            padding-right: 0.05em;
+            padding-bottom: 0.1em;
+            overflow: hidden;
+        }
 
+        .ml7 .letter {
+            display: inline-block;
+            line-height: 1.75em;
+        }
+</style>
+
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px;">
+    <br>
+    <b><a class="btn btn-default" style="text-align: center;margin-left:2%" href="~/Home/Electrictips">< Back</a></b>
+    <br>
+</div>
+
+<h1 style="text-align:center"> Fridge Tips </h1>
+<br>
+<img class="w3-hide-medium w3-hide-small" src="~/Images/fridopen.jpg" style="border-radius:50%;width:200px;height:200px;position:absolute;margin-left:2%;margin-top:2%" />
+<br>
+<br>
+<div class="w3-content w3-center w3-wide" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#84B8FB">
+    <br>
+
+    <h1 style="text-align:center;margin-left:25%;width:70%">   <b>Adjust fridge temperature to 4 degree and freeze to 0 degree</b></h1>
+    <br>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+    <div class="w3-half" style="padding:5%;line-height:1.75em;width:70%">
+        <div class="text-wrapper">
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Every decrease in temperature will increase your fridge energy by 5%.
+                </span>
+            </h1>
+        </div>
     </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:3.5%;margin-left:70%;position:absolute;">
+        <div class="w3-bar-item w3-black">
+            <h1><b>5%</b></h1>
+            <p>increase of electric usage per decrease in degree</p>
+        </div>
+        <div class="w3-bar-item w3-white">
 
-    <div id="collapse6" class="panel-collapse collapse in">
-        <div class="panel-body">
-
-
-            <p>
-                84.5% of the Australians has no knowledge about the temperature of the fridge, <b>every decrease in temperature will increase your fridge energy by 5%.</b>
-                The average fridge cost per year is about $243. In our data, most people tend to set their fridge to coolest,
-                in this situation if you set your fridge to the right temperature, you can save 20% energy of the fridge and reduce 20% cost of fridge energy consumption,
-                which is about $50 per year.
-            </p>
-            <br><br><br>
-            <h3><b>Annual cost as per size of fridge</b></h3>
-
-            <!-- Load d3.js -->
-            <script src="https://d3js.org/d3.v4.js"></script>
-
-
-            <!-- Add 2 buttons -->
-            <button onclick="update('var1')">Annual consumption(Kwh)</button>
-            <button onclick="update('var2')">Cost($)</button>
-
-            <!-- Create a div where the graph will take place -->
-            <div id="my_datavizs"></div>
-
-            <script>
-                // set the dimensions and margins of the graph
-                var margin = { top: 30, right: 30, bottom: 70, left: 60 },
-                    width = 460 - margin.left - margin.right,
-                    height = 400 - margin.top - margin.bottom;
-
-                // append the svg object to the body of the page
-                var svg = d3.select("#my_datavizs")
-                    .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform",
-                        "translate(" + margin.left + "," + margin.top + ")");
-
-                // Initialize the X axis
-                var x = d3.scaleBand()
-                    .range([0, width])
-                    .padding(0.2);
-                var xAxis = svg.append("g")
-                    .attr("transform", "translate(0," + height + ")")
-
-                // Initialize the Y axis
-                var y = d3.scaleLinear()
-                    .range([height, 0]);
-                var yAxis = svg.append("g")
-                    .attr("class", "myYaxis")
-
-
-                // A function that create / update the plot for a given variable:
-                function update(selectedVar) {
-
-                    // Parse the Data
-                    d3.csv("https://raw.githubusercontent.com/jjsong928/green/master/fridge%20temperature.csv", function (data) {
-
-                        // X axis
-                        x.domain(data.map(function (d) { return d.group; }))
-                        xAxis.transition().duration(1000).call(d3.axisBottom(x))
-
-                        // Add Y axis
-                        y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
-                        yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
-                        // variable u: map data to existing bars
-                        var u = svg.selectAll("rect")
-                            .data(data)
-
-                        // update bars
-                        u
-                            .enter()
-                            .append("rect")
-                            .merge(u)
-                            .transition()
-                            .duration(1000)
-                            .attr("x", function (d) { return x(d.group); })
-                            .attr("y", function (d) { return y(d[selectedVar]); })
-                            .attr("width", x.bandwidth())
-                            .attr("height", function (d) { return height - y(d[selectedVar]); })
-                            .attr("fill", "#69b3a2")
-                    })
-
-                }
-
-                // Initialize plot
-                update('var1')</script>
-
-            <br>
-            <p><a class="btn-link" href="https://www.energuide.be/en/questions-answers/how-to-reduce-the-power-consumption-of-my-refrigerator-and-freezer/2132/" target="_blank">Learn more about Fridge Energy Consumption</a></p>
+            <h1><b>84.5%</b></h1>
+            <p>Australians no knowledge with fridge temperature</p>
 
         </div>
-
-
     </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;margin-left:70%;position:absolute;margin-top:-3%">
+        <div class="w3-bar-item w3-black">
+            <h1><b>5%</b></h1>
+            <p>increase of electric usage per decrease in degree</p>
+        </div>
+        <div class="w3-bar-item w3-white">
 
+            <h1><b>84.5%</b></h1>
+            <p>Australians no knowledge with fridge temperature</p>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-half w3-right" style="padding:5%;margin-top:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    84.5% of the Australians has no knowledge about the temperature of the fridge.  The average fridge cost per year is about $243.
+                </span>
+            </h1>
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:14.2%;margin-left:10%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>$243</b></h1>
+            <p>fridge average cost per year</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>20%</b></h1>
+            <p>saving electric usage with right temperature</p>
+
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-left:5%;margin-top:-5%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>$243</b></h1>
+            <p>fridge average cost per year</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>20%</b></h1>
+            <p>saving electric usage with right temperature</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+    <div class="w3-half w3-right" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    If you set your fridge to the right temperature, 
+                    you can save 20% energy of the fridge and reduce 20% cost of fridge energy consumption, which is about $50 per year.
+                </span>
+                <span class="letters">   </span>
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container w3-hide-small" style="max-width:2000px;padding-left:-15px;padding-right:-15px; 
+            margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-wide w3-center" style="padding:5%;line-height:1.75em;">
+
+        <h1>Check electric expense for heating your home</h1>
+        <br><br>
+            <div class="w3-row">
+                <iframe width="600" height="371" seamless frameborder="0" scrolling="no" 
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR3vlPLfgbKvD-4ekRC4H2qpwLuACKIgjuJPMIn92RaEqVzvC_EdosZAirdHeSHAHqJOYxvK7QPGthN/pubchart?oid=495788393&amp;format=interactive"></iframe> <div class="container" style="text-align:center">
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="row" style="padding-top: 50px">
+    <div class="col-md-6 col-md-offset-3">
+        <a type="button" class="btn btn-primary btn-lg btn-block"
+                href="https://www.energuide.be/en/questions-answers/how-to-reduce-the-power-consumption-of-my-refrigerator-and-freezer/2132/" target="_blank">
+            Learn more about Fridge Energy Consumption
+        </a>
+    </div>
 </div>
 
 <br>
@@ -144,7 +181,7 @@
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/EtipFridge">
+       href="https://energuctioniteration2.azurewebsites.net/Home/EtipFridge">
         Tweet
     </a>
 
@@ -158,5 +195,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/EtipFridge" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-    </div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/EtipFridge" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>

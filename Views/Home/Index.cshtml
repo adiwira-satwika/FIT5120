@@ -1,29 +1,37 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<style>
+    .jumbotron {
+        margin-bottom: 0px;
+        background-image: url(/Images/home-bulb.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        text-shadow: black 0.1em 0.1em 0.1em;
+        width: 100%;
+    }
+</style>
 
-    <script>
-        var password;
-        var password1 = "18";
-        password = prompt('Enter to view contents');
-        if (password == password1)
-            alert('Correct password')
-        else {
-            window.location = "http://www.google.com"
-        }
-    </script>
+<script>
+    var password;
+    var password1 = "18";
+    password = prompt('Enter to view contents');
+    if (password != password1)
+    {
+        alert('Incorrect password')
+        window.location = "http://www.google.com"
+    }
+</script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <style type="text/css">
     * {
         box-sizing: border-box;
-    }
-
-
-
-    /* Style the header */
-    .header {
-        padding: 30px;
-        text-align: center;
-        font-size: 35px;
     }
 
     /* Create three equal columns that floats next to each other */
@@ -38,13 +46,6 @@
         content: "";
         display: table;
         clear: both;
-      
-    }
-
-    /* Style the footer */
-    .footer {
-     
-        text-align: center;
     }
 
     .text-block {
@@ -62,314 +63,278 @@
     }
 </style>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-
-
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px">
-
-    <!-- Automatic Slideshow Images -->
-    <div class="mySlides w3-display-container w3-center">
-        <img src="~/Images/energyhome.jpg" style="width:100%;max-height:580px" />
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small" style="background-color:black">
-            <h3>Save our earth, reduce energy waste start from home</h3>
-            <p><b>Let's practice reducing energy waste from home.</b></p>
-
-            <p><a href="~/Home/TakeQuiz" class="w3-button w3-white w3-padding-large w3-large">Click to Take Quiz</a></p>
-        </div>
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large" style="background-color:black">
-            <h3>Save our earth, reduce energy waste start from home</h3>
-            <p><b>Let's practice reducing energy waste from home.</b></p>
-
-            <p><a href="~/Home/TakeQuiz" class="w3-button w3-white w3-padding-small w3-small">Click to Take Quiz</a></p>
-        </div>
+<div class="jumbotron" style="max-height: 80vh;">
+    <div class="container-fluid">
+        <h1>Reduce household energy waste starting from your own home</h1>
+        <p class="lead">
+            See how much energy you are using in your home
+            and what you can do to help tackle climate change and reduce your energy consumption
+        </p>
+        <p><a class="btn btn-primary btn-lg w3-hide-small" href="~/Home/Calculator" role="button">Calculate my energy consumption</a></p>
+        <p><a class="btn btn-primary w3-hide-medium w3-hide-large" 
+              href="~/Home/Calculator" role="button">Calculate my energy consumption</a></p>
     </div>
+</div>
+<br>
 
-    <div class="mySlides w3-display-container w3-center">
-
-        <img src="~/Images/slidenergy.jpg" style="width:100%;max-height:580px" />
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            <h3>Learn more about your electric bills</h3>
-            <p><b>Increase the understanding on electric usage at your home.</b></p>
-            <p><a href="~/Home/Electrictips" class="w3-button w3-white w3-padding-large w3-large">Learn more</a></p>
-        </div>
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large">
-            <h3>Learn more about your electric bills</h3>
-            <p><b>Increase the understanding on electric usage at your home.</b></p>
-            <p><a href="~/Home/Electrictips" class="w3-button w3-white w3-padding-small w3-small">Learn more</a></p>
-        </div>
-
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-
-
-        <img src="~/Images/slidewater.jpg" style="width:100%;max-height:580px" />
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            <h3>Learn more about your water bills</h3>
-            <p><b>Stopping the leaking of precious water.</b></p>
-            <p><a href="~/Home/WaterTips" class="w3-button w3-white w3-padding-large w3-large">Learn more</a></p>
-        </div>
-
-        <div class="w3-display-bottommiddle w3-container w3-text-white w3-hide-medium w3-hide-large">
-            <h3>Learn more about your water bills</h3>
-            <p><b>Stopping the leaking of precious water.</b></p>
-            <p><a href="~/Home/WaterTips" class="w3-button w3-white w3-padding-small w3-small">Learn more</a></p>
-        </div>
-    </div>
-
-    <!-- The Target Section -->
-    <div class="w3-row w3-container">
-        <div class="w3-center w3-padding-64">
-            <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Our Target</span>
-        </div>
-        <div class="w3-col l3 m6 w3-container w3-padding-16" style="height:120px;background-color:#E8C9C7">
-
-            <h3>Reduce household energy waste including electric and water</h3>
-        </div>
-
-        <div class="w3-col l3 m6 w3-container w3-padding-16" style="height:120px;background-color:#D96738">
-            <h3>Reduce greenhouse gas emission</h3>
-
-            <br>
-        </div>
-
-        <div class="w3-col l3 m6 w3- w3-container w3-padding-16" style="height:120px;background-color:#EBCD51">
-
-            <h3>Aim to give the best suggestion and tips</h3>
-            <br>
-        </div>
-
-        <div class="w3-col l3 m6 w3-container w3-padding-16" style="height:120px;background-color:#48B0C7">
-
-            <h3>Increase your knowledge with your energy</h3>
-        </div>
-    </div>
-
-
-    <br>
-    <div class="row" style="margin-left:5px;margin-right:5px">
-        <div class="col-sm-6">
-            <div class='tableauPlaceholder' id='viz1599031046684' style='position: relative'><noscript><a href=' '>< img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject_15990309236620&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='name' value='IEproject_15990309236620&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject_15990309236620&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div>
-            <script type='text/javascript'>var divElement = document.getElementById('viz1599031046684'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-        </div>
-
-
-        <div class="col-sm-6">
-
-            <div class='tableauPlaceholder' id='viz1599041392160' style='position: relative'><noscript><a href=' '>< img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject-waterconsumption&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='name' value='IEproject-waterconsumption&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject-waterconsumption&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div>
-            <script type='text/javascript'>var divElement = document.getElementById('viz1599041392160'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-
-        </div>
-    </div>
-
-
-    <script>
-
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) { myIndex = 1 }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 8000);
-        }
-
-
-
-
-    </script>
-
-
-
-
-    <br>
+<h2 style="text-align:center; font-weight:bolder; font-size: 32px"> Our Mission </h2>
+<br>
+<div class="container-fluid">
     <div class="row">
-
-        <div class="w3-center w3-padding-64">
-            <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Why we are doing this?</span>
-        </div>
-
-
-    </div>
-
-    <br>
-    <div class="row" style="margin-left:16px;margin-right:16px">
-        <div class="col-sm-2 col-sm-offset-1" style="text-align:center">
+        <div class="col-md-6" style="text-align:center">
             <a href="https://www.world-nuclear.org/nuclear-essentials/where-does-our-electricity-come-from.aspx" target="_blank">
-                <img src="~/Images/earth.jpg" style="width:200px;height:200px;margin-top:2%" />
+                <img src="~/Images/earth.jpg" style="max-width:200px;max-height:200px;margin-top:2%" />
             </a>
+            <h5>
+                We are providing tools for energy consumers in Australia to educate themselves on
+                ways to reduce energy consumption in their household by using our energy calculator,
+                common energy saving tips, energy quiz to test your knowledge and more! see the section below to learn more.
+            </h5>
         </div>
-
-
-
-        <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
-            <p>
-                Conserve the limited resources, the resources will be exhausted very soon if we are not trying to reduce using them.
-            </p>
-
-        </div>
-
-        <div class="col-sm-2" style="text-align:center">
-            <a href="https://www.abc.net.au/news/2020-05-18/families-utility-bills-shock-from-coronavirus/12248688" target="_blank">
-                <img src="~/Images/stress bill.jpg" style="width:200px;height:200px;margin-top:2%" />
-            </a>
-
-        </div>
-        <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
-            <p>
-                Avoid paying more energy bills to your supplier, understand what is wrong with your energy usage.
-            </p>
-
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row" style="margin-left:16px;margin-right:16px">
-        <div class="col-sm-2 col-sm-offset-1" style="text-align:center">
-            <a href="https://www.ucsusa.org/resources/global-warming-faq#:~:text=Global%20warming%20is%20caused%20primarily,be%20radiated%20out%20into%20space." target="_blank">
-                <img src="~/Images/temperature.jpg" style="width:200px;height:200px;margin-top:2%" />
-            </a>
-
-        </div>
-        <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
-            <p>
-                Prevent climate change that can raise global temperature, caused the abnormal weather patterns and raise the sea level.
-
-            </p>
-
-        </div>
-
-        <div class="col-sm-2" style="text-align:center">
+        <div class="col-md-6" style="text-align:center">
             <a href="https://www.yourhome.gov.au/housing/carbon-zero-carbon-positive" target="_blank">
-                <img src="~/Images/greenhouse gas.jpg" style="width:200px;height:200px;margin-top:2%" />
+                <img src="~/Images/greenhouse gas.jpg" style="max-width:200px;max-height:200px;margin-top:2%" />
             </a>
-        </div>
-        <div class="col-sm-3" style="margin-top:2%;font-size:20px;text-align:justify">
-            <p>
-                The more energy we used, the more carbon waste is produced that can be harmful to our earth.
-            </p>
-
+            <h5>
+                We are aiming to reduce the effect of global warming by tackling in the household which is one of key
+                contributor to greenhouse gas and global warming.
+            </h5>
         </div>
     </div>
 
-    <br>
-    <br>
-    <br>
+</div>
+<br>
 
-    <!-- Let's achieve together-->
-    <div class="w3" style="background-color:antiquewhite">
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-            <h2 class="w3-wide w3-center">Let's achieve together</h2>
+<hr>
+<div class="w3-row w3-center container-fluid" id="getstarted" style="width:100%">
+    <div class="w3-center w3-padding-16">
+        <h1 style="font-weight:bold">What can you do to help</h1>
+    </div>
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #E8C9C7; height: 450px;">
+        <div class="row">
+            <img src="~/Images/surveys.png" style="width:100px;height:100px" />
+        </div>
+        <br>
+        <h2><b>Understand Your Usage</b></h2>
+        <br><p>Take a short quiz to test your knowledge on energy saving in your house and we can provide a personalised answer for you.</p><br>
+        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/TakeQuiz"><h5>Take Quiz</h5></a>
+    </div>
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #D96738; height: 450px;">
+        <div class="row">
+            <img src="~/Images/information.png" style="width:100px;height:100px;" />
+        </div>
+        <br>
+        <h2> <b>Quick start</b></h2>
+        <br><p>
+            Not sure where to start? Common tips will help you guide which aspect of your household energy consumption can be
+            reduced and get your energy savings journey started
+        </p><br>
+        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/CommonTips"><h5>Learn More</h5></a>
+    </div>
+    <div class="w3-half w3-center w3-padding-32" style=" background-color: #EBCD51; height: 450px;">
+        <div class="row">
+            <img src="~/Images/calculator-maths-tool.png" style="width:100px;height:100px" />
+        </div>
+        <br>
+        <h2><b>Household energy calculator</b></h2>
+        <br><p>See how much you are approximately consuming energy in your house and we'll let you know what you can do to reduce your energy consumption</p><br>
+        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Calculator"><h5>Calculate your energy bills</h5></a>
+    </div>
+    <div class="w3-half w3-center w3-padding-32" style="padding-bottom:20px; background-color: #48B0C7; height: 450px;">
+        <div class="row">
+            <img src="~/Images/weather.png" style="width:100px;height:100px;" />
+        </div>
+        <br>
+        <h2> <b>Thermostat</b></h2>
+        <br><p>Our weather temperature system can suggest the best house temperature so you reduce energy consumption while still keeping yourself warm/cool.
+        </p><br>
+        <a class="w3-button w3-white w3-center" style="border-radius:4px;border:thick 4px;border-style:solid" href="~/Home/Weather"><h5>Temperature suggestion</h5></a>
+    </div>
+</div>
 
+<div class="container-fluid" id="current">
+    <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">Average weekly energy consumption per household in the first half of 2020</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-half">
+                <p>Total Electric Bill Paid Every Week</p>
+                <h1><b>$39.84</b></h1>
+            </div>
+            <div class="w3-half">
+                <p>Total Water Bill Paid Every Week</p>
+                <h1><b>$21.58</b></h1>
+            </div>
+        </div>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-quarter">
+                <p>Total Electric Consumption</p>
+                <h1><b>153.25 kwh</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Carbon Emission</p>
+                <h1><b>6.64 ton</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Consumption</p>
+                <h1><b>8360 L</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Waste</p>
+                <h1><b>4920 L</b></h1>
+            </div>
+        </div>
+        <div class="w3-row w3-center" style="margin:5%">
+    <button id="prevyr" class="btn btn-info">Switch to 2019 Data</button>
+</div>
+    </div>
+    
+</div>
 
+<div class="container-fluid" id="previous" style="display:none">
+    <div class="w3-row" id="avgspent" style="border-radius: 25px;border: 2px solid #73AD21;margin:5%;">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">Average weekly energy consumption per household in 2019</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-half">
+                <p>Total Electric Bill Paid Every Week</p>
+                <h1><b>$31.33</b></h1>
+            </div>
+            <div class="w3-half">
+                <p>Total Water Bill Paid Every Week</p>
+                <h1><b>$20.50</b></h1>
+            </div>
+        </div>
+        <div class="w3-row w3-center" style="margin:5%">
+            <div class="w3-quarter">
+                <p>Total Electric Consumption</p>
+                <h1><b>136.25 kwh</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Carbon Emission</p>
+                <h1><b>5.90 ton</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Consumption</p>
+                <h1><b>7960 L</b></h1>
+            </div>
+            <div class="w3-quarter">
+                <p>Total Water Waste</p>
+                <h1><b>4670 L</b></h1>
+            </div>
+        </div><div class="w3-row w3-center" style="margin:5%">
+              <button id="curyr" class="btn btn-info">Switch to 2020 (Latest) data</button>
+</div>
+    </div>
+    
+</div>
 
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-                <div class="w3-third w3-margin-bottom">
+<!-- Let's achieve together-->
+<div class="w3" style="background-color:antiquewhite;margin-left:-15px;margin-right:-15px">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+        <h2 class="w3-wide w3-center">Let's achieve together</h2>
+        <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+            <div class="w3-third w3-margin-bottom">
 
-                    <div class="w3-container w3-white">
-                        <a href="https://www.australia.com/en/things-to-do/nature-and-national-parks/australias-top-natural-attractions.html" target="_blank">
-                            <img src="~/Images/picnic.jpg" style="max-width:100%">
+                <div class="w3-container w3-white">
+                    <a href="https://www.australia.com/en/things-to-do/nature-and-national-parks/australias-top-natural-attractions.html" target="_blank">
+                        <img src="~/Images/picnic.jpg" style="max-width:100%">
+                    </a>
 
-                        </a>
-
-                        <p><b>Enjoy our natural environment </b></p>
-                        <br>
-                        <p>Relax your time with your family members in the natural beauty, allow your next generation able to see the beauty.</p>
-                        <p><a href="https://www.australia.com/en/things-to-do/nature-and-national-parks/australias-top-natural-attractions.html" target="_blank" class="w3-button w3-black w3-padding-large w3-large center-block">Learn more</a></p>
-                    </div>
+                    <p><b>Enjoy our natural environment </b></p>
+                    <br>
+                    <p>Relax your time with your family members in the natural beauty, allow your next generation able to see the beauty.</p>
+                    <p><a href="https://www.australia.com/en/things-to-do/nature-and-national-parks/australias-top-natural-attractions.html" target="_blank" class="w3-button w3-black w3-padding-large w3-large center-block">Learn more</a></p>
                 </div>
+            </div>
 
-                <div class="w3-third w3-margin-bottom">
+            <div class="w3-third w3-margin-bottom">
 
-                    <div class="w3-container w3-white">
-                        <a href="https://www.tripadvisor.com/Travel-g255055-c133611/Australia:Australian.Wildlife.Parks.And.Zoos.html" target="_blank">
-                            <img src="~/Images/animal.jpg" style="max-width:100%" />
-                        </a>
-                        <p><b>Protect the home of wild life animals</b></p>
-                        <br>
+                <div class="w3-container w3-white">
+                    <a href="https://www.tripadvisor.com/Travel-g255055-c133611/Australia:Australian.Wildlife.Parks.And.Zoos.html" target="_blank">
+                        <img src="~/Images/animal.jpg" style="max-width:100%" />
+                    </a>
+                    <p><b>Protect the home of wild life animals</b></p>
+                    <br>
 
-                        <p>Reduce the climate changes that can consequently destroy the home of wildlife, protect animals from extinction.</p>
-                        <p><a href="https://www.tripadvisor.com/Travel-g255055-c133611/Australia:Australian.Wildlife.Parks.And.Zoos.html" target="_blank" class="w3-button w3-black w3-padding-large w3-large center-block">Learn more</a></p>
-                    </div>
+                    <p>Reduce the climate changes that can consequently destroy the home of wildlife, protect animals from extinction.</p>
+                    <p><a href="https://www.tripadvisor.com/Travel-g255055-c133611/Australia:Australian.Wildlife.Parks.And.Zoos.html" target="_blank" class="w3-button w3-black w3-padding-large w3-large center-block">Learn more</a></p>
                 </div>
+            </div>
 
-                <div class="w3-third w3-margin-bottom">
+            <div class="w3-third w3-margin-bottom">
 
-                    <div class="w3-container w3-white">
-                        <a href="~/Home/CommonTips">
-                            <img src="~/Images/financialstress.jpg" style="max-width:100%" />
-                        </a>
+                <div class="w3-container w3-white">
+                    <a href="~/Home/CommonTips">
+                        <img src="~/Images/financialstress.jpg" style="max-width:100%" />
+                    </a>
 
 
-                        <p><b>Release yourself from financial stress</b></p>
-                        <br />
-                        <p>Understand your energy usage, avoid paying unneccessary bills, release yourself from financial stress.</p>
-                        <p><a href="~/Home/CommonTips" class="w3-button w3-black w3-padding-large w3-large">Learn more</a></p>
+                    <p><b>Release yourself from financial stress</b></p>
+                    <br />
+                    <p>Understand your energy usage, avoid paying unneccessary bills, release yourself from financial stress.</p>
+                    <p><a href="~/Home/CommonTips" class="w3-button w3-black w3-padding-large w3-large">Learn more</a></p>
 
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
-    <br>
-    <br>
+<br>
+<br>
+<script>
+       $('#prevyr').click(function () {
+        document.getElementById('previous').style.display = 'initial';
+        document.getElementById('current').style.display = 'none';
+    });
 
-    <script>
-        window.twttr = (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
+     $('#curyr').click(function () {
+        document.getElementById('previous').style.display = 'none';
+        document.getElementById('current').style.display = 'initial';
+    });
+    </script>
 
-            t._e = [];
-            t.ready = function (f) {
-                t._e.push(f);
-            };
 
-            return t;
-        }(document, "script", "twitter-wjs"));</script>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
 
-    <div class="container" style="padding-left:20px">
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
 
-        <a class="twitter-share-button"
-           href="https://energuction.azurewebsites.net/Home/Index">
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk')); twttr.widgets.load();</script>
+
+<div class="container" style="padding-left:20px">
+
+    <p>
+        <a class="twitter-share-button" href="http://twitter.com/share?text=Save household energy waste, click below to see how...&url=https://energuctioniteration2.azurewebsites.net/Home/Index" target="_blank" data-widget-id="722809724224151554">
             Tweet
         </a>
-
-        <div id="fb-root"></div>
-
-
-        <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/Index" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+    </p>
+    <div id="fb-root"></div>
 
 
-    </div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/Index" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+
 </div>

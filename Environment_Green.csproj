@@ -192,6 +192,9 @@
     <Content Include="Images\bubackground.jpg" />
     <Content Include="Images\bulbbu.png" />
     <Content Include="Images\bulbpic.png" />
+    <Content Include="Images\calculator %281%29.png" />
+    <Content Include="Images\calculator-maths-tool.png" />
+    <Content Include="Images\calculator.png" />
     <Content Include="Images\clouds-3488632_1920.jpg" />
     <Content Include="Images\coal.jpg" />
     <Content Include="Images\commontipbg.jpg" />
@@ -208,13 +211,19 @@
     <Content Include="Images\fridopen.jpg" />
     <Content Include="Images\gas.PNG" />
     <Content Include="Images\greenhouse gas.jpg" />
+    <Content Include="Images\home-bulb.jpg" />
     <Content Include="Images\homeelectric.jpg" />
     <Content Include="Images\houseenergysave.jpg" />
+    <Content Include="Images\icons8-twitter-48.png" />
+    <Content Include="Images\information.png" />
     <Content Include="Images\laundry.jpg" />
     <Content Include="Images\leaves-69999_1280.jpg" />
     <Content Include="Images\meter.jpg" />
     <Content Include="Images\off pic.png" />
+    <Content Include="Images\pexels-matheus-bertelli-1830252.jpg" />
     <Content Include="Images\picnic.jpg" />
+    <Content Include="Images\piggy-bank.png" />
+    <Content Include="Images\psugac.png" />
     <Content Include="Images\pump.jpg" />
     <Content Include="Images\questionmark.jpg" />
     <Content Include="Images\quizbg.jpg" />
@@ -222,7 +231,9 @@
     <Content Include="Images\rsz_1enermat-removebg-preview.png" />
     <Content Include="Images\slidenergy.jpg" />
     <Content Include="Images\slidewater.jpg" />
+    <Content Include="Images\splashing-165192_1280.jpg" />
     <Content Include="Images\stress bill.jpg" />
+    <Content Include="Images\surveys.png" />
     <Content Include="Images\temperature.jpg" />
     <Content Include="Images\tipenergy.jpg" />
     <Content Include="Images\total energy consume portion.png" />
@@ -230,6 +241,7 @@
     <Content Include="Images\treatment.jpg" />
     <Content Include="Images\twaterconper.PNG" />
     <Content Include="Images\typeoflight.png" />
+    <Content Include="Images\userjourney.png" />
     <Content Include="Images\washhand.jpg" />
     <Content Include="Images\washinghand.PNG" />
     <Content Include="Images\waterheating.jpg" />
@@ -237,6 +249,8 @@
     <Content Include="Images\aircon.jpg" />
     <Content Include="Images\waterbg.jpg" />
     <Content Include="Images\watertipbg.jpg" />
+    <Content Include="Images\weather.png" />
+    <Content Include="Images\weatherAC.png" />
     <Content Include="Images\weatherhome.jpg" />
     <Content Include="Images\ws m.PNG" />
     <Content Include="Images\ws s.PNG" />
@@ -300,9 +314,15 @@
     <Content Include="Views\Home\WaterTipTurnOffTap.cshtml" />
     <Content Include="Views\Home\Weather.cshtml" />
     <Content Include="Views\Home\GeneralQuiz.cshtml" />
-    <Content Include="Views\Home\WaterHeatingQuiz.cshtml" />
     <Content Include="Views\Home\WashingMachineQuiz.cshtml" />
     <Content Include="Views\Home\WaterHeaterQuiz.cshtml" />
+    <Content Include="Views\Home\Calculator.cshtml" />
+    <Content Include="Views\Home\WaterCalculator.cshtml" />
+    <Content Include="Views\Home\TotalWaterUsage.cshtml" />
+    <Content Include="Views\Home\ElectricCalculator.cshtml" />
+    <Content Include="Views\Home\TotalElectricUsage.cshtml" />
+    <Content Include="Views\Home\BulbQuiz.cshtml" />
+    <Content Include="Views\Home\FridgeQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

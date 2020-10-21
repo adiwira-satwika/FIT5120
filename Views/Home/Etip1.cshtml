@@ -1,72 +1,172 @@
 ﻿@{
     ViewBag.Title = "EtipTurnOFFAC";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
 <style>
-.responsive {
-  width: 100%;
-  height: auto;
-}</style>
+    .ml7 {
+        position: relative;
+        font-weight: 300;
+        font-size: 30px;
+    }
 
+        .ml7 .text-wrapper {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.2em;
+            padding-right: 0.05em;
+            padding-bottom: 0.1em;
+            overflow: hidden;
+        }
+
+        .ml7 .letter {
+            display: inline-block;
+            line-height: 1.75em;
+        }
+</style>
+
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px;">
+    <br>
+    <b><a class="btn btn-default" style="text-align: center;margin-left:2%" href="~/Home/Electrictips">< Back</a></b>
+    <br>
+</div>
+<br>
+<img class="w3-hide-medium w3-hide-small" src="~/Images/aircon.jpg" style="border-radius:50%;width:200px;height:200px;position:absolute;margin-left:2%;margin-top:2%" />
 <br>
 <br>
-<br>
-<b><a class="btn btn-default" style="text-align: center;" href="~/Home/Electrictips">< Back</a></b>
-<br>
-<br>
-<br>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h2 class="panel-title">
+<div class="w3-content w3-center w3-wide" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#84B8FB">
+    <br>
 
-            <a data-toggle="collapse">
-
-                <b>Always turn off your AC/heater before you leave your house</b>
-            </a>
-
-        </h2>
-
-    </div>
-
-
-
-    <div class="panel-body">
-
-        <p>
-            Especially, some of the house owners have upstairs and downstairs air conditioner/heater highly drove the energy usage.
-            In this case, if you have
-            <b> two, turn on the only one </b>
-            that you will be at.
-
-        </p>
-        <br>
-        <p>
-            Surprisingly, when we go through the data, we found out heating your home almost occupied half of the electric bills.
-            Most people left their air conditioner on even they left their house to keep their house nice and warm.
-            Although, it will be cold if you are coming home from outside or moving from downstairs to upstairs,
-            try to
-            <b>wear jacket before air conditioner or heater warm your house.</b>
-            This can help you save a lot of the electric usage.
-        </p>
-        <br><br><br>
-
-        <div class='tableauPlaceholder' id='viz1599042985634' style='position: relative'><noscript><a href=' '>< img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject-purpose&#47;Sheet4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='name' value='IEproject-purpose&#47;Sheet4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;IE&#47;IEproject-purpose&#47;Sheet4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /><param name='filter' value='publish=yes' /></object></div>
-        <script type='text/javascript'>var divElement = document.getElementById('viz1599042985634'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
-        <br><br>
-        <div class="container" style="text-align:center">
-            <a href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" target="_blank">
-                <img class="col-sm-8 col-sm-offset-2" id="canstar" src="~/Images/cost of ac.png">
-            </a>
-
-        </div>
-        <p style="text-align:center;font-size:8px"><i>source from canstarblue</i></p>
-        <a class="btn-link" href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" target=" _blank" style="text-align:left">Learn more About Heat Cost</a>
-
-    </div>
-
+    <h1 style="text-align:center;margin-left:25%;width:70%">   <b>Always turn off your Air-conditioner or heater before you leave your house</b></h1>
+    <br>
 </div>
 
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
 
 
+    <div class="w3-half" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Heating consume 41.7% of the total electric usage in a household which is the largest electric usage.
+                </span>
+
+            </h1>
+        </div>
+
+
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:9.4%;margin-left:70%;position:absolute;">
+        <div class="w3-bar-item w3-black">
+            <h1><b>41.7%</b></h1>
+            <p>of total electric consumption</p>
+        </div>
+        <div class="w3-bar-item w3-white">
+
+            <h1><b>Turn on 1 ONLY!</b></h1>
+
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;margin-left:70%;position:absolute;margin-top:-3%">
+        <div class="w3-bar-item w3-black">
+            <h1><b>41.7%</b></h1>
+            <p>of total electric consumption</p>
+        </div>
+        <div class="w3-bar-item w3-white">
+
+            <h1><b>Turn on 1 ONLY!</b></h1>
+
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-half w3-right" style="padding:5%;margin-top:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Turn on ONE only if exist 2 or more heater or air conditioner. Most people left their air conditioner on even they left their house to keep their house nice and warm.
+
+                </span>
+            </h1>
+        </div>
+
+
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:16.5%;margin-left:10%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>103.84 kwh</b></h1>
+            <p>every week</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>Wear Warm</b></h1>
+            <p>before your house warm</p>
+
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-left:5%;margin-top:-5%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>103.84 kwh</b></h1>
+            <p>every week</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <h1> <b>Wear Warm</b></h1>
+            <p>before your house warm</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+    <div class="w3-half w3-right" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Try to wear jacket before air conditioner or heater warm your house. This can help you save a lot of the electric usage.
+
+                </span>
+                <span class="letters">   </span>
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-wide w3-center" style="padding:5%;line-height:1.75em;">
+
+        <h1>Check electric expense for heating your home</h1>
+        <br><br>
+        <div class="w3-row">
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSyjNPQk8rn8djuxfnn2hxFpa4JDS3SrnQ9ipOCT7qN8bWyC89McnjBKnrfuYU3GfKGLE6iN85silyT/pubchart?oid=991948090&amp;format=interactive"></iframe>  <br><br>
+            <div class="container" style="text-align:center">
+                <a href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" target="_blank">
+                    <img class="col-sm-8 col-sm-offset-2" id="canstar" src="~/Images/cost of ac.png">
+                </a>
+
+            </div>
+            <p style="text-align:center;font-size:8px"><i>source from canstarblue</i></p>
+         
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding-top: 50px">
+    <div class="col-md-6 col-md-offset-3">
+        <a type="button" class="btn btn-primary btn-lg btn-block"
+           href="https://www.canstarblue.com.au/electricity/winter-heating-costs-explained/" target=" _blank">
+            Learn more About Heat Cost
+        </a>
+    </div>
+</div>
 
 <br>
 <br>
@@ -92,7 +192,7 @@
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/Etip1">
+       href="https://energuctioniteration2.azurewebsites.net/Home/Etip1">
         Tweet
     </a>
 
@@ -106,5 +206,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/Etip1" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/Etip1" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 </div>

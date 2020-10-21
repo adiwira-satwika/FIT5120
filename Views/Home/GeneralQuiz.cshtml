@@ -92,7 +92,7 @@
     <div class="w3-half w3-black w3-container w3-center" style="height:580px;">
 
         <div class="w3-padding-64">
-            <h1>General</h1>
+            <h1>Common Household Energy Usage</h1>
             <div class="w3-padding-16 w3-center" id="ac" style="line-height:1.75">
                 <br><br>
                 <h2><b> Do you know?</b></h2>
@@ -272,9 +272,6 @@
                 </div>
                 <br>
             </div>
-
-
-
         </div>
         <br>
 
@@ -291,27 +288,27 @@
 
         <div id="q1sug" style="display:none">
             <b>Turn off your conditioner when you leave your house.</b>
-            <p> They used almost 50% of your total energy consumption.</p>
+            <p class="lead"> They used almost 50% of your total energy consumption.</p>
         </div>
         <br>
         <div id="q2sug" style="display:none">
             <b>Change your light bulb type whenever it is possible.</b>
-            <p>LED has stronger light which consume 80% lesser energy than a halogen type.</p>
+            <p class="lead">LED has stronger light which consume 80% lesser energy than a halogen type.</p>
         </div>
         <br>
         <div id="q3sug" style="display:none">
             <b>Change your water heating system from electric to gas.</b>
-            <p>The second biggest energy consumption in your house is water heater.</p>
+            <p class="lead">The second biggest energy consumption in your house is water heater.</p>
         </div>
         <br>
         <div id="q4sug" style="display:none">
             <b>Try to turn on your washing machine only when it is full loads.</b>
-            <p>Laundry consumes 30% of your water consumption bills.</p>
+            <p class="lead">Laundry consumes 30% of your water consumption bills.</p>
         </div>
         <br>
         <div id="q5sug" style="display:none">
             <b> Set them to correct temperature! Fridge should be at 3-5 degree and freezer at 0 degree.</b>
-            <p>Fridge consume 5% more energy for every decrease in degree.</p>
+            <p class="lead">Fridge consume 5% more energy for every decrease in degree.</p>
         </div>
         <br>
         <div id="q6sug" style="display:none">
@@ -319,6 +316,10 @@
                 Try to hang your cloth for most of the times, reduce the unneccessary energy waste.
             </b>
             <p>It is not only saving energy, the sunlight helps to kill the bacteria as well.</p>
+        </div>
+        <div id="nosug" style="display:none">
+          
+            <p class="lead">You are on the right track and best option to save energy.</p>
         </div>
         <br>
     </div>
@@ -449,7 +450,7 @@
         if (q4 == 1) { document.getElementById('q4sug').style.display = 'initial'; }
         if (q5 == 1) { document.getElementById('q5sug').style.display = 'initial'; }
         if (q6 == 1) { document.getElementById('q6sug').style.display = 'initial'; }
-
+        if (q1 == 0 && q2 == 0 && q3 == 0 && q4 == 0 && q5 == 0 && q6 == 0) { document.getElementById('nosug').style.display = 'initial';  }
 
     });
 
@@ -492,7 +493,7 @@
 
 <div class="container" style="padding-left:20px">
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/GeneralQuiz">
+       href="https://energuctioniteration2.azurewebsites.net/Home/GeneralQuiz">
         Tweet
     </a>
 
@@ -506,5 +507,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/WaterTipLaundry" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 </div>

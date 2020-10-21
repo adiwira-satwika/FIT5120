@@ -2,68 +2,173 @@
     ViewBag.Title = "EtipWaterSystem";
 }
 
-<br>
-<br>
-<br>
-<b><a class="btn btn-default" style="text-align: center;" href="~/Home/Electrictips">< Back</a></b>
-<br>
-<br>
-<br>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h2 class="panel-title">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 
-            <a data-toggle="collapse">
-                <b>Switch your hot water system to gas heating from electric heating</b>
-            </a>
-        </h2>
+<style>
+    .ml7 {
+        position: relative;
+        font-weight: 300;
+        font-size: 30px;
+    }
+
+        .ml7 .text-wrapper {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.2em;
+            padding-right: 0.05em;
+            padding-bottom: 0.1em;
+            overflow: hidden;
+        }
+
+        .ml7 .letter {
+            display: inline-block;
+            line-height: 1.75em;
+        }
+</style>
+
+
+<div class="w3-content" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-right:-15px;margin-left:-15px;margin-top:-23px;">
+    <br>
+
+    <b><a class="btn btn-default" style="text-align: center;margin-left:2%" href="~/Home/Electrictips">< Back</a></b>
+    <br>
+</div>
+<br>
+<img class="w3-hide-medium w3-hide-small" src="~/Images/waterheating.jpg" style="border-radius:50%;width:200px;height:200px;position:absolute;margin-left:2%;margin-top:2%" />
+<br>
+<br>
+<div class="w3-content w3-center w3-wide" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#84B8FB">
+    <br>
+
+    <h1 style="text-align:center;margin-left:15%;width:70%">   <b>Switch your hot water system to gas heating from electric heating</b></h1>
+    <br>
+</div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+
+
+    <div class="w3-half" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Most common system that used by household there is about 39% people who is using electric, 42% using gas, the rest are using solar and heat pump.
+                </span>
+
+            </h1>
+        </div>
+
 
     </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:13.6%;margin-left:70%;position:absolute;">
+        <div class="w3-bar-item w3-black">
+            <h1><b>58%</b></h1>
+            <p>of people used more expensive system</p>
+        </div>
+        <div class="w3-bar-item w3-white">
 
-    <div id="collapse2" class="panel-collapse collapse in">
-        <div class="panel-body">
+            <h1><b>$395-555</b></h1>
+            <p>per 60 Litre of Water Heating with Electric</p>
 
-            <p>
-                As the diagram previously water heating is the second biggest energy that is used in the household.
-                For every 60 litre of water heating, comparing the most common system that used by household there is about 39% people who is using electric,
-                42% using gas, the rest are using solar and heat pump. Considering cost effective in long term,
-                people who are using electric heating and are considering switching to new system can change to gas heating.
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;margin-left:70%;position:absolute;margin-top:-3%">
+        <div class="w3-bar-item w3-black">
+            <h1><b>58%</b></h1>
+            <p>of people used more expensive system</p>
+        </div>
+        <div class="w3-bar-item w3-white">
 
-
-            </p>
-            <br>
-            <p>
-                From the sustainability Victoria, as
-                <b>per 60 litre of water heating electric </b>cost you
-                <b>$395-$555</b> while<b> gas heating</b> for same amount will be costing from <b>$160-$370</b>.
-                From this data, it is easy to understand that every month electric heating user are paying double price for the energy usage on water heating.
-                Not only that, electric produces the most green house gas emissions compare to the other system.
-            </p>
-            <p>
-                Above introducing the cost effective, however the best energy saver is solar system, the only disadvantage that is the installment of itself is expensive.
-                Nevertheless if you do not consider about the cost this can be the best choices. Government as well introduced $1000 subsidy for people who willing to install solar heat
-                after 2018. For more information, click below "Learn more about subsidy."
-            </p>
-            <br><br><br>
-            <div class="row">
-                <a href="https://www.canstarblue.com.au/hot-water-systems/" target="_blank">
-                    <img class="col-sm-6" src="~/Images/gas.PNG" />
-                </a>
-                <a href="https://www.canstarblue.com.au/hot-water-systems/" target="_blank">
-                    <img class="col-sm-6" id="canstar" src="~/Images/electric.PNG" />
-                </a>
-
-            </div>
-
-            <p style="text-align:center;font-size:8px;"><i>source from canstarblue</i></p>
-            <br>
-            <p><a class="btn-link" href="https://www.energymatters.com.au/solar-hot-water/solar-hot-water-rebates/#:~:text=The%20Victorian%20Government's%20Solar%20Homes,under%20the%20Solar%20Homes%20program" target="_blank">Learn more About Solar Subsidy Cost</a></p>
-
-            <p><a class="btn-link" href="https://www.canstarblue.com.au/hot-water-systems/" target="_blank">Learn more About Water Heating System</a></p>
+            <h1><b>$395-555</b></h1>
+            <p>per 60 Litre of Water Heating with Electric</p>
 
         </div>
     </div>
 </div>
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-half w3-right" style="padding:5%;margin-top:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Per 60 litre of water heating electric cost you $395-$555 while gas heating for same amount will be costing from $160-$370. For cost effective in long term, the best energy saver is solar system.
+                </span>
+            </h1>
+        </div>
+
+
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-medium w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-top:16%;margin-left:10%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>Solar system</b></h1>
+            <p>cost effect choice in long term</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <p>Government subsidy</p>
+            <h1> <b>$1000 check out</b></h1>
+
+
+        </div>
+    </div>
+    <div class="w3-center w3-black w3-text-white w3-padding-32 w3-bar-block w3-hide-large w3-hide-small" style="border-radius:50%;width:200px;height:200px;margin-left:5%;margin-top:-5%;position:absolute;">
+        <div class="w3-bar-item w3-white" style="border-radius:50%">
+            <h1><b>Solar system</b></h1>
+            <p>cost effect choice in long term</p>
+        </div>
+        <div class="w3-bar-item w3-black">
+            <p>Government subsidy</p>
+            <h1> <b>$1000 check out</b></h1>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;">
+    <div class="w3-half w3-right" style="padding:5%;line-height:1.75em;width:70%">
+
+        <div class="text-wrapper">
+
+            <h1 class="ml7" style="line-height:2.25em">
+                <span class="letters">
+                    Government as well introduced $1000 subsidy for people who willing to install solar heat after 2018. For more information, click below "Learn more about subsidy."
+                </span>
+                <span class="letters">   </span>
+            </h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="w3-row w3-container" style="max-width:2000px;padding-left:-15px;padding-right:-15px;margin-left:-15px;margin-right:-15px;background-color:#BDD3FF">
+    <div class="w3-wide w3-center" style="padding:5%;line-height:1.75em;">
+
+        <h1>Check bulb average differences and expenses</h1>
+        <br><br>
+        <div class="w3-row">
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS40gWDROf1oXv_3zrMFXfKeirgDIBTASMRum5qHeCPwh71b6HcnAR6WgKkjJtnLupnu_pSNiWF09gn/pubchart?oid=932614428&amp;format=interactive"></iframe>
+
+        </div>
+
+        
+        <br>
+        <p><a class="btn-link" href="https://www.energymatters.com.au/solar-hot-water/solar-hot-water-rebates/#:~:text=The%20Victorian%20Government's%20Solar%20Homes,under%20the%20Solar%20Homes%20program" target="_blank">Learn more About Solar Subsidy Cost</a></p>
+
+        <p><a class="btn-link" href="https://www.canstarblue.com.au/hot-water-systems/" target="_blank">Learn more About Water Heating System</a></p>
+
+
+    </div>
+</div>
+
+
+
 <br>
 <br>
 
@@ -88,9 +193,9 @@
     }(document, "script", "twitter-wjs"));</script>
 
 <div class="container" style="padding-left:20px">
-    
+
     <a class="twitter-share-button"
-       href="https://energuction.azurewebsites.net/Home/WaterSystem">
+       href="https://energuctioniteration2.azurewebsites.net/Home/WaterSystem">
         Tweet
     </a>
 
@@ -104,5 +209,5 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-like" data-href="https://energuction.azurewebsites.net/Home/EtipWaterSystem" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-    </div>
+    <div class="fb-like" data-href="https://energuctioniteration2.azurewebsites.net/Home/EtipWaterSystem" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+</div>

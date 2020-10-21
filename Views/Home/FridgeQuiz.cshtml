@@ -1,0 +1,660 @@
+﻿@{
+    ViewBag.Title = "FridgeQuiz";
+}
+
+
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<style>
+    .block {
+        display: block;
+        width: 100%;
+        border: solid 1px;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px;
+        border-radius: 12px;
+    }
+
+        .block:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    .question:not(.active) {
+        display: none;
+    }
+
+
+    .progressbar {
+        counter-reset: step;
+    }
+
+        .progressbar li {
+            list-style-type: none;
+            width: 14.3%;
+            float: left;
+            font-size: 12px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            color: #7d7d7d;
+        }
+
+            .progressbar li:before {
+                width: 30px;
+                height: 30px;
+                content: counter(step);
+                counter-increment: step;
+                line-height: 30px;
+                border: 2px solid #7d7d7d;
+                display: block;
+                text-align: center;
+                margin: 0 auto 10px auto;
+                border-radius: 50%;
+                background-color: white;
+            }
+
+            .progressbar li:after {
+                width: 100%;
+                height: 2px;
+                content: '';
+                position: absolute;
+                background-color: #ddd;
+                top: 15px;
+                left: -50%;
+                z-index: -1;
+            }
+
+            .progressbar li:first-child:after {
+                content: none;
+            }
+
+            .progressbar li.active {
+                color: green;
+            }
+
+                .progressbar li.active:before {
+                    border-color: #55b776;
+                }
+
+                .progressbar li.active + li:after {
+                    background-color: #55b776;
+                }
+</style>
+
+<div class="w3-row" id="quiz" style="margin-left:-15px;margin-top:-23px">
+
+    <div class="w3-container" style="height:1000px;margin-right:-15px;margin-top:-23px">
+
+        <div class="w3-padding-32 w3-center">
+
+            <h2 style="line-height:1.75"> <b>Fridge Quiz</b></h2>
+            <div id="questions" style="padding:16px;margin-left:15%;margin-right:15%">
+                <div class="question active">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>Please select which state you are located in:</b></h3>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button id="act" class="block">ACT</button>
+                            <button id="nsw" class="block">NSW</button>
+                            <button id="nt" class="block">NT</button>
+                            <button id="qld" class="block">QLD</button>
+
+                        </div>
+
+                        <div class="w3-half w3-center w3-padding-large">
+                            <button id="sa" class="block">SA</button>
+                            <button id="tas" class="block">TAS</button>
+                            <button id="vic" class="block">VIC</button>
+                            <button id="wa" class="block">WA</button>
+                        </div>
+
+                    </div>
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>How many fridge do you own and in use?</b></h3>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="w3-center w3-padding-large">
+                            <button class="block" id="fridgeown1">1</button>
+                            <button class="block" id="fridgeown2">2</button>
+                            <button class="block" id="fridgeown3">3 or more</button>
+
+                        </div>
+                    </div>
+
+
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <h3 style="line-height:1.75"> <b>How many times do you open your fridge everyday? </b></h3>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="w3-center w3-padding-large">
+                            <button class="block" id="fopen1">Less than 3 times</button>
+                            <button class="block" id="fopen2">3 to 6 times</button>
+                            <button class="block" id="fopen3">6 to 9 times</button>
+                            <button class="block" id="fopen4">10 times or more</button>
+
+                        </div>
+                    </div>
+
+
+                    <br><br>
+                    <div class="container">
+                        <ul class="progressbar">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="question">
+                    <br>
+                    <div id="ftemp">
+                        <h3 style="line-height:1.75"> <b>Which temperature do you usually set for your fridge and freezer?  </b></h3>
+                        <br>
+                        <hr>
+                        <button class="block" id="ftemp1">Warm</button>
+                        <button class="block" id="ftemp2">Medium</button>
+                        <button class="block" id="ftemp3">Cold</button>
+                        <br><br>
+                        <div class="container">
+                            <ul class="progressbar">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="result" style="display:none">
+    <div class="w3-padding-32 w3-center">
+        <h1><b>  Fridge Quiz Result</b></h1>
+    </div>
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-third">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>Your fridge consumption per week (kw):</p>
+                    <h2 id="userconsume"> </h2>
+                </div>
+            </div>
+        </div>
+        <div class="w3-third">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>
+                        Average household fridge consumption per week (kw):
+                    </p>
+                    <h2 id="fconsume"></h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="w3-third">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left" style="height:100px">
+                    <p>
+                        Proportion of people own the same amount of fridge as you had:
+                    </p>
+                    <h2 id="friown"></h2>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="w3-content w3-center">
+            <div style="padding:20px;padding-right:5%;">
+                <p>Thank you for taking your time with us!</p>
+                <h1><b>Our Suggestion to You:</b></h1>
+                <div id="sug1" style="display:none;line-height:1.75;"><p>Change to a bigger fridge or just use one fridge instead of multiple fridge. </p></div>
+                <div id="sug2" style="display:none;line-height:1.75;"><p>Set to 'Medium' or 'Warm' unless you really need 'Colder' for certain food.</p></div>
+                <div id="sug3" style="display:none;line-height:1.75;"><p>Reduce the times opening fridge unless it is needed too.</p></div>
+                <div id="sug4" style="line-height:1.75;"><p>You are doing great in the fridge area! </p></div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="w3-container w3-center w3-padding-32">
+            <p>   <div id="chartContainer" style="height: 500px; width: 100%;padding:20px;padding-right:5%;"></div></p>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var q1;
+    var q2;
+    var q3;
+    var q4;
+
+    $('#act').click(function () {
+        var $act = $('.question.active');
+        $('.question').removeClass('active');
+        $act.next().addClass('active');
+        q1 = 0;
+        return q1;
+    });
+
+
+    $('#nsw').click(function () {
+        var $nsw = $('.question.active');
+        $('.question').removeClass('active');
+        $nsw.next().addClass('active');
+        q1 = 1;
+        return q1;
+    });
+
+    $('#nt').click(function () {
+        var $nt = $('.question.active');
+        $('.question').removeClass('active');
+        $nt.next().addClass('active');
+        q1 = 2;
+        return q1;
+    });
+
+    $('#qld').click(function () {
+        var $qld = $('.question.active');
+        $('.question').removeClass('active');
+        $qld.next().addClass('active');
+        q1 = 3;
+        return q1;
+    });
+
+
+    $('#sa').click(function () {
+        var $sa = $('.question.active');
+        $('.question').removeClass('active');
+        $sa.next().addClass('active');
+        q1 = 4;
+        return q1;
+    });
+
+
+    $('#tas').click(function () {
+        var $tas = $('.question.active');
+        $('.question').removeClass('active');
+        $tas.next().addClass('active');
+        q1 = 5;
+        return q1;
+    });
+
+    $('#vic').click(function () {
+        var $vic = $('.question.active');
+        $('.question').removeClass('active');
+        $vic.next().addClass('active');
+        q1 = 6;
+        return q1;
+    });
+
+    $('#wa').click(function () {
+        var $wa = $('.question.active');
+        $('.question').removeClass('active');
+        $wa.next().addClass('active');
+        q1 = 7;
+        return q1;
+    });
+
+    $('#fridgeown1').click(function () {
+        var $fridgeown1 = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeown1.next().addClass('active');
+        q2 = 0;
+        return q2;
+    });
+
+      $('#fridgeown2').click(function () {
+        var $fridgeown2 = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeown2.next().addClass('active');
+        q2 = 1;
+        return q2;
+    });
+
+     $('#fridgeown3').click(function () {
+        var $fridgeown3 = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeown3.next().addClass('active');
+        q2 = 2;
+        return q2;
+     });
+
+
+     $('#fopen1').click(function () {
+        var $fridgeopen = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeopen.next().addClass('active');
+        q3 = 0;
+        return q3;
+     });
+    $('#fopen2').click(function () {
+        var $fridgeopen = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeopen.next().addClass('active');
+        q3 = 1;
+        return q3;
+    });
+    $('#fopen3').click(function () {
+        var $fridgeopen = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeopen.next().addClass('active');
+        q3 = 2;
+        return q3;
+    });
+    $('#fopen4').click(function () {
+        var $fridgeopen = $('.question.active');
+        $('.question').removeClass('active');
+        $fridgeopen.next().addClass('active');
+        q3 = 3;
+        return q3;
+    });
+
+       $('#ftemp1').click(function () {
+
+           q4 = 0;
+             document.getElementById('quiz').style.display = 'none';
+           document.getElementById('result').style.display = 'initial';
+            //==============================================================================================
+           var fridcon;
+
+           if (q1 == 0 && q2 == 0) { $("#friown").text(" ACT: 65.4% "); fridcon = 3.22; }
+            if (q1 == 1 && q2 == 0) { $("#friown").text(" NSW: 65.8% "); fridcon = 3.22; }
+            if (q1 == 2 && q2 == 0) { $("#friown").text(" NT: 55.4% ");  fridcon = 3.22; }
+            if (q1 == 3 && q2 == 0) { $("#friown").text(" QLD: 57.4% ");fridcon = 3.22; }
+            if (q1 == 4 && q2 == 0) { $("#friown").text(" SA: 69.7% ");  fridcon = 3.22; }
+            if (q1 == 5 && q2 == 0) { $("#friown").text(" TAS: 73.2% "); fridcon = 3.22; }
+            if (q1 == 6 && q2 == 0) { $("#friown").text(" VIC: 72.1% ");  fridcon = 3.22; }
+            if (q1 == 7 && q2 == 0) { $("#friown").text(" WA: 58.5% "); fridcon = 3.22; }
+
+                      if (q1 == 0 && q2 == 1) { $("#friown").text(" ACT: 31.4% "); fridcon = 3.22*2; document.getElementById('sug1').style.display = 'initial';  document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 1) { $("#friown").text(" NSW: 30.0% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 1) { $("#friown").text(" NT: 38.1% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 1) { $("#friown").text(" QLD: 37.1% "); fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 1) { $("#friown").text(" SA: 27.4% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 1) { $("#friown").text(" TAS: 23.4% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 1) { $("#friown").text(" VIC: 24.9% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+           if (q1 == 7 && q2 == 1) { $("#friown").text(" WA: 35.9% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                if (q1 == 0 && q2 == 2) { $("#friown").text(" ACT: 3.1% ");  fridcon = 3.22*3; document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 2) { $("#friown").text(" NSW: 4.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 2) { $("#friown").text(" NT: 5.9% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 2) { $("#friown").text(" QLD: 5.4% ");fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 2) { $("#friown").text(" SA: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 2) { $("#friown").text(" TAS: 3.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 2) { $("#friown").text(" VIC: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 7 && q2 == 2) { $("#friown").text(" WA: 5.5% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                        if (q1 == 0 ) { $("#fconsume").text(" ACT: 4.6");  }
+            if (q1 == 1 ) { $("#fconsume").text(" NSW: 16.98  "); }
+            if (q1 == 2 ) { $("#fconsume").text(" NT: 17.44");  }
+            if (q1 == 3 ) { $("#fconsume").text(" QLD: 19.79");}
+            if (q1 == 4 ) { $("#fconsume").text(" SA: 11.65");  }
+            if (q1 == 5 ) { $("#fconsume").text(" TAS: 7.87"); }
+            if (q1 == 6 ) { $("#fconsume").text(" VIC: 8.05 ");  }
+            if (q1 == 7 ) { $("#fconsume").text(" WA: 12.44"); }
+
+
+           var totalfrispent;
+           if (q3 == 0) { totalfrispent = (fridcon + (1.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent; }
+           if (q3 == 1) { totalfrispent = (fridcon + (4.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent;}
+           if (q3 == 2) { totalfrispent = (fridcon + (7.5 * 0.7)).toFixed(2);document.getElementById("userconsume").innerHTML =totalfrispent; document.getElementById('sug3').style.display = 'initial';document.getElementById('sug4').style.display = 'none'; }
+           if (q3 == 3) { totalfrispent = (fridcon + (11.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent; document.getElementById('sug3').style.display = 'initial';document.getElementById('sug4').style.display = 'none'; }
+
+
+  var totalfri = parseInt(document.getElementById("userconsume").value);
+        //==============================================================================================
+          var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title: {
+                    text: "Average Fridge Consumption in Australia"
+                    },
+                    axisY: {
+                        title: "amount spend(kW)"
+                    },
+                    data: [{
+                        type: "column",
+
+                        dataPoints: [
+
+                            { y: 4.46, label: "ACT" },
+                            { y: 16.98, label: "NSW" },
+                            { y: 17.48, label: "NT" },
+                            { y: 19.79, label: "QLD" },
+                            { y: 11.65, label: "SA" },
+                            { y: 7.87, label: "TAS" },
+                            { y: 8.05, label: "VIC" },
+                            { y: 12.44, label: "WA" }
+                        ]
+                    }]
+                });
+           chart.render();
+     
+       });
+
+     $('#ftemp2').click(function () {
+
+         q4 = 1;
+
+                      document.getElementById('quiz').style.display = 'none';
+           document.getElementById('result').style.display = 'initial';
+          //==============================================================================================
+           var fridcon;
+
+                 if (q1 == 0 && q2 == 0) { $("#friown").text(" ACT: 65.4% "); fridcon = 3.22; }
+            if (q1 == 1 && q2 == 0) { $("#friown").text(" NSW: 65.8% "); fridcon = 3.22; }
+            if (q1 == 2 && q2 == 0) { $("#friown").text(" NT: 55.4% ");  fridcon = 3.22; }
+            if (q1 == 3 && q2 == 0) { $("#friown").text(" QLD: 57.4% ");fridcon = 3.22; }
+            if (q1 == 4 && q2 == 0) { $("#friown").text(" SA: 69.7% ");  fridcon = 3.22; }
+            if (q1 == 5 && q2 == 0) { $("#friown").text(" TAS: 73.2% "); fridcon = 3.22; }
+            if (q1 == 6 && q2 == 0) { $("#friown").text(" VIC: 72.1% ");  fridcon = 3.22; }
+            if (q1 == 7 && q2 == 0) { $("#friown").text(" WA: 58.5% "); fridcon = 3.22; }
+
+                      if (q1 == 0 && q2 == 1) { $("#friown").text(" ACT: 31.4% "); fridcon = 3.22*2; document.getElementById('sug1').style.display = 'initial';  document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 1) { $("#friown").text(" NSW: 30.0% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 1) { $("#friown").text(" NT: 38.1% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 1) { $("#friown").text(" QLD: 37.1% "); fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 1) { $("#friown").text(" SA: 27.4% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 1) { $("#friown").text(" TAS: 23.4% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 1) { $("#friown").text(" VIC: 24.9% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+           if (q1 == 7 && q2 == 1) { $("#friown").text(" WA: 35.9% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                if (q1 == 0 && q2 == 2) { $("#friown").text(" ACT: 3.1% ");  fridcon = 3.22*3; document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 2) { $("#friown").text(" NSW: 4.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 2) { $("#friown").text(" NT: 5.9% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 2) { $("#friown").text(" QLD: 5.4% ");fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 2) { $("#friown").text(" SA: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 2) { $("#friown").text(" TAS: 3.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 2) { $("#friown").text(" VIC: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 7 && q2 == 2) { $("#friown").text(" WA: 5.5% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                if (q1 == 0 ) { $("#fconsume").text(" ACT: 4.644");  }
+            if (q1 == 1 ) { $("#fconsume").text(" NSW: 16.9799  "); }
+            if (q1 == 2 ) { $("#fconsume").text(" NT: 17.4375");  }
+            if (q1 == 3 ) { $("#fconsume").text(" QLD: 19.7935");}
+            if (q1 == 4 ) { $("#fconsume").text(" SA: 11.6494");  }
+            if (q1 == 5 ) { $("#fconsume").text(" TAS: 7.8706"); }
+            if (q1 == 6 ) { $("#fconsume").text(" VIC: 8.055 ");  }
+            if (q1 == 7 ) { $("#fconsume").text(" WA: 12.4431"); }
+
+         var totalspent;
+
+
+
+       
+           var totalfrispent;
+           if (q3 == 0) { totalfrispent = (fridcon + (1.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent; }
+           if (q3 == 1) { totalfrispent = (fridcon + (4.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent;}
+           if (q3 == 2) { totalfrispent = (fridcon + (7.5 * 0.7)).toFixed(2);document.getElementById("userconsume").innerHTML =totalfrispent; document.getElementById('sug3').style.display = 'initial';document.getElementById('sug4').style.display = 'none'; }
+           if (q3 == 3) { totalfrispent = (fridcon + (11.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent; document.getElementById('sug3').style.display = 'initial';document.getElementById('sug4').style.display = 'none'; }
+
+    var totalfri = parseInt(document.getElementById("userconsume").value);
+        //==============================================================================================
+          var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title: {
+                        text: "Average Fridge Consumption in Australia"
+                    },
+                    axisY: {
+                        title: "amount spend(kW)"
+                    },
+                    data: [{
+                        type: "column",
+
+                        dataPoints: [
+
+                            { y: 4.46, label: "ACT" },
+                            { y: 16.98, label: "NSW" },
+                            { y: 17.48, label: "NT" },
+                            { y: 19.79, label: "QLD" },
+                            { y: 11.65, label: "SA" },
+                            { y: 7.87, label: "TAS" },
+                            { y: 8.05, label: "VIC" },
+                            { y: 12.44, label: "WA" }
+                        ]
+                    }]
+                });
+         chart.render();
+         
+     });
+
+     $('#ftemp3').click(function () {
+
+        q4 = 2;
+                      document.getElementById('quiz').style.display = 'none';
+         document.getElementById('result').style.display = 'initial';
+         document.getElementById('sug2').style.display = 'initial';
+         document.getElementById('sug4').style.display = 'none';
+         //==============================================================================================
+         var fridcon;
+
+              if (q1 == 0 && q2 == 0) { $("#friown").text(" ACT: 65.4% "); fridcon = 3.22; }
+            if (q1 == 1 && q2 == 0) { $("#friown").text(" NSW: 65.8% "); fridcon = 3.22; }
+            if (q1 == 2 && q2 == 0) { $("#friown").text(" NT: 55.4% ");  fridcon = 3.22; }
+            if (q1 == 3 && q2 == 0) { $("#friown").text(" QLD: 57.4% ");fridcon = 3.22; }
+            if (q1 == 4 && q2 == 0) { $("#friown").text(" SA: 69.7% ");  fridcon = 3.22; }
+            if (q1 == 5 && q2 == 0) { $("#friown").text(" TAS: 73.2% "); fridcon = 3.22; }
+            if (q1 == 6 && q2 == 0) { $("#friown").text(" VIC: 72.1% ");  fridcon = 3.22; }
+            if (q1 == 7 && q2 == 0) { $("#friown").text(" WA: 58.5% "); fridcon = 3.22; }
+
+                      if (q1 == 0 && q2 == 1) { $("#friown").text(" ACT: 31.4% "); fridcon = 3.22*2; document.getElementById('sug1').style.display = 'initial';  document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 1) { $("#friown").text(" NSW: 30.0% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 1) { $("#friown").text(" NT: 38.1% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 1) { $("#friown").text(" QLD: 37.1% "); fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 1) { $("#friown").text(" SA: 27.4% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 1) { $("#friown").text(" TAS: 23.4% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 1) { $("#friown").text(" VIC: 24.9% ");   fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+           if (q1 == 7 && q2 == 1) { $("#friown").text(" WA: 35.9% ");  fridcon = 3.22*2;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                if (q1 == 0 && q2 == 2) { $("#friown").text(" ACT: 3.1% ");  fridcon = 3.22*3; document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 1 && q2 == 2) { $("#friown").text(" NSW: 4.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 2 && q2 == 2) { $("#friown").text(" NT: 5.9% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 3 && q2 == 2) { $("#friown").text(" QLD: 5.4% ");fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 4 && q2 == 2) { $("#friown").text(" SA: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 5 && q2 == 2) { $("#friown").text(" TAS: 3.1% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 6 && q2 == 2) { $("#friown").text(" VIC: 2.8% ");  fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+            if (q1 == 7 && q2 == 2) { $("#friown").text(" WA: 5.5% "); fridcon = 3.22*3;document.getElementById('sug1').style.display = 'initial'; document.getElementById('sug4').style.display = 'none';}
+
+                  if (q1 == 0 ) { $("#fconsume").text(" ACT: 4.644");  }
+            if (q1 == 1 ) { $("#fconsume").text(" NSW: 16.9799  "); }
+            if (q1 == 2 ) { $("#fconsume").text(" NT: 17.4375");  }
+            if (q1 == 3 ) { $("#fconsume").text(" QLD: 19.7935");}
+            if (q1 == 4 ) { $("#fconsume").text(" SA: 11.6494");  }
+            if (q1 == 5 ) { $("#fconsume").text(" TAS: 7.8706"); }
+            if (q1 == 6 ) { $("#fconsume").text(" VIC: 8.055 ");  }
+            if (q1 == 7 ) { $("#fconsume").text(" WA: 12.4431"); }
+
+           var totalfrispent;
+           if (q3 == 0) { totalfrispent = (fridcon + (1.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent }
+           if (q3 == 1) { totalfrispent = (fridcon + (4.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent }
+           if (q3 == 2) { totalfrispent = (fridcon + (7.5 * 0.7)).toFixed(2);document.getElementById("userconsume").innerHTML =totalfrispent; document.getElementById('sug3').style.display = 'initial'; }
+         if (q3 == 3) { totalfrispent = (fridcon + (11.5 * 0.7)).toFixed(2); document.getElementById("userconsume").innerHTML = totalfrispent; document.getElementById('sug3').style.display = 'initial'; }
+
+
+
+      
+        //==============================================================================================
+          var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title: {
+text: "Average Fridge Consumption in Australia"
+                    },
+                    axisY: {
+                        title: "amount spend(kW)"
+                    },
+                    data: [{
+                        type: "column",
+
+                        dataPoints: [
+          
+                            { y: 4.46, label: "ACT" },
+                            { y: 16.98, label: "NSW" },
+                            { y: 17.48, label: "NT" },
+                            { y: 19.79, label: "QLD" },
+                            { y: 11.65, label: "SA" },
+                            { y: 7.87, label: "TAS" },
+                            { y: 8.05, label: "VIC" },
+                            { y: 12.44, label: "WA" }
+                        ]
+                    }]
+                });
+         chart.render();
+  });
+</script>
