@@ -186,6 +186,8 @@
                         <label for="housepeople5">5</label><br><br>
                         <input type="radio" id="housepeople6" name="housepeople" value="6">
                         <label for="housepeople6">6 or more</label><br><br>
+                        <input type="radio" id="housepeople7" name="housepeople" value="7">
+                        <label for="housepeople7">Don't Have</label><br><br>
 
                     </div>
                 </div>
@@ -201,6 +203,8 @@
                          <label for="showertime3">3</label><br><br>
                          <input type="radio" id="showertime4" name="showertime" value="4">
                          <label for="showertime4">4 or more</label><br><br>
+                         <input type="radio" id="showertime5" name="showertime" value="5">
+                         <label for="showertime5">Don't Have</label><br><br>
 
                      </div>
                 </div>
@@ -212,7 +216,9 @@
                         <label for="heatshower1">Storage</label><br><br>
                         <input type="radio" id="heatshower2" name="heatshower" value="2">
                         <label for="heatshower2">Instantaneous</label><br><br>
-             
+                        <input type="radio" id="heatshower2" name="heatshower" value="3">
+                        <label for="heatshower3">Don't Have</label><br><br>
+
                     </div>
                 </div>
                
@@ -991,15 +997,28 @@
             var weekacspent = resulthac * resultuserown * resultuseracuse * 7;
 
             //waterheating------------------------------------------------------------------
-            var resultuserhseppl = document.querySelector('input[name = "housepeople"]:checked').value;
-            var resultshowerhot = document.querySelector('input[name = "showertime"]:checked').value;
+                        var resultuserhseppl;
+                        if (document.querySelector('input[name = "housepeople"]:checked').value != 7)
+                        {
+                            resultuserhseppl = document.querySelector('input[name = "housepeople"]:checked').value;
+                        } else { resultuserhseppl = 0;}
+
+                        var resultshowerhot;
+                        if (document.querySelector('input[name = "showertime"]:checked').value != 5) {
+                            resultshowerhot = document.querySelector('input[name = "showertime"]:checked').value;
+                        } else { resultshowerhot = 0; }
+
+                   
             var heatype = document.querySelector('input[name = "heatshower"]:checked').value;
             var avgheat;
             var resultheat;
             if (heatype == 1) {
                 resultheat = 9.9;
                 avgheat = 85.76;
-            } else { resultheat = 9.5; avgheat = 74.62; }
+                        }
+                        if (heatype == 2) { resultheat = 9.5; avgheat = 74.62; }
+                        if (heatype == 3) { resultheat =0; avgheat =0; }
+
 
             var weekwaterhspent = resultuserhseppl * resultshowerhot * resultheat * 7;
 

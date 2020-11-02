@@ -125,6 +125,22 @@
     </div>
 </div>
 
+<div class="w3-row " id="avgacspend2" style="display:none">
+    <div class="w3-half" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%">
+        <h2 class="w3-wide w3-center" style="margin-top:2%">Today We Recommend You</h2>
+        <div class="w3-row w3-center" style="margin:5%">
+           <h4>Turn off Your Theomostat</h4>
+
+        </div>
+    </div>
+
+
+    <div class="w3-half w3-center">
+        <img src="~/Images/weatherAC.png" style="width:80%;" />
+
+    </div>
+</div>
+
 <div class="w3-row w3-container" style="border-radius: 25px;border: 2px solid #73AD21;margin-top:5%">
     <div class="w3-container"id="curyear" >
         <h2 class="w3-wide w3-center" style="margin-top:2%">VIC average weekly household A/C consumption in 2019</h2>
@@ -163,15 +179,15 @@
 
 
 
-<a class="w3-right w3-row w3-text-black" href="#personalsug" style="margin-right:2%;"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
-<div class="w3-row w3-center" id="personalsug">
+<a class="w3-right w3-row w3-text-black" href="#personalsug" style="margin-right:2%;" id="qu"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
+<div class="w3-row w3-center" id="personalsug" >
     
     <img src="~/Images/psugac.png" style="width:80%" />
 </div>
 <br>
 <a class="w3-right w3-row w3-text-black" href="#quickquiz" style="margin-right:2%;"><p class="fa fa-arrow-circle-down"> Go to Next Section</p></a>
 <br>
-<div class="w3" style="background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px" id="quickquiz">
+<div class="w3" style="background-color:#84b8FB;max-width:2000px;margin-right:-15px;margin-left:-15px;" id="quickquiz">
     <h2 class="w3-wide w3-center w3-padding-16">Let Us Understand You Before Suggesting</h2>
     <div class="w3-row-padding w3-center">
         <div class="w3-card w3-container" style="min-height:300px;background-color:white;">
@@ -332,6 +348,8 @@
 </div>
 
 <script>
+   
+
     $('#prevyr').click(function () {
         document.getElementById('prevyear').style.display = 'initial';
         document.getElementById('curyear').style.display = 'none';
@@ -543,8 +561,11 @@
             if (exposure == 1) { hourset = hourset - 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+    
+    
+        document.getElementById("hoursetper").innerHTML = hourset + " hours";
+        document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+    
         }
 
 
@@ -569,8 +590,10 @@
             if (exposure == 1) { hourset = hourset + 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
             return exposure;
         }
     });
@@ -603,8 +626,10 @@
             if (exposure == 1) { hourset = hourset - 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+       
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
         }
 
 
@@ -629,8 +654,10 @@
             if (exposure == 1) { hourset = hourset + 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+   
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
             return exposure;
         }
         });
@@ -663,8 +690,9 @@
             if (exposure == 1) { hourset = hourset - 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
         }
 
 
@@ -689,8 +717,10 @@
             if (exposure == 1) { hourset = hourset + 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+     
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
             return exposure;
         }
     });
@@ -724,8 +754,10 @@
             if (exposure == 1) { hourset = hourset - 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset + 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+         
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
         }
 
 
@@ -750,8 +782,10 @@
             if (exposure == 1) { hourset = hourset + 1 }
             if (exposure == 2) { hourset = hourset }
             if (exposure == 3) { hourset = hourset - 2 }
-            document.getElementById("hoursetper").innerHTML = hourset + " hours";
-            document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+
+                document.getElementById("hoursetper").innerHTML = hourset + " hours";
+                document.getElementById("temperaturesetper").innerHTML = temperatureset + " °C compare to outdoor temperature";
+            
             return exposure;
         }
     });
@@ -777,7 +811,19 @@
             var tempcelmin = (tempkelmin - 273.15).toFixed(1);
             var tempkel = response.main.temp;
             var tempcel = (tempkel - 273.15).toFixed(1);
-            var tempre = (tempkel - 273.15 + 8).toFixed(0);
+            
+            var tempre;
+            if (tempcel < 17) { tempre = 20;    }
+            if (tempcel > 27) { tempre = 18;     }
+
+            if (tempcel > 17 && tempcel < 27) {
+                document.getElementById('avgacspend').style.display = 'none'; document.getElementById('avgacspend2').style.display = 'initial';
+                document.getElementById('personalsug').style.display = 'none';
+        document.getElementById('qu').style.display = 'none';
+         document.getElementById('quickquiz').style.display = 'none'; }
+
+     
+
             $("#temp").text(tempcel, "resize");
             $("#tempmax").text(tempcelmax);
             $("#tempmin").text(tempcelmin);
